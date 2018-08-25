@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
+		E9BC042C213146AC003A624F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC042B213146AC003A624F /* AppDelegate.m */; };
+		E9BC042F213146AC003A624F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC042E213146AC003A624F /* ViewController.m */; };
+		E9BC0432213146AC003A624F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0430213146AC003A624F /* Main.storyboard */; };
+		E9BC0434213146AE003A624F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0433213146AE003A624F /* Assets.xcassets */; };
+		E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0435213146AE003A624F /* LaunchScreen.storyboard */; };
+		E9BC043A213146AE003A624F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0439213146AE003A624F /* main.m */; };
+		E9BC0444213146AE003A624F /* DrivieSchoolStudentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0443213146AE003A624F /* DrivieSchoolStudentsTests.m */; };
+		E9BC044F213146AE003A624F /* DrivieSchoolStudentsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC044E213146AE003A624F /* DrivieSchoolStudentsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9BC0440213146AE003A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9BC041F213146AC003A624F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9BC0426213146AC003A624F;
+			remoteInfo = DrivieSchoolStudents;
+		};
+		E9BC044B213146AE003A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9BC041F213146AC003A624F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9BC0426213146AC003A624F;
+			remoteInfo = DrivieSchoolStudents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
+		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9BC0427213146AC003A624F /* DrivieSchoolStudents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrivieSchoolStudents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9BC042A213146AC003A624F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E9BC042B213146AC003A624F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E9BC042D213146AC003A624F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E9BC042E213146AC003A624F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E9BC0431213146AC003A624F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9BC0433213146AE003A624F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9BC0436213146AE003A624F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9BC0438213146AE003A624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BC0439213146AE003A624F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E9BC043F213146AE003A624F /* DrivieSchoolStudentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrivieSchoolStudentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9BC0443213146AE003A624F /* DrivieSchoolStudentsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrivieSchoolStudentsTests.m; sourceTree = "<group>"; };
+		E9BC0445213146AE003A624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BC044A213146AE003A624F /* DrivieSchoolStudentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrivieSchoolStudentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9BC044E213146AE003A624F /* DrivieSchoolStudentsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrivieSchoolStudentsUITests.m; sourceTree = "<group>"; };
+		E9BC0450213146AE003A624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9BC0424213146AC003A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC043C213146AE003A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC0447213146AE003A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		885737C458FA0E5F557DFB55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97393491D0FECFC443DD7D4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */,
+				4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9BC041E213146AC003A624F = {
+			isa = PBXGroup;
+			children = (
+				E9BC0429213146AC003A624F /* DrivieSchoolStudents */,
+				E9BC0442213146AE003A624F /* DrivieSchoolStudentsTests */,
+				E9BC044D213146AE003A624F /* DrivieSchoolStudentsUITests */,
+				E9BC0428213146AC003A624F /* Products */,
+				97393491D0FECFC443DD7D4F /* Pods */,
+				885737C458FA0E5F557DFB55 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E9BC0428213146AC003A624F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC0427213146AC003A624F /* DrivieSchoolStudents.app */,
+				E9BC043F213146AE003A624F /* DrivieSchoolStudentsTests.xctest */,
+				E9BC044A213146AE003A624F /* DrivieSchoolStudentsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9BC0429213146AC003A624F /* DrivieSchoolStudents */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC042A213146AC003A624F /* AppDelegate.h */,
+				E9BC042B213146AC003A624F /* AppDelegate.m */,
+				E9BC042D213146AC003A624F /* ViewController.h */,
+				E9BC042E213146AC003A624F /* ViewController.m */,
+				E9BC0430213146AC003A624F /* Main.storyboard */,
+				E9BC0433213146AE003A624F /* Assets.xcassets */,
+				E9BC0435213146AE003A624F /* LaunchScreen.storyboard */,
+				E9BC0438213146AE003A624F /* Info.plist */,
+				E9BC0439213146AE003A624F /* main.m */,
+			);
+			path = DrivieSchoolStudents;
+			sourceTree = "<group>";
+		};
+		E9BC0442213146AE003A624F /* DrivieSchoolStudentsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC0443213146AE003A624F /* DrivieSchoolStudentsTests.m */,
+				E9BC0445213146AE003A624F /* Info.plist */,
+			);
+			path = DrivieSchoolStudentsTests;
+			sourceTree = "<group>";
+		};
+		E9BC044D213146AE003A624F /* DrivieSchoolStudentsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC044E213146AE003A624F /* DrivieSchoolStudentsUITests.m */,
+				E9BC0450213146AE003A624F /* Info.plist */,
+			);
+			path = DrivieSchoolStudentsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9BC0426213146AC003A624F /* DrivieSchoolStudents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9BC0453213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudents" */;
+			buildPhases = (
+				B1408B9E8F6F48E8106ED106 /* [CP] Check Pods Manifest.lock */,
+				E9BC0423213146AC003A624F /* Sources */,
+				E9BC0424213146AC003A624F /* Frameworks */,
+				E9BC0425213146AC003A624F /* Resources */,
+				2B6644D1514584C2935B4F5D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrivieSchoolStudents;
+			productName = DrivieSchoolStudents;
+			productReference = E9BC0427213146AC003A624F /* DrivieSchoolStudents.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9BC043E213146AE003A624F /* DrivieSchoolStudentsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9BC0456213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudentsTests" */;
+			buildPhases = (
+				E9BC043B213146AE003A624F /* Sources */,
+				E9BC043C213146AE003A624F /* Frameworks */,
+				E9BC043D213146AE003A624F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9BC0441213146AE003A624F /* PBXTargetDependency */,
+			);
+			name = DrivieSchoolStudentsTests;
+			productName = DrivieSchoolStudentsTests;
+			productReference = E9BC043F213146AE003A624F /* DrivieSchoolStudentsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9BC0449213146AE003A624F /* DrivieSchoolStudentsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9BC0459213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudentsUITests" */;
+			buildPhases = (
+				E9BC0446213146AE003A624F /* Sources */,
+				E9BC0447213146AE003A624F /* Frameworks */,
+				E9BC0448213146AE003A624F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9BC044C213146AE003A624F /* PBXTargetDependency */,
+			);
+			name = DrivieSchoolStudentsUITests;
+			productName = DrivieSchoolStudentsUITests;
+			productReference = E9BC044A213146AE003A624F /* DrivieSchoolStudentsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9BC041F213146AC003A624F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EDS;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "班文政";
+				TargetAttributes = {
+					E9BC0426213146AC003A624F = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					E9BC043E213146AE003A624F = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = E9BC0426213146AC003A624F;
+					};
+					E9BC0449213146AE003A624F = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = E9BC0426213146AC003A624F;
+					};
+				};
+			};
+			buildConfigurationList = E9BC0422213146AC003A624F /* Build configuration list for PBXProject "DrivieSchoolStudents" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9BC041E213146AC003A624F;
+			productRefGroup = E9BC0428213146AC003A624F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9BC0426213146AC003A624F /* DrivieSchoolStudents */,
+				E9BC043E213146AE003A624F /* DrivieSchoolStudentsTests */,
+				E9BC0449213146AE003A624F /* DrivieSchoolStudentsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9BC0425213146AC003A624F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */,
+				E9BC0434213146AE003A624F /* Assets.xcassets in Resources */,
+				E9BC0432213146AC003A624F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC043D213146AE003A624F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC0448213146AE003A624F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B6644D1514584C2935B4F5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/province_data.xml",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1408B9E8F6F48E8106ED106 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrivieSchoolStudents-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9BC0423213146AC003A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9BC042F213146AC003A624F /* ViewController.m in Sources */,
+				E9BC043A213146AE003A624F /* main.m in Sources */,
+				E9BC042C213146AC003A624F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC043B213146AE003A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9BC0444213146AE003A624F /* DrivieSchoolStudentsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9BC0446213146AE003A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9BC044F213146AE003A624F /* DrivieSchoolStudentsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9BC0441213146AE003A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9BC0426213146AC003A624F /* DrivieSchoolStudents */;
+			targetProxy = E9BC0440213146AE003A624F /* PBXContainerItemProxy */;
+		};
+		E9BC044C213146AE003A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9BC0426213146AC003A624F /* DrivieSchoolStudents */;
+			targetProxy = E9BC044B213146AE003A624F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9BC0430213146AC003A624F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9BC0431213146AC003A624F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E9BC0435213146AE003A624F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9BC0436213146AE003A624F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9BC0451213146AE003A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E9BC0452213146AE003A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9BC0454213146AE003A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E9BC0455213146AE003A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E9BC0457213146AE003A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudentsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudentsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrivieSchoolStudents.app/DrivieSchoolStudents";
+			};
+			name = Debug;
+		};
+		E9BC0458213146AE003A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudentsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudentsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrivieSchoolStudents.app/DrivieSchoolStudents";
+			};
+			name = Release;
+		};
+		E9BC045A213146AE003A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudentsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudentsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DrivieSchoolStudents;
+			};
+			name = Debug;
+		};
+		E9BC045B213146AE003A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				INFOPLIST_FILE = DrivieSchoolStudentsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudentsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DrivieSchoolStudents;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9BC0422213146AC003A624F /* Build configuration list for PBXProject "DrivieSchoolStudents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BC0451213146AE003A624F /* Debug */,
+				E9BC0452213146AE003A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9BC0453213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BC0454213146AE003A624F /* Debug */,
+				E9BC0455213146AE003A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9BC0456213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudentsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BC0457213146AE003A624F /* Debug */,
+				E9BC0458213146AE003A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9BC0459213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudentsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BC045A213146AE003A624F /* Debug */,
+				E9BC045B213146AE003A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9BC041F213146AC003A624F /* Project object */;
+}
