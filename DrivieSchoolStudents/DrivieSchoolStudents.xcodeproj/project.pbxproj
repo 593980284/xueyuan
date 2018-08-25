@@ -8,14 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
-		E9BC042C213146AC003A624F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC042B213146AC003A624F /* AppDelegate.m */; };
-		E9BC042F213146AC003A624F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC042E213146AC003A624F /* ViewController.m */; };
-		E9BC0432213146AC003A624F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0430213146AC003A624F /* Main.storyboard */; };
 		E9BC0434213146AE003A624F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0433213146AE003A624F /* Assets.xcassets */; };
 		E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0435213146AE003A624F /* LaunchScreen.storyboard */; };
 		E9BC043A213146AE003A624F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0439213146AE003A624F /* main.m */; };
 		E9BC0444213146AE003A624F /* DrivieSchoolStudentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0443213146AE003A624F /* DrivieSchoolStudentsTests.m */; };
 		E9BC044F213146AE003A624F /* DrivieSchoolStudentsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC044E213146AE003A624F /* DrivieSchoolStudentsUITests.m */; };
+		E9BC046221314A06003A624F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC045F21314A06003A624F /* ViewController.m */; };
+		E9BC046321314A06003A624F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC046021314A06003A624F /* AppDelegate.m */; };
+		E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC046C21315057003A624F /* EDSAnmationController.m */; };
+		E9BC0470213150B6003A624F /* EDSNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC046F213150B6003A624F /* EDSNavigationViewController.m */; };
+		E9BC04742131519B003A624F /* EDSToolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04732131519B003A624F /* EDSToolClass.m */; };
+		E9BC048C21315283003A624F /* UIImageView+BHYCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047621315283003A624F /* UIImageView+BHYCustom.m */; };
+		E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047721315283003A624F /* UIView+WZExtension.m */; };
+		E9BC048E21315283003A624F /* CALayer+BHYXibBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047821315283003A624F /* CALayer+BHYXibBorderColor.m */; };
+		E9BC048F21315283003A624F /* UIBarButtonItem+BHYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047A21315283003A624F /* UIBarButtonItem+BHYCategory.m */; };
+		E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047B21315283003A624F /* NSString+JSJHash.m */; };
+		E9BC049121315283003A624F /* UIView+BHYCore.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047C21315283003A624F /* UIView+BHYCore.m */; };
+		E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC047D21315283003A624F /* UIView+BHYAbovePictureBelowText.m */; };
+		E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC048621315283003A624F /* UILabel+BHYCustom.m */; };
+		E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC048821315283003A624F /* AppDelegate+JSJCategory.m */; };
+		E9BC049521315283003A624F /* UIImage+BHYAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC048921315283003A624F /* UIImage+BHYAvatar.m */; };
+		E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC048A21315283003A624F /* NSString+JSJTextSize.m */; };
+		E9BC0499213153F4003A624F /* EDSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0498213153F4003A624F /* EDSTabBarViewController.m */; };
+		E9BC04A421315626003A624F /* BHYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC049F21315626003A624F /* BHYBaseViewController.m */; };
+		E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04A121315626003A624F /* BHYWebViewViewController.m */; };
+		E9BC04AC2131570C003A624F /* EDSMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04AB2131570C003A624F /* EDSMyViewController.m */; };
+		E9BC04AF2131571B003A624F /* EDSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04AE2131571B003A624F /* EDSMessageViewController.m */; };
+		E9BC04B22131573A003A624F /* EDSStudentDriverStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04B12131573A003A624F /* EDSStudentDriverStrategyViewController.m */; };
+		E9BC04B92131589F003A624F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04B42131589F003A624F /* Reachability.m */; };
+		E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04B82131589F003A624F /* HQMBaseRequest.m */; };
+		E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */; };
+		E9BC04C421315DC5003A624F /* EDSHomeTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04C321315DC5003A624F /* EDSHomeTableViewHeaderView.m */; };
+		E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */; };
+		E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */; };
+		E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */; };
+		E9BC04CE2131616B003A624F /* EDSHomeFunctionBgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +66,6 @@
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BC0427213146AC003A624F /* DrivieSchoolStudents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrivieSchoolStudents.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9BC042A213146AC003A624F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E9BC042B213146AC003A624F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E9BC042D213146AC003A624F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E9BC042E213146AC003A624F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E9BC0431213146AC003A624F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9BC0433213146AE003A624F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9BC0436213146AE003A624F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9BC0438213146AE003A624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +76,71 @@
 		E9BC044A213146AE003A624F /* DrivieSchoolStudentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrivieSchoolStudentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BC044E213146AE003A624F /* DrivieSchoolStudentsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrivieSchoolStudentsUITests.m; sourceTree = "<group>"; };
 		E9BC0450213146AE003A624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BC045E21314A06003A624F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E9BC045F21314A06003A624F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E9BC046021314A06003A624F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E9BC046121314A06003A624F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E9BC046521314CDF003A624F /* AppInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInclude.h; sourceTree = "<group>"; };
+		E9BC046621314CDF003A624F /* CommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		E9BC046721314CDF003A624F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E9BC046821314CDF003A624F /* AppDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDefine.h; sourceTree = "<group>"; };
+		E9BC046921314CDF003A624F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E9BC046B21315057003A624F /* EDSAnmationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSAnmationController.h; sourceTree = "<group>"; };
+		E9BC046C21315057003A624F /* EDSAnmationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSAnmationController.m; sourceTree = "<group>"; };
+		E9BC046E213150B6003A624F /* EDSNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSNavigationViewController.h; sourceTree = "<group>"; };
+		E9BC046F213150B6003A624F /* EDSNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSNavigationViewController.m; sourceTree = "<group>"; };
+		E9BC04722131519B003A624F /* EDSToolClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSToolClass.h; sourceTree = "<group>"; };
+		E9BC04732131519B003A624F /* EDSToolClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSToolClass.m; sourceTree = "<group>"; };
+		E9BC047621315283003A624F /* UIImageView+BHYCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+BHYCustom.m"; sourceTree = "<group>"; };
+		E9BC047721315283003A624F /* UIView+WZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZExtension.m"; sourceTree = "<group>"; };
+		E9BC047821315283003A624F /* CALayer+BHYXibBorderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+BHYXibBorderColor.m"; sourceTree = "<group>"; };
+		E9BC047921315283003A624F /* UILabel+BHYCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+BHYCustom.h"; sourceTree = "<group>"; };
+		E9BC047A21315283003A624F /* UIBarButtonItem+BHYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BHYCategory.m"; sourceTree = "<group>"; };
+		E9BC047B21315283003A624F /* NSString+JSJHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSJHash.m"; sourceTree = "<group>"; };
+		E9BC047C21315283003A624F /* UIView+BHYCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BHYCore.m"; sourceTree = "<group>"; };
+		E9BC047D21315283003A624F /* UIView+BHYAbovePictureBelowText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BHYAbovePictureBelowText.m"; sourceTree = "<group>"; };
+		E9BC047E21315283003A624F /* NSString+JSJTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSJTextSize.h"; sourceTree = "<group>"; };
+		E9BC047F21315283003A624F /* UIImage+BHYAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BHYAvatar.h"; sourceTree = "<group>"; };
+		E9BC048021315283003A624F /* AppDelegate+JSJCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JSJCategory.h"; sourceTree = "<group>"; };
+		E9BC048121315283003A624F /* CALayer+BHYXibBorderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+BHYXibBorderColor.h"; sourceTree = "<group>"; };
+		E9BC048221315283003A624F /* UIView+WZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZExtension.h"; sourceTree = "<group>"; };
+		E9BC048321315283003A624F /* UIImageView+BHYCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+BHYCustom.h"; sourceTree = "<group>"; };
+		E9BC048421315283003A624F /* NSString+JSJHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSJHash.h"; sourceTree = "<group>"; };
+		E9BC048521315283003A624F /* UIBarButtonItem+BHYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BHYCategory.h"; sourceTree = "<group>"; };
+		E9BC048621315283003A624F /* UILabel+BHYCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+BHYCustom.m"; sourceTree = "<group>"; };
+		E9BC048721315283003A624F /* UIView+BHYCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BHYCore.h"; sourceTree = "<group>"; };
+		E9BC048821315283003A624F /* AppDelegate+JSJCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JSJCategory.m"; sourceTree = "<group>"; };
+		E9BC048921315283003A624F /* UIImage+BHYAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BHYAvatar.m"; sourceTree = "<group>"; };
+		E9BC048A21315283003A624F /* NSString+JSJTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSJTextSize.m"; sourceTree = "<group>"; };
+		E9BC048B21315283003A624F /* UIView+BHYAbovePictureBelowText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BHYAbovePictureBelowText.h"; sourceTree = "<group>"; };
+		E9BC0497213153F4003A624F /* EDSTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTabBarViewController.h; sourceTree = "<group>"; };
+		E9BC0498213153F4003A624F /* EDSTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTabBarViewController.m; sourceTree = "<group>"; };
+		E9BC049F21315626003A624F /* BHYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHYBaseViewController.m; sourceTree = "<group>"; };
+		E9BC04A121315626003A624F /* BHYWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHYWebViewViewController.m; sourceTree = "<group>"; };
+		E9BC04A221315626003A624F /* BHYWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHYWebViewViewController.h; sourceTree = "<group>"; };
+		E9BC04A321315626003A624F /* BHYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHYBaseViewController.h; sourceTree = "<group>"; };
+		E9BC04AA2131570C003A624F /* EDSMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMyViewController.h; sourceTree = "<group>"; };
+		E9BC04AB2131570C003A624F /* EDSMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMyViewController.m; sourceTree = "<group>"; };
+		E9BC04AD2131571B003A624F /* EDSMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageViewController.h; sourceTree = "<group>"; };
+		E9BC04AE2131571B003A624F /* EDSMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageViewController.m; sourceTree = "<group>"; };
+		E9BC04B02131573A003A624F /* EDSStudentDriverStrategyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentDriverStrategyViewController.h; sourceTree = "<group>"; };
+		E9BC04B12131573A003A624F /* EDSStudentDriverStrategyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentDriverStrategyViewController.m; sourceTree = "<group>"; };
+		E9BC04B42131589F003A624F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E9BC04B52131589F003A624F /* HQMBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQMBaseRequest.h; sourceTree = "<group>"; };
+		E9BC04B62131589F003A624F /* HQMRequestCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQMRequestCallback.h; sourceTree = "<group>"; };
+		E9BC04B72131589F003A624F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E9BC04B82131589F003A624F /* HQMBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQMBaseRequest.m; sourceTree = "<group>"; };
+		E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSHomeViewController.m; sourceTree = "<group>"; };
+		E9BC04BD21315AE6003A624F /* EDSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSHomeViewController.h; sourceTree = "<group>"; };
+		E9BC04C121315D54003A624F /* HomeConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeConstants.h; sourceTree = "<group>"; };
+		E9BC04C221315DC5003A624F /* EDSHomeTableViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeTableViewHeaderView.h; sourceTree = "<group>"; };
+		E9BC04C321315DC5003A624F /* EDSHomeTableViewHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeTableViewHeaderView.m; sourceTree = "<group>"; };
+		E9BC04C521315FC3003A624F /* EDSHomeFunctionBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeFunctionBtn.h; sourceTree = "<group>"; };
+		E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeFunctionBtn.m; sourceTree = "<group>"; };
+		E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeFunctionBtn.xib; sourceTree = "<group>"; };
+		E9BC04CA21316161003A624F /* EDSHomeFunctionBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeFunctionBgView.h; sourceTree = "<group>"; };
+		E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeFunctionBgView.m; sourceTree = "<group>"; };
+		E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeFunctionBgView.xib; sourceTree = "<group>"; };
 		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,15 +212,8 @@
 		E9BC0429213146AC003A624F /* DrivieSchoolStudents */ = {
 			isa = PBXGroup;
 			children = (
-				E9BC042A213146AC003A624F /* AppDelegate.h */,
-				E9BC042B213146AC003A624F /* AppDelegate.m */,
-				E9BC042D213146AC003A624F /* ViewController.h */,
-				E9BC042E213146AC003A624F /* ViewController.m */,
-				E9BC0430213146AC003A624F /* Main.storyboard */,
-				E9BC0433213146AE003A624F /* Assets.xcassets */,
-				E9BC0435213146AE003A624F /* LaunchScreen.storyboard */,
 				E9BC0438213146AE003A624F /* Info.plist */,
-				E9BC0439213146AE003A624F /* main.m */,
+				E9BC045C21314A06003A624F /* Class */,
 			);
 			path = DrivieSchoolStudents;
 			sourceTree = "<group>";
@@ -154,6 +234,201 @@
 				E9BC0450213146AE003A624F /* Info.plist */,
 			);
 			path = DrivieSchoolStudentsUITests;
+			sourceTree = "<group>";
+		};
+		E9BC045C21314A06003A624F /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC049B21315607003A624F /* 首页 */,
+				E9BC049A21315607003A624F /* 我的 */,
+				E9BC049D21315608003A624F /* 我的消息 */,
+				E9BC049C21315607003A624F /* 学车攻略 */,
+				E9BC04B32131589F003A624F /* BaseRequestAPI */,
+				E9BC049E21315626003A624F /* Base */,
+				E9BC047521315283003A624F /* Category */,
+				E9BC047121315182003A624F /* Tool */,
+				E9BC046A2131502E003A624F /* Tabbar */,
+				E9BC046421314CDF003A624F /* Define */,
+				E9BC045D21314A06003A624F /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		E9BC045D21314A06003A624F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC045E21314A06003A624F /* AppDelegate.h */,
+				E9BC046021314A06003A624F /* AppDelegate.m */,
+				E9BC046121314A06003A624F /* ViewController.h */,
+				E9BC045F21314A06003A624F /* ViewController.m */,
+				E9BC0433213146AE003A624F /* Assets.xcassets */,
+				E9BC0435213146AE003A624F /* LaunchScreen.storyboard */,
+				E9BC0439213146AE003A624F /* main.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E9BC046421314CDF003A624F /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC046521314CDF003A624F /* AppInclude.h */,
+				E9BC046621314CDF003A624F /* CommonMacro.h */,
+				E9BC046721314CDF003A624F /* Constants.h */,
+				E9BC046821314CDF003A624F /* AppDefine.h */,
+				E9BC046921314CDF003A624F /* PrefixHeader.pch */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		E9BC046A2131502E003A624F /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC046B21315057003A624F /* EDSAnmationController.h */,
+				E9BC046C21315057003A624F /* EDSAnmationController.m */,
+				E9BC046E213150B6003A624F /* EDSNavigationViewController.h */,
+				E9BC046F213150B6003A624F /* EDSNavigationViewController.m */,
+				E9BC0497213153F4003A624F /* EDSTabBarViewController.h */,
+				E9BC0498213153F4003A624F /* EDSTabBarViewController.m */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		E9BC047121315182003A624F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04722131519B003A624F /* EDSToolClass.h */,
+				E9BC04732131519B003A624F /* EDSToolClass.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		E9BC047521315283003A624F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC048121315283003A624F /* CALayer+BHYXibBorderColor.h */,
+				E9BC047821315283003A624F /* CALayer+BHYXibBorderColor.m */,
+				E9BC048321315283003A624F /* UIImageView+BHYCustom.h */,
+				E9BC047621315283003A624F /* UIImageView+BHYCustom.m */,
+				E9BC048421315283003A624F /* NSString+JSJHash.h */,
+				E9BC047B21315283003A624F /* NSString+JSJHash.m */,
+				E9BC048521315283003A624F /* UIBarButtonItem+BHYCategory.h */,
+				E9BC047A21315283003A624F /* UIBarButtonItem+BHYCategory.m */,
+				E9BC047921315283003A624F /* UILabel+BHYCustom.h */,
+				E9BC048621315283003A624F /* UILabel+BHYCustom.m */,
+				E9BC048721315283003A624F /* UIView+BHYCore.h */,
+				E9BC047C21315283003A624F /* UIView+BHYCore.m */,
+				E9BC048221315283003A624F /* UIView+WZExtension.h */,
+				E9BC047721315283003A624F /* UIView+WZExtension.m */,
+				E9BC047F21315283003A624F /* UIImage+BHYAvatar.h */,
+				E9BC048921315283003A624F /* UIImage+BHYAvatar.m */,
+				E9BC047E21315283003A624F /* NSString+JSJTextSize.h */,
+				E9BC048A21315283003A624F /* NSString+JSJTextSize.m */,
+				E9BC048B21315283003A624F /* UIView+BHYAbovePictureBelowText.h */,
+				E9BC047D21315283003A624F /* UIView+BHYAbovePictureBelowText.m */,
+				E9BC048021315283003A624F /* AppDelegate+JSJCategory.h */,
+				E9BC048821315283003A624F /* AppDelegate+JSJCategory.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E9BC049A21315607003A624F /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04AA2131570C003A624F /* EDSMyViewController.h */,
+				E9BC04AB2131570C003A624F /* EDSMyViewController.m */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		E9BC049B21315607003A624F /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04BB21315AE6003A624F /* Controller */,
+				E9BC04BF21315AE7003A624F /* Model */,
+				E9BC04BE21315AE7003A624F /* View */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		E9BC049C21315607003A624F /* 学车攻略 */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04B02131573A003A624F /* EDSStudentDriverStrategyViewController.h */,
+				E9BC04B12131573A003A624F /* EDSStudentDriverStrategyViewController.m */,
+			);
+			path = "学车攻略";
+			sourceTree = "<group>";
+		};
+		E9BC049D21315608003A624F /* 我的消息 */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04AD2131571B003A624F /* EDSMessageViewController.h */,
+				E9BC04AE2131571B003A624F /* EDSMessageViewController.m */,
+			);
+			path = "我的消息";
+			sourceTree = "<group>";
+		};
+		E9BC049E21315626003A624F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04A321315626003A624F /* BHYBaseViewController.h */,
+				E9BC049F21315626003A624F /* BHYBaseViewController.m */,
+				E9BC04A021315626003A624F /* WebView */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E9BC04A021315626003A624F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04A221315626003A624F /* BHYWebViewViewController.h */,
+				E9BC04A121315626003A624F /* BHYWebViewViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		E9BC04B32131589F003A624F /* BaseRequestAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04B52131589F003A624F /* HQMBaseRequest.h */,
+				E9BC04B82131589F003A624F /* HQMBaseRequest.m */,
+				E9BC04B62131589F003A624F /* HQMRequestCallback.h */,
+				E9BC04B72131589F003A624F /* Reachability.h */,
+				E9BC04B42131589F003A624F /* Reachability.m */,
+			);
+			path = BaseRequestAPI;
+			sourceTree = "<group>";
+		};
+		E9BC04BB21315AE6003A624F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04BD21315AE6003A624F /* EDSHomeViewController.h */,
+				E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */,
+				E9BC04C121315D54003A624F /* HomeConstants.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E9BC04BE21315AE7003A624F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC04C221315DC5003A624F /* EDSHomeTableViewHeaderView.h */,
+				E9BC04C321315DC5003A624F /* EDSHomeTableViewHeaderView.m */,
+				E9BC04CA21316161003A624F /* EDSHomeFunctionBgView.h */,
+				E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */,
+				E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */,
+				E9BC04C521315FC3003A624F /* EDSHomeFunctionBtn.h */,
+				E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */,
+				E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9BC04BF21315AE7003A624F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +537,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */,
+				E9BC04CE2131616B003A624F /* EDSHomeFunctionBgView.xib in Resources */,
 				E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */,
 				E9BC0434213146AE003A624F /* Assets.xcassets in Resources */,
-				E9BC0432213146AC003A624F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,9 +612,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BC042F213146AC003A624F /* ViewController.m in Sources */,
 				E9BC043A213146AE003A624F /* main.m in Sources */,
-				E9BC042C213146AC003A624F /* AppDelegate.m in Sources */,
+				E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */,
+				E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */,
+				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
+				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
+				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
+				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
+				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,
+				E9BC04A421315626003A624F /* BHYBaseViewController.m in Sources */,
+				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
+				E9BC048F21315283003A624F /* UIBarButtonItem+BHYCategory.m in Sources */,
+				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,
+				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
+				E9BC04AC2131570C003A624F /* EDSMyViewController.m in Sources */,
+				E9BC04AF2131571B003A624F /* EDSMessageViewController.m in Sources */,
+				E9BC046221314A06003A624F /* ViewController.m in Sources */,
+				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
+				E9BC0499213153F4003A624F /* EDSTabBarViewController.m in Sources */,
+				E9BC048E21315283003A624F /* CALayer+BHYXibBorderColor.m in Sources */,
+				E9BC04C421315DC5003A624F /* EDSHomeTableViewHeaderView.m in Sources */,
+				E9BC048C21315283003A624F /* UIImageView+BHYCustom.m in Sources */,
+				E9BC0470213150B6003A624F /* EDSNavigationViewController.m in Sources */,
+				E9BC049521315283003A624F /* UIImage+BHYAvatar.m in Sources */,
+				E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */,
+				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,
+				E9BC04B22131573A003A624F /* EDSStudentDriverStrategyViewController.m in Sources */,
+				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,
+				E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */,
+				E9BC049121315283003A624F /* UIView+BHYCore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,14 +676,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E9BC0430213146AC003A624F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9BC0431213146AC003A624F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E9BC0435213146AE003A624F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -510,7 +804,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +824,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
