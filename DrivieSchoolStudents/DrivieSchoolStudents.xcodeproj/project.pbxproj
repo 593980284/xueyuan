@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10D1CA672132EF7F0082A7B3 /* EDSHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D1CA652132EF7F0082A7B3 /* EDSHomeTableViewCell.m */; };
+		10D1CA682132EF7F0082A7B3 /* EDSHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D1CA662132EF7F0082A7B3 /* EDSHomeTableViewCell.xib */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
 		E9BC0434213146AE003A624F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0433213146AE003A624F /* Assets.xcassets */; };
 		E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BC0435213146AE003A624F /* LaunchScreen.storyboard */; };
@@ -42,7 +44,6 @@
 		E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */; };
 		E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */; };
 		E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */; };
-		E9BC04CE2131616B003A624F /* EDSHomeFunctionBgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10D1CA642132EF7F0082A7B3 /* EDSHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeTableViewCell.h; sourceTree = "<group>"; };
+		10D1CA652132EF7F0082A7B3 /* EDSHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeTableViewCell.m; sourceTree = "<group>"; };
+		10D1CA662132EF7F0082A7B3 /* EDSHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeTableViewCell.xib; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BC0427213146AC003A624F /* DrivieSchoolStudents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrivieSchoolStudents.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +144,6 @@
 		E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeFunctionBtn.xib; sourceTree = "<group>"; };
 		E9BC04CA21316161003A624F /* EDSHomeFunctionBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeFunctionBgView.h; sourceTree = "<group>"; };
 		E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeFunctionBgView.m; sourceTree = "<group>"; };
-		E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeFunctionBgView.xib; sourceTree = "<group>"; };
 		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,10 +419,12 @@
 				E9BC04C321315DC5003A624F /* EDSHomeTableViewHeaderView.m */,
 				E9BC04CA21316161003A624F /* EDSHomeFunctionBgView.h */,
 				E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */,
-				E9BC04CD2131616B003A624F /* EDSHomeFunctionBgView.xib */,
 				E9BC04C521315FC3003A624F /* EDSHomeFunctionBtn.h */,
 				E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */,
 				E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */,
+				10D1CA642132EF7F0082A7B3 /* EDSHomeTableViewCell.h */,
+				10D1CA652132EF7F0082A7B3 /* EDSHomeTableViewCell.m */,
+				10D1CA662132EF7F0082A7B3 /* EDSHomeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -538,7 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */,
-				E9BC04CE2131616B003A624F /* EDSHomeFunctionBgView.xib in Resources */,
+				10D1CA682132EF7F0082A7B3 /* EDSHomeTableViewCell.xib in Resources */,
 				E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */,
 				E9BC0434213146AE003A624F /* Assets.xcassets in Resources */,
 			);
@@ -621,6 +626,7 @@
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
 				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,
 				E9BC04A421315626003A624F /* BHYBaseViewController.m in Sources */,
+				10D1CA672132EF7F0082A7B3 /* EDSHomeTableViewCell.m in Sources */,
 				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
 				E9BC048F21315283003A624F /* UIBarButtonItem+BHYCategory.m in Sources */,
 				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,

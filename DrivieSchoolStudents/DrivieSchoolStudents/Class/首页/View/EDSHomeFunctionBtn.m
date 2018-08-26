@@ -16,18 +16,28 @@
 
 @implementation EDSHomeFunctionBtn
 
-- (void)awakeFromNib
+- (instancetype)init
 {
-    [super awakeFromNib];
-    
+    return [self initWithFrame:self.frame];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        return [[[NSBundle mainBundle] loadNibNamed:@"EDSHomeFunctionBtn" owner:self options:nil] lastObject];
+        
+    }
+    return self;
 }
 
 - (void)setBtnArr:(NSArray *)btnArr
 {
     _btnArr = btnArr;
     
-    _btnImgView.image = [UIImage imageNamed:@"yybml_content_icon_default"];
-    _btnTitleLbl.text = @"adfsd";
+    self.btnImgView.image = [UIImage imageNamed:btnArr[1]];
+    self.btnTitleLbl.text = btnArr[0];
 }
 
 @end

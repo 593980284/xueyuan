@@ -10,5 +10,5 @@
 
 @interface EDSHomeFunctionBgView : UIView
 /** 数据 */
-@property (nonatomic, strong) NSArray  *arr;
+@property (nonatomic, strong) NSArray  *functionBtnArr;
 @end

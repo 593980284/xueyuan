@@ -25,13 +25,22 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = TableColor;
         self.cycleScrollView.imageURLStringsGroup = @[
                                                       @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
-                                                      @"http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg",
+                                                      @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
                                                       ];
         
         self.homeFunctionBgView.backgroundColor = WhiteColor;
-        self.homeFunctionBgView.arr = @[];
+        self.homeFunctionBgView.functionBtnArr = @[
+                                                   @[@"预约报名",@"yybml_content_icon_default"],
+                                                   @[@"报名流程",@"bmlc_content_icon_default"],
+                                                   @[@"学车流程",@"xclc_content_icon_default"],
+                                                   @[@"驾校信息",@"jxxx_content_icon_default"],
+                                                   @[@"在线约课",@"zxyk_content_icon_default"],
+                                                   @[@"在线约考",@"zxyk_content_icon_default-1"],
+                                                   @[@"理论学习",@"llxx_content_icon_default"],
+                                                   @[@"在线公式",@"jggs_content_icon_default"],             ];
     }
     return self;
 }

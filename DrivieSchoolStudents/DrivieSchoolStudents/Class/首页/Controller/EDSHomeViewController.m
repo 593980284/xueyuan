@@ -7,7 +7,9 @@
 //
 
 #import "EDSHomeViewController.h"
+
 #import "EDSHomeTableViewHeaderView.h"
+#import "EDSHomeTableViewCell.h"
 
 #import "HomeConstants.h"
 
@@ -25,9 +27,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+//    [self.tableView registerNib:[UINib nibWithNibName:@"EDSHomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"EDSHomeTableViewCell"];
     
     EDSHomeTableViewHeaderView *headerView = [[EDSHomeTableViewHeaderView alloc] init];
-    headerView.wz_size = CGSizeMake(kScreenWidth, 122+188);
+    headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -56,17 +59,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 1.确定重用标示:
-    static NSString *ID = @"UITableViewCell";
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    // 3.如果空就手动创建
+    EDSHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSHomeTableViewCell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSHomeTableViewCell" owner:self options:nil].firstObject;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
