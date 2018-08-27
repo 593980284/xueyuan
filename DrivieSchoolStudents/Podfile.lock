@@ -43,6 +43,9 @@ PODS:
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (2.1.4)
   - "UITextView+Placeholder (1.2.1)"
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -58,6 +61,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - TZImagePickerController (~> 2.1.4)
   - "UITextView+Placeholder"
+  - YYCategories
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -74,6 +78,7 @@ SPEC REPOS:
     - SVProgressHUD
     - TZImagePickerController
     - "UITextView+Placeholder"
+    - YYCategories
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -89,7 +94,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 2a8f41ba058e215bc9b699ade241fdbcc910c2bd
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: d195e2c32a68050d385506677d7d2b33bf4a7ee1
+PODFILE CHECKSUM: ce2133c339a46068bd6ca1adb89b3112e03a1adf
 
 COCOAPODS: 1.5.3

@@ -27,7 +27,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    [self.tableView registerNib:[UINib nibWithNibName:@"EDSHomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"EDSHomeTableViewCell"];
     
     EDSHomeTableViewHeaderView *headerView = [[EDSHomeTableViewHeaderView alloc] init];
     headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
@@ -64,7 +63,9 @@
         cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSHomeTableViewCell" owner:self options:nil].firstObject;
     }
     
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.cellArr = @[];
     return cell;
     
 }

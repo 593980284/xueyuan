@@ -13,5 +13,6 @@ target 'DrivieSchoolStudents' do
     pod 'GLViewPagerViewController'
     pod 'UITextView+Placeholder'
     pod 'TZImagePickerController', '~> 2.1.4'
+    pod 'YYCategories'
 end
 

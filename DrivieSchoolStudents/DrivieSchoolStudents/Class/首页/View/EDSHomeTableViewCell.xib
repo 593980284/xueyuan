@@ -6,33 +6,103 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EDSHomeTableViewCell" rowHeight="109" id="KGk-i7-Jjw" customClass="EDSHomeTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EDSHomeTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="EDSHomeTableViewCell">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fasdfsdfsdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iea-LF-hdH">
-                        <rect key="frame" x="144" y="44" width="87" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小白驾校" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzG-JH-ygu">
+                        <rect key="frame" x="125" y="14" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-DX-EF9">
+                        <rect key="frame" x="276.5" y="14.5" width="83.5" height="21"/>
+                        <attributedString key="attributedText">
+                            <fragment content="￥">
+                                <attributes>
+                                    <color key="NSColor" red="1" green="0.3411764705882353" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="3000.00">
+                                <attributes>
+                                    <color key="NSColor" red="1" green="0.3411764705882353" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZI-op-95S">
+                        <rect key="frame" x="330" y="70.5" width="30" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京市长江路1234号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-xC-2VD">
+                        <rect key="frame" x="142" y="68" width="132.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="driveImg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Smr-YO-X4S">
+                        <rect key="frame" x="15" y="14.5" width="100" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="1p3-9z-1ce"/>
+                            <constraint firstAttribute="width" constant="100" id="yAk-xx-lWH"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="d6O-Mk-0YW">
+                        <rect key="frame" x="125" y="69" width="10" height="14"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flj-L7-fJW" customClass="EDSDriveStarView">
+                        <rect key="frame" x="125" y="42.5" width="159" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="159" id="70U-eo-E0v"/>
+                            <constraint firstAttribute="height" constant="15" id="bbO-e3-yvy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iea-LF-hdH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5qI-19-QtH"/>
-                    <constraint firstItem="iea-LF-hdH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kgg-2X-7YE"/>
+                    <constraint firstItem="aZO-DX-EF9" firstAttribute="top" secondItem="Smr-YO-X4S" secondAttribute="top" id="0cP-r1-Ldr"/>
+                    <constraint firstItem="XRN-xC-2VD" firstAttribute="centerY" secondItem="d6O-Mk-0YW" secondAttribute="centerY" id="32C-lY-MoF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="d6O-Mk-0YW" secondAttribute="bottom" constant="15" id="73B-1l-ilx"/>
+                    <constraint firstItem="mZI-op-95S" firstAttribute="bottom" secondItem="XRN-xC-2VD" secondAttribute="bottom" id="74D-1I-QCx"/>
+                    <constraint firstItem="hzG-JH-ygu" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="8PB-Lz-8XB"/>
+                    <constraint firstItem="d6O-Mk-0YW" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="Asc-8Y-uhy"/>
+                    <constraint firstItem="flj-L7-fJW" firstAttribute="top" secondItem="aZO-DX-EF9" secondAttribute="bottom" constant="7" id="GDP-8j-4YX"/>
+                    <constraint firstItem="hzG-JH-ygu" firstAttribute="top" secondItem="Smr-YO-X4S" secondAttribute="top" id="L7Z-45-SeS"/>
+                    <constraint firstAttribute="trailing" secondItem="mZI-op-95S" secondAttribute="trailing" constant="15" id="Ueg-Oz-gEq"/>
+                    <constraint firstItem="flj-L7-fJW" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="VeZ-5c-dUe"/>
+                    <constraint firstItem="XRN-xC-2VD" firstAttribute="leading" secondItem="d6O-Mk-0YW" secondAttribute="trailing" constant="7" id="Vyf-xJ-g7x"/>
+                    <constraint firstAttribute="trailing" secondItem="aZO-DX-EF9" secondAttribute="trailing" constant="15" id="aYL-ie-tih"/>
+                    <constraint firstItem="Smr-YO-X4S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mVv-ku-EfM"/>
+                    <constraint firstItem="Smr-YO-X4S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xPd-tG-fdo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="114.5" y="110.5"/>
+            <connections>
+                <outlet property="driveImgView" destination="Smr-YO-X4S" id="Dm8-5f-DrR"/>
+                <outlet property="driveNameLbl" destination="hzG-JH-ygu" id="9hO-Sh-biK"/>
+                <outlet property="driveStarView" destination="flj-L7-fJW" id="FyM-ta-FKy"/>
+            </connections>
+            <point key="canvasLocation" x="77.5" y="-46.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="driveImg.png" width="384" height="123"/>
+        <image name="map_content_icon_default" width="10" height="14"/>
+    </resources>
 </document>
