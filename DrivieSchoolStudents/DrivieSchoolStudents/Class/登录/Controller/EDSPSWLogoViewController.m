@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pswBtn;
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIView *codeLoginBgView;
+@property (weak, nonatomic) IBOutlet UIView *pswLoginBgView;
 
 @end
 
@@ -30,6 +32,8 @@
         self.codeBtn.selected = NO;
         [UIView animateWithDuration:0.3 animations:^{
             self.indicatorView.wz_centerX = self.pswBtn.wz_centerX;
+            self.pswLoginBgView.wz_centerX = self.view.wz_centerX;
+            self.codeLoginBgView.wz_centerX = self.view.wz_centerX + kScreenWidth;
         }];
     }];
     [self.codeBtn bk_whenTapped:^{
@@ -38,6 +42,8 @@
         self.codeBtn.selected = YES;
         [UIView animateWithDuration:0.3 animations:^{
             self.indicatorView.wz_centerX = self.codeBtn.wz_centerX;
+            self.pswLoginBgView.wz_centerX = self.view.wz_centerX - kScreenWidth;
+            self.codeLoginBgView.wz_centerX = self.view.wz_centerX ;
         }];
     }];
 }

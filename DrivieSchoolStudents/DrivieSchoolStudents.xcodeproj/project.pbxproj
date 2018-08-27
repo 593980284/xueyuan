@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
+		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
+		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
 		E9A6196421338E4C006E5C2B /* EDSHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6196221338E4C006E5C2B /* EDSHomeTableViewCell.m */; };
 		E9A6196521338E4C006E5C2B /* EDSHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A6196321338E4C006E5C2B /* EDSHomeTableViewCell.xib */; };
@@ -85,6 +88,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10A48A972134376400FA2A38 /* EDSSubscribeApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyViewController.h; sourceTree = "<group>"; };
+		10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyViewController.m; sourceTree = "<group>"; };
+		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
+		10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyOneTableViewCell.m; sourceTree = "<group>"; };
+		10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSSubscribeApplyOneTableViewCell.xib; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A6196121338E4C006E5C2B /* EDSHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeTableViewCell.h; sourceTree = "<group>"; };
@@ -228,6 +236,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10A48A942134369800FA2A38 /* 预约报名 */ = {
+			isa = PBXGroup;
+			children = (
+				10A48A952134369800FA2A38 /* Controller */,
+				10A48A962134369800FA2A38 /* View */,
+			);
+			path = "预约报名";
+			sourceTree = "<group>";
+		};
+		10A48A952134369800FA2A38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10A48A972134376400FA2A38 /* EDSSubscribeApplyViewController.h */,
+				10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10A48A962134369800FA2A38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */,
+				10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */,
+				10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		885737C458FA0E5F557DFB55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				E9BC04C121315D54003A624F /* HomeConstants.h */,
+				10A48A942134369800FA2A38 /* 预约报名 */,
 				E9A619BC2133F5FA006E5C2B /* 驾校消息 */,
 				E9BC04BB21315AE6003A624F /* Controller */,
 				E9BC04BF21315AE7003A624F /* Model */,
@@ -725,6 +762,7 @@
 				E9A619B32133D2D7006E5C2B /* avar.png in Resources */,
 				E9A619B82133D741006E5C2B /* EDSMyHeaderView.xib in Resources */,
 				E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */,
+				10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */,
 				E9A6197F2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.xib in Resources */,
 				E9A619A32133C353006E5C2B /* EDSStudentDriverStrategyHeaderView.xib in Resources */,
 				E9A619AF2133D24F006E5C2B /* EDSMyTableViewCell.xib in Resources */,
@@ -805,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BC043A213146AE003A624F /* main.m in Sources */,
+				10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */,
 				E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */,
 				E9A619C92133FE68006E5C2B /* EDSDriveSchollInfomationHeaderView.m in Sources */,
 				E9A619B62133D736006E5C2B /* EDSMyHeaderView.m in Sources */,
@@ -825,6 +864,7 @@
 				E9A6197E2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.m in Sources */,
 				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
+				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
 				E9A6199E2133C301006E5C2B /* EDSStudentDriverStrategyViewController.m in Sources */,
 				E9A6196B213391EB006E5C2B /* EDSDriveStarView.m in Sources */,
 				E9BC04AF2131571B003A624F /* EDSMessageViewController.m in Sources */,

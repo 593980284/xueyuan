@@ -34,8 +34,8 @@
     headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
     self.tableView.tableHeaderView = headerView;
     
-    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
+//    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//    [self presentViewController:vc animated:YES completion:nil];
     
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
 }
