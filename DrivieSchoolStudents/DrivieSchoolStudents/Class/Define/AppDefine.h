@@ -15,5 +15,6 @@
     #import <Foundation/Foundation.h> //下面要是用到 Foundation 库就要包括
 #endif
 
+#define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
 
 #endif /* AppDefine_h */

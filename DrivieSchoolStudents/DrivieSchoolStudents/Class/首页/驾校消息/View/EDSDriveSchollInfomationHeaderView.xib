@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSDriveSchollInfomationHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PB-ir-Jzx">
+                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="htQ-Ps-lVi"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nI3-Lr-0L0">
+                    <rect key="frame" x="37.5" y="42" width="50" height="2"/>
+                    <color key="backgroundColor" red="0.18823529411764706" green="0.61176470588235299" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="luN-wO-ixY"/>
+                        <constraint firstAttribute="height" constant="2" id="nkG-aJ-bMi"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjd-lE-Loa">
+                    <rect key="frame" x="0.0" y="0.0" width="125" height="42"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="按评分">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="按评分">
+                        <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJJ-5X-uFA">
+                    <rect key="frame" x="125" y="0.0" width="125" height="42"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="按距离">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="按距离">
+                        <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-c0-QYP">
+                    <rect key="frame" x="250" y="0.0" width="125" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="按价格">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="按价格">
+                        <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tnw-c0-QYP" secondAttribute="trailing" id="1GC-e5-aEp"/>
+                <constraint firstItem="nI3-Lr-0L0" firstAttribute="top" secondItem="PJJ-5X-uFA" secondAttribute="bottom" id="4UR-hN-M3M"/>
+                <constraint firstItem="wjd-lE-Loa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6fb-Me-eFS"/>
+                <constraint firstItem="PJJ-5X-uFA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Gg1-MA-iLI"/>
+                <constraint firstAttribute="trailing" secondItem="5PB-ir-Jzx" secondAttribute="trailing" id="MsV-OI-3p8"/>
+                <constraint firstItem="wjd-lE-Loa" firstAttribute="width" secondItem="PJJ-5X-uFA" secondAttribute="width" id="ODE-eo-nER"/>
+                <constraint firstItem="nI3-Lr-0L0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1:3" id="Toy-h5-ZNi"/>
+                <constraint firstItem="tnw-c0-QYP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Twi-OM-j0i"/>
+                <constraint firstItem="5PB-ir-Jzx" firstAttribute="top" secondItem="tnw-c0-QYP" secondAttribute="bottom" id="UHY-1L-xQe"/>
+                <constraint firstItem="nI3-Lr-0L0" firstAttribute="top" secondItem="wjd-lE-Loa" secondAttribute="bottom" id="Vmp-8k-mG0"/>
+                <constraint firstItem="5PB-ir-Jzx" firstAttribute="top" secondItem="nI3-Lr-0L0" secondAttribute="bottom" id="Xzg-hU-BaT"/>
+                <constraint firstItem="PJJ-5X-uFA" firstAttribute="leading" secondItem="wjd-lE-Loa" secondAttribute="trailing" id="ZBV-pj-DKA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5PB-ir-Jzx" secondAttribute="bottom" id="a04-sL-MU8"/>
+                <constraint firstItem="wjd-lE-Loa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="j2L-Ux-XOj"/>
+                <constraint firstItem="tnw-c0-QYP" firstAttribute="leading" secondItem="PJJ-5X-uFA" secondAttribute="trailing" id="nut-Pu-4JK"/>
+                <constraint firstItem="PJJ-5X-uFA" firstAttribute="width" secondItem="tnw-c0-QYP" secondAttribute="width" id="oNj-OS-meb"/>
+                <constraint firstItem="5PB-ir-Jzx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vFS-Mj-Pho"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="distanceBtn" destination="PJJ-5X-uFA" id="3WO-3o-P1I"/>
+                <outlet property="indicatorView" destination="nI3-Lr-0L0" id="eUx-SL-vFo"/>
+                <outlet property="priceBtn" destination="tnw-c0-QYP" id="ik8-g0-Azq"/>
+                <outlet property="scoreBtn" destination="wjd-lE-Loa" id="jb6-dy-xqJ"/>
+            </connections>
+            <point key="canvasLocation" x="-15.5" y="-210.5"/>
+        </view>
+    </objects>
+</document>

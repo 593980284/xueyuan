@@ -7,12 +7,13 @@
 //
 
 #import "EDSStudentDriverStrategyViewController.h"
-#import "EDSStudentDriverStrategSubViewController.h"
 
-@interface EDSStudentDriverStrategyViewController ()
-/// 当有多个子控制器时，或者子控制器的个数不能由接口驱动时，此属性用来存储记录控制器
-@property (nonatomic, strong) NSMutableDictionary *modelDictionary;
-@property (nonatomic, copy) NSArray *dataArray;
+#import "EDSStudentDriverStrategyHeaderView.h"
+#import "EDSStudentDriverStrategSubTableViewCell.h"
+
+#import "StudentDriverStrategConstants.h"
+
+@interface EDSStudentDriverStrategyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -20,49 +21,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.modelDictionary = [NSMutableDictionary dictionary];
-    // loadData
-    [self loadData];
-}
-
-
-/// 服务器接口返回有哪些标题，以及标题对应的模型
-- (void)loadData {
-    // 进行网络请求，获取模型（模型里一般包括的是标题和Id值）
-    // 为dataArray赋值 _dataArray = jsonDataArray;
-//    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Untitled1" ofType:@"json"]];
-    _dataArray = @[
-                   @{@"code":@"1",@"name":@"考规"},
-                   @{@"code":@"2",@"name":@"考规"},
-                   @{@"code":@"3",@"name":@"考规"},
-                   @{@"code":@"4",@"name":@"考规"},
-                   @{@"code":@"5",@"name":@"考规"},
-                   ];;
-    // 如果指定直接跳转到某个控制器，那么指定currentIndex
-    self.currentIndex = 1;
-    // 刷新PageController
-    [self reloadData];
     
+    EDSStudentDriverStrategyHeaderView *headerView = [[EDSStudentDriverStrategyHeaderView alloc] init];
+    [self.view addSubview:headerView];
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.height.mas_equalTo(StudentDriverStrategHeaderViewH);
+    }];
+    headerView.viewDidSelectBtnBlock = ^(NSString *backBlock) {
+        DLog(@"%@",backBlock);
+    };
+    
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(StudentDriverStrategHeaderViewH);
+        make.bottom.mas_equalTo(0);
+    }];
 }
 
-#pragma mark - ScrollPageViewControllerProtocol
 
-- (NSArray *)arrayForControllerTitles {
-    return [_dataArray valueForKeyPath:@"name"];
+#pragma mark ------------------------ tableView --------------------------------
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
 }
 
-- (UIViewController *)viewcontrollerWithIndex:(NSInteger)index {
-    if (index <0 || index > self.arrayForControllerTitles.count) return nil;
-    id model = _dataArray[index];
-    NSString *key = [NSString stringWithFormat:@"%@%@",NSStringFromClass([model class]), model[@"code"]];
-    EDSStudentDriverStrategSubViewController *vc = self.modelDictionary[key];
-    if (!vc) {
-        vc = [EDSStudentDriverStrategSubViewController new];
-        // 给控制器传递参数
-        self.modelDictionary[key] = vc;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EDSStudentDriverStrategSubTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSStudentDriverStrategSubTableViewCell"];
+    if (!cell) {
+        cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSStudentDriverStrategSubTableViewCell" owner:self options:nil].firstObject;
     }
-    return vc;
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return StudentDriverStrategTableViewCellH;
+}
 @end

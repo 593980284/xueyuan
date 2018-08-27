@@ -90,7 +90,13 @@
         
         // 设置导航栏上面的内容
         // 设置左边的返回按钮
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"goback" highImage:@"goback"];
+        UIButton *backBtn = [[UIButton alloc] init];
+        [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        [backBtn setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
+        [backBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        backBtn.wz_size = CGSizeMake(25, 40);
+        viewController.navigationItem.leftBarButtonItem = item;
     }
     // 只有在导航控制器里面有子控制器的时候才需要截图
     if (self.viewControllers.count >= 1) {

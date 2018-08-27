@@ -32,9 +32,8 @@
 
 
 /*----------------占位图------------------------------------------------*/
-#define IndustryCircleHeaderPlaceholderImage    [UIImage imageNamed:@"avatar"]//轮播图占位图
-#define AvatarPlaceholderImage                  [UIImage imageNamed:@"avatar"]//头像占位图
-#define PLACEHOLDERGOODSIMAGE                   [UIImage imageNamed:@"avatar"]//公司icon
+#define AvatarPlaceholderImage                  [UIImage imageNamed:@"avar"]//头像占位图
+#define PLACEHOLDERGOODSIMAGE                   [UIImage imageNamed:@"placeholderimg"]
 
 
 #define NumPerPage @"10" //分页数据，每页的数量

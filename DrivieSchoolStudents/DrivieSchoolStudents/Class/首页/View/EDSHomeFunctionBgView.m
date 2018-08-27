@@ -53,7 +53,9 @@
                 make.size.mas_equalTo(CGSizeMake(50, 70));
                 make.top.mas_equalTo(15 + (70 + 18)*x);
                 make.centerX.multipliedBy(l);
-//                make.centerY.centerX.mas_equalTo(0);
+            }];
+            [btn bk_whenTapped:^{
+                [NotificationCenter postNotificationName:kZSNotificationHomeBtnCenter object:nil userInfo:@{@"name":functionBtnArr[i][0]}];
             }];
             btn.btnArr = functionBtnArr[i];
         });

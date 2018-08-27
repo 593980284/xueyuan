@@ -10,9 +10,7 @@ target 'DrivieSchoolStudents' do
     pod 'MJRefresh'
     pod 'BlocksKit'
     pod 'MOFSPickerManager'
-    pod 'GLViewPagerViewController'
     pod 'UITextView+Placeholder'
     pod 'TZImagePickerController', '~> 2.1.4'
-    pod 'YYCategories'
 end
 

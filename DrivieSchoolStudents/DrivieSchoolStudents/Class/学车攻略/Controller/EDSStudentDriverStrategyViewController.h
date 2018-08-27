@@ -6,8 +6,8 @@
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "ScrollPageViewController.h"
+#import "BHYBaseViewController.h"
 
-@interface EDSStudentDriverStrategyViewController : ScrollPageViewController <ScrollPageViewControllerProtocol>
+@interface EDSStudentDriverStrategyViewController : BHYBaseViewController
 
 @end

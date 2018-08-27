@@ -40,7 +40,7 @@
                                                    @[@"在线约课",@"zxyk_content_icon_default"],
                                                    @[@"在线约考",@"zxyk_content_icon_default-1"],
                                                    @[@"理论学习",@"llxx_content_icon_default"],
-                                                   @[@"在线公式",@"jggs_content_icon_default"],             ];
+                                                   @[@"价格公示",@"jggs_content_icon_default"],             ];
     }
     return self;
 }
@@ -55,7 +55,7 @@
 {
     if (!_cycleScrollView) {
         
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:IndustryCircleHeaderPlaceholderImage];
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:PLACEHOLDERGOODSIMAGE];
         _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
         _cycleScrollView.showPageControl = YES;
         _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;

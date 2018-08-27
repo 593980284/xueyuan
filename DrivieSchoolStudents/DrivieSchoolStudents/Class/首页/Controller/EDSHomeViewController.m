@@ -7,6 +7,8 @@
 //
 
 #import "EDSHomeViewController.h"
+#import "EDSDrivingSchoolInformationViewController.h"//驾校信息
+#import "EDSPSWLogoViewController.h"//登录
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -31,6 +33,11 @@
     EDSHomeTableViewHeaderView *headerView = [[EDSHomeTableViewHeaderView alloc] init];
     headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
     self.tableView.tableHeaderView = headerView;
+    
+    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
 }
 
 - (void)setupNavigationView
@@ -44,6 +51,16 @@
     DLog(@"登录");
 }
 
+- (void)homeFuntionBtnClick:(NSNotification *)notification
+{
+    NSDictionary *dict = [notification valueForKey:@"userInfo"];
+    NSString *titleStr = dict[@"name"];
+    if ([titleStr isEqualToString:@"驾校信息"]) {
+        
+        EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -73,6 +90,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return EDSHomeTableViewCellH;
+}
+
+- (void)dealloc
+{
+    [NotificationCenter removeObserver:self name:kZSNotificationHomeBtnCenter object:nil];
 }
 
 @end

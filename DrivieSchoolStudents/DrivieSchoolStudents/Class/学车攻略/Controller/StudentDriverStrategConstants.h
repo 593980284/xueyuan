@@ -10,5 +10,6 @@
 #define StudentDriverStrategConstants_h
 
 #define StudentDriverStrategTableViewCellH                   111
+#define StudentDriverStrategHeaderViewH                      45
 
 #endif /* StudentDriverStrategConstants_h */

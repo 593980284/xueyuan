@@ -45,7 +45,7 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, kScreenHeight - kNavigationH  - KTabBarHeight) style:UITableViewStylePlain];
 //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [UIView new];
-        _tableView.backgroundColor = [UIColor colorWithRed:0.86 green:0.89 blue:0.91 alpha:1];
+        _tableView.backgroundColor = TableColor;
 #ifdef __IPHONE_11_0
         _tableView.estimatedRowHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;

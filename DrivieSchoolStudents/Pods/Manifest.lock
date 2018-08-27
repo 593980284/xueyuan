@@ -29,7 +29,6 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - GLViewPagerViewController (1.0.2)
   - IQKeyboardManager (6.0.3)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
@@ -43,14 +42,10 @@ PODS:
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (2.1.4)
   - "UITextView+Placeholder (1.2.1)"
-  - YYCategories (1.0.4):
-    - YYCategories/no-arc (= 1.0.4)
-  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
-  - GLViewPagerViewController
   - IQKeyboardManager
   - Masonry
   - MJExtension
@@ -61,13 +56,11 @@ DEPENDENCIES:
   - SVProgressHUD
   - TZImagePickerController (~> 2.1.4)
   - "UITextView+Placeholder"
-  - YYCategories
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BlocksKit
-    - GLViewPagerViewController
     - IQKeyboardManager
     - Masonry
     - MJExtension
@@ -78,12 +71,10 @@ SPEC REPOS:
     - SVProgressHUD
     - TZImagePickerController
     - "UITextView+Placeholder"
-    - YYCategories
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  GLViewPagerViewController: 8024347deb3d0d0e9d07360a334d9e4b43c86e41
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -94,8 +85,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 2a8f41ba058e215bc9b699ade241fdbcc910c2bd
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
-  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: ce2133c339a46068bd6ca1adb89b3112e03a1adf
+PODFILE CHECKSUM: 3b39942bbcba22d532f99c33bbd79e797f8f8207
 
 COCOAPODS: 1.5.3
