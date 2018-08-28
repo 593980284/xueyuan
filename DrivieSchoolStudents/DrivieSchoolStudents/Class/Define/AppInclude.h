@@ -26,6 +26,8 @@
 #import "SDCycleScrollView.h"
 #import "MJExtension.h"
 
+#import "EDSAccount.h"
+#import "EDSSave.h"
 #import "EDSToolClass.h"
 
 #import "UIBarButtonItem+BHYCategory.h"

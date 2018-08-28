@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSDrivingSchoolModel;
 
 @interface EDSHomeTableViewCell : UITableViewCell
 /** 数据 */
 @property (nonatomic, strong) NSArray  *cellArr;
+/** 数据 */
+@property (nonatomic, strong) EDSDrivingSchoolModel  *model;
 @end

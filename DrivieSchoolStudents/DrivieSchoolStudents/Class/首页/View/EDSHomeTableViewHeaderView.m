@@ -9,6 +9,8 @@
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeFunctionBgView.h"
 
+#import "EDSHomeRollPictureRequest.h"
+
 #import "HomeConstants.h"
 
 @interface EDSHomeTableViewHeaderView ()<SDCycleScrollViewDelegate>
@@ -25,6 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        [self requestData];
         self.backgroundColor = TableColor;
         self.cycleScrollView.imageURLStringsGroup = @[
                                                       @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
@@ -48,6 +51,19 @@
 - (instancetype)init
 {
     return [self initWithFrame:self.frame];
+}
+
+- (void)requestData
+{
+    EDSHomeRollPictureRequest *request = [EDSHomeRollPictureRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        self.cycleScrollView.imageURLStringsGroup = model;
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    [request  startRequest];
+    
 }
 
 

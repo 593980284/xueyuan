@@ -21,7 +21,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小白驾校" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzG-JH-ygu">
-                        <rect key="frame" x="125" y="14" width="70" height="21"/>
+                        <rect key="frame" x="125" y="14" width="140" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="uJl-vn-BKw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -94,8 +97,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="distanceLbl" destination="mZI-op-95S" id="98Q-8S-b5l"/>
                 <outlet property="driveImgView" destination="Smr-YO-X4S" id="Dm8-5f-DrR"/>
                 <outlet property="driveNameLbl" destination="hzG-JH-ygu" id="9hO-Sh-biK"/>
+                <outlet property="drivePriceLbl" destination="aZO-DX-EF9" id="0WZ-7j-WJK"/>
                 <outlet property="driveStarView" destination="flj-L7-fJW" id="FyM-ta-FKy"/>
             </connections>
             <point key="canvasLocation" x="77.5" y="-46.5"/>

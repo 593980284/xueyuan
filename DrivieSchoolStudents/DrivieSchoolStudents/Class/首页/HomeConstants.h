@@ -9,9 +9,17 @@
 #ifndef HomeConstants_h
 #define HomeConstants_h
 
-#define EDSHomeTableViewCellH                   109
-#define EDSHomeTableViewHeaderSlideH            122
-#define EDSHomeTableViewHeaderButtonBgH         188
-#define  EDSDrivingSchoolInformationHeaderH      45
+#define EDSHomeTableViewCellH                                       109
+#define EDSHomeTableViewHeaderSlideH                                122
+#define EDSHomeTableViewHeaderButtonBgH                             188
+#define EDSDrivingSchoolInformationHeaderH                          45
+#define EDSDrivingDetailsFooterViewH                                69
+#define EDSDrivingDetailsHeaderViewH                                193
+
+#define EDSTeachingStyleCollectionViewCellH                         178
+#define EDSTeachingStyleCollectionViewCellW                         164
+
+#define EDSCheckSiteCollectionViewCellH                             70
+#define EDSCheckSiteCollectionViewCellW                             345
 
 #endif /* HomeConstants_h */

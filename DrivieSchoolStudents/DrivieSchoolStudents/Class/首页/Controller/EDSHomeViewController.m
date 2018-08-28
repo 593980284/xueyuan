@@ -13,9 +13,16 @@
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
 
+#import "EDSHomeSchoolInformationRequest.h"
+
+#import "EDSDrivingSchoolModel.h"
+
 #import "HomeConstants.h"
 
 @interface EDSHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+/** 驾校消息 */
+@property (nonatomic, strong) NSArray<EDSDrivingSchoolModel *>  *tableViewListArr;
 
 @end
 
@@ -26,6 +33,7 @@
     
     self.navigationItem.title = @"乐享学驾";
     [self setupNavigationView];
+    self.tableViewListArr = [[NSArray alloc] init];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -34,10 +42,10 @@
     headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
     self.tableView.tableHeaderView = headerView;
     
-//    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-//    [self presentViewController:vc animated:YES completion:nil];
     
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
+    
+    [self homeRequestData];
 }
 
 - (void)setupNavigationView
@@ -48,7 +56,8 @@
 
 - (void)homeRightBarButtonItemClick
 {
-    DLog(@"登录");
+    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)homeFuntionBtnClick:(NSNotification *)notification
@@ -62,6 +71,26 @@
     }
 }
 
+#pragma mark ------------------------ 网络请求 --------------------------------
+- (void)homeRequestData
+{
+   
+    
+    EDSHomeSchoolInformationRequest *request2 = [EDSHomeSchoolInformationRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        self.tableViewListArr = model;
+        
+        [self.tableView reloadData];
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+#warning 需要修改
+    request2.schoolId = @"0";
+    [request2 startRequest];
+}
+
+
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -70,7 +99,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.tableViewListArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,9 +111,9 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.cellArr = @[];
-    return cell;
+    cell.model = self.tableViewListArr[indexPath.section];
     
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

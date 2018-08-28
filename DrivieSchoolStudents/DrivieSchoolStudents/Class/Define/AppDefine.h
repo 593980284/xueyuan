@@ -15,6 +15,11 @@
     #import <Foundation/Foundation.h> //下面要是用到 Foundation 库就要包括
 #endif
 
+
+//域名
+#define LINEURL @"http://111.39.245.156:8087/dtms_nanj4.0"              //域名
+
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
+#define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置
 
 #endif /* AppDefine_h */

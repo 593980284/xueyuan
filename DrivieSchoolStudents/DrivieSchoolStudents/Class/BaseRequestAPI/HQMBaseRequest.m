@@ -23,14 +23,14 @@
 
 #ifdef DEBUG //处于开发测试阶段
 
-NSString * const HQMNetworkDomain = @"http://vip.huanqch.com";
+NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087/dtms_nanj4.0";
 
 ///< 关闭https SSL 验证
 #define kOpenHttpsAuth NO
 
 #else //处于发布正式阶段
 
-NSString * const HQMNetworkDomain = @"http://vip.huanqch.com";
+NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087/dtms_nanj4.0";
 
 ///< 开启https SSL 验证
 #define kOpenHttpsAuth NO
@@ -304,7 +304,8 @@ NSString * const HQMNetworkDomain = @"http://vip.huanqch.com";
 //        id json = [self preHandleData:responseObject error:error];
 //        NSDictionary *jsonDict = (NSDictionary *)json;
 //        NSInteger errorCode = [[responseObject objectForKey:@"error_code"] integerValue];
-        if ([[responseObject objectForKey:@"error_code"] isEqualToString:@"SUCCESS"]) {
+        NSInteger code = [[responseObject objectForKey:@"flg"] integerValue];
+        if (code == 1) {
             
             id resultData = [responseObject objectForKey:@"data"];
             DLog(@"resultData:%@",resultData);
@@ -313,7 +314,7 @@ NSString * const HQMNetworkDomain = @"http://vip.huanqch.com";
             
             id resultData = @{};
             DLog(@"resultData:%@",resultData);
-            [SVProgressHUD showErrorWithStatus:[responseObject valueForKey:@"error_msg"]];
+            [SVProgressHUD showErrorWithStatus:[responseObject valueForKey:@"msg"]];
             [SVProgressHUD dismissWithDelay:1.5];
             [self handleData:resultData errCode:0];
         }
