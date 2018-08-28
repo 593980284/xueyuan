@@ -10,6 +10,7 @@
 		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
 		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
+		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
 		E9A6196421338E4C006E5C2B /* EDSHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6196221338E4C006E5C2B /* EDSHomeTableViewCell.m */; };
 		E9A6196521338E4C006E5C2B /* EDSHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A6196321338E4C006E5C2B /* EDSHomeTableViewCell.xib */; };
@@ -119,6 +120,8 @@
 		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
 		10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyOneTableViewCell.m; sourceTree = "<group>"; };
 		10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSSubscribeApplyOneTableViewCell.xib; sourceTree = "<group>"; };
+		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
+		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A6196121338E4C006E5C2B /* EDSHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeTableViewCell.h; sourceTree = "<group>"; };
@@ -575,6 +578,8 @@
 				E9A61A2821357459006E5C2B /* EDSCoachInformationHeaderView.h */,
 				E9A61A2921357459006E5C2B /* EDSCoachInformationHeaderView.m */,
 				E9A61A2B21357466006E5C2B /* EDSCoachInformationHeaderView.xib */,
+				10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */,
+				10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1042,6 +1047,7 @@
 				E9BC043A213146AE003A624F /* main.m in Sources */,
 				10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */,
 				E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */,
+				10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */,
 				E9A619C92133FE68006E5C2B /* EDSDriveSchollInfomationHeaderView.m in Sources */,
 				E9A61A272135726B006E5C2B /* EDSCoachInformationViewController.m in Sources */,
 				E9A619E8213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.m in Sources */,
@@ -1263,7 +1269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				DEVELOPMENT_TEAM = 6MZFMA6Y84;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1283,7 +1289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5LL6UU3BHB;
+				DEVELOPMENT_TEAM = 6MZFMA6Y84;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
