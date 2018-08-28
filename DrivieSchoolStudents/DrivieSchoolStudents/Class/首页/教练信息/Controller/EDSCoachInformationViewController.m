@@ -8,6 +8,8 @@
 
 #import "EDSCoachInformationViewController.h"
 
+#import "EDSCoachInformationHeaderView.h"
+
 @interface EDSCoachInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -22,6 +24,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorColor = ClearColor;
+    
+    EDSCoachInformationHeaderView *headerView = [[EDSCoachInformationHeaderView alloc] init];
+    headerView.wz_size = CGSizeMake(kScreenWidth, 100);
+    self.tableView.tableHeaderView = headerView;
 }
 
 #pragma mark ------------------------ tableView --------------------------------

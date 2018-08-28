@@ -10,6 +10,25 @@
 
 @implementation EDSCoachInformationHeaderView
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        return [[[NSBundle mainBundle] loadNibNamed:@"EDSCoachInformationHeaderView" owner:self options:nil] lastObject];
+    }
+    return self;
+}
 
 
+- (instancetype)init
+{
+    return [self initWithFrame:self.frame];
+}
 @end
