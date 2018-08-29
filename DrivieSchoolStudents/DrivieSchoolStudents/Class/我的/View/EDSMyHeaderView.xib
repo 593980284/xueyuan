@@ -141,6 +141,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="avarterImgView" destination="G3p-GG-exc" id="j2T-VD-0qz"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="-180"/>
         </view>
     </objects>

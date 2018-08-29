@@ -46,6 +46,9 @@
     self.navigationItem.titleView = searchView;
     
     EDSDriveSchollInfomationHeaderView *headerView = [[EDSDriveSchollInfomationHeaderView alloc] init];
+    if (self.firstBtnString.length > 0) {
+        headerView.firstBtnString = self.firstBtnString;
+    }
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
@@ -53,6 +56,10 @@
     }];
 }
 
+- (void)setFirstBtnString:(NSString *)firstBtnString
+{
+    _firstBtnString = firstBtnString;
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

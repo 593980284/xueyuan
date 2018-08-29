@@ -9,5 +9,6 @@
 #import "BHYBaseViewController.h"
 
 @interface EDSDrivingSchoolInformationViewController : BHYBaseViewController
-
+/** 区分第一个按什么排序 */
+@property (nonatomic, copy) NSString *firstBtnString;
 @end

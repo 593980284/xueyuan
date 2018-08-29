@@ -8,7 +8,28 @@
 
 #import "EDSMyHeaderView.h"
 
+@interface EDSMyHeaderView ()
+@property (weak, nonatomic) IBOutlet UIImageView *avarterImgView;
+
+@end
+
 @implementation EDSMyHeaderView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.avarterImgView.userInteractionEnabled = YES;
+    @weakify(self);
+    [self.avarterImgView bk_whenTapped:^{
+        @strongify(self);
+        
+        if (self.headerImgViewDidClick) {
+            
+            self.headerImgViewDidClick();
+        }
+    }];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

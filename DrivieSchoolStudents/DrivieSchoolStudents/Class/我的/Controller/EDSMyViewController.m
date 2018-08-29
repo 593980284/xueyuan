@@ -7,6 +7,9 @@
 //
 
 #import "EDSMyViewController.h"
+#import "EDSSchoolMessageViewController.h"//学校信箱
+#import "EDSPersonalSettingsViewController.h"//个人设置
+#import "EDSCourseRecordViewController.h"//课程记录
 
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
@@ -42,8 +45,14 @@
                          ],
                      ];
     
+    @weakify(self);
     EDSMyHeaderView *headerView = [[EDSMyHeaderView alloc] init];
     headerView.wz_size = CGSizeMake(kScreenWidth, MyTableViewHeaderViewH);
+    headerView.headerImgViewDidClick = ^{
+        @strongify(self);
+        EDSPersonalSettingsViewController *vc = [[EDSPersonalSettingsViewController alloc] initWithNibName:@"EDSPersonalSettingsViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -85,5 +94,19 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [UIView viewWithBackgroundColor:TableColor superView:nil];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *string = self.cellArr[indexPath.section][indexPath.row][0];
+    if ([string isEqualToString:@"学校信箱"]) {
+        
+        EDSSchoolMessageViewController *vc = [[EDSSchoolMessageViewController alloc] initWithNibName:@"EDSSchoolMessageViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([string isEqualToString:@"课程记录"]){
+        
+        EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 @end

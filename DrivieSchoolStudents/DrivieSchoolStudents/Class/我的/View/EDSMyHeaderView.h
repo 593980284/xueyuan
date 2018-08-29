@@ -10,4 +10,6 @@
 
 @interface EDSMyHeaderView : UIView
 
+@property (nonatomic, copy) void (^headerImgViewDidClick)(void);
+
 @end

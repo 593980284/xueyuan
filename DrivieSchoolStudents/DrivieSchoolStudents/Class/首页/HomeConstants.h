@@ -22,4 +22,7 @@
 #define EDSCheckSiteCollectionViewCellH                             70
 #define EDSCheckSiteCollectionViewCellW                             345
 
+#define EDSSubscribeApplyOneTableViewCellH                          155
+#define EDSSubscribeApplyTwoTableViewCellH                          255
+
 #endif /* HomeConstants_h */

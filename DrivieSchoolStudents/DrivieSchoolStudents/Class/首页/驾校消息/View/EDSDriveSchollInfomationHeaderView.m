@@ -18,6 +18,17 @@
 
 @implementation EDSDriveSchollInfomationHeaderView
 
+- (void)setFirstBtnString:(NSString *)firstBtnString
+{
+    _firstBtnString = firstBtnString;
+    
+    if (firstBtnString.length > 0) {
+        
+        [self.scoreBtn setTitle:firstBtnString forState:UIControlStateNormal];
+        [self.scoreBtn setTitle:firstBtnString forState:UIControlStateSelected];
+    }
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];

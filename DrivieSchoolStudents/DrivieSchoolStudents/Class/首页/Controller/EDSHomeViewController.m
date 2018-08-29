@@ -9,6 +9,8 @@
 #import "EDSHomeViewController.h"
 #import "EDSDrivingSchoolInformationViewController.h"//驾校信息
 #import "EDSPSWLogoViewController.h"//登录
+#import "EDSSubscribeApplyViewController.h"//预约报名
+#import "EDSOnlineAboutClassViewController.h"//在线约课
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -67,6 +69,14 @@
     if ([titleStr isEqualToString:@"驾校信息"]) {
         
         EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"预约报名"]){
+        
+        EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"在线约课"]){
+        
+        EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
