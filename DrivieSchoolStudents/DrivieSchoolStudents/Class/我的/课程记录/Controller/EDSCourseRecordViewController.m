@@ -9,6 +9,8 @@
 #import "EDSCourseRecordViewController.h"
 
 #import "EDSCourseRecordTableViewCell.h"
+#import "EDSCourseRecordCompleteTableViewCell.h"
+#import "EDSCourseRecordHeaderView.h"
 
 @interface EDSCourseRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -29,6 +31,13 @@
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(45);
     }];
+    
+    EDSCourseRecordHeaderView *headerView = [[EDSCourseRecordHeaderView alloc] init];
+    [self.view addSubview:headerView];
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.height.mas_equalTo(45);
+    }];
 }
 
 
@@ -46,10 +55,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    EDSCourseRecordTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordTableViewCell"];
+//    EDSCourseRecordTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordTableViewCell"];
+//
+//    if (!cell) {
+//        cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSCourseRecordTableViewCell" owner:self options:nil].firstObject;
+//    }
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//    return cell;
+    
+    
+    EDSCourseRecordCompleteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordCompleteTableViewCell"];
     
     if (!cell) {
-        cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSCourseRecordTableViewCell" owner:self options:nil].firstObject;
+        cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSCourseRecordCompleteTableViewCell" owner:self options:nil].firstObject;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

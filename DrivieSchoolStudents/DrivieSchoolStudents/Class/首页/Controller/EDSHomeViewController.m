@@ -11,6 +11,7 @@
 #import "EDSPSWLogoViewController.h"//登录
 #import "EDSSubscribeApplyViewController.h"//预约报名
 #import "EDSOnlineAboutClassViewController.h"//在线约课
+#import "EDSTheoryLearningViewController.h"//理论学习
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -77,6 +78,10 @@
     }else if ([titleStr isEqualToString:@"在线约课"]){
         
         EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"理论学习"]){
+        
+        EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

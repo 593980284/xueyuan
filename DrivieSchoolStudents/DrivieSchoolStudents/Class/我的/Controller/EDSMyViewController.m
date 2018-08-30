@@ -10,6 +10,7 @@
 #import "EDSSchoolMessageViewController.h"//学校信箱
 #import "EDSPersonalSettingsViewController.h"//个人设置
 #import "EDSCourseRecordViewController.h"//课程记录
+#import "EDSLearningSituationViewController.h"//学习情况
 
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
@@ -106,6 +107,9 @@
     }else if ([string isEqualToString:@"课程记录"]){
         
         EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([string isEqualToString:@"学习查询"]){
+        EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

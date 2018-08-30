@@ -39,6 +39,7 @@
 #import "NSString+JSJTextSize.h"
 #import "UIView+BHYCore.h"
 #import "CALayer+BHYXibBorderColor.h"
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
 
 #endif
 
