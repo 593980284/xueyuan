@@ -7,6 +7,7 @@
 //
 
 #import "EDSCourseRecordViewController.h"
+#import "EDSCourseRecordDetailViewController.h"//课程详情
 
 #import "EDSCourseRecordTableViewCell.h"
 #import "EDSCourseRecordCompleteTableViewCell.h"
@@ -73,6 +74,12 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EDSCourseRecordDetailViewController *vc = [[EDSCourseRecordDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -1,25 +1,21 @@
 //
-//  EDSPracticeFooterView.m
+//  EDSCourseRecordDetailFooterView.m
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/8/30.
+//  Created by 卓森 on 2018/8/31.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSPracticeFooterView.h"
+#import "EDSCourseRecordDetailFooterView.h"
 
-@interface EDSPracticeFooterView ()
-
-@end
-
-@implementation EDSPracticeFooterView
+@implementation EDSCourseRecordDetailFooterView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        return [[[NSBundle mainBundle] loadNibNamed:@"EDSPracticeFooterView" owner:self options:nil] lastObject];
+        return [[[NSBundle mainBundle] loadNibNamed:@"EDSCourseRecordDetailFooterView" owner:self options:nil] lastObject];
     }
     return self;
 }

@@ -13,6 +13,8 @@
 #import "EDSOnlineAboutClassViewController.h"//在线约课
 #import "EDSTheoryLearningViewController.h"//理论学习
 
+#import "EDSDrivingShcoolDetailViewController.h"
+
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
 
@@ -49,6 +51,9 @@
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
     
     [self homeRequestData];
+    
+    EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] initWithNibName:@"EDSDrivingShcoolDetailViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)setupNavigationView

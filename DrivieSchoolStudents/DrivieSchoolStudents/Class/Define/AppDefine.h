@@ -17,7 +17,7 @@
 
 
 //域名
-#define LINEURL @"http://111.39.245.156:8087/dtms_nanj4.0"              //域名
+#define LINEURL @"http://111.39.245.156:8087"              //域名
 
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
 #define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置

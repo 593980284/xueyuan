@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSCourseRecordDetailHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="QGu-Vx-4O4">
+                    <rect key="frame" x="15" y="15" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="GE8-sw-V58"/>
+                        <constraint firstAttribute="width" constant="80" id="dfk-7h-5i0"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-ns-dny">
+                    <rect key="frame" x="125" y="20" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五年执教  科目二、三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prz-OS-ybV">
+                    <rect key="frame" x="125" y="47" width="137" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-C3-nvg">
+                    <rect key="frame" x="345" y="22" width="15" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luo-x5-P7d" customClass="EDSDriveStarView">
+                    <rect key="frame" x="125" y="72" width="100" height="15"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="T2y-zD-Pjm"/>
+                        <constraint firstAttribute="height" constant="15" id="zaL-wc-Tpn"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.5分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7B-u4-h0L">
+                    <rect key="frame" x="225" y="72" width="31" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Prz-OS-ybV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7kI-77-Hgd"/>
+                <constraint firstItem="Luo-x5-P7d" firstAttribute="top" secondItem="Prz-OS-ybV" secondAttribute="bottom" constant="8" id="Bo4-M8-NdM"/>
+                <constraint firstItem="ugl-ns-dny" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="PkM-eU-3PR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yv4-C3-nvg" secondAttribute="trailing" constant="15" id="S2R-Sg-1BV"/>
+                <constraint firstItem="QGu-Vx-4O4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Std-D0-lFl"/>
+                <constraint firstItem="Yv4-C3-nvg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="22" id="WPp-GL-55H"/>
+                <constraint firstItem="Luo-x5-P7d" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="aEQ-Eb-VO1"/>
+                <constraint firstItem="y7B-u4-h0L" firstAttribute="centerY" secondItem="Luo-x5-P7d" secondAttribute="centerY" id="bf2-lW-D7x"/>
+                <constraint firstItem="ugl-ns-dny" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="gHZ-bJ-LXk"/>
+                <constraint firstItem="QGu-Vx-4O4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jM3-ar-ZVV"/>
+                <constraint firstItem="Prz-OS-ybV" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="kCt-L6-Ghq"/>
+                <constraint firstItem="y7B-u4-h0L" firstAttribute="leading" secondItem="Luo-x5-P7d" secondAttribute="trailing" id="udy-B7-qvg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="-168"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="placeholderimg.png" width="200" height="160"/>
+    </resources>
+</document>

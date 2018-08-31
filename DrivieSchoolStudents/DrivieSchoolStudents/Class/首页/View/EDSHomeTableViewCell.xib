@@ -70,10 +70,10 @@
                         <rect key="frame" x="125" y="69" width="10" height="14"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flj-L7-fJW" customClass="EDSDriveStarView">
-                        <rect key="frame" x="125" y="42.5" width="159" height="15"/>
+                        <rect key="frame" x="125" y="42.5" width="100" height="15"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="159" id="70U-eo-E0v"/>
+                            <constraint firstAttribute="width" constant="100" id="70U-eo-E0v"/>
                             <constraint firstAttribute="height" constant="15" id="bbO-e3-yvy"/>
                         </constraints>
                     </view>

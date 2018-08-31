@@ -10,5 +10,8 @@
 
 @interface EDSDriveStarView : UIView
 
+@property (nonatomic, copy) void (^startBackNumber)(NSInteger  selectNumber);
+
 @property (nonatomic, assign) NSInteger  selectNumber;
+@property (nonatomic, assign) BOOL  isChooes;
 @end

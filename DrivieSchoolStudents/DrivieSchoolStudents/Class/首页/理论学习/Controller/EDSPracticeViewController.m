@@ -10,6 +10,7 @@
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSPracticeTableViewCell.h"
+#import "EDSPracticeFooterView.h"
 
 #import "EDSQuestionModel.h"
 
@@ -23,13 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"错题回顾";
+    self.navigationItem.title = @"练习";
     self.view.backgroundColor = WhiteColor;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorColor = ClearColor;
     self.tableView.backgroundColor = WhiteColor;
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.bottom.mas_equalTo(-120);
+    }];
     
     EDSPracticeHeaderView *headerView = [[EDSPracticeHeaderView alloc] init];
     self.tableView.tableHeaderView = headerView;
@@ -40,6 +45,14 @@
     
     [self.tableView.tableHeaderView layoutIfNeeded];
     self.tableView.tableHeaderView = headerView;
+    
+    
+    EDSPracticeFooterView *footerView = [[EDSPracticeFooterView alloc] init];
+    [self.view addSubview:footerView];
+    [footerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(120);
+    }];
 }
 
 
