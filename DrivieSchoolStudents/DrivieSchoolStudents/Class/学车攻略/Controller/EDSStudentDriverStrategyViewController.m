@@ -32,7 +32,6 @@
         DLog(@"%@",backBlock);
     };
     
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -71,4 +70,5 @@
 {
     return StudentDriverStrategTableViewCellH;
 }
+
 @end

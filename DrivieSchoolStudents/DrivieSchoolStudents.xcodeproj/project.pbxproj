@@ -20,7 +20,6 @@
 		E96E9B5B2138F3D000B103D2 /* EDSCourseRecordCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B592138F3D000B103D2 /* EDSCourseRecordCommentViewController.m */; };
 		E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */; };
 		E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B5E2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m */; };
-		E96E9B612139389C00B103D2 /* EDSDrivingShcoolDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96E9B5F2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.xib */; };
 		E9A6196421338E4C006E5C2B /* EDSHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6196221338E4C006E5C2B /* EDSHomeTableViewCell.m */; };
 		E9A6196521338E4C006E5C2B /* EDSHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A6196321338E4C006E5C2B /* EDSHomeTableViewCell.xib */; };
 		E9A6196821339150006E5C2B /* driveImg.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A6196721339150006E5C2B /* driveImg.png */; };
@@ -193,7 +192,6 @@
 		E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSCourseRecordCommentViewController.xib; sourceTree = "<group>"; };
 		E96E9B5D2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDrivingShcoolDetailViewController.h; sourceTree = "<group>"; };
 		E96E9B5E2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSDrivingShcoolDetailViewController.m; sourceTree = "<group>"; };
-		E96E9B5F2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSDrivingShcoolDetailViewController.xib; sourceTree = "<group>"; };
 		E9A6196121338E4C006E5C2B /* EDSHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeTableViewCell.h; sourceTree = "<group>"; };
 		E9A6196221338E4C006E5C2B /* EDSHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeTableViewCell.m; sourceTree = "<group>"; };
 		E9A6196321338E4C006E5C2B /* EDSHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -693,7 +691,6 @@
 				E9A619EE2135157E006E5C2B /* EDSDrivingDetailsViewController.m */,
 				E96E9B5D2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.h */,
 				E96E9B5E2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m */,
-				E96E9B5F2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1363,7 +1360,6 @@
 				E9A61A6E21369494006E5C2B /* EDSSchoolMessageViewController.xib in Resources */,
 				E9A619AF2133D24F006E5C2B /* EDSMyTableViewCell.xib in Resources */,
 				E9A619C62133F71A006E5C2B /* EDSDriveSchollInfomationSearchView.xib in Resources */,
-				E96E9B612139389C00B103D2 /* EDSDrivingShcoolDetailViewController.xib in Resources */,
 				E9A61A9C21378772006E5C2B /* EDSCourseRecordHeaderView.xib in Resources */,
 				E9A619F421351852006E5C2B /* EDSDrivingDetailsFooterView.xib in Resources */,
 				E9A61A3421363CAB006E5C2B /* EDSSubscribeApplyTwoTableViewCell.xib in Resources */,

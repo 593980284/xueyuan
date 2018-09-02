@@ -37,6 +37,7 @@
 @property (nonatomic, strong) UIButton  *coachBtn;
 /** 指示器 */
 @property (nonatomic, strong) UIView  *indicatorView;
+
 @end
 
 @implementation EDSEDSDrivingDetailsHeaderView

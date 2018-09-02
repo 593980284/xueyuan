@@ -8,19 +8,18 @@
 
 #import "EDSDrivingShcoolDetailViewController.h"
 
-@interface EDSDrivingShcoolDetailViewController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "EDSEDSDrivingDetailsHeaderView.h"
 
 
-@property (weak, nonatomic) IBOutlet UIView *topView;
+#define kTopView_Height 200
+#define kItemheight 100
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *view4;
-@property (weak, nonatomic) IBOutlet UIView *view1;
+@interface EDSDrivingShcoolDetailViewController ()<UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *subViews;
+@property (strong, nonatomic) UIScrollView *bottomScrollView;
+@property (strong, nonatomic) EDSEDSDrivingDetailsHeaderView *topView;
 
-@property (nonatomic, strong) UITableView  *tableView;
+
 @end
 
 @implementation EDSDrivingShcoolDetailViewController
@@ -28,75 +27,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollViewHeight.constant = 139 - 45 - 64 +  kScreenHeight;
-    
-    self.view4.alpha = 0.0;
-    self.view1.alpha = 1.0;
-    
-    self.scrollView.delegate = self;
-    
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    [self.subViews addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
+    [self.view addSubview:self.bottomScrollView];
+    [self.view addSubview:self.topView];
 }
 
-#pragma mark ------------------------ tableView --------------------------------
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 20;
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (UIScrollView *)bottomScrollView
 {
-    return 1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 45;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // 1.确定重用标示:
-    static NSString *ID = @"UITableViewCell";
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    // 3.如果空就手动创建
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    if (!_bottomScrollView) {
+        _bottomScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        _bottomScrollView.contentSize = CGSizeMake(kScreenWidth, 0);
+        _bottomScrollView.showsVerticalScrollIndicator = NO;
+        _bottomScrollView.showsHorizontalScrollIndicator = NO;
+        _bottomScrollView.pagingEnabled = YES;
+        _bottomScrollView.delegate = self;
+        
+//        [_bottomScrollView addSubview:self.firstTableView];
+//        [_bottomScrollView addSubview:self.secondTableView];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",(long)indexPath.row];
-    
-    return cell;
+    return _bottomScrollView;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+
+- (EDSEDSDrivingDetailsHeaderView *)topView
 {
-    self.view4.alpha = scrollView.contentOffset.y/45.0;
-    self.view1.alpha = 1 - scrollView.contentOffset.y/94.0;
-    
-    CGFloat placeHolderHeight = 194 - 100;
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    
-    if (offsetY >= 0 && offsetY <= placeHolderHeight) {
-        self.topView.wz_y = -offsetY;
+    if (!_topView) {
+        _topView = [[EDSEDSDrivingDetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kTopView_Height)];
+        _topView.itemHeight = kItemheight;
     }
-    else if (offsetY > placeHolderHeight) {
-        self.topView.wz_y = - placeHolderHeight;
-    }
-    else if (offsetY <0) {
-        self.topView.wz_y =  - offsetY;
-    }
-    
-    
+    return _topView;
 }
 
 @end

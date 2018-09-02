@@ -11,4 +11,10 @@
 @interface EDSEDSDrivingDetailsHeaderView : UICollectionReusableView
 /** 数据 */
 @property (nonatomic, strong) NSArray  *headerModel;
+
+@property (assign, nonatomic) CGFloat itemHeight;
+
+
+@property (assign, nonatomic, getter=getSelectedItemIndex) NSInteger selectedItemIndex;
+
 @end
