@@ -43,6 +43,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="164" height="215"/>
+            <connections>
+                <outlet property="styleNameLbl" destination="uPb-WE-zpm" id="FSi-LI-Va0"/>
+                <outlet property="stylePhoto" destination="edJ-u0-Fm8" id="ZlD-k9-csj"/>
+            </connections>
             <point key="canvasLocation" x="-246" y="33"/>
         </collectionViewCell>
     </objects>

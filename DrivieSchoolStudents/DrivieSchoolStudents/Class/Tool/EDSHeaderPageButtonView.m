@@ -69,7 +69,7 @@
             self->_selectBtn.selected = NO;
             btn.selected = YES;
             self->_selectBtn = btn;
-            [self indicatorAnimationWithCenterX:btn.wz_centerX];
+            [self indicatorAnimationWithCenterX:btn];
             if (self.headerPageButtonDidSelectStringback) {
                 
                 self.headerPageButtonDidSelectStringback(self.btnArr[i]);
@@ -80,7 +80,7 @@
             btn.selected = YES;
             _selectBtn = btn;
             
-            [_indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(50, 2));
                 make.bottom.mas_equalTo(0);
                 make.centerX.mas_equalTo(btn.mas_centerX);
@@ -95,11 +95,17 @@
     }];
 }
 
-- (void)indicatorAnimationWithCenterX:(CGFloat)centerX
+- (void)indicatorAnimationWithCenterX:(UIButton *)centerX
 {
     [UIView animateWithDuration:0.3 animations:^{
         
-        self.indicatorView.wz_centerX = centerX;
+        [self.indicatorView  mas_remakeConstraints:^(MASConstraintMaker *make) {
+            
+            make.size.mas_equalTo(CGSizeMake(50, 2));
+            make.bottom.mas_equalTo(0);
+            make.centerX.mas_equalTo(centerX.mas_centerX);
+        }];
+//        self.indicatorView.wz_centerX = centerX;
     }];
 }
 

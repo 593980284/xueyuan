@@ -37,6 +37,9 @@
     self.carTypeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
     self.carTypeBgView.layer.borderWidth = 1;
     
+    [self.drivingSchoolBgView bk_whenTapped:^{
+        DLog(@"选择驾校");
+    }];
     
     [self.carTypeBgView bk_whenTapped:^{
         DLog(@"选择车型");

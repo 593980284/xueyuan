@@ -14,6 +14,8 @@
 #import "EDSSubscribeApplyOneTableViewCell.h"
 #import "EDSSubscribeApplyTwoTableViewCell.h"
 
+#import "EDSStudentPreSignUpRequest.h"
+
 @interface EDSSubscribeApplyViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 
 @end
@@ -68,6 +70,11 @@
         make.height.mas_equalTo(45);
         make.bottom.mas_equalTo(-18);
     }];
+    @weakify(self);
+    [determineBtn bk_whenTapped:^{
+        @strongify(self);
+        [self requestData];
+    }];
     
     UILabel *label = [UILabel labelWithText:@"注：驾校工作时间为9:00:00-17:00:00" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,6 +83,24 @@
     }];
 }
 
+#pragma mark ------------------------ 网络请求 --------------------------------
+- (void)requestData
+{
+    EDSStudentPreSignUpRequest *request = [EDSStudentPreSignUpRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    request.schoolId = @"1";
+    request.studentName = @"12";
+    request.certNo = @"34232342342422324";
+    request.mobile = @"17625296836";
+    request.applyDriveCar = @"C1";
+    request.appointmentTime = @"2018-12-12 下午";
+    request.signupSource = @"1";
+    [request startRequest];
+}
 
 #pragma make ------ tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

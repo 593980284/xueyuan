@@ -11,8 +11,11 @@
 #import "EDSDriveStarView.h"
 #import "EDSHeaderPageButtonView.h"
 
+#import "EDSSchoolInformationDetailModel.h"
 
 @interface EDSEDSDrivingDetailsHeaderView ()
+
+
 /** 图片 */
 @property (nonatomic, strong) UIImageView  *drivingImgView;
 /** 驾校名 */
@@ -29,14 +32,12 @@
 @property (nonatomic, strong) UILabel  *driveAddressLbl;
 
 
-/** 简介 */
-@property (nonatomic, strong) UIButton  *introductionBtn;
-/** 教学风采 */
-@property (nonatomic, strong) UIButton  *teachingStyleBtn;
-/** 教练员 */
-@property (nonatomic, strong) UIButton  *coachBtn;
-/** 指示器 */
-@property (nonatomic, strong) UIView  *indicatorView;
+/** 驾校名 */
+@property (nonatomic, strong) UILabel  *commentDriveNameLbl;
+/** 星级 */
+@property (nonatomic, strong) EDSDriveStarView  *commentDriveStarView;
+/** 分数 */
+@property (nonatomic, strong) UILabel  *commentDriveScoreLbl;
 
 @end
 
@@ -47,6 +48,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = WhiteColor;
     }
     return self;
 }
@@ -55,6 +57,49 @@
 - (instancetype)init
 {
     return [self initWithFrame:self.frame];
+}
+
+
+
+- (void)setItemHeight:(CGFloat)itemHeight
+{
+    _itemHeight = itemHeight;
+}
+
+- (void)setSelectedItemIndex:(NSInteger)selectedItemIndex
+{
+    _selectedItemIndex = selectedItemIndex;
+}
+
+- (void)setInformationDetailModel:(EDSSchoolInformationDetailModel *)informationDetailModel
+{
+    _informationDetailModel = informationDetailModel;
+    
+    [self.drivingImgView sd_setImageWithURL:[NSURL URLWithString:informationDetailModel.showSchoolPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    
+    self.drivingNameLbl.text = informationDetailModel.schoolName;
+    
+    self.drivingPriceLbl.text = informationDetailModel.showSchoolPrice;
+    
+    self.driveScoreLbl.text = informationDetailModel.showStarScore;
+    
+    self.driveAddressLbl.text = informationDetailModel.address;
+    
+    self.driveStarView.selectNumber = informationDetailModel.showStarScoreInterger;
+    
+    @weakify(self);
+    [self.chectSiteBtn bk_whenTapped:^{
+        @strongify(self);
+        if (self.drivingDetailsHeaderViewDidSelectStringback) {
+            self.drivingDetailsHeaderViewDidSelectStringback(@"查看场地");
+        }
+    }];
+    self.commentBgView.alpha = 0.0;
+    self.driveSchoolBgView.alpha = 1.0;
+    
+    self.commentDriveScoreLbl.text = informationDetailModel.showStarScore;
+    self.commentDriveStarView.selectNumber = informationDetailModel.showStarScoreInterger;
+    self.commentDriveNameLbl.text = informationDetailModel.schoolName;
 }
 
 - (void)setHeaderModel:(NSArray *)headerModel
@@ -71,16 +116,39 @@
     
     self.driveAddressLbl.text = @"南京市长江路南京市长江路1234号";
     
+    @weakify(self);
     [self.chectSiteBtn bk_whenTapped:^{
-        DLog(@"查看场地");
+        @strongify(self);
+        if (self.drivingDetailsHeaderViewDidSelectStringback) {
+            self.drivingDetailsHeaderViewDidSelectStringback(@"查看场地");
+        }
     }];
+    self.commentBgView.alpha = 0.0;
+    self.driveSchoolBgView.alpha = 1.0;
+    
+    self.commentDriveScoreLbl.text = @"5分";
+    self.commentDriveStarView.selectNumber = 3;
+    self.commentDriveNameLbl.text = @"hahahha";
+}
+
+- (UIView *)driveSchoolBgView
+{
+    if (!_driveSchoolBgView) {
+        
+        _driveSchoolBgView = [UIView viewWithBackgroundColor:WhiteColor superView:self];
+        [_driveSchoolBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.mas_equalTo(0);
+            make.height.mas_equalTo(139);
+        }];
+    }
+    return _driveSchoolBgView;
 }
 
 - (UIImageView *)drivingImgView
 {
     if (!_drivingImgView) {
         
-        _drivingImgView = [UIImageView imageViewWithSuperView:self];
+        _drivingImgView = [UIImageView imageViewWithSuperView:self.driveSchoolBgView];
         [_drivingImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 80));
             make.left.top.mas_equalTo(15);
@@ -94,7 +162,7 @@
 {
     if (!_drivingNameLbl) {
         
-        _drivingNameLbl = [UILabel labelWithText:@"小白驾校" font:[UIFont boldSystemFontOfSize:17] textColor:FirstColor backGroundColor:ClearColor superView:self];
+        _drivingNameLbl = [UILabel labelWithText:@"小白驾校" font:[UIFont boldSystemFontOfSize:17] textColor:FirstColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
         [_drivingNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self->_drivingImgView.mas_right).mas_equalTo(10);
             make.top.mas_equalTo(self->_drivingImgView.mas_top);
@@ -107,7 +175,7 @@
 {
     if (!_drivingPriceLbl) {
         
-        _drivingPriceLbl = [UILabel labelWithText:@"￥3000.00" font:kFont(14) textColor:[EDSToolClass getColorWithHexString:@"#FF571D"] backGroundColor:ClearColor superView:self];
+        _drivingPriceLbl = [UILabel labelWithText:@"￥3000.00" font:kFont(14) textColor:[EDSToolClass getColorWithHexString:@"#FF571D"] backGroundColor:ClearColor superView:self.driveSchoolBgView];
         [_drivingPriceLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
             make.top.mas_equalTo(self->_drivingImgView.mas_top);
@@ -122,7 +190,7 @@
         
         _driveStarView = [[EDSDriveStarView alloc] initWithFrame:CGRectMake(0, 0, 100, 15)];
         _driveStarView.selectNumber = 2;
-        [self addSubview:_driveStarView];
+        [self.driveSchoolBgView addSubview:_driveStarView];
         [_driveStarView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 15));
             make.left.mas_equalTo(self->_drivingNameLbl.mas_left);
@@ -136,7 +204,7 @@
 {
     if (!_driveScoreLbl) {
         
-        _driveScoreLbl = [UILabel labelWithText:@"8分" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self];
+        _driveScoreLbl = [UILabel labelWithText:@"8分" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
         [_driveScoreLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.driveStarView.mas_centerY);
             make.left.mas_equalTo(self.driveStarView.mas_right).mas_equalTo(13);
@@ -154,7 +222,7 @@
         [_chectSiteBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
         [_chectSiteBtn setTitle:@"查看场地" forState:UIControlStateNormal];
         [_chectSiteBtn setBackgroundColor:ThemeColor];
-        [self addSubview:_chectSiteBtn];
+        [self.driveSchoolBgView addSubview:_chectSiteBtn];
         _chectSiteBtn.layer.cornerRadius = 5;
         _chectSiteBtn.layer.masksToBounds = YES;
         _chectSiteBtn.titleLabel.font = kFont(14);
@@ -171,7 +239,7 @@
 {
     if (!_driveAddressLbl) {
         
-        UIImageView *addressImgView = [UIImageView imageViewWithSuperView:self];
+        UIImageView *addressImgView = [UIImageView imageViewWithSuperView:self.driveSchoolBgView];
         addressImgView.image = [UIImage imageNamed:@"map_content_icon_default"];
         [addressImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(10, 14));
@@ -179,7 +247,7 @@
             make.top.mas_equalTo(self->_drivingImgView.mas_bottom).mas_equalTo(15);
         }];
         
-        _driveAddressLbl = [UILabel labelWithText:@"南京市长江路南京市长江路1234号" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self];
+        _driveAddressLbl = [UILabel labelWithText:@"南京市长江路南京市长江路1234号" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
         [_driveAddressLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(addressImgView.mas_centerY);
             make.left.mas_equalTo(addressImgView.mas_right).mas_equalTo(8);
@@ -191,6 +259,7 @@
             make.left.right.bottom.mas_equalTo(0);
             make.height.mas_equalTo(44);
         }];
+        
         [self addFuntionBtnViewWithParentView:btnBgView];
         
         
@@ -204,18 +273,85 @@
     return _driveAddressLbl;
 }
 
+- (UIView *)commentBgView
+{
+    if (!_commentBgView) {
+        
+        _commentBgView = [UIView viewWithBackgroundColor:WhiteColor superView:self];
+        [_commentBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.driveSchoolBgView.mas_bottom);
+            make.height.mas_equalTo(46);
+        }];
+        
+        
+    }
+    return _commentBgView;
+}
+
+
+- (UILabel *)commentDriveNameLbl
+{
+    if (!_commentDriveNameLbl) {
+        
+        _commentDriveNameLbl = [UILabel labelWithText:@"小白驾校" font:[UIFont boldSystemFontOfSize:17] textColor:FirstColor backGroundColor:ClearColor superView:self.commentBgView];
+        [_commentDriveNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.centerY.mas_equalTo(0);
+        }];
+    }
+    return _commentDriveNameLbl;
+}
+
+- (UILabel *)commentDriveScoreLbl
+{
+    if (!_commentDriveScoreLbl) {
+        
+        _commentDriveScoreLbl = [UILabel labelWithText:@"8分" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.commentBgView];
+        [_commentDriveScoreLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(-15);
+            make.centerY.mas_equalTo(0);
+        }];
+    }
+    return _commentDriveScoreLbl;
+}
+
+- (EDSDriveStarView *)commentDriveStarView
+{
+    if (!_commentDriveStarView) {
+        
+        _commentDriveStarView = [[EDSDriveStarView alloc] initWithFrame:CGRectMake(0, 0, 100, 15)];
+        [self.commentBgView addSubview:_commentDriveStarView];
+        [_commentDriveStarView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 15));
+            make.centerY.mas_equalTo(0);
+            make.right.mas_equalTo(self.commentDriveScoreLbl.mas_left).mas_equalTo(-10);
+        }];
+    }
+    return _commentDriveStarView;
+}
+
+- (void)addCommentSubViewWithParentView:(UIView *)parentView
+{
+    
+}
 
 - (void)addFuntionBtnViewWithParentView:(UIView *)parentView
 {
     EDSHeaderPageButtonView *headerView = [[EDSHeaderPageButtonView alloc] init];
     headerView.btnArr = @[@"简介",@"教学风采",@"教练员"];
     [parentView addSubview:headerView];
+    @weakify(self);
     headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
-        
+        @strongify(self);
+        if (self.drivingDetailsHeaderViewDidSelectStringback) {
+            self.drivingDetailsHeaderViewDidSelectStringback(titleStr);
+        }
     };
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    
     /*
     UIView *line = [UIView viewWithBackgroundColor:TableColor superView:parentView];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {

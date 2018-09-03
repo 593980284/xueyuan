@@ -10,4 +10,6 @@
 
 @interface EDSDrivingShcoolDetailViewController : UIViewController
 
+@property (assign, nonatomic) CGPoint printPoint;
+
 @end

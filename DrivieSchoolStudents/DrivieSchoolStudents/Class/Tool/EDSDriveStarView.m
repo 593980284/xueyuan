@@ -57,6 +57,7 @@
             make.centerY.mas_equalTo(0);
             make.left.mas_equalTo(W*i);
         }];
+        starImgView.userInteractionEnabled = self.isChooes;
         
         [starImgView bk_whenTapped:^{
             
@@ -87,17 +88,14 @@
 {
     _selectNumber = selectNumber;
     
-    if (self.isChooes) {
-        
-        for (int j = 0; j < self.viewMulArr.count; j ++ ) {
-            UIImageView *imageView = self.viewMulArr[j];
-            if (j < selectNumber) {
-                
-                imageView.image = [UIImage imageNamed:@"star_content_icon_selected"];
-            }else{
-                
-                imageView.image = [UIImage imageNamed:@"star_content_icon_default"];
-            }
+    for (int j = 0; j < self.viewMulArr.count; j ++ ) {
+        UIImageView *imageView = self.viewMulArr[j];
+        if (j < selectNumber) {
+            
+            imageView.image = [UIImage imageNamed:@"star_content_icon_selected"];
+        }else{
+            
+            imageView.image = [UIImage imageNamed:@"star_content_icon_default"];
         }
     }
 }

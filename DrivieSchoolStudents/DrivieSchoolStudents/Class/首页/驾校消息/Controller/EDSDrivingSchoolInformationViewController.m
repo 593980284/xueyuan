@@ -7,7 +7,7 @@
 //
 
 #import "EDSDrivingSchoolInformationViewController.h"
-#import "EDSDrivingDetailsViewController.h"//驾校详情
+#import "EDSDrivingShcoolDetailViewController.h"//驾校详情
 
 #import "EDSDriveSchollInfomationSearchView.h"
 #import "EDSDriveSchollInfomationHeaderView.h"
@@ -61,10 +61,12 @@
     _firstBtnString = firstBtnString;
 }
 
+
+
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 110;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -93,7 +95,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDSDrivingDetailsViewController *vc = [[EDSDrivingDetailsViewController alloc] init];
+    EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

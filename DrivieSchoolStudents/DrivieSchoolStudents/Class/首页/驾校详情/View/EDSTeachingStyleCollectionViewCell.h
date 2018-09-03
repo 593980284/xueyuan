@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class EDSSchoolStyleModel;
+
 @interface EDSTeachingStyleCollectionViewCell :UICollectionViewCell
 
+/** 数据 */
+@property (nonatomic, strong) EDSSchoolStyleModel  *styleModel;
 @end
 
