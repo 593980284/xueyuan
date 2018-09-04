@@ -146,6 +146,10 @@
             
             EDSStudentLoginRequest *request = [EDSStudentLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
+                if (errCode == 1) {
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
                 
             } failureBlock:^(NSError *error) {
                 

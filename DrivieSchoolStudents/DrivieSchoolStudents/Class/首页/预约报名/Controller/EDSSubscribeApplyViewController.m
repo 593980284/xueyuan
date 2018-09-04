@@ -10,7 +10,7 @@
 #import "EDSDrivingSchoolInformationViewController.h"
 #import "EDSChooseBoxViewController.h"
 #import "PopAnimator.h"
-#import "UICustomDatePicker.h"
+#import "EDSDataPickerView.h"
 
 #import "HomeConstants.h"
 
@@ -326,14 +326,17 @@
         @weakify(cell);
         cell.subscribeApplyTwoTableDidSelectStringback = ^(NSString *titleStr) {
             
-            [UICustomDatePicker showCustomDatePickerAtView:self.view choosedDateBlock:^(NSString *date) {
+            EDSDataPickerView *datapickerView = [[EDSDataPickerView alloc] init];
+            [self.view addSubview:datapickerView];
+            datapickerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            datapickerView.dataPickerViewBackString = ^(NSString *titleStr) {
+                
                 @strongify(cell);
-                
-                cell.timeLbl.text = date;
-                self->_time = date;
-            } cancelBlock:^{
-                
-            }];
+                NSLog(@"%@",titleStr);
+                cell.timeLbl.text = titleStr;
+                self->_time = titleStr;
+            };
+            
         };
         
         return cell;

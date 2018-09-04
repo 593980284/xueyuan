@@ -41,8 +41,6 @@
 		E965386D213E28F500EDC3B8 /* EDSChooseBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E965386C213E28F500EDC3B8 /* EDSChooseBoxViewController.xib */; };
 		E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E965386F213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m */; };
 		E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653873213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m */; };
-		E9653879213E60FF00EDC3B8 /* UICustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */; };
-		E965387A213E60FF00EDC3B8 /* UICustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */; };
 		E96E9B5B2138F3D000B103D2 /* EDSCourseRecordCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B592138F3D000B103D2 /* EDSCourseRecordCommentViewController.m */; };
 		E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */; };
 		E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B5E2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m */; };
@@ -165,7 +163,6 @@
 		E9BC0499213153F4003A624F /* EDSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC0498213153F4003A624F /* EDSTabBarViewController.m */; };
 		E9BC04A421315626003A624F /* BHYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC049F21315626003A624F /* BHYBaseViewController.m */; };
 		E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04A121315626003A624F /* BHYWebViewViewController.m */; };
-		E9BC04AF2131571B003A624F /* EDSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04AE2131571B003A624F /* EDSMessageViewController.m */; };
 		E9BC04B92131589F003A624F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04B42131589F003A624F /* Reachability.m */; };
 		E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04B82131589F003A624F /* HQMBaseRequest.m */; };
 		E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */; };
@@ -173,6 +170,13 @@
 		E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04C621315FC3003A624F /* EDSHomeFunctionBtn.m */; };
 		E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */; };
 		E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */; };
+		E9D1C152213E8B4F0042F9C3 /* EDSDataPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C14F213E8B4E0042F9C3 /* EDSDataPickerView.m */; };
+		E9D1C153213E8B4F0042F9C3 /* EDSDataPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D1C150213E8B4E0042F9C3 /* EDSDataPickerView.xib */; };
+		E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C156213E8FE80042F9C3 /* EDSMessageViewController.m */; };
+		E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C15D213E90550042F9C3 /* EDSMessageTableViewCell.m */; };
+		E9D1C160213E90550042F9C3 /* EDSMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D1C15E213E90550042F9C3 /* EDSMessageTableViewCell.xib */; };
+		E9D1C163213E936C0042F9C3 /* EDSMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C162213E936C0042F9C3 /* EDSMessageDetailViewController.m */; };
+		E9D1C166213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,9 +259,6 @@
 		E965386F213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSGetcoachCarTypeRequest.m; sourceTree = "<group>"; };
 		E9653872213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSGetcoachCarTypeModel.h; sourceTree = "<group>"; };
 		E9653873213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSGetcoachCarTypeModel.m; sourceTree = "<group>"; };
-		E9653876213E60FF00EDC3B8 /* UICustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomDatePicker.h; sourceTree = "<group>"; };
-		E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICustomDatePicker.xib; sourceTree = "<group>"; };
-		E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomDatePicker.m; sourceTree = "<group>"; };
 		E96E9B582138F3D000B103D2 /* EDSCourseRecordCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCourseRecordCommentViewController.h; sourceTree = "<group>"; };
 		E96E9B592138F3D000B103D2 /* EDSCourseRecordCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCourseRecordCommentViewController.m; sourceTree = "<group>"; };
 		E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSCourseRecordCommentViewController.xib; sourceTree = "<group>"; };
@@ -478,8 +479,6 @@
 		E9BC04A121315626003A624F /* BHYWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHYWebViewViewController.m; sourceTree = "<group>"; };
 		E9BC04A221315626003A624F /* BHYWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHYWebViewViewController.h; sourceTree = "<group>"; };
 		E9BC04A321315626003A624F /* BHYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHYBaseViewController.h; sourceTree = "<group>"; };
-		E9BC04AD2131571B003A624F /* EDSMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageViewController.h; sourceTree = "<group>"; };
-		E9BC04AE2131571B003A624F /* EDSMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageViewController.m; sourceTree = "<group>"; };
 		E9BC04B42131589F003A624F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E9BC04B52131589F003A624F /* HQMBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQMBaseRequest.h; sourceTree = "<group>"; };
 		E9BC04B62131589F003A624F /* HQMRequestCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQMRequestCallback.h; sourceTree = "<group>"; };
@@ -495,6 +494,18 @@
 		E9BC04C821315FCF003A624F /* EDSHomeFunctionBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSHomeFunctionBtn.xib; sourceTree = "<group>"; };
 		E9BC04CA21316161003A624F /* EDSHomeFunctionBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSHomeFunctionBgView.h; sourceTree = "<group>"; };
 		E9BC04CB21316161003A624F /* EDSHomeFunctionBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSHomeFunctionBgView.m; sourceTree = "<group>"; };
+		E9D1C14F213E8B4E0042F9C3 /* EDSDataPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSDataPickerView.m; sourceTree = "<group>"; };
+		E9D1C150213E8B4E0042F9C3 /* EDSDataPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSDataPickerView.xib; sourceTree = "<group>"; };
+		E9D1C151213E8B4F0042F9C3 /* EDSDataPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSDataPickerView.h; sourceTree = "<group>"; };
+		E9D1C156213E8FE80042F9C3 /* EDSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSMessageViewController.m; sourceTree = "<group>"; };
+		E9D1C157213E8FE80042F9C3 /* EDSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSMessageViewController.h; sourceTree = "<group>"; };
+		E9D1C15C213E90550042F9C3 /* EDSMessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageTableViewCell.h; sourceTree = "<group>"; };
+		E9D1C15D213E90550042F9C3 /* EDSMessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageTableViewCell.m; sourceTree = "<group>"; };
+		E9D1C15E213E90550042F9C3 /* EDSMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSMessageTableViewCell.xib; sourceTree = "<group>"; };
+		E9D1C161213E936C0042F9C3 /* EDSMessageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageDetailViewController.h; sourceTree = "<group>"; };
+		E9D1C162213E936C0042F9C3 /* EDSMessageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageDetailViewController.m; sourceTree = "<group>"; };
+		E9D1C164213E969E0042F9C3 /* EDSMessageDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageDetailTableViewCell.h; sourceTree = "<group>"; };
+		E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageDetailTableViewCell.m; sourceTree = "<group>"; };
 		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -638,9 +649,9 @@
 		E9653875213E60FE00EDC3B8 /* UICustomDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				E9653876213E60FF00EDC3B8 /* UICustomDatePicker.h */,
-				E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */,
-				E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */,
+				E9D1C151213E8B4F0042F9C3 /* EDSDataPickerView.h */,
+				E9D1C14F213E8B4E0042F9C3 /* EDSDataPickerView.m */,
+				E9D1C150213E8B4E0042F9C3 /* EDSDataPickerView.xib */,
 			);
 			path = UICustomDatePicker;
 			sourceTree = "<group>";
@@ -1313,8 +1324,8 @@
 		E9BC049D21315608003A624F /* 我的消息 */ = {
 			isa = PBXGroup;
 			children = (
-				E9BC04AD2131571B003A624F /* EDSMessageViewController.h */,
-				E9BC04AE2131571B003A624F /* EDSMessageViewController.m */,
+				E9D1C155213E8FE80042F9C3 /* Controller */,
+				E9D1C154213E8FE80042F9C3 /* View */,
 			);
 			path = "我的消息";
 			sourceTree = "<group>";
@@ -1383,6 +1394,29 @@
 				E9A61A0321352CD7006E5C2B /* EDSDrivingSchoolModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E9D1C154213E8FE80042F9C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D1C15C213E90550042F9C3 /* EDSMessageTableViewCell.h */,
+				E9D1C15D213E90550042F9C3 /* EDSMessageTableViewCell.m */,
+				E9D1C15E213E90550042F9C3 /* EDSMessageTableViewCell.xib */,
+				E9D1C164213E969E0042F9C3 /* EDSMessageDetailTableViewCell.h */,
+				E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D1C155213E8FE80042F9C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9D1C157213E8FE80042F9C3 /* EDSMessageViewController.h */,
+				E9D1C156213E8FE80042F9C3 /* EDSMessageViewController.m */,
+				E9D1C161213E936C0042F9C3 /* EDSMessageDetailViewController.h */,
+				E9D1C162213E936C0042F9C3 /* EDSMessageDetailViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1503,15 +1537,16 @@
 				E9A6196821339150006E5C2B /* driveImg.png in Resources */,
 				E9A619B32133D2D7006E5C2B /* avar.png in Resources */,
 				E9A619B82133D741006E5C2B /* EDSMyHeaderView.xib in Resources */,
+				E9D1C160213E90550042F9C3 /* EDSMessageTableViewCell.xib in Resources */,
 				E9BC04C921315FCF003A624F /* EDSHomeFunctionBtn.xib in Resources */,
 				E9A61A172135666E006E5C2B /* EDSTeachingStyleCollectionViewCell.xib in Resources */,
 				E9A61A4921364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.xib in Resources */,
+				E9D1C153213E8B4F0042F9C3 /* EDSDataPickerView.xib in Resources */,
 				E9A61A7521369CF4006E5C2B /* EDSPersonalSettingsViewController.xib in Resources */,
 				10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */,
 				E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */,
 				E9A61AC32137EDD9006E5C2B /* EDSPracticeFooterView.xib in Resources */,
 				E9A61A5E21368248006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.xib in Resources */,
-				E9653879213E60FF00EDC3B8 /* UICustomDatePicker.xib in Resources */,
 				E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */,
 				E9A6197F2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.xib in Resources */,
 				E9A61A922136AC52006E5C2B /* EDSCourseRecordTableViewCell.xib in Resources */,
@@ -1604,6 +1639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D1C163213E936C0042F9C3 /* EDSMessageDetailViewController.m in Sources */,
 				E9A619DA2134F06A006E5C2B /* EDSStudentLoginRequest.m in Sources */,
 				E9A61AA521379876006E5C2B /* EDSLearningSituationViewController.m in Sources */,
 				E9BC043A213146AE003A624F /* main.m in Sources */,
@@ -1636,9 +1672,10 @@
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
+				E9D1C152213E8B4F0042F9C3 /* EDSDataPickerView.m in Sources */,
+				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
-				E965387A213E60FF00EDC3B8 /* UICustomDatePicker.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
@@ -1659,6 +1696,7 @@
 				E90F9008213D39C30061F448 /* EDSStudentPreSignUpRequest.m in Sources */,
 				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
 				E90F9022213D516A0061F448 /* EDSSchoolRegionModel.m in Sources */,
+				E9D1C166213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m in Sources */,
 				E935C61D2138E756006FB53C /* EDSCourseRecordDetailViewController.m in Sources */,
 				E9A61A072135371D006E5C2B /* EDSMoLocationManager.m in Sources */,
 				E9BC048F21315283003A624F /* UIBarButtonItem+BHYCategory.m in Sources */,
@@ -1673,6 +1711,7 @@
 				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,
 				E9A61A6D21369494006E5C2B /* EDSSchoolMessageViewController.m in Sources */,
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
+				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
 				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
 				E9A61A3321363CAB006E5C2B /* EDSSubscribeApplyTwoTableViewCell.m in Sources */,
 				E9A619E42134FEE3006E5C2B /* EDSHomeRollPictureRequest.m in Sources */,
@@ -1680,7 +1719,6 @@
 				E9A6196B213391EB006E5C2B /* EDSDriveStarView.m in Sources */,
 				E9A61A5521366FB5006E5C2B /* cyhCalenbardate.m in Sources */,
 				E90F9001213D30F60061F448 /* EDSFirstTableViewCell.m in Sources */,
-				E9BC04AF2131571B003A624F /* EDSMessageViewController.m in Sources */,
 				E9A61A9A21378765006E5C2B /* EDSCourseRecordHeaderView.m in Sources */,
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
