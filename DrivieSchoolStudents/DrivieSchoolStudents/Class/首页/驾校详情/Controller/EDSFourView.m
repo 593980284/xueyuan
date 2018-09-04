@@ -47,9 +47,11 @@
 - (void)setup{
     
     self.backgroundColor = WhiteColor;
+    self.listArr = [[NSArray alloc] init];
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.separatorColor = ClearColor;
+    self.tableView.bounces = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self addSubview:self.tableView];
@@ -72,9 +74,15 @@
     
     }];
     
-    request.schoolId = @"140000000111";
+    request.schoolId = self.schoolId;
     request.showHUD = YES;
     [request  startRequest];
+}
+
+- (void)setSchoolId:(NSString *)schoolId
+{
+    _schoolId = schoolId;
+    [self requestData];
 }
 
 #pragma mark ------------------------ tableView --------------------------------
@@ -113,8 +121,10 @@
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
+    DLog(@"%f",offsetY);
+    
     if (offsetY >= 0 && offsetY <= placeHolderHeight) {
-        
+
         self.topView.wz_y = -offsetY;
         self.topView.commentBgView.alpha = offsetY/placeHolderHeight;
         self.topView.driveSchoolBgView.alpha = 1 - offsetY/placeHolderHeight;

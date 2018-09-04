@@ -10,4 +10,7 @@
 
 @interface EDSSubscribeApplyViewController : BHYBaseViewController
 
+/** 驾校消息 @[@"驾校id",@"驾校名称"] */
+@property (nonatomic, strong) NSArray  *schoolArr;
+
 @end

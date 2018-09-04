@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) EDSEDSDrivingDetailsHeaderView  *topView;
 
+/** 学校id */
+@property (nonatomic, copy) NSString *schoolId;
+
 @end

@@ -35,6 +35,14 @@
 		E935C6222138EBD7006FB53C /* EDSCourseRecordDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E935C6212138EBD7006FB53C /* EDSCourseRecordDetailHeaderView.xib */; };
 		E935C6252138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E935C6242138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m */; };
 		E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E935C6262138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib */; };
+		E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */; };
+		E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653866213E266200EDC3B8 /* PopAnimator.m */; };
+		E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653867213E266200EDC3B8 /* PopoverPresentationController.m */; };
+		E965386D213E28F500EDC3B8 /* EDSChooseBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E965386C213E28F500EDC3B8 /* EDSChooseBoxViewController.xib */; };
+		E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E965386F213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m */; };
+		E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653873213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m */; };
+		E9653879213E60FF00EDC3B8 /* UICustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */; };
+		E965387A213E60FF00EDC3B8 /* UICustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */; };
 		E96E9B5B2138F3D000B103D2 /* EDSCourseRecordCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B592138F3D000B103D2 /* EDSCourseRecordCommentViewController.m */; };
 		E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */; };
 		E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96E9B5E2139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m */; };
@@ -236,6 +244,20 @@
 		E935C6232138EF6E006FB53C /* EDSCourseRecordDetailFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCourseRecordDetailFooterView.h; sourceTree = "<group>"; };
 		E935C6242138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCourseRecordDetailFooterView.m; sourceTree = "<group>"; };
 		E935C6262138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSCourseRecordDetailFooterView.xib; sourceTree = "<group>"; };
+		E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSChooseBoxViewController.h; sourceTree = "<group>"; };
+		E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSChooseBoxViewController.m; sourceTree = "<group>"; };
+		E9653866213E266200EDC3B8 /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
+		E9653867213E266200EDC3B8 /* PopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverPresentationController.m; sourceTree = "<group>"; };
+		E9653868213E266200EDC3B8 /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
+		E9653869213E266200EDC3B8 /* PopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverPresentationController.h; sourceTree = "<group>"; };
+		E965386C213E28F500EDC3B8 /* EDSChooseBoxViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSChooseBoxViewController.xib; sourceTree = "<group>"; };
+		E965386E213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSGetcoachCarTypeRequest.h; sourceTree = "<group>"; };
+		E965386F213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSGetcoachCarTypeRequest.m; sourceTree = "<group>"; };
+		E9653872213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSGetcoachCarTypeModel.h; sourceTree = "<group>"; };
+		E9653873213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSGetcoachCarTypeModel.m; sourceTree = "<group>"; };
+		E9653876213E60FF00EDC3B8 /* UICustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomDatePicker.h; sourceTree = "<group>"; };
+		E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICustomDatePicker.xib; sourceTree = "<group>"; };
+		E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomDatePicker.m; sourceTree = "<group>"; };
 		E96E9B582138F3D000B103D2 /* EDSCourseRecordCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCourseRecordCommentViewController.h; sourceTree = "<group>"; };
 		E96E9B592138F3D000B103D2 /* EDSCourseRecordCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCourseRecordCommentViewController.m; sourceTree = "<group>"; };
 		E96E9B5A2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSCourseRecordCommentViewController.xib; sourceTree = "<group>"; };
@@ -506,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				10A48A952134369800FA2A38 /* Controller */,
+				E9653871213E2C1900EDC3B8 /* Model */,
 				E90F9002213D38410061F448 /* Service */,
 				10A48A962134369800FA2A38 /* View */,
 			);
@@ -556,6 +579,8 @@
 			children = (
 				E90F9006213D39C30061F448 /* EDSStudentPreSignUpRequest.h */,
 				E90F9007213D39C30061F448 /* EDSStudentPreSignUpRequest.m */,
+				E965386E213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.h */,
+				E965386F213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -588,6 +613,36 @@
 				E90F9021213D516A0061F448 /* EDSSchoolRegionModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E9653865213E266200EDC3B8 /* 弹出页面 */ = {
+			isa = PBXGroup;
+			children = (
+				E9653868213E266200EDC3B8 /* PopAnimator.h */,
+				E9653866213E266200EDC3B8 /* PopAnimator.m */,
+				E9653869213E266200EDC3B8 /* PopoverPresentationController.h */,
+				E9653867213E266200EDC3B8 /* PopoverPresentationController.m */,
+			);
+			path = "弹出页面";
+			sourceTree = "<group>";
+		};
+		E9653871213E2C1900EDC3B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9653872213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.h */,
+				E9653873213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9653875213E60FE00EDC3B8 /* UICustomDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E9653876213E60FF00EDC3B8 /* UICustomDatePicker.h */,
+				E9653878213E60FF00EDC3B8 /* UICustomDatePicker.m */,
+				E9653877213E60FF00EDC3B8 /* UICustomDatePicker.xib */,
+			);
+			path = UICustomDatePicker;
 			sourceTree = "<group>";
 		};
 		E9A619662133913D006E5C2B /* Imge */ = {
@@ -1164,6 +1219,8 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E9653875213E60FE00EDC3B8 /* UICustomDatePicker */,
+				E9653865213E266200EDC3B8 /* 弹出页面 */,
 				E9A61A4D21366FB5006E5C2B /* Cyhaiecalendar */,
 				E9A61A1021355A08006E5C2B /* UICollectionViewLeftAlignedLayout.h */,
 				E9A61A1121355A08006E5C2B /* UICollectionViewLeftAlignedLayout.m */,
@@ -1175,6 +1232,9 @@
 				E9A61A062135371D006E5C2B /* EDSMoLocationManager.m */,
 				E9A61A9D21378D29006E5C2B /* EDSHeaderPageButtonView.h */,
 				E9A61A9E21378D29006E5C2B /* EDSHeaderPageButtonView.m */,
+				E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */,
+				E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */,
+				E965386C213E28F500EDC3B8 /* EDSChooseBoxViewController.xib */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1434,6 +1494,7 @@
 				E9A61A7D2136A2F5006E5C2B /* EDSChangePasswordViewController.xib in Resources */,
 				E90F8FF6213D2A2C0061F448 /* EDSCoachTableViewCell.xib in Resources */,
 				E9A61A972136B04E006E5C2B /* EDSCourseRecordCompleteTableViewCell.xib in Resources */,
+				E965386D213E28F500EDC3B8 /* EDSChooseBoxViewController.xib in Resources */,
 				E9A619CB2133FE73006E5C2B /* EDSDriveSchollInfomationHeaderView.xib in Resources */,
 				E9A619D32134069C006E5C2B /* EDSPSWLogoViewController.xib in Resources */,
 				E9A61A3F21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.xib in Resources */,
@@ -1450,6 +1511,7 @@
 				E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */,
 				E9A61AC32137EDD9006E5C2B /* EDSPracticeFooterView.xib in Resources */,
 				E9A61A5E21368248006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.xib in Resources */,
+				E9653879213E60FF00EDC3B8 /* UICustomDatePicker.xib in Resources */,
 				E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */,
 				E9A6197F2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.xib in Resources */,
 				E9A61A922136AC52006E5C2B /* EDSCourseRecordTableViewCell.xib in Resources */,
@@ -1557,6 +1619,7 @@
 				E90F8FF1213D27FE0061F448 /* EDSThirdView.m in Sources */,
 				E9A619C92133FE68006E5C2B /* EDSDriveSchollInfomationHeaderView.m in Sources */,
 				E9A61AAE2137BD05006E5C2B /* EDSTheoryLearningHeaderView.m in Sources */,
+				E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */,
 				E9A61A272135726B006E5C2B /* EDSCoachInformationViewController.m in Sources */,
 				E90F8FF5213D2A2C0061F448 /* EDSCoachTableViewCell.m in Sources */,
 				E9A619E8213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.m in Sources */,
@@ -1572,8 +1635,10 @@
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
+				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
+				E965387A213E60FF00EDC3B8 /* UICustomDatePicker.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
@@ -1592,6 +1657,7 @@
 				E9A61A962136B04E006E5C2B /* EDSCourseRecordCompleteTableViewCell.m in Sources */,
 				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
 				E90F9008213D39C30061F448 /* EDSStudentPreSignUpRequest.m in Sources */,
+				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
 				E90F9022213D516A0061F448 /* EDSSchoolRegionModel.m in Sources */,
 				E935C61D2138E756006FB53C /* EDSCourseRecordDetailViewController.m in Sources */,
 				E9A61A072135371D006E5C2B /* EDSMoLocationManager.m in Sources */,
@@ -1634,6 +1700,7 @@
 				E9A619E02134F656006E5C2B /* EDSMsgCodeRequest.m in Sources */,
 				E9A61AB82137D633006E5C2B /* EDSPracticeViewController.m in Sources */,
 				E90F8FEE213D21700061F448 /* EDSSecondView.m in Sources */,
+				E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */,
 				E9BC049521315283003A624F /* UIImage+BHYAvatar.m in Sources */,
 				E90F9010213D3F430061F448 /* EDSSchoolInformationDetailModel.m in Sources */,
 				E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */,
@@ -1647,6 +1714,7 @@
 				E9A61A862136A9DE006E5C2B /* EDSChangePhoneTwoViewController.m in Sources */,
 				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,
 				E9A61A7C2136A2F5006E5C2B /* EDSChangePasswordViewController.m in Sources */,
+				E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */,
 				E90F901C213D4C580061F448 /* EDSCoachListModel.m in Sources */,
 				E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */,
 				E9A61A5C21368235006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.m in Sources */,

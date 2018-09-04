@@ -11,12 +11,7 @@
 @interface EDSSubscribeApplyTwoTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-
-@property (weak, nonatomic) IBOutlet UITextField *nameTextF;
-@property (weak, nonatomic) IBOutlet UITextField *codeTextF;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextF;
 @property (weak, nonatomic) IBOutlet UIView *timeBgView;
-@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 @end
 
@@ -52,6 +47,14 @@
     self.timeBgView.layer.cornerRadius = 5;
     self.timeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
     self.timeBgView.layer.borderWidth = 1;
+    
+    [self.timeBgView bk_whenTapped:^{
+       
+        if (self.subscribeApplyTwoTableDidSelectStringback) {
+            
+            self.subscribeApplyTwoTableDidSelectStringback(@"选择时间");
+        }
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

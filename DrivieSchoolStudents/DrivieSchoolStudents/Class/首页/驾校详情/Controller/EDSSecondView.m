@@ -56,7 +56,6 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self requestData];
 }
 
 #pragma mark ------------------------ 网络请求 --------------------------------
@@ -74,9 +73,15 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.schoolId = @"140000000111";
+    request.schoolId = self.schoolId;
     request.showHUD = YES;
     [request  startRequest];
+}
+
+- (void)setSchoolId:(NSString *)schoolId
+{
+    _schoolId = schoolId;
+    [self requestData];
 }
 
 #pragma mark collectionView代理方法

@@ -12,6 +12,7 @@
 #import "EDSSubscribeApplyViewController.h"//预约报名
 #import "EDSOnlineAboutClassViewController.h"//在线约课
 #import "EDSTheoryLearningViewController.h"//理论学习
+#import "EDSDrivingShcoolDetailViewController.h"
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -127,6 +128,13 @@
     cell.model = self.tableViewListArr[indexPath.section];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+    vc.schoolId = self.tableViewListArr[indexPath.section].schoolId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

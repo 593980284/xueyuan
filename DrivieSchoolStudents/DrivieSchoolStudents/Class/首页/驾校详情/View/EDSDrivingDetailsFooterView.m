@@ -15,12 +15,24 @@
 @implementation EDSDrivingDetailsFooterView
 - (IBAction)toSignUpClick:(id)sender {
     DLog(@"前往报名");
+    if (self.drivingDetailsFooterViewDidSelectStringback) {
+        
+        self.drivingDetailsFooterViewDidSelectStringback(@"前往报名");
+    }
 }
 - (IBAction)consultingClick:(id)sender {
     DLog(@"咨询");
+    if (self.drivingDetailsFooterViewDidSelectStringback) {
+        
+        self.drivingDetailsFooterViewDidSelectStringback(@"咨询");
+    }
 }
 - (IBAction)priceShowClick:(id)sender {
     DLog(@"价格公示");
+    if (self.drivingDetailsFooterViewDidSelectStringback) {
+        
+        self.drivingDetailsFooterViewDidSelectStringback(@"价格公示");
+    }
 }
 
 - (void)awakeFromNib

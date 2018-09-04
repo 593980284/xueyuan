@@ -8,6 +8,9 @@
 
 #import "EDSSubscribeApplyViewController.h"
 #import "EDSDrivingSchoolInformationViewController.h"
+#import "EDSChooseBoxViewController.h"
+#import "PopAnimator.h"
+#import "UICustomDatePicker.h"
 
 #import "HomeConstants.h"
 
@@ -15,9 +18,26 @@
 #import "EDSSubscribeApplyTwoTableViewCell.h"
 
 #import "EDSStudentPreSignUpRequest.h"
+#import "EDSGetcoachCarTypeRequest.h"
+
+#import "EDSGetcoachCarTypeModel.h"
+#import "EDSChooseBoxViewController.h"
 
 @interface EDSSubscribeApplyViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
+{
+    NSString *_schoolID;//继续
+    NSString *_carId;//车型
+    UITextField *_nameTextF;//姓名
+    UITextField *_codeTextF;//身份证
+    UITextField *_phoneTextF;//联系方式
+    NSString *_time;//预约时间
+}
 
+@property (nonatomic, strong) PopAnimator *popAnimator;
+/** 车型模型 */
+@property (nonatomic, strong) NSArray <EDSGetcoachCarTypeModel *>  *carTypeArr;
+/** 车型选择模型 */
+@property (nonatomic, strong) NSMutableArray<EDSChooseBoxModel *>  *chooseBoxModelArr;
 @end
 
 @implementation EDSSubscribeApplyViewController
@@ -26,13 +46,34 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"预约报名";
+    self.carTypeArr = [[NSArray alloc] init];
+    self.chooseBoxModelArr = [[NSMutableArray alloc] init];
+    
+    _schoolID = @"";
+    _carId = @"";
+    _time = @"";
+    
+    
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
+    [backBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    backBtn.wz_size = CGSizeMake(25, 40);
+    self.navigationItem.leftBarButtonItem = item;
     
     [self setup];
+    [self getcoachCarTypeRequest];
+}
 
-//    选择驾校
-//    EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
-//    vc.firstBtnString = @"联盟驾校";
-//    [self.navigationController pushViewController:vc animated:YES];
+- (void)back
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)setSchoolArr:(NSArray *)schoolArr
+{
+    _schoolArr = schoolArr;
 }
 
 - (void)setup{
@@ -70,10 +111,10 @@
         make.height.mas_equalTo(45);
         make.bottom.mas_equalTo(-18);
     }];
-    @weakify(self);
+    
     [determineBtn bk_whenTapped:^{
-        @strongify(self);
-        [self requestData];
+        
+        [self submitrRequestData];
     }];
     
     UILabel *label = [UILabel labelWithText:@"注：驾校工作时间为9:00:00-17:00:00" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
@@ -84,23 +125,98 @@
 }
 
 #pragma mark ------------------------ 网络请求 --------------------------------
-- (void)requestData
+- (void)submitrRequestData
 {
+    if (_schoolID.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请选择驾校"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    if (_nameTextF.text.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入姓名"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    if (_codeTextF.text.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入身份证号"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    if (_phoneTextF.text.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入联系方式"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    if (_carId.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请选择车型"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    if (_time.length == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请选择时间"];
+        [SVProgressHUD dismissWithDelay:1];
+        return;
+    }
+    
     EDSStudentPreSignUpRequest *request = [EDSStudentPreSignUpRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         
+        if (errCode == 1) {
+            
+            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+            [SVProgressHUD dismissWithDelay:1.5];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            });
+        }
     } failureBlock:^(NSError *error) {
         
     }];
     
-    request.schoolId = @"1";
-    request.studentName = @"12";
-    request.certNo = @"34232342342422324";
-    request.mobile = @"17625296836";
-    request.applyDriveCar = @"C1";
-    request.appointmentTime = @"2018-12-12 下午";
+    request.schoolId = _schoolID;
+    request.studentName = _nameTextF.text;
+    request.certNo = _codeTextF.text;
+    request.mobile = _phoneTextF.text;
+    request.applyDriveCar = _carId;
+    request.appointmentTime = _time;
     request.signupSource = @"1";
     [request startRequest];
 }
+
+- (void)getcoachCarTypeRequest
+{
+    @weakify(self);
+    EDSGetcoachCarTypeRequest *request = [EDSGetcoachCarTypeRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        if (errCode == 1) {
+            
+            self.carTypeArr = model;
+            
+            dispatch_apply(self.carTypeArr.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
+                
+                EDSChooseBoxModel *model = [[EDSChooseBoxModel alloc] init];
+                model.name = self.carTypeArr[i].name;
+                model.code = self.carTypeArr[i].code;
+                [self.chooseBoxModelArr addObject:model];
+                
+            });
+        }else
+        {
+            [self getcoachCarTypeRequest];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.showHUD = YES;
+    [request startRequest];
+}
+
 
 #pragma make ------ tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -135,12 +251,62 @@
         if (!cell) {
             cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSSubscribeApplyOneTableViewCell" owner:self options:nil].firstObject;
         }
+        NSString *schoolName = self.schoolArr[1];
+        
+        cell.drivingSchoolLbl.text = schoolName.length > 0  ? schoolName : @"请选择驾校";
+        _schoolID = _schoolArr[0];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.backgroundColor = TableColor;
         
+        @weakify(self);
+        @weakify(cell);
+        
+        cell.subscribeApplyOneTableDidSelectStringback = ^(NSString *titleStr) {
+            
+            @strongify(self);
+            //选择驾校
+            if ([titleStr isEqualToString:@"选择驾校"]) {
+                
+                EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
+                vc.firstBtnString = @"联盟驾校";
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                //选择车型
+                CGFloat width = kScreenWidth;
+                
+                CGFloat height = 350;
+                
+                CGRect coverFrame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+                
+                CGRect presentedFrame = CGRectMake(0,kScreenHeight - height, width, height);
+                
+                self.popAnimator = [[PopAnimator alloc]initWithCoverFrame:coverFrame presentedFrame:presentedFrame startPoint:CGPointMake(0.5, 0.5) startTransform:CGAffineTransformMakeScale(0.5, 0.5) endTransform:CGAffineTransformMakeScale(0.0001, 0.0001)];
+                
+                self.popAnimator.isClose = YES;
+                
+                EDSChooseBoxViewController *vc = [[EDSChooseBoxViewController alloc] init];
+                
+                vc.modalPresentationStyle = UIModalPresentationCustom;
+                
+                vc.transitioningDelegate = self.popAnimator;
+                
+                vc.modelArr = self.chooseBoxModelArr;
+                
+                vc.chooseBoxViewTableDidSelectModel = ^(EDSChooseBoxModel *model) {
+                    
+                    @strongify(cell);
+                    cell.carTypeLbl.text = model.name;
+                    self->_carId = model.code;
+                };
+                
+                [self presentViewController:vc animated:YES completion:nil];
+            }
+        };
+        
         return cell;
+        
     }else{
         
         EDSSubscribeApplyTwoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSSubscribeApplyTwoTableViewCell"];
@@ -152,6 +318,23 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.backgroundColor = TableColor;
+        
+        _nameTextF = cell.nameTextF;
+        _phoneTextF = cell.phoneTextF;
+        _codeTextF = cell.codeTextF;
+        
+        @weakify(cell);
+        cell.subscribeApplyTwoTableDidSelectStringback = ^(NSString *titleStr) {
+            
+            [UICustomDatePicker showCustomDatePickerAtView:self.view choosedDateBlock:^(NSString *date) {
+                @strongify(cell);
+                
+                cell.timeLbl.text = date;
+                self->_time = date;
+            } cancelBlock:^{
+                
+            }];
+        };
         
         return cell;
     }

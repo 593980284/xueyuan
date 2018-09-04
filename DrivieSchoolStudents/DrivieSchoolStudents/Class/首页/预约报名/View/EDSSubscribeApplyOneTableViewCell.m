@@ -12,8 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIView *drivingSchoolBgView;
 @property (weak, nonatomic) IBOutlet UIView *carTypeBgView;
 
-@property (weak, nonatomic) IBOutlet UILabel *drivingSchoolLbl;
-@property (weak, nonatomic) IBOutlet UILabel *carTypeLbl;
 
 @end
 @implementation EDSSubscribeApplyOneTableViewCell
@@ -37,12 +35,23 @@
     self.carTypeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
     self.carTypeBgView.layer.borderWidth = 1;
     
+    @weakify(self);
     [self.drivingSchoolBgView bk_whenTapped:^{
         DLog(@"选择驾校");
+        @strongify(self);
+        if (self.subscribeApplyOneTableDidSelectStringback) {
+            
+            self.subscribeApplyOneTableDidSelectStringback(@"选择驾校");
+        }
     }];
     
     [self.carTypeBgView bk_whenTapped:^{
         DLog(@"选择车型");
+        @strongify(self);
+        if (self.subscribeApplyOneTableDidSelectStringback) {
+            
+            self.subscribeApplyOneTableDidSelectStringback(@"选择车型");
+        }
     }];
 }
 

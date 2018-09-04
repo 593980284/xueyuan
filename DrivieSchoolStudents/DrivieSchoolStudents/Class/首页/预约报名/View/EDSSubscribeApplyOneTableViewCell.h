@@ -10,4 +10,9 @@
 
 @interface EDSSubscribeApplyOneTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *drivingSchoolLbl;
+@property (weak, nonatomic) IBOutlet UILabel *carTypeLbl;
+
+@property (nonatomic, copy) void (^subscribeApplyOneTableDidSelectStringback)(NSString *titleStr);
+
 @end

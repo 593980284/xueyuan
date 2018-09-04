@@ -165,7 +165,6 @@
         {
             NSIndexPath *monthindexPath =[NSIndexPath indexPathForRow:indexPath.row inSection:0];
             [self.calenCollectionview selectItemAtIndexPath:monthindexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone ];
-            
         }
             
             allcell = cell;

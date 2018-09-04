@@ -10,4 +10,6 @@
 
 @interface EDSDrivingDetailsFooterView : UIView
 
+@property (nonatomic, copy) void (^drivingDetailsFooterViewDidSelectStringback)(NSString *titleStr);
+
 @end

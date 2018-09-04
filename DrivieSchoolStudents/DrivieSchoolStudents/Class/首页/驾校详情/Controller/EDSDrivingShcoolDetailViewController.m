@@ -7,8 +7,10 @@
 //
 
 #import "EDSDrivingShcoolDetailViewController.h"
+#import "EDSSubscribeApplyViewController.h"
 
 #import "EDSEDSDrivingDetailsHeaderView.h"
+#import "EDSDrivingDetailsFooterView.h"
 #import "EDSFirstView.h"
 #import "EDSSecondView.h"
 #import "EDSThirdView.h"
@@ -24,10 +26,14 @@
 @interface EDSDrivingShcoolDetailViewController ()
 
 @property (strong, nonatomic) EDSEDSDrivingDetailsHeaderView *topView;
+@property (nonatomic, strong) EDSDrivingDetailsFooterView  *footerView;
 @property (nonatomic, strong) EDSFirstView      *firstView;
 @property (nonatomic, strong) EDSSecondView     *secondView;
 @property (nonatomic, strong) EDSThirdView      *thirdView;
 @property (nonatomic, strong) EDSFourView       *fourView;
+
+/** 详情数据 */
+@property (nonatomic, strong) EDSSchoolInformationDetailModel  *detailModel;
 
 @end
 
@@ -49,11 +55,14 @@
         EDSSchoolInformationDetailModel *detailModel = model;
         self.topView.informationDetailModel = detailModel;
         self.firstView.appContent = detailModel.appContent;
+        
+        self.detailModel = detailModel;
+        
     } failureBlock:^(NSError *error) {
         
     }];
     request.showHUD = YES;
-    request.schoolId = @"140000000111";
+    request.schoolId = self.schoolId;
     [request startRequest];
 }
 
@@ -62,8 +71,6 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"驾校详情";
-    
-    [self requestData];
     
     [self.view addSubview:self.topView];
     @weakify(self);
@@ -99,13 +106,36 @@
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.secondView];
     [self.view addSubview:self.thirdView];
+    [self.view addSubview:self.fourView];
     
     self.firstView.hidden = NO;
     self.secondView.hidden = YES;
     self.thirdView.hidden = YES;
     self.fourView.hidden = YES;
+    
+    self.footerView.drivingDetailsFooterViewDidSelectStringback = ^(NSString *titleStr) {
+    
+        @strongify(self);
+        if ([titleStr  isEqualToString:@"咨询"]) {
+            
+            [EDSToolClass getOpenTelphone:self.detailModel.phone];
+        }else if ([titleStr isEqualToString:@"价格公示"]){
+            
+        }else{
+            
+            EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
+            vc.schoolArr = @[self.detailModel.schoolId,self.detailModel.schoolName];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    };
 }
 
+- (void)setSchoolId:(NSString *)schoolId
+{
+    _schoolId = schoolId;
+    
+    [self requestData];
+}
 
 - (EDSEDSDrivingDetailsHeaderView *)topView
 {
@@ -117,6 +147,20 @@
     return _topView;
 }
 
+- (EDSDrivingDetailsFooterView *)footerView
+{
+    if (!_footerView) {
+        
+        _footerView = [[EDSDrivingDetailsFooterView alloc] init];
+        [self.view addSubview:_footerView];
+        [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(69);
+        }];
+    }
+    return _footerView;
+}
+
 
 - (EDSFirstView *)firstView
 {
@@ -126,7 +170,8 @@
         _firstView.topView = self.topView;
         [self.view addSubview:_firstView];
         [_firstView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
             make.top.mas_equalTo(self.topView.mas_bottom);
         }];
     }
@@ -139,9 +184,11 @@
         
         _secondView = [[EDSSecondView alloc] init];
         _secondView.topView = self.topView;
+        _secondView.schoolId = self.schoolId;
         [self.view addSubview:_secondView];
         [_secondView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
             make.top.mas_equalTo(self.topView.mas_bottom);
         }];
     }
@@ -155,9 +202,11 @@
         
         _thirdView = [[EDSThirdView alloc] init];
         _thirdView.topView = self.topView;
+        _thirdView.schoolId = self.schoolId;
         [self.view addSubview:_thirdView];
         [_thirdView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
             make.top.mas_equalTo(self.topView.mas_bottom);
         }];
     }
@@ -171,9 +220,11 @@
         
         _fourView = [[EDSFourView alloc] init];
         _fourView.topView = self.topView;
+        _fourView.schoolId = self.schoolId;
         [self.view addSubview:_fourView];
         [_fourView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
             make.top.mas_equalTo(self.topView.mas_bottom);
         }];
     }

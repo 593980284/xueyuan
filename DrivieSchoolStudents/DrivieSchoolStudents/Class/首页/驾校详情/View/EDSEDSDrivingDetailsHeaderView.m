@@ -163,9 +163,11 @@
     if (!_drivingNameLbl) {
         
         _drivingNameLbl = [UILabel labelWithText:@"小白驾校" font:[UIFont boldSystemFontOfSize:17] textColor:FirstColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
+        _drivingNameLbl.numberOfLines = 1;
         [_drivingNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self->_drivingImgView.mas_right).mas_equalTo(10);
             make.top.mas_equalTo(self->_drivingImgView.mas_top);
+            make.width.mas_equalTo(200);
         }];
     }
     return _drivingNameLbl;

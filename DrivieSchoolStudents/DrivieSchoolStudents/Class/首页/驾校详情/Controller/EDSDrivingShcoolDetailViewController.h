@@ -11,5 +11,6 @@
 @interface EDSDrivingShcoolDetailViewController : UIViewController
 
 @property (assign, nonatomic) CGPoint printPoint;
-
+/** 学校id */
+@property (nonatomic, copy) NSString *schoolId;
 @end

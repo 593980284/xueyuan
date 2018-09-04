@@ -51,7 +51,6 @@
     self.backgroundColor = WhiteColor;
     self.listArr = [[NSArray alloc] init];
     
-    [self requestData];
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.dataSource = self;
@@ -60,6 +59,12 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+}
+
+- (void)setSchoolId:(NSString *)schoolId
+{
+    _schoolId = schoolId;
+    [self requestData];
 }
 
 #pragma mark ------------------------ 网络请求 --------------------------------
@@ -76,7 +81,7 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.schoolId = @"140000000111";
+    request.schoolId = self.schoolId;
     request.showHUD = YES;
     [request  startRequest];
 }
