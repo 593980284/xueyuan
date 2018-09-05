@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDSDriveSchollInfomationSearchView : UIView
+@property (weak, nonatomic) IBOutlet UITextField *searchTextF;
 
 @end

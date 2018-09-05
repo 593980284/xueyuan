@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 @class EDSDrivingSchoolModel;
+@class EDSSchoolListModel;
 
 @interface EDSHomeTableViewCell : UITableViewCell
 /** 数据 */
 @property (nonatomic, strong) NSArray  *cellArr;
 /** 数据 */
 @property (nonatomic, strong) EDSDrivingSchoolModel  *model;
+/** 数据 */
+@property (nonatomic, strong) EDSSchoolListModel  *schoolListModel;
+
 @end

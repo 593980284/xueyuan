@@ -18,17 +18,6 @@
 
 @implementation EDSDriveSchollInfomationHeaderView
 
-- (void)setFirstBtnString:(NSString *)firstBtnString
-{
-    _firstBtnString = firstBtnString;
-    
-    if (firstBtnString.length > 0) {
-        
-        [self.scoreBtn setTitle:firstBtnString forState:UIControlStateNormal];
-        [self.scoreBtn setTitle:firstBtnString forState:UIControlStateSelected];
-    }
-}
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -41,6 +30,10 @@
         self.distanceBtn.selected = NO;
         self.priceBtn.selected = NO;
         [self indicatorAnimationWithCenterX:self.scoreBtn.wz_centerX];
+        if (self.driveSchollInfomationHeaderViewDidSelectStringback) {
+            
+            self.driveSchollInfomationHeaderViewDidSelectStringback(@"0");
+        }
     }];
     
     [self.distanceBtn bk_whenTapped:^{
@@ -49,6 +42,10 @@
         self.distanceBtn.selected = YES;
         self.priceBtn.selected = NO;
         [self indicatorAnimationWithCenterX:self.distanceBtn.wz_centerX];
+        if (self.driveSchollInfomationHeaderViewDidSelectStringback) {
+            
+            self.driveSchollInfomationHeaderViewDidSelectStringback(@"1");
+        }
     }];
     
     [self.priceBtn bk_whenTapped:^{
@@ -57,6 +54,10 @@
         self.distanceBtn.selected = NO;
         self.priceBtn.selected = YES;
         [self indicatorAnimationWithCenterX:self.priceBtn.wz_centerX];
+        if (self.driveSchollInfomationHeaderViewDidSelectStringback) {
+            
+            self.driveSchollInfomationHeaderViewDidSelectStringback(@"2");
+        }
     }];
 }
 

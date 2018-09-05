@@ -37,5 +37,9 @@
 @property (nonatomic, copy) NSString  *showStarScore;
 /** 展示几星 */
 @property (nonatomic, assign) NSInteger showStarScoreInterger;
+/** 经度 */
+@property (nonatomic, assign) double lng;
+/** 纬度 */
+@property (nonatomic, assign) double lat;
 
 @end

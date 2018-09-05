@@ -36,6 +36,11 @@
     return [arr[0] doubleValue];
 }
 
+- (NSInteger)showScore
+{
+    return ceil([_starScore integerValue]);
+}
+
 - (BOOL)isUnionShow
 {
     if ([[NSString stringWithFormat:@"%@",_isUnion] isEqualToString:@"1"]) {

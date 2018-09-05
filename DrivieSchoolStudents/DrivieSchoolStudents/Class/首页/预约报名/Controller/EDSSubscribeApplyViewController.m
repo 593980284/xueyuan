@@ -270,7 +270,6 @@
             if ([titleStr isEqualToString:@"选择驾校"]) {
                 
                 EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
-                vc.firstBtnString = @"联盟驾校";
                 [self.navigationController pushViewController:vc animated:YES];
             }else{
                 //选择车型

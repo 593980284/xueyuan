@@ -17,7 +17,7 @@
 
 - (NSString *)showSchoolPrice
 {
-    return [NSString stringWithFormat:@"￥%@",_schoolPrice];
+    return _schoolPrice.length > 0 ? [NSString stringWithFormat:@"￥%@",_schoolPrice] : @"";
 }
 
 - (NSString  *)showStarScore
@@ -28,6 +28,18 @@
 - (NSInteger)showStarScoreInterger
 {
     return ceil([_starScore doubleValue] / 2);
+}
+- (double)lat
+{
+    NSArray *arr = [_lngLat componentsSeparatedByString:@","];
+    return [arr[1] doubleValue];
+}
+
+
+- (double)lng
+{
+    NSArray *arr = [_lngLat componentsSeparatedByString:@","];
+    return [arr[0] doubleValue];
 }
 
 @end

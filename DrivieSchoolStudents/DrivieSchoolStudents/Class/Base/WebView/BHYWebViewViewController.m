@@ -7,13 +7,10 @@
 //
 
 #import "BHYWebViewViewController.h"
-#import <WebKit/WebKit.h>
 
 @interface BHYWebViewViewController ()<WKUIDelegate,WKNavigationDelegate>
 
 
-/** <#简介#> */
-@property (nonatomic, strong) WKWebView  *webView;
 @property (nonatomic,strong) UIProgressView *progress;
 
 

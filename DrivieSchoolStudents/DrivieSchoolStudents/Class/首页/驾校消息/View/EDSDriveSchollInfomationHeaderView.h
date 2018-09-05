@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EDSDriveSchollInfomationHeaderView : UIView
-/** 区分第一个按什么排序 */
-@property (nonatomic, copy) NSString *firstBtnString;
+
+@property (nonatomic, copy) void (^driveSchollInfomationHeaderViewDidSelectStringback)(NSString *titleStr);
+
 @end

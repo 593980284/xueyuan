@@ -7,9 +7,11 @@
 //
 
 #import "BHYBaseViewController.h"
+#import <WebKit/WebKit.h>
 
 @interface BHYWebViewViewController : BHYBaseViewController
-
 /** <#简介#> */
 @property (nonatomic, copy) NSString *webUrl;
+
+@property (nonatomic, strong) WKWebView  *webView;
 @end

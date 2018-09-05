@@ -4,10 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>乐享驾校需要访问您的地理位置</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>乐享驾校需要访问您的地理位置</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>乐享驾校需要访问您的地理位置</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>乐享驾校需要访问您的地理位置</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -8,6 +8,7 @@
 
 #import "EDSDrivingShcoolDetailViewController.h"
 #import "EDSSubscribeApplyViewController.h"
+#import "EDSMapViewController.h"
 
 #import "EDSEDSDrivingDetailsHeaderView.h"
 #import "EDSDrivingDetailsFooterView.h"
@@ -102,6 +103,13 @@
             self.fourView.hidden = NO;
         }
     };
+    [self.topView.driveAddressLbl bk_whenTapped:^{
+        @strongify(self);
+        EDSMapViewController *vc = [[EDSMapViewController alloc] init];
+        [vc initWithName:self.detailModel.schoolName latitude:[NSString stringWithFormat:@"%f",self.detailModel.lat] longitude:[NSString stringWithFormat:@"%f",self.detailModel.lng]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
     
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.secondView];

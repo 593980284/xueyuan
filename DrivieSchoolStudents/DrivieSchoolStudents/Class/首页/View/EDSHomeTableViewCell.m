@@ -10,6 +10,7 @@
 #import "EDSDriveStarView.h"
 
 #import "EDSDrivingSchoolModel.h"
+#import "EDSSchoolListModel.h"
 
 @interface EDSHomeTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *driveImgView;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *drivePriceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *driveAddress;
 
 @end
 
@@ -36,15 +38,27 @@
     self.driveStarView.selectNumber = 2;
 }
 
+- (void)setSchoolListModel:(EDSSchoolListModel *)schoolListModel
+{
+    _schoolListModel = schoolListModel;
+    [self.driveImgView sd_setImageWithURL:[NSURL URLWithString:schoolListModel.appPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    self.driveStarView.selectNumber = schoolListModel.showScore;
+    self.driveNameLbl.text = schoolListModel.schoolName;
+    self.distanceLbl.text = schoolListModel.showDistance;
+    self.drivePriceLbl.attributedText = schoolListModel.showCartyoePrice;
+    self.driveAddress.text = schoolListModel.address;
+}
+
 - (void)setModel:(EDSDrivingSchoolModel *)model
 {
     _model = model;
     
     [self.driveImgView sd_setImageWithURL:[NSURL URLWithString:model.schoolPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
-    self.driveStarView.selectNumber = 1;
+    self.driveStarView.selectNumber = model.showScore;
     self.driveNameLbl.text = model.schoolName;
     self.distanceLbl.text = model.distance;
     self.drivePriceLbl.attributedText = model.showSchoolPrice;
+    self.driveAddress.text = model.address;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

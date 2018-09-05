@@ -14,7 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setup];
         return [[[NSBundle mainBundle] loadNibNamed:@"EDSDriveSchollInfomationSearchView" owner:self options:nil] lastObject];
     }
     return self;
@@ -24,13 +23,14 @@
 {
     self = [super init];
     if (self) {
-        [self setup];
         return [[[NSBundle mainBundle] loadNibNamed:@"EDSDriveSchollInfomationSearchView" owner:self options:nil] lastObject];
     }
     return self;
 }
 
-- (void)setup{
-    
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
 }
+
 @end

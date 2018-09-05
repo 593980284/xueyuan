@@ -24,7 +24,10 @@
 @property (assign, nonatomic, getter=getSelectedItemIndex) NSInteger selectedItemIndex;
 
 @property (nonatomic, copy) void (^drivingDetailsHeaderViewDidSelectStringback)(NSString *titleStr);
+/** 地址 */
+@property (nonatomic, strong) UILabel  *driveAddressLbl;
 
 /** 展示数据 */
 @property (nonatomic, strong) EDSSchoolInformationDetailModel  *informationDetailModel;
+
 @end

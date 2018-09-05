@@ -13,9 +13,20 @@
 #import "EDSDriveSchollInfomationHeaderView.h"
 #import "EDSHomeTableViewCell.h"
 
+#import "EDSSchoolListRequest.h"
+
+#import "EDSSchoolListModel.h"
+
 #import "HomeConstants.h"
 
 @interface EDSDrivingSchoolInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSString *_type;
+    NSString *_schoolName;
+}
+
+/** 数据 */
+@property (nonatomic, strong) NSArray<EDSSchoolListModel *>  *listsArr;
 
 @end
 
@@ -24,7 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.listsArr = [[NSArray alloc] init];
     [self addHeaderView];
+    _type = @"0";
+    _schoolName = @"";
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -33,6 +47,8 @@
         make.top.mas_equalTo(EDSDrivingSchoolInformationHeaderH);
         make.left.right.bottom.mas_equalTo(0);
     }];
+    
+    [self schoollistRequest];
 }
 
 - (void)addHeaderView
@@ -43,30 +59,67 @@
     searchView.layer.cornerRadius = 5;
     searchView.layer.borderColor = SeparatorCOLOR.CGColor;
     searchView.layer.borderWidth = 0.5;
+    @weakify(self);
+    [searchView.searchTextF setBk_didEndEditingBlock:^(UITextField *textField) {
+        @strongify(self);
+        self->_schoolName = textField.text;
+        [self schoollistRequest];
+    }];
+    
+    [searchView.searchTextF setBk_shouldReturnBlock:^BOOL(UITextField *textField) {
+        
+        @strongify(self);
+        self->_schoolName = textField.text;
+        [self schoollistRequest];
+        [textField resignFirstResponder];
+        return YES;
+    }];
     self.navigationItem.titleView = searchView;
     
     EDSDriveSchollInfomationHeaderView *headerView = [[EDSDriveSchollInfomationHeaderView alloc] init];
-    if (self.firstBtnString.length > 0) {
-        headerView.firstBtnString = self.firstBtnString;
-    }
     [self.view addSubview:headerView];
+    headerView.driveSchollInfomationHeaderViewDidSelectStringback = ^(NSString *titleStr) {
+        @strongify(self);
+        self->_type = titleStr;
+        [self schoollistRequest];
+    };
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(EDSDrivingSchoolInformationHeaderH);
     }];
 }
 
-- (void)setFirstBtnString:(NSString *)firstBtnString
+#pragma mark ------------------------ 网络请求 --------------------------------
+- (void)schoollistRequest
 {
-    _firstBtnString = firstBtnString;
+    EDSSchoolListRequest *request = [EDSSchoolListRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        if (errCode == 1) {
+            
+            self.listsArr = model;
+            [self.tableView reloadData];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    NSDictionary *dict = [UserDefault objectForKey:KuserDefaultsLocation];
+    
+    double localLng = [dict[@"lng"] doubleValue];
+    double localLat = [dict[@"lat"] doubleValue];
+    
+    request.order = _type;
+    request.schoolName = _schoolName;
+    request.lng = [NSString stringWithFormat:@"%f",localLng];
+    request.lat = [NSString stringWithFormat:@"%f",localLat];
+    request.showHUD = YES;
+    [request startRequest];
 }
-
-
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 110;
+    return self.listsArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -88,7 +141,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.cellArr = @[];
+    cell.schoolListModel = self.listsArr[indexPath.row];
     
     return cell;
 }

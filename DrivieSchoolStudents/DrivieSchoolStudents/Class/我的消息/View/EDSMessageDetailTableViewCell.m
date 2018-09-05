@@ -57,7 +57,6 @@
 
 - (void)setup{
     
-    
     _typeLbl = [UILabel labelWithText:@"Q" font:[UIFont boldSystemFontOfSize:20] textColor:WhiteColor backGroundColor:ThemeColor superView:self.contentView];
     _typeLbl.textAlignment = NSTextAlignmentCenter;
     _typeLbl.layer.cornerRadius = 5;

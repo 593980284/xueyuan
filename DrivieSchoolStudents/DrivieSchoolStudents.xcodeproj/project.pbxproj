@@ -35,6 +35,17 @@
 		E935C6222138EBD7006FB53C /* EDSCourseRecordDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E935C6212138EBD7006FB53C /* EDSCourseRecordDetailHeaderView.xib */; };
 		E935C6252138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E935C6242138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m */; };
 		E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E935C6262138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib */; };
+		E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6AF213F711800EA3A0A /* EDSSchoolListRequest.m */; };
+		E952C6B8213FB1B900EA3A0A /* EDSSchoolListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6B7213FB1B900EA3A0A /* EDSSchoolListModel.m */; };
+		E952C6BA213FBED200EA3A0A /* 品牌介绍.docx in Resources */ = {isa = PBXBuildFile; fileRef = E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */; };
+		E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */; };
+		E952C6DF213FD4F700EA3A0A /* AATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6D7213FD4F700EA3A0A /* AATableViewCell.m */; };
+		E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6D9213FD4F700EA3A0A /* QYAnnotation.m */; };
+		E952C6E1213FD4F700EA3A0A /* DestinationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6DA213FD4F700EA3A0A /* DestinationMode.m */; };
+		E952C6E2213FD4F700EA3A0A /* BBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6DB213FD4F700EA3A0A /* BBTableViewCell.m */; };
+		E952C6E3213FD4F700EA3A0A /* AATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E952C6DC213FD4F700EA3A0A /* AATableViewCell.xib */; };
+		E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */; };
+		E952C6E7213FD53100EA3A0A /* EDSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */; };
 		E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */; };
 		E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653866213E266200EDC3B8 /* PopAnimator.m */; };
 		E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653867213E266200EDC3B8 /* PopoverPresentationController.m */; };
@@ -248,6 +259,27 @@
 		E935C6232138EF6E006FB53C /* EDSCourseRecordDetailFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCourseRecordDetailFooterView.h; sourceTree = "<group>"; };
 		E935C6242138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCourseRecordDetailFooterView.m; sourceTree = "<group>"; };
 		E935C6262138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSCourseRecordDetailFooterView.xib; sourceTree = "<group>"; };
+		E952C6AE213F711800EA3A0A /* EDSSchoolListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSchoolListRequest.h; sourceTree = "<group>"; };
+		E952C6AF213F711800EA3A0A /* EDSSchoolListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSchoolListRequest.m; sourceTree = "<group>"; };
+		E952C6B5213F833C00EA3A0A /* DrivieSchoolStudents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DrivieSchoolStudents.entitlements; sourceTree = "<group>"; };
+		E952C6B6213FB1B900EA3A0A /* EDSSchoolListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSchoolListModel.h; sourceTree = "<group>"; };
+		E952C6B7213FB1B900EA3A0A /* EDSSchoolListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSchoolListModel.m; sourceTree = "<group>"; };
+		E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "品牌介绍.docx"; sourceTree = "<group>"; };
+		E952C6BB213FBFC100EA3A0A /* EDSBrandIntroductionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBrandIntroductionViewController.h; sourceTree = "<group>"; };
+		E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBrandIntroductionViewController.m; sourceTree = "<group>"; };
+		E952C6D4213FD4F700EA3A0A /* QYAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAnnotation.h; sourceTree = "<group>"; };
+		E952C6D5213FD4F700EA3A0A /* BBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTableViewCell.h; sourceTree = "<group>"; };
+		E952C6D6213FD4F700EA3A0A /* DestinationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationMode.h; sourceTree = "<group>"; };
+		E952C6D7213FD4F700EA3A0A /* AATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATableViewCell.m; sourceTree = "<group>"; };
+		E952C6D8213FD4F700EA3A0A /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		E952C6D9213FD4F700EA3A0A /* QYAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAnnotation.m; sourceTree = "<group>"; };
+		E952C6DA213FD4F700EA3A0A /* DestinationMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationMode.m; sourceTree = "<group>"; };
+		E952C6DB213FD4F700EA3A0A /* BBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTableViewCell.m; sourceTree = "<group>"; };
+		E952C6DC213FD4F700EA3A0A /* AATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AATableViewCell.xib; sourceTree = "<group>"; };
+		E952C6DD213FD4F700EA3A0A /* AATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATableViewCell.h; sourceTree = "<group>"; };
+		E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		E952C6E5213FD53100EA3A0A /* EDSMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMapViewController.h; sourceTree = "<group>"; };
+		E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMapViewController.m; sourceTree = "<group>"; };
 		E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSChooseBoxViewController.h; sourceTree = "<group>"; };
 		E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSChooseBoxViewController.m; sourceTree = "<group>"; };
 		E9653866213E266200EDC3B8 /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
@@ -626,6 +658,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E952C6AD213F70AC00EA3A0A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E952C6AE213F711800EA3A0A /* EDSSchoolListRequest.h */,
+				E952C6AF213F711800EA3A0A /* EDSSchoolListRequest.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E952C6B1213F787500EA3A0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E952C6B6213FB1B900EA3A0A /* EDSSchoolListModel.h */,
+				E952C6B7213FB1B900EA3A0A /* EDSSchoolListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E952C6D3213FD4F700EA3A0A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E952C6D4213FD4F700EA3A0A /* QYAnnotation.h */,
+				E952C6D9213FD4F700EA3A0A /* QYAnnotation.m */,
+				E952C6D5213FD4F700EA3A0A /* BBTableViewCell.h */,
+				E952C6DB213FD4F700EA3A0A /* BBTableViewCell.m */,
+				E952C6D6213FD4F700EA3A0A /* DestinationMode.h */,
+				E952C6DA213FD4F700EA3A0A /* DestinationMode.m */,
+				E952C6DD213FD4F700EA3A0A /* AATableViewCell.h */,
+				E952C6D7213FD4F700EA3A0A /* AATableViewCell.m */,
+				E952C6DC213FD4F700EA3A0A /* AATableViewCell.xib */,
+				E952C6D8213FD4F700EA3A0A /* MKMapView+ZoomLevel.h */,
+				E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		E9653865213E266200EDC3B8 /* 弹出页面 */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +815,8 @@
 		E9A619BC2133F5FA006E5C2B /* 驾校消息 */ = {
 			isa = PBXGroup;
 			children = (
+				E952C6B1213F787500EA3A0A /* Model */,
+				E952C6AD213F70AC00EA3A0A /* Service */,
 				E9A619BD2133F5FA006E5C2B /* Controller */,
 				E9A619BE2133F5FA006E5C2B /* View */,
 			);
@@ -1144,6 +1214,7 @@
 		E9BC0429213146AC003A624F /* DrivieSchoolStudents */ = {
 			isa = PBXGroup;
 			children = (
+				E952C6B5213F833C00EA3A0A /* DrivieSchoolStudents.entitlements */,
 				E9BC0438213146AE003A624F /* Info.plist */,
 				E9BC045C21314A06003A624F /* Class */,
 			);
@@ -1191,6 +1262,7 @@
 		E9BC045D21314A06003A624F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */,
 				E9BC045E21314A06003A624F /* AppDelegate.h */,
 				E9BC046021314A06003A624F /* AppDelegate.m */,
 				E9BC046121314A06003A624F /* ViewController.h */,
@@ -1230,6 +1302,7 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E952C6D3213FD4F700EA3A0A /* Map */,
 				E9653875213E60FE00EDC3B8 /* UICustomDatePicker */,
 				E9653865213E266200EDC3B8 /* 弹出页面 */,
 				E9A61A4D21366FB5006E5C2B /* Cyhaiecalendar */,
@@ -1366,6 +1439,10 @@
 			children = (
 				E9BC04BD21315AE6003A624F /* EDSHomeViewController.h */,
 				E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */,
+				E952C6BB213FBFC100EA3A0A /* EDSBrandIntroductionViewController.h */,
+				E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */,
+				E952C6E5213FD53100EA3A0A /* EDSMapViewController.h */,
+				E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1489,6 +1566,11 @@
 				TargetAttributes = {
 					E9BC0426213146AC003A624F = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E9BC043E213146AE003A624F = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1544,9 +1626,11 @@
 				E9D1C153213E8B4F0042F9C3 /* EDSDataPickerView.xib in Resources */,
 				E9A61A7521369CF4006E5C2B /* EDSPersonalSettingsViewController.xib in Resources */,
 				10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */,
+				E952C6E3213FD4F700EA3A0A /* AATableViewCell.xib in Resources */,
 				E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */,
 				E9A61AC32137EDD9006E5C2B /* EDSPracticeFooterView.xib in Resources */,
 				E9A61A5E21368248006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.xib in Resources */,
+				E952C6BA213FBED200EA3A0A /* 品牌介绍.docx in Resources */,
 				E96E9B5C2138F3D000B103D2 /* EDSCourseRecordCommentViewController.xib in Resources */,
 				E9A6197F2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.xib in Resources */,
 				E9A61A922136AC52006E5C2B /* EDSCourseRecordTableViewCell.xib in Resources */,
@@ -1667,11 +1751,13 @@
 				E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */,
 				E90F8FFE213D2F9F0061F448 /* EDSFourView.m in Sources */,
 				E9A61A4821364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.m in Sources */,
+				E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */,
 				E9A619AA2133D232006E5C2B /* EDSMyViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
+				E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */,
 				E9D1C152213E8B4F0042F9C3 /* EDSDataPickerView.m in Sources */,
 				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
@@ -1686,6 +1772,10 @@
 				E9A61AAB21379FF2006E5C2B /* EDSTheoryLearningViewController.m in Sources */,
 				E9A619D6213415B6006E5C2B /* EDSLogoInputView.m in Sources */,
 				E9A6196421338E4C006E5C2B /* EDSHomeTableViewCell.m in Sources */,
+				E952C6E7213FD53100EA3A0A /* EDSMapViewController.m in Sources */,
+				E952C6E1213FD4F700EA3A0A /* DestinationMode.m in Sources */,
+				E952C6B8213FB1B900EA3A0A /* EDSSchoolListModel.m in Sources */,
+				E952C6DF213FD4F700EA3A0A /* AATableViewCell.m in Sources */,
 				E90F900C213D3DA70061F448 /* EDSFindSchoolInformationRequest.m in Sources */,
 				E9A619DD2134F106006E5C2B /* EDSMsgCodeLoginRequest.m in Sources */,
 				E9A61A64213690B2006E5C2B /* EDSOnlineAboutClassDetailAppointmentDownView.m in Sources */,
@@ -1707,6 +1797,7 @@
 				E9A61A5621366FB5006E5C2B /* cyhCalenbarview.m in Sources */,
 				E9A6197E2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.m in Sources */,
 				E9A61A59213680ED006E5C2B /* EDSOnlineAboutClassDetailAppointmentViewController.m in Sources */,
+				E952C6E2213FD4F700EA3A0A /* BBTableViewCell.m in Sources */,
 				E96E9B5B2138F3D000B103D2 /* EDSCourseRecordCommentViewController.m in Sources */,
 				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,
 				E9A61A6D21369494006E5C2B /* EDSSchoolMessageViewController.m in Sources */,
@@ -1718,12 +1809,14 @@
 				E9A6199E2133C301006E5C2B /* EDSStudentDriverStrategyViewController.m in Sources */,
 				E9A6196B213391EB006E5C2B /* EDSDriveStarView.m in Sources */,
 				E9A61A5521366FB5006E5C2B /* cyhCalenbardate.m in Sources */,
+				E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */,
 				E90F9001213D30F60061F448 /* EDSFirstTableViewCell.m in Sources */,
 				E9A61A9A21378765006E5C2B /* EDSCourseRecordHeaderView.m in Sources */,
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
 				E9A61A0A21354A4F006E5C2B /* EDSEDSDrivingDetailsHeaderView.m in Sources */,
 				E9A61A7421369CF4006E5C2B /* EDSPersonalSettingsViewController.m in Sources */,
+				E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */,
 				E9A619F821352481006E5C2B /* EDSAccount.m in Sources */,
 				E9A61A6121368AD6006E5C2B /* EDSOnlineAboutClassDetailAppointmentTableViewCell.m in Sources */,
 				E9BC0499213153F4003A624F /* EDSTabBarViewController.m in Sources */,
@@ -1924,6 +2017,7 @@
 			baseConfigurationReference = F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MZFMA6Y84;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
@@ -1933,7 +2027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1944,6 +2038,7 @@
 			baseConfigurationReference = 4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MZFMA6Y84;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
@@ -1953,7 +2048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZS.DrivieSchoolStudents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

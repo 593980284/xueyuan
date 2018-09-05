@@ -36,9 +36,9 @@
         
         self.homeFunctionBgView.backgroundColor = WhiteColor;
         self.homeFunctionBgView.functionBtnArr = @[
+                                                   @[@"品牌介绍",@"ppjj_content_icon_default"],
                                                    @[@"预约报名",@"yybml_content_icon_default"],
                                                    @[@"报名流程",@"bmlc_content_icon_default"],
-                                                   @[@"学车流程",@"xclc_content_icon_default"],
                                                    @[@"驾校信息",@"jxxx_content_icon_default"],
                                                    @[@"在线约课",@"zxyk_content_icon_default"],
                                                    @[@"在线约考",@"zxyk_content_icon_default-1"],

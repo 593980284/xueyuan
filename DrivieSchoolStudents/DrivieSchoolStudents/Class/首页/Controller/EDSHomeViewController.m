@@ -12,7 +12,8 @@
 #import "EDSSubscribeApplyViewController.h"//预约报名
 #import "EDSOnlineAboutClassViewController.h"//在线约课
 #import "EDSTheoryLearningViewController.h"//理论学习
-#import "EDSDrivingShcoolDetailViewController.h"
+#import "EDSDrivingShcoolDetailViewController.h"//驾校详情
+#import "EDSBrandIntroductionViewController.h"//品牌介绍
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -48,8 +49,14 @@
     
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
     
-    [self homeRequestData];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self homeRequestData];
 }
 
 - (void)setupNavigationView
@@ -83,6 +90,10 @@
     }else if ([titleStr isEqualToString:@"理论学习"]){
         
         EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"品牌介绍"]){
+        
+        EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

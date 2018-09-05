@@ -36,6 +36,8 @@
 /** 纬度 */
 @property (nonatomic, assign) double lat;
 /** 展示价格 */
-@property (nonatomic, strong) NSAttributedString  *showSchoolPrice;
+@property (nonatomic, copy) NSAttributedString  *showSchoolPrice;
+/** 展示分数 */
+@property (nonatomic, assign) NSInteger showScore;
 
 @end

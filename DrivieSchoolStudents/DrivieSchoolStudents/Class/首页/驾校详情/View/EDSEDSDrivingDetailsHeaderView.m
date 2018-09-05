@@ -28,8 +28,6 @@
 @property (nonatomic, strong) UILabel  *driveScoreLbl;
 /** 按钮查看场地 */
 @property (nonatomic, strong) UIButton  *chectSiteBtn;
-/** 地址 */
-@property (nonatomic, strong) UILabel  *driveAddressLbl;
 
 
 /** 驾校名 */
@@ -43,12 +41,27 @@
 
 @implementation EDSEDSDrivingDetailsHeaderView
 
+
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
         self.backgroundColor = WhiteColor;
+        self.drivingImgView.image = PLACEHOLDERGOODSIMAGE ;
+        self.drivingNameLbl.text = @"";
+        self.drivingPriceLbl.text = @"";
+        self.driveScoreLbl.text = @"";
+        self.driveAddressLbl.text = @"";
+        self.driveStarView.selectNumber = 0;
+        self.commentBgView.alpha = 0.0;
+        self.driveSchoolBgView.alpha = 1.0;
+        
+        self.commentDriveScoreLbl.text = @"";
+        self.commentDriveStarView.selectNumber = 0;
+        self.commentDriveNameLbl.text = @"";
+        self.driveAddressLbl.userInteractionEnabled = YES;
     }
     return self;
 }
@@ -300,6 +313,7 @@
         [_commentDriveNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(15);
             make.centerY.mas_equalTo(0);
+            make.width.mas_equalTo(kScreenWidth - 200);
         }];
     }
     return _commentDriveNameLbl;
