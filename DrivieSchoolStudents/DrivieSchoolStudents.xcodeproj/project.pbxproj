@@ -46,6 +46,9 @@
 		E952C6E3213FD4F700EA3A0A /* AATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E952C6DC213FD4F700EA3A0A /* AATableViewCell.xib */; };
 		E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */; };
 		E952C6E7213FD53100EA3A0A /* EDSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */; };
+		E952C6EC213FE18E00EA3A0A /* icon.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6E9213FE18E00EA3A0A /* icon.db */; };
+		E952C6ED213FE18E00EA3A0A /* bank.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6EA213FE18E00EA3A0A /* bank.db */; };
+		E952C6EE213FE18E00EA3A0A /* classify.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6EB213FE18E00EA3A0A /* classify.db */; };
 		E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */; };
 		E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653866213E266200EDC3B8 /* PopAnimator.m */; };
 		E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653867213E266200EDC3B8 /* PopoverPresentationController.m */; };
@@ -280,6 +283,9 @@
 		E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		E952C6E5213FD53100EA3A0A /* EDSMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMapViewController.h; sourceTree = "<group>"; };
 		E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMapViewController.m; sourceTree = "<group>"; };
+		E952C6E9213FE18E00EA3A0A /* icon.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.db; sourceTree = "<group>"; };
+		E952C6EA213FE18E00EA3A0A /* bank.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bank.db; sourceTree = "<group>"; };
+		E952C6EB213FE18E00EA3A0A /* classify.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = classify.db; sourceTree = "<group>"; };
 		E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSChooseBoxViewController.h; sourceTree = "<group>"; };
 		E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSChooseBoxViewController.m; sourceTree = "<group>"; };
 		E9653866213E266200EDC3B8 /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
@@ -692,6 +698,16 @@
 				E952C6DE213FD4F700EA3A0A /* MKMapView+ZoomLevel.m */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		E952C6E8213FE18E00EA3A0A /* database */ = {
+			isa = PBXGroup;
+			children = (
+				E952C6E9213FE18E00EA3A0A /* icon.db */,
+				E952C6EA213FE18E00EA3A0A /* bank.db */,
+				E952C6EB213FE18E00EA3A0A /* classify.db */,
+			);
+			path = database;
 			sourceTree = "<group>";
 		};
 		E9653865213E266200EDC3B8 /* 弹出页面 */ = {
@@ -1214,6 +1230,7 @@
 		E9BC0429213146AC003A624F /* DrivieSchoolStudents */ = {
 			isa = PBXGroup;
 			children = (
+				E952C6E8213FE18E00EA3A0A /* database */,
 				E952C6B5213F833C00EA3A0A /* DrivieSchoolStudents.entitlements */,
 				E9BC0438213146AE003A624F /* Info.plist */,
 				E9BC045C21314A06003A624F /* Class */,
@@ -1635,6 +1652,7 @@
 				E9A6197F2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.xib in Resources */,
 				E9A61A922136AC52006E5C2B /* EDSCourseRecordTableViewCell.xib in Resources */,
 				E9A61A872136A9DE006E5C2B /* EDSChangePhoneTwoViewController.xib in Resources */,
+				E952C6ED213FE18E00EA3A0A /* bank.db in Resources */,
 				E9A619A32133C353006E5C2B /* EDSStudentDriverStrategyHeaderView.xib in Resources */,
 				E9A61A6E21369494006E5C2B /* EDSSchoolMessageViewController.xib in Resources */,
 				E9A619AF2133D24F006E5C2B /* EDSMyTableViewCell.xib in Resources */,
@@ -1647,9 +1665,11 @@
 				E90F8FFB213D2D450061F448 /* EDSCheckSiteTableViewCell.xib in Resources */,
 				E9A6196521338E4C006E5C2B /* EDSHomeTableViewCell.xib in Resources */,
 				E935C6222138EBD7006FB53C /* EDSCourseRecordDetailHeaderView.xib in Resources */,
+				E952C6EC213FE18E00EA3A0A /* icon.db in Resources */,
 				E9A619B22133D2D7006E5C2B /* placeholderimg.png in Resources */,
 				E9A619E9213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.xib in Resources */,
 				E9BC0437213146AE003A624F /* LaunchScreen.storyboard in Resources */,
+				E952C6EE213FE18E00EA3A0A /* classify.db in Resources */,
 				E9BC0434213146AE003A624F /* Assets.xcassets in Resources */,
 				E9A61AB52137C16B006E5C2B /* EDSTheoryLearningSubjectOneView.xib in Resources */,
 			);
