@@ -12,5 +12,6 @@ target 'DrivieSchoolStudents' do
     pod 'MOFSPickerManager'
     pod 'UITextView+Placeholder'
     pod 'TZImagePickerController', '~> 2.1.4'
+    pod 'FMDB'
 end
 

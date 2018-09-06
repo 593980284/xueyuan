@@ -16,6 +16,12 @@
 @property (nonatomic, copy) NSString *touristState;
 /**  */
 @property (nonatomic, copy) NSString *userID;
+/** 头像 */
+@property (nonatomic, copy) NSString *picUrl;
+/** 展示图片 */
+@property (nonatomic, copy) NSString *showPicUrl;
+/** 展示图片 */
+@property (nonatomic, copy) NSString *phone;
 
 /** 本地经度 */
 @property (nonatomic, assign) double localLng;

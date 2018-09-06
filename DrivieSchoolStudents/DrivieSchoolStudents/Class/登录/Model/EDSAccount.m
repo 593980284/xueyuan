@@ -21,6 +21,11 @@
     return self;
 }
 
+- (NSString *)showPicUrl
+{
+    return [LINEURL stringByAppendingPathComponent:_picUrl];
+}
+
 + (instancetype)accountWithDict:(NSDictionary *)dict
 {
     return [[self alloc]initWithDict:dict];

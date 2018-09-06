@@ -29,6 +29,9 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - IQKeyboardManager (6.0.3)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
@@ -46,6 +49,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
+  - FMDB
   - IQKeyboardManager
   - Masonry
   - MJExtension
@@ -61,6 +65,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BlocksKit
+    - FMDB
     - IQKeyboardManager
     - Masonry
     - MJExtension
@@ -75,6 +80,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -86,6 +92,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: 2a8f41ba058e215bc9b699ade241fdbcc910c2bd
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 3b39942bbcba22d532f99c33bbd79e797f8f8207
+PODFILE CHECKSUM: bd09667b00cec81bfc53c4c8f5d89ed97f0ed966
 
 COCOAPODS: 1.5.3

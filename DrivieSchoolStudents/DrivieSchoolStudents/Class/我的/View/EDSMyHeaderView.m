@@ -9,7 +9,9 @@
 #import "EDSMyHeaderView.h"
 
 @interface EDSMyHeaderView ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *avarterImgView;
+
 
 @end
 
@@ -29,6 +31,15 @@
             self.headerImgViewDidClick();
         }
     }];
+}
+
+- (void)setHeaderArr:(NSArray *)headerArr
+{
+    _headerArr = headerArr;
+    
+    NSURL *url = [NSURL URLWithString:[EDSSave account].showPicUrl];
+
+    [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

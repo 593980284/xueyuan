@@ -13,6 +13,7 @@
 #import "EDSStudentLoginRequest.h"
 #import "EDSMsgCodeRequest.h"
 #import "EDSStudentLoginRequest.h"
+#import "EDSAppStudentOperatingSystemRequest.h"
 
 @interface EDSPSWLogoViewController ()
 {
@@ -41,8 +42,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.codePhoneTextF.text = @"18827648395";
-    self.pswPhoneTextF.text = @"18827648395";
+    self.codePhoneTextF.text = @"18297982132";
+    self.pswPhoneTextF.text = @"18297982132";
     
     self.pswBtn.selected = YES;
     self.pswLoginBgView.hidden = NO;
@@ -124,6 +125,7 @@
         if (isPSW && isPhone) {
             EDSMsgCodeLoginRequest *request = [EDSMsgCodeLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
+                [self appStudentOperatingSystem];
                 
             } failureBlock:^(NSError *error) {
                 
@@ -147,7 +149,7 @@
             EDSStudentLoginRequest *request = [EDSStudentLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
                 if (errCode == 1) {
-                    
+                    [self appStudentOperatingSystem];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }
                 
@@ -167,6 +169,19 @@
     }
 }
 
+
+- (void)appStudentOperatingSystem
+{
+    EDSAppStudentOperatingSystemRequest *request = [EDSAppStudentOperatingSystemRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    request.phone = [EDSSave account].phone;
+    request.operatingSystem = @"iOS";
+    [request startRequest];
+}
 
 
 // 开启倒计时效果

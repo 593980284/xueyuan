@@ -20,6 +20,8 @@
 
 /** 数据 */
 @property (nonatomic, strong) NSArray  *cellArr;
+/** 头部试图 */
+@property (nonatomic, strong)  EDSMyHeaderView *headerView;
 
 @end
 
@@ -47,16 +49,20 @@
                      ];
     
     @weakify(self);
-    EDSMyHeaderView *headerView = [[EDSMyHeaderView alloc] init];
-    headerView.wz_size = CGSizeMake(kScreenWidth, MyTableViewHeaderViewH);
-    headerView.headerImgViewDidClick = ^{
+    self.headerView.headerImgViewDidClick = ^{
         @strongify(self);
         EDSPersonalSettingsViewController *vc = [[EDSPersonalSettingsViewController alloc] initWithNibName:@"EDSPersonalSettingsViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    self.tableView.tableHeaderView = headerView;
+    self.tableView.tableHeaderView = self.headerView;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.headerView.headerArr = @[];
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -112,5 +118,17 @@
         EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+#pragma mark ------------------------ 懒加载 --------------------------------
+- (EDSMyHeaderView *)headerView
+{
+    if (!_headerView) {
+        
+        _headerView = [[EDSMyHeaderView alloc] init];
+        _headerView.wz_size = CGSizeMake(kScreenWidth, MyTableViewHeaderViewH);
+        
+    }
+    return _headerView;
 }
 @end

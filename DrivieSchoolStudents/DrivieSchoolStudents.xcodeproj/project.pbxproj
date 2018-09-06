@@ -49,6 +49,20 @@
 		E952C6EC213FE18E00EA3A0A /* icon.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6E9213FE18E00EA3A0A /* icon.db */; };
 		E952C6ED213FE18E00EA3A0A /* bank.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6EA213FE18E00EA3A0A /* bank.db */; };
 		E952C6EE213FE18E00EA3A0A /* classify.db in Resources */ = {isa = PBXBuildFile; fileRef = E952C6EB213FE18E00EA3A0A /* classify.db */; };
+		E952C7392140D5F800EA3A0A /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C7372140D5F700EA3A0A /* libXG-SDK.a */; };
+		E952C73B2140D61200EA3A0A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C73A2140D61200EA3A0A /* CoreTelephony.framework */; };
+		E952C73D2140D61A00EA3A0A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C73C2140D61900EA3A0A /* SystemConfiguration.framework */; };
+		E952C73F2140D62100EA3A0A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C73E2140D62100EA3A0A /* UserNotifications.framework */; };
+		E952C7412140D62D00EA3A0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C7402140D62D00EA3A0A /* libz.tbd */; };
+		E952C7432140D63500EA3A0A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E952C7422140D63400EA3A0A /* libsqlite3.0.tbd */; };
+		E952C7542141217D00EA3A0A /* UIImagePickerController+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C7462141217D00EA3A0A /* UIImagePickerController+ST.m */; };
+		E952C7552141217D00EA3A0A /* STPhotoKitController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C7482141217D00EA3A0A /* STPhotoKitController.m */; };
+		E952C7562141217D00EA3A0A /* STConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C74D2141217D00EA3A0A /* STConst.m */; };
+		E952C7572141217D00EA3A0A /* STUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C7502141217D00EA3A0A /* STUI.m */; };
+		E952C7582141217D00EA3A0A /* UIImage+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C7512141217D00EA3A0A /* UIImage+ST.m */; };
+		E952C7592141217D00EA3A0A /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C7532141217D00EA3A0A /* UIView+ST.m */; };
+		E952C75D2141226F00EA3A0A /* EDSUploadStudentImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C75C2141226F00EA3A0A /* EDSUploadStudentImgRequest.m */; };
+		E952C7602141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C75F2141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m */; };
 		E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */; };
 		E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653866213E266200EDC3B8 /* PopAnimator.m */; };
 		E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653867213E266200EDC3B8 /* PopoverPresentationController.m */; };
@@ -286,6 +300,30 @@
 		E952C6E9213FE18E00EA3A0A /* icon.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.db; sourceTree = "<group>"; };
 		E952C6EA213FE18E00EA3A0A /* bank.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bank.db; sourceTree = "<group>"; };
 		E952C6EB213FE18E00EA3A0A /* classify.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = classify.db; sourceTree = "<group>"; };
+		E952C7372140D5F700EA3A0A /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libXG-SDK.a"; sourceTree = "<group>"; };
+		E952C7382140D5F800EA3A0A /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPush.h; sourceTree = "<group>"; };
+		E952C73A2140D61200EA3A0A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E952C73C2140D61900EA3A0A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E952C73E2140D62100EA3A0A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		E952C7402140D62D00EA3A0A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E952C7422140D63400EA3A0A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E952C7462141217D00EA3A0A /* UIImagePickerController+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+ST.m"; sourceTree = "<group>"; };
+		E952C7472141217D00EA3A0A /* STPhotoKitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPhotoKitController.h; sourceTree = "<group>"; };
+		E952C7482141217D00EA3A0A /* STPhotoKitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPhotoKitController.m; sourceTree = "<group>"; };
+		E952C7492141217D00EA3A0A /* UIImagePickerController+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+ST.h"; sourceTree = "<group>"; };
+		E952C74B2141217D00EA3A0A /* STConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConfig.h; sourceTree = "<group>"; };
+		E952C74C2141217D00EA3A0A /* STUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUI.h; sourceTree = "<group>"; };
+		E952C74D2141217D00EA3A0A /* STConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConst.m; sourceTree = "<group>"; };
+		E952C74E2141217D00EA3A0A /* UIImage+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ST.h"; sourceTree = "<group>"; };
+		E952C74F2141217D00EA3A0A /* UIView+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ST.h"; sourceTree = "<group>"; };
+		E952C7502141217D00EA3A0A /* STUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUI.m; sourceTree = "<group>"; };
+		E952C7512141217D00EA3A0A /* UIImage+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ST.m"; sourceTree = "<group>"; };
+		E952C7522141217D00EA3A0A /* STConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConst.h; sourceTree = "<group>"; };
+		E952C7532141217D00EA3A0A /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
+		E952C75B2141226F00EA3A0A /* EDSUploadStudentImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUploadStudentImgRequest.h; sourceTree = "<group>"; };
+		E952C75C2141226F00EA3A0A /* EDSUploadStudentImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUploadStudentImgRequest.m; sourceTree = "<group>"; };
+		E952C75E2141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSAppStudentOperatingSystemRequest.h; sourceTree = "<group>"; };
+		E952C75F2141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSAppStudentOperatingSystemRequest.m; sourceTree = "<group>"; };
 		E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSChooseBoxViewController.h; sourceTree = "<group>"; };
 		E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSChooseBoxViewController.m; sourceTree = "<group>"; };
 		E9653866213E266200EDC3B8 /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
@@ -552,7 +590,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E952C7432140D63500EA3A0A /* libsqlite3.0.tbd in Frameworks */,
+				E952C7412140D62D00EA3A0A /* libz.tbd in Frameworks */,
+				E952C73F2140D62100EA3A0A /* UserNotifications.framework in Frameworks */,
+				E952C73D2140D61A00EA3A0A /* SystemConfiguration.framework in Frameworks */,
+				E952C73B2140D61200EA3A0A /* CoreTelephony.framework in Frameworks */,
 				63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */,
+				E952C7392140D5F800EA3A0A /* libXG-SDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +653,11 @@
 		885737C458FA0E5F557DFB55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E952C7422140D63400EA3A0A /* libsqlite3.0.tbd */,
+				E952C7402140D62D00EA3A0A /* libz.tbd */,
+				E952C73E2140D62100EA3A0A /* UserNotifications.framework */,
+				E952C73C2140D61900EA3A0A /* SystemConfiguration.framework */,
+				E952C73A2140D61200EA3A0A /* CoreTelephony.framework */,
 				9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */,
 			);
 			name = Frameworks;
@@ -703,11 +752,58 @@
 		E952C6E8213FE18E00EA3A0A /* database */ = {
 			isa = PBXGroup;
 			children = (
+				E952C7372140D5F700EA3A0A /* libXG-SDK.a */,
+				E952C7382140D5F800EA3A0A /* XGPush.h */,
 				E952C6E9213FE18E00EA3A0A /* icon.db */,
 				E952C6EA213FE18E00EA3A0A /* bank.db */,
 				E952C6EB213FE18E00EA3A0A /* classify.db */,
 			);
 			path = database;
+			sourceTree = "<group>";
+		};
+		E952C7442141217D00EA3A0A /* 图片选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				E952C7452141217D00EA3A0A /* STPhotoKit */,
+				E952C74A2141217D00EA3A0A /* STConfig */,
+			);
+			path = "图片选择器";
+			sourceTree = "<group>";
+		};
+		E952C7452141217D00EA3A0A /* STPhotoKit */ = {
+			isa = PBXGroup;
+			children = (
+				E952C7462141217D00EA3A0A /* UIImagePickerController+ST.m */,
+				E952C7472141217D00EA3A0A /* STPhotoKitController.h */,
+				E952C7482141217D00EA3A0A /* STPhotoKitController.m */,
+				E952C7492141217D00EA3A0A /* UIImagePickerController+ST.h */,
+			);
+			path = STPhotoKit;
+			sourceTree = "<group>";
+		};
+		E952C74A2141217D00EA3A0A /* STConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E952C74B2141217D00EA3A0A /* STConfig.h */,
+				E952C74C2141217D00EA3A0A /* STUI.h */,
+				E952C74D2141217D00EA3A0A /* STConst.m */,
+				E952C74E2141217D00EA3A0A /* UIImage+ST.h */,
+				E952C74F2141217D00EA3A0A /* UIView+ST.h */,
+				E952C7502141217D00EA3A0A /* STUI.m */,
+				E952C7512141217D00EA3A0A /* UIImage+ST.m */,
+				E952C7522141217D00EA3A0A /* STConst.h */,
+				E952C7532141217D00EA3A0A /* UIView+ST.m */,
+			);
+			path = STConfig;
+			sourceTree = "<group>";
+		};
+		E952C75A2141222300EA3A0A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E952C75B2141226F00EA3A0A /* EDSUploadStudentImgRequest.h */,
+				E952C75C2141226F00EA3A0A /* EDSUploadStudentImgRequest.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		E9653865213E266200EDC3B8 /* 弹出页面 */ = {
@@ -875,6 +971,8 @@
 				E9A619DF2134F656006E5C2B /* EDSMsgCodeRequest.m */,
 				E9A619FC213527B2006E5C2B /* EDSAppTouristRegistRequest.h */,
 				E9A619FD213527B2006E5C2B /* EDSAppTouristRegistRequest.m */,
+				E952C75E2141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.h */,
+				E952C75F2141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1061,6 +1159,7 @@
 		E9A61A6F21369C9E006E5C2B /* 个人设置 */ = {
 			isa = PBXGroup;
 			children = (
+				E952C75A2141222300EA3A0A /* Service */,
 				E9A61A7021369C9E006E5C2B /* Controller */,
 			);
 			path = "个人设置";
@@ -1319,6 +1418,7 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E952C7442141217D00EA3A0A /* 图片选择器 */,
 				E952C6D3213FD4F700EA3A0A /* Map */,
 				E9653875213E60FE00EDC3B8 /* UICustomDatePicker */,
 				E9653865213E266200EDC3B8 /* 弹出页面 */,
@@ -1584,6 +1684,9 @@
 					E9BC0426213146AC003A624F = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1753,6 +1856,7 @@
 				E9A61A4C21366865006E5C2B /* EDSOnlineAboutClassTableViewHeaderView.m in Sources */,
 				E9A61A3A21364939006E5C2B /* EDSOnlineAboutClassViewController.m in Sources */,
 				E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */,
+				E952C7552141217D00EA3A0A /* STPhotoKitController.m in Sources */,
 				E935C6202138EBC1006FB53C /* EDSCourseRecordDetailHeaderView.m in Sources */,
 				E90F9016213D479B0061F448 /* EDSSchoolStyleModel.m in Sources */,
 				10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */,
@@ -1824,9 +1928,11 @@
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
 				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
 				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
+				E952C7562141217D00EA3A0A /* STConst.m in Sources */,
 				E9A61A3321363CAB006E5C2B /* EDSSubscribeApplyTwoTableViewCell.m in Sources */,
 				E9A619E42134FEE3006E5C2B /* EDSHomeRollPictureRequest.m in Sources */,
 				E9A6199E2133C301006E5C2B /* EDSStudentDriverStrategyViewController.m in Sources */,
+				E952C7572141217D00EA3A0A /* STUI.m in Sources */,
 				E9A6196B213391EB006E5C2B /* EDSDriveStarView.m in Sources */,
 				E9A61A5521366FB5006E5C2B /* cyhCalenbardate.m in Sources */,
 				E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */,
@@ -1843,6 +1949,7 @@
 				E9A61ABB2137D91C006E5C2B /* EDSPracticeHeaderView.m in Sources */,
 				E9BC048E21315283003A624F /* CALayer+BHYXibBorderColor.m in Sources */,
 				E9A61AC72137F895006E5C2B /* EDSQuestionModel.m in Sources */,
+				E952C7542141217D00EA3A0A /* UIImagePickerController+ST.m in Sources */,
 				E9BC04C421315DC5003A624F /* EDSHomeTableViewHeaderView.m in Sources */,
 				E9A61AB32137C106006E5C2B /* EDSTheoryLearningSubjectOneView.m in Sources */,
 				E9BC048C21315283003A624F /* UIImageView+BHYCustom.m in Sources */,
@@ -1859,10 +1966,13 @@
 				E9A61A0421352CD7006E5C2B /* EDSDrivingSchoolModel.m in Sources */,
 				E935C6252138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m in Sources */,
 				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,
+				E952C7582141217D00EA3A0A /* UIImage+ST.m in Sources */,
 				E9A619C12133F631006E5C2B /* EDSDrivingSchoolInformationViewController.m in Sources */,
 				E9A619D22134069C006E5C2B /* EDSPSWLogoViewController.m in Sources */,
 				E90F8FFA213D2D450061F448 /* EDSCheckSiteTableViewCell.m in Sources */,
 				E9A61A862136A9DE006E5C2B /* EDSChangePhoneTwoViewController.m in Sources */,
+				E952C7602141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m in Sources */,
+				E952C75D2141226F00EA3A0A /* EDSUploadStudentImgRequest.m in Sources */,
 				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,
 				E9A61A7C2136A2F5006E5C2B /* EDSChangePasswordViewController.m in Sources */,
 				E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */,
@@ -1873,6 +1983,7 @@
 				E9A61A162135666E006E5C2B /* EDSTeachingStyleCollectionViewCell.m in Sources */,
 				E9A619C42133F711006E5C2B /* EDSDriveSchollInfomationSearchView.m in Sources */,
 				E9A619FB2135248D006E5C2B /* EDSSave.m in Sources */,
+				E952C7592141217D00EA3A0A /* UIView+ST.m in Sources */,
 				E9A61A1221355A08006E5C2B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				E9A61ACA2137FB87006E5C2B /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				E9A619FE213527B2006E5C2B /* EDSAppTouristRegistRequest.m in Sources */,
@@ -2047,6 +2158,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DrivieSchoolStudents/database",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2067,6 +2182,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DrivieSchoolStudents/database",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,9 +10,22 @@
 #import "EDSChangePasswordViewController.h"//修改密码
 #import "EDSChangePhoneOneViewController.h"//跟换手机号码
 
-@interface EDSPersonalSettingsViewController ()
+
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "STPhotoKitController.h"
+#import "UIImagePickerController+ST.h"
+#import "STConfig.h"
+
+#import "EDSUploadStudentImgRequest.h"
+
+@interface EDSPersonalSettingsViewController ()<UIImagePickerControllerDelegate, UIActionSheetDelegate, STPhotoKitDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *changePasswordBgview;
 @property (weak, nonatomic) IBOutlet UIView *changephoneBgView;
+@property (weak, nonatomic) IBOutlet UIView *avarimgView;
+
+/** 头像 */
+@property (nonatomic, strong) UIImageView  *avaimg;
+
 
 @end
 
@@ -22,6 +35,9 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"个人设置";
+    
+    NSURL *url = [NSURL URLWithString:[EDSSave account].showPicUrl];
+    [self.avaimg sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
     
     @weakify(self);
     [self.changePasswordBgview bk_whenTapped:^{
@@ -36,8 +52,111 @@
         EDSChangePhoneOneViewController *vc = [[EDSChangePhoneOneViewController alloc] initWithNibName:@"EDSChangePhoneOneViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    
+    [self.avarimgView bk_whenTapped:^{
+        @strongify(self);
+        
+        [self changeAvarImgView];
+    }];
 }
 
 
+
+- (void)changeAvarImgView
+{
+    //修改头像
+    UIAlertController *alertController = [[UIAlertController alloc]init];
+    
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *controller = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        if ([controller isAvailableCamera] && [controller isSupportTakingPhotos]) {
+            [controller setDelegate:self];
+            [self presentViewController:controller animated:YES completion:nil];
+        }else {
+            [SVProgressHUD showErrorWithStatus:@"相机权限受限"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
+    }];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"从相册获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *controller = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [controller setDelegate:self];
+        if ([controller isAvailablePhotoLibrary]) {
+            [self presentViewController:controller animated:YES completion:nil];
+        }    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    
+    [alertController addAction:action0];
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+#pragma mark - 1.STPhotoKitDelegate的委托
+- (void)photoKitController:(STPhotoKitController *)photoKitController resultImage:(UIImage *)resultImage
+{
+    self.avaimg.image = resultImage;
+    
+    NSData *imgdata = UIImageJPEGRepresentation(resultImage, 0.3f);
+    
+    NSString *imageBase64Str = [imgdata base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    
+    EDSUploadStudentImgRequest *request = [EDSUploadStudentImgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        
+    } failureBlock:^(NSError *error) {
+    
+    }];
+    
+    request.phone = [EDSSave account].phone;
+    request.imageCode = imageBase64Str;
+    request.showHUD = YES;
+    [request startRequest];
+    
+//    [self editInfomationWithNiceName:@"" sex:@"" birthday:@"" images:@[resultImage]];
+}
+
+#pragma mark - 2.UIImagePickerController的委托
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImage *imageOriginal = [info objectForKey:UIImagePickerControllerOriginalImage];
+        STPhotoKitController *photoVC = [STPhotoKitController new];
+        [photoVC setDelegate:self];
+        [photoVC setImageOriginal:imageOriginal];
+        [photoVC setSizeClip:CGSizeMake((kScreenWidth - 6*10), (kScreenWidth - 6*10))];
+        [self presentViewController:photoVC animated:YES completion:nil];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:^(){
+        
+    }];
+}
+
+
+- (UIImageView *)avaimg
+{
+    if (!_avaimg) {
+        
+        _avaimg = [UIImageView imageViewWithSuperView:self.avarimgView];
+        _avaimg.layer.masksToBounds = YES;
+        _avaimg.layer.cornerRadius = 20;
+        _avaimg.userInteractionEnabled = YES;
+        [_avaimg mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.centerY.mas_equalTo(0);
+            make.size.mas_equalTo(CGSizeMake(40, 40));
+        }];
+    }
+    
+    return _avaimg;
+}
 
 @end

@@ -12,4 +12,7 @@
 
 @property (nonatomic, copy) void (^headerImgViewDidClick)(void);
 
+/** <#简介#> */
+@property (nonatomic, strong) NSArray  *headerArr;
+
 @end

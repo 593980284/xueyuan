@@ -56,7 +56,14 @@
 {
     [super viewWillAppear:animated];
     
-    [self homeRequestData];
+    if ([EDSSave account].userID.length > 0) {
+        
+        [self homeRequestData];
+    }else{
+        
+        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void)setupNavigationView

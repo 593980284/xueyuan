@@ -10,51 +10,58 @@
 #import "EDSTabBarViewController.h"
 #import "EDSMoLocationManager.h"
 
-@interface AppDelegate ()
+#import "XGPush.h"
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+#import <UserNotifications/UserNotifications.h>
+#endif
+@interface AppDelegate ()<XGPushDelegate>
 
 @end
 
 @implementation AppDelegate
+- (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
+    
+    NSLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
+    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"17625296836" type:XGPushTokenBindTypeAccount];
+}
+
+- (void)xgPushDidFinishStop:(BOOL)isSuccess error:(NSError *)error {
+    
+}
+
+- (void)xgPushDidRegisteredDeviceToken:(NSString *)deviceToken error:(NSError *)error {
+    NSLog(@"%s, result %@, error %@", __FUNCTION__, error?@"NO":@"OK", error);
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //只获取一次
-    __block  BOOL isOnece = YES;
-    [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){
-        isOnece = NO;
-        //只打印一次经纬度
-        DLog(@"lat lng (%f, %f)", lat, lng);
+    [[XGPush defaultManager] setEnableDebug:YES];
+    XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];
+    XGNotificationAction *action2 = [XGNotificationAction actionWithIdentifier:@"xgaction002" title:@"xgAction2" options:XGNotificationActionOptionDestructive];
+    if (action1 && action2) {
+        XGNotificationCategory *category = [XGNotificationCategory categoryWithIdentifier:@"xgCategory" actions:@[action1, action2] intentIdentifiers:@[] options:XGNotificationCategoryOptionNone];
         
-        [UserDefault setObject:@{@"lat":[NSString stringWithFormat:@"%f",lat],@"lng":[NSString stringWithFormat:@"%f",lng]} forKey:KuserDefaultsLocation];
-        
-        if (!isOnece) {
-            [EDSMoLocationManager stop];
+        XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificationWithCategories:[NSSet setWithObject:category] types:XGUserNotificationTypeAlert|XGUserNotificationTypeBadge|XGUserNotificationTypeSound];
+        if (configure) {
+            [[XGPush defaultManager] setNotificationConfigure:configure];
         }
-    } Failure:^(NSError *error){
-        isOnece = NO;
-        DLog(@"error = %@", error);
-        if (!isOnece) {
-            [EDSMoLocationManager stop];
-        }
-    }];
+    }
     
-    
-    //    //一直持续获取定位则
-    //    [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){
-    //        //不断的打印经纬度
-    //        DLog(@"lat lng (%f, %f)", lat, lng);
-    //    } Failure:^(NSError *error){
-    //        DLog(@"error = %@", error);
-    //    }];
+    [[XGPush defaultManager] startXGWithAppID:2200309040 appKey:@"IPG9R71U6H8B" delegate:self];
+    [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
+    [[XGPush defaultManager] reportXGNotificationInfo:launchOptions];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[EDSTabBarViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -83,5 +90,57 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+// 此方法不再需要实现；
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    NSLog(@"[XGDemo] device token is %@", [[XGPushTokenManager defaultTokenManager] deviceTokenString]);
+//}
 
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"[XGDemo] register APNS fail.\n[XGDemo] reason : %@", error);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"registerDeviceFailed" object:nil];
+}
+
+/**
+ 收到通知消息的回调，通常此消息意味着有新数据可以读取（iOS 7.0+）
+ 
+ @param application  UIApplication 实例
+ @param userInfo 推送时指定的参数
+ @param completionHandler 完成回调
+ */
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"[XGDemo] receive slient Notification");
+    NSLog(@"[XGDemo] userinfo %@", userInfo);
+    [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+// iOS 10 新增 API
+// iOS 10 会走新 API, iOS 10 以前会走到老 API
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+// App 用户点击通知
+// App 用户选择通知中的行为
+// App 用户在通知中心清除消息
+// 无论本地推送还是远程推送都会走这个回调
+- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    
+    NSLog(@"[XGDemo] click notification");
+    if ([response.actionIdentifier isEqualToString:@"xgaction001"]) {
+        NSLog(@"click from Action1");
+    } else if ([response.actionIdentifier isEqualToString:@"xgaction002"]) {
+        NSLog(@"click from Action2");
+    }
+    
+    [[XGPush defaultManager] reportXGNotificationResponse:response];
+    
+    completionHandler();
+}
+
+// App 在前台弹通知需要调用这个接口
+- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    
+    [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
+    
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
+}
+#endif
 @end

@@ -30,6 +30,12 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
+    EDSAccount *account = [[EDSAccount alloc] init];
+    account.userID = [NSString stringWithFormat:@"%@",data[@"id"]];
+    account.picUrl = [NSString stringWithFormat:@"%@",data[@"photo"]];
+    account.phone = [NSString stringWithFormat:@"%@",data[@"phone"]];
+    [EDSSave save:account];
+    
     if (self.successBlock) {
         
         self.successBlock(resCode, data, nil);
