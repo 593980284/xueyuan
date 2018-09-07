@@ -28,8 +28,14 @@
     if (self) {
      
         [self setup];
+        [self layoutIfNeeded];
     }
     return self;
+}
+
+- (void)layoutIfNeeded
+{
+    [super layoutIfNeeded];
 }
 
 - (instancetype)init
@@ -40,7 +46,6 @@
 - (void)setQuestionModel:(EDSQuestionModel *)questionModel
 {
     _questionModel = questionModel;
-    
     
     NSString *labelText = questionModel.questionTitle;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@""];
@@ -63,10 +68,30 @@
     
     _titleLbl.attributedText = attributedString;
     
-    [_pictureImgView sd_setImageWithURL:[NSURL URLWithString:questionModel.questionPictureUrl] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    _pictureImgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",questionModel.questionPictureUrl]];
+    
+    CGFloat widthR = kScreenWidth - 30;
+    CGFloat width = _pictureImgView.image.size.width;
+    CGFloat height = _pictureImgView.image.size.height;
+    CGFloat heightR = 0.f;
+    
+    if (width != 0) {
+        
+        heightR = widthR * height / width;
+    }
+    
+    [_pictureImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(heightR);
+    }];
+    
+    [self layoutIfNeeded];
+    DLog(@"---------%f",CGRectGetMaxY(_pictureImgView.frame));
 }
 
-
+- (CGFloat)getPracticeHeaderViewHeight
+{
+    return CGRectGetMaxY(self.pictureImgView.frame);
+}
 
 - (void)setup{
     
@@ -91,4 +116,5 @@
         make.bottom.mas_equalTo(0);
     }];
 }
+
 @end

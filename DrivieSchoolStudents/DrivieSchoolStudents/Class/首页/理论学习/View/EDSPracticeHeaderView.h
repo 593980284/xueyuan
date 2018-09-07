@@ -15,4 +15,6 @@
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *questionModel;
 
+- (CGFloat)getPracticeHeaderViewHeight;
+
 @end

@@ -1906,6 +1906,7 @@
 		E952D5D9214268FF00EA3A0A /* jtbz_zlu48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E952CEA6214268FD00EA3A0A /* jtbz_zlu48.jpg */; };
 		E952D5DA214268FF00EA3A0A /* jtbz_qtbz26.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E952CEA7214268FD00EA3A0A /* jtbz_qtbz26.jpg */; };
 		E952D5DB214268FF00EA3A0A /* 1376.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E952CEA8214268FD00EA3A0A /* 1376.jpg */; };
+		E952D5DF21426E2D00EA3A0A /* EDSDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E952D5DE21426E2D00EA3A0A /* EDSDataBase.m */; };
 		E9653863213E25C600EDC3B8 /* EDSChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */; };
 		E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653866213E266200EDC3B8 /* PopAnimator.m */; };
 		E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9653867213E266200EDC3B8 /* PopoverPresentationController.m */; };
@@ -4010,6 +4011,8 @@
 		E952CEA6214268FD00EA3A0A /* jtbz_zlu48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jtbz_zlu48.jpg; sourceTree = "<group>"; };
 		E952CEA7214268FD00EA3A0A /* jtbz_qtbz26.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jtbz_qtbz26.jpg; sourceTree = "<group>"; };
 		E952CEA8214268FD00EA3A0A /* 1376.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1376.jpg; sourceTree = "<group>"; };
+		E952D5DD21426E2D00EA3A0A /* EDSDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDataBase.h; sourceTree = "<group>"; };
+		E952D5DE21426E2D00EA3A0A /* EDSDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSDataBase.m; sourceTree = "<group>"; };
 		E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSChooseBoxViewController.h; sourceTree = "<group>"; };
 		E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSChooseBoxViewController.m; sourceTree = "<group>"; };
 		E9653866213E266200EDC3B8 /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
@@ -6343,6 +6346,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		E952D5DC21426B0000EA3A0A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E952D5DD21426E2D00EA3A0A /* EDSDataBase.h */,
+				E952D5DE21426E2D00EA3A0A /* EDSDataBase.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		E9653865213E266200EDC3B8 /* 弹出页面 */ = {
 			isa = PBXGroup;
 			children = (
@@ -6794,6 +6806,7 @@
 		E9A61AA621379F89006E5C2B /* 理论学习 */ = {
 			isa = PBXGroup;
 			children = (
+				E952D5DC21426B0000EA3A0A /* Service */,
 				E9A61AA721379F89006E5C2B /* Controller */,
 				E9A61AC42137F84A006E5C2B /* Model */,
 				E9A61AA821379F89006E5C2B /* View */,
@@ -9317,6 +9330,7 @@
 				E9A61A5521366FB5006E5C2B /* cyhCalenbardate.m in Sources */,
 				E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */,
 				E90F9001213D30F60061F448 /* EDSFirstTableViewCell.m in Sources */,
+				E952D5DF21426E2D00EA3A0A /* EDSDataBase.m in Sources */,
 				E9A61A9A21378765006E5C2B /* EDSCourseRecordHeaderView.m in Sources */,
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,

@@ -9,6 +9,9 @@
 #import "EDSPracticeFooterView.h"
 
 @interface EDSPracticeFooterView ()
+@property (weak, nonatomic) IBOutlet UILabel *correctLbl;
+@property (weak, nonatomic) IBOutlet UILabel *errorLbl;
+@property (weak, nonatomic) IBOutlet UILabel *progressLbl;
 
 @end
 
@@ -22,6 +25,30 @@
         return [[[NSBundle mainBundle] loadNibNamed:@"EDSPracticeFooterView" owner:self options:nil] lastObject];
     }
     return self;
+}
+//下一题
+- (IBAction)nextClick:(id)sender {
+    if (self.practiceFooterViewDidSelectStringback) {
+        
+        self.practiceFooterViewDidSelectStringback(@"下一题");
+    }
+}
+
+//收藏
+- (IBAction)collectionClick:(id)sender {
+    if (self.practiceFooterViewDidSelectStringback) {
+        
+        self.practiceFooterViewDidSelectStringback(@"下一题");
+    }
+}
+
+//清除
+- (IBAction)closeClick:(id)sender {
+    
+    if (self.practiceFooterViewDidSelectStringback) {
+        
+        self.practiceFooterViewDidSelectStringback(@"下一题");
+    }
 }
 
 - (instancetype)init

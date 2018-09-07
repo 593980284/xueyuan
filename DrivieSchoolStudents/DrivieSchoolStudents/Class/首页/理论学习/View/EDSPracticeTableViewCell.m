@@ -69,7 +69,7 @@
     _optionsLbl.layer.borderWidth = 1;
     [_optionsLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
-        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(27, 27));
     }];
     _optionsLbl.textAlignment = NSTextAlignmentCenter;
@@ -77,13 +77,15 @@
     _answerLbl = [UILabel labelWithText:@"十二个月" font:kFont(18) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [_answerLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_optionsLbl.mas_right).mas_equalTo(10);
-        make.centerY.mas_equalTo(0);
+        make.right.mas_equalTo(-10);
+        make.top.mas_equalTo(15);
+        make.bottom.mas_equalTo(-15);
     }];
     
     _chooesImgView = [UIImageView imageViewWithSuperView:self.contentView];
     [_chooesImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
-        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(27, 27));
     }];
     _chooesImgView.image = [UIImage imageNamed:@"ct_content_option_correct"];

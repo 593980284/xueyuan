@@ -12,11 +12,15 @@
 #import "EDSPracticeTableViewCell.h"
 #import "EDSPracticeFooterView.h"
 
+#import "EDSDataBase.h"
+
 #import "EDSQuestionModel.h"
 
 @interface EDSPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *tableViewModel;
+/** 头部试图 */
+@property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 @end
 
 @implementation EDSPracticeViewController
@@ -36,15 +40,9 @@
         make.bottom.mas_equalTo(-120);
     }];
     
-    EDSPracticeHeaderView *headerView = [[EDSPracticeHeaderView alloc] init];
-    self.tableView.tableHeaderView = headerView;
-    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(kScreenWidth);
-    }];
-    headerView.questionModel = self.tableViewModel;
-    
+    self.headerView.questionModel = self.tableViewModel;
+    [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
-    self.tableView.tableHeaderView = headerView;
     
     
     EDSPracticeFooterView *footerView = [[EDSPracticeFooterView alloc] init];
@@ -53,8 +51,26 @@
         make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(120);
     }];
+    @weakify(self);
+    footerView.practiceFooterViewDidSelectStringback = ^(NSString *titleStr) {
+        @strongify(self);
+        if ([titleStr  isEqualToString:@"下一题"]) {
+            
+            [self getNextQuestion];
+        }
+    };
 }
 
+#pragma mark ------------------------ 下一题 --------------------------------
+- (void)getNextQuestion
+{
+    self.tableViewModel =  [[EDSDataBase sharedDataBase] getRandomSubjectFirst];
+    
+    self.headerView.questionModel = self.tableViewModel;
+    [self.tableView setTableHeaderView:self.headerView];
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -67,9 +83,9 @@
     return self.tableViewModel.answerlists.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return UITableViewAutomaticDimension;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,6 +98,7 @@
     if (!cell) {
         cell = [[EDSPracticeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
@@ -99,8 +116,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
-    answerModel.isChoose = YES;
+    if (self.tableViewModel.isMultiple) {
+        
+        dispatch_apply(self.tableViewModel.answerlists.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
+            
+            if (i == indexPath.row) {
+                
+                self.tableViewModel.answerlists[i].isChoose = YES;
+            }else{
+                
+                self.tableViewModel.answerlists[i].isChoose = NO;
+            }
+        });
+    }else{
+        
+        EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
+        answerModel.isChoose = !answerModel.isChoose;
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -108,22 +141,21 @@
 {
     if (!_tableViewModel) {
         
-        _tableViewModel = [[EDSQuestionModel alloc] init];
-        _tableViewModel.isMultiple = YES;
-        _tableViewModel.questionTitle = @"对未取得驾驶证驾驶机动车的追究其,法律责任对未取得驾驶证驾驶机动车的追究其法律责任。";
-        _tableViewModel.questionPictureUrl = @"http://www.xinhuanet.com/politics/2018-08/29/1123348759_15355476801511n.jpg";
-        
-        NSMutableArray <EDSAnswerModel *>*arr = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 5; i ++ ) {
-            
-            EDSAnswerModel *answer = [[EDSAnswerModel alloc] init];
-            answer.answerTitle = @"六个月";
-            answer.answerR = @"B";
-            [arr addObject:answer];
-        }
-        _tableViewModel.answerlists  = arr;
+        _tableViewModel =  [[EDSDataBase sharedDataBase] getRandomSubjectFirst];
     }
     return _tableViewModel;
 }
 
+
+- (EDSPracticeHeaderView *)headerView
+{
+    if (!_headerView) {
+        
+        _headerView = [[EDSPracticeHeaderView alloc] init];
+        [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(kScreenWidth);
+        }];
+    }
+    return _headerView;
+}
 @end

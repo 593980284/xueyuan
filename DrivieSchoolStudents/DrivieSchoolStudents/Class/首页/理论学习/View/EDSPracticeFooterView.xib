@@ -55,6 +55,9 @@
                             <state key="normal" title="收藏" image="lx_content_icon_collection_default">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="collectionClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4kf-fD-5Hy"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fir-Rx-NTU">
                             <rect key="frame" x="80" y="0.0" width="80" height="50"/>
@@ -67,6 +70,9 @@
                             <state key="normal" title="清除" image="lx_content_icon_clear">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="closeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="XJN-KJ-GaB"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lx_content_icon_correct" translatesAutoresizingMaskIntoConstraints="NO" id="N6R-d3-fol">
                             <rect key="frame" x="181" y="18" width="13" height="13"/>
@@ -124,6 +130,9 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6x3-QC-V1e"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,6 +146,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="correctLbl" destination="WQx-7S-hpx" id="7Pf-BO-4vw"/>
+                <outlet property="errorLbl" destination="Dq6-Pa-GhH" id="Sip-KQ-SCN"/>
+                <outlet property="progressLbl" destination="OVV-ao-dzf" id="15r-Um-1Z0"/>
+            </connections>
             <point key="canvasLocation" x="-84.5" y="49.5"/>
         </view>
     </objects>

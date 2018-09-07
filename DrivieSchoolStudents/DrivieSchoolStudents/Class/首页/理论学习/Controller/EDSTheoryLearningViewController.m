@@ -32,6 +32,8 @@
     
     self.navigationItem.title = @"理论学习";
     
+    
+    
     EDSTheoryLearningHeaderView *headerView = [[EDSTheoryLearningHeaderView alloc] init];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {

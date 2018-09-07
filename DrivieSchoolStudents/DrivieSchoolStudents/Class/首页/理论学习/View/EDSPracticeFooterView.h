@@ -10,4 +10,6 @@
 
 @interface EDSPracticeFooterView : UIView
 
+@property (nonatomic, copy) void (^practiceFooterViewDidSelectStringback)(NSString *titleStr);
+
 @end
