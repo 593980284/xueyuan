@@ -308,6 +308,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         if (code == 1) {
             
             id resultData = [responseObject objectForKey:@"data"];
+            [SVProgressHUD showWithStatus:[responseObject valueForKey:@"msg"]];
+            [SVProgressHUD dismissWithDelay:0.5];
             DLog(@"resultData:%@",resultData);
             [self handleData:resultData errCode:1];
         }else{

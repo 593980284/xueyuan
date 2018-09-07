@@ -100,14 +100,18 @@
 #pragma mark - 1.STPhotoKitDelegate的委托
 - (void)photoKitController:(STPhotoKitController *)photoKitController resultImage:(UIImage *)resultImage
 {
-    self.avaimg.image = resultImage;
-    
-    NSData *imgdata = UIImageJPEGRepresentation(resultImage, 0.3f);
+    NSData *imgdata = UIImageJPEGRepresentation(resultImage, 0.8f);
     
     NSString *imageBase64Str = [imgdata base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     
+    @weakify(self);
+    
     EDSUploadStudentImgRequest *request = [EDSUploadStudentImgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        
+        @strongify(self);
+        if (errCode == 1) {
+            
+            self.avaimg.image = resultImage;
+        }
         
     } failureBlock:^(NSError *error) {
     
