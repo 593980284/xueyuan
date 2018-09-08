@@ -12,4 +12,5 @@
 
 @property (nonatomic, copy) void (^practiceFooterViewDidSelectStringback)(NSString *titleStr);
 
+@property (nonatomic, assign) BOOL  *isCollection;
 @end

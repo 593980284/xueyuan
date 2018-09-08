@@ -47,7 +47,7 @@
 {
     _questionModel = questionModel;
     
-    NSString *labelText = questionModel.questionTitle;
+    NSString *labelText = [NSString stringWithFormat:@"  %@",questionModel.questionTitle];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@""];
     // 添加表情
     NSTextAttachment *attch = [[NSTextAttachment alloc] init];

@@ -23,6 +23,9 @@
 /** 展示图片 */
 @property (nonatomic, copy) NSString *phone;
 
+/** 科目一练习 */
+@property (nonatomic, copy) NSString *firstSubjectID;
+
 /** 本地经度 */
 @property (nonatomic, assign) double localLng;
 /** 本地纬度 */

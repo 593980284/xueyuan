@@ -13,4 +13,6 @@
 @interface EDSPracticeTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) EDSAnswerModel  *answerModel;
+
+
 @end

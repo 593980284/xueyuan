@@ -38,9 +38,11 @@
     
     self.answerLbl.text = answerModel.answerTitle;
     self.optionsLbl.text = answerModel.answerR;
+   
     
     if (answerModel.isChoose) {
         
+        self.chooesImgView.image = [UIImage imageNamed:@"ct_content_option_wrong"];
         _chooesImgView.hidden = NO;
         _optionsLbl.hidden = YES;
     }else{
@@ -48,7 +50,16 @@
         _chooesImgView.hidden = YES;
         _optionsLbl.hidden = NO;
     }
+    
+    
+    if (answerModel.isCorrect) {
+        
+        self.chooesImgView.image = [UIImage imageNamed:@"ct_content_option_correct"];
+        self.chooesImgView.hidden = NO;
+        self.optionsLbl.hidden = YES;
+    }
 }
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

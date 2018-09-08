@@ -55,6 +55,7 @@
                             <state key="normal" title="收藏" image="lx_content_icon_collection_default">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected" image="bt_content_icon_collection_selected"/>
                             <connections>
                                 <action selector="collectionClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4kf-fD-5Hy"/>
                             </connections>
@@ -147,6 +148,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="collectionBtn" destination="wX7-6R-Y7f" id="g1S-MN-ecg"/>
                 <outlet property="correctLbl" destination="WQx-7S-hpx" id="7Pf-BO-4vw"/>
                 <outlet property="errorLbl" destination="Dq6-Pa-GhH" id="Sip-KQ-SCN"/>
                 <outlet property="progressLbl" destination="OVV-ao-dzf" id="15r-Um-1Z0"/>
@@ -155,6 +157,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bt_content_icon_collection_selected" width="15" height="14"/>
         <image name="lx_content_icon_clear" width="14" height="15"/>
         <image name="lx_content_icon_collection_default" width="15" height="14"/>
         <image name="lx_content_icon_correct" width="13" height="13"/>
