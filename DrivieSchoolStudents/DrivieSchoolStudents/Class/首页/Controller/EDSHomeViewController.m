@@ -48,8 +48,6 @@
     self.tableView.tableHeaderView = headerView;
     
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated

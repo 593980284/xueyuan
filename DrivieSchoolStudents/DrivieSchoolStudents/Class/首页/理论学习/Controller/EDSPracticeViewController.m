@@ -24,7 +24,6 @@
 }
 
 @property (nonatomic, strong) PopAnimator *popAnimator;
-
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *tableViewModel;
 /** 头部试图 */

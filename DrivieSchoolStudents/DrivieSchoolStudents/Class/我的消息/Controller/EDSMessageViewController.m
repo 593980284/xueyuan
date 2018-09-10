@@ -12,7 +12,11 @@
 #import "EDSHeaderPageButtonView.h"
 #import "EDSMessageTableViewCell.h"
 
-@interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "EDSStudentMsgRequest.h"
+
+@interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+}
 
 @end
 
@@ -28,7 +32,18 @@
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(45);
     }];
-    
+    @weakify(self);
+    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
+        @strongify(self);
+        
+        if ([titleStr isEqualToString:@"系统"]) {
+            
+            [self requestDataWithType:@"1"];
+        }else
+        {
+            [self requestDataWithType:@"2"];
+        }
+    };
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -37,9 +52,27 @@
         make.top.mas_equalTo(headerView.mas_bottom);
         make.bottom.mas_equalTo(0);
     }];
-    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self requestDataWithType:@"1"];
+}
+
+#pragma mark ----- 网络请求
+- (void)requestDataWithType:(NSString *)type
+{
+    EDSStudentMsgRequest *request = [EDSStudentMsgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+    } failureBlock:^(NSError *error) {
+    
+    }];
+    request.phone = [EDSSave account].phone;
+    request.type = type;
+    request.showHUD = YES;
+    [request  startRequest];
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -8,6 +8,6 @@
 
 #import "BHYBaseViewController.h"
 
-@interface EDSFirstSubjectExamViewController : BHYBaseViewController
+@interface EDSFirstSubjectExamViewController : UIViewController
 
 @end

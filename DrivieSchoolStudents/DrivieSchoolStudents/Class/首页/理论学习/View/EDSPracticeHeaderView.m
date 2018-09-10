@@ -95,23 +95,24 @@
 
 - (void)setup{
     
-    _choosetypeLbl = [UILabel labelWithText:@"单选题" font:kFont(12) textColor:ThemeColor backGroundColor:ClearColor superView:self];
+    _choosetypeLbl = [UILabel labelWithText:@"单选题" font:kFont(10) textColor:ThemeColor backGroundColor:ClearColor superView:self];
     [_choosetypeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(17);
+        make.left.mas_equalTo(20);
+        make.top.mas_equalTo(19);
     }];
     _choosetypeLbl.textAlignment = NSTextAlignmentCenter;
     
     _titleLbl = [UILabel labelWithText:@"" font:kFont(18) textColor:SecondColor backGroundColor:ClearColor superView:self];
     [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(15);
-        make.right.mas_equalTo(-15);
+        make.width.mas_equalTo(kScreenWidth - 30);
     }];
     
     _pictureImgView = [UIImageView imageViewWithSuperView:self];
     [_pictureImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_titleLbl.mas_bottom).mas_equalTo(8);
         make.left.mas_equalTo(15);
-        make.right.mas_equalTo(-15);
+        make.width.mas_equalTo(kScreenWidth - 30);
         make.height.mas_equalTo(66);
         make.bottom.mas_equalTo(0);
     }];

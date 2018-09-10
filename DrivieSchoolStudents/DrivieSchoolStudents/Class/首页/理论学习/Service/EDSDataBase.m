@@ -106,6 +106,11 @@ static FMDatabaseQueue *_queue = nil;
         questionModel.questionPictureUrl = [res stringForColumn:@"id"];
         questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
         questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];

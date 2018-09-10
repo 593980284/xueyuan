@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1038D5AD2146B603004DEA7C /* EDSStudentMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1038D5AC2146B603004DEA7C /* EDSStudentMsgRequest.m */; };
+		1038D5B02146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */; };
 		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
 		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
@@ -2078,6 +2080,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1038D5AB2146B603004DEA7C /* EDSStudentMsgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentMsgRequest.h; sourceTree = "<group>"; };
+		1038D5AC2146B603004DEA7C /* EDSStudentMsgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentMsgRequest.m; sourceTree = "<group>"; };
+		1038D5AE2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentMsgDetailRequest.h; sourceTree = "<group>"; };
+		1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentMsgDetailRequest.m; sourceTree = "<group>"; };
 		10A48A972134376400FA2A38 /* EDSSubscribeApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyViewController.h; sourceTree = "<group>"; };
 		10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyViewController.m; sourceTree = "<group>"; };
 		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
@@ -4332,6 +4338,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1038D5AA2146B5E7004DEA7C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1038D5AB2146B603004DEA7C /* EDSStudentMsgRequest.h */,
+				1038D5AC2146B603004DEA7C /* EDSStudentMsgRequest.m */,
+				1038D5AE2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.h */,
+				1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		10A48A942134369800FA2A38 /* 预约报名 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7104,6 +7121,7 @@
 		E9BC049D21315608003A624F /* 我的消息 */ = {
 			isa = PBXGroup;
 			children = (
+				1038D5AA2146B5E7004DEA7C /* Service */,
 				E9D1C155213E8FE80042F9C3 /* Controller */,
 				E9D1C154213E8FE80042F9C3 /* View */,
 			);
@@ -9385,6 +9403,7 @@
 				E96E9B5B2138F3D000B103D2 /* EDSCourseRecordCommentViewController.m in Sources */,
 				E9BC046D21315057003A624F /* EDSAnmationController.m in Sources */,
 				E9A61A6D21369494006E5C2B /* EDSSchoolMessageViewController.m in Sources */,
+				1038D5B02146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m in Sources */,
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
 				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
 				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
@@ -9439,6 +9458,7 @@
 				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,
 				E9A61A7C2136A2F5006E5C2B /* EDSChangePasswordViewController.m in Sources */,
 				E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */,
+				1038D5AD2146B603004DEA7C /* EDSStudentMsgRequest.m in Sources */,
 				E90F901C213D4C580061F448 /* EDSCoachListModel.m in Sources */,
 				E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */,
 				E9A61A5C21368235006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.m in Sources */,
