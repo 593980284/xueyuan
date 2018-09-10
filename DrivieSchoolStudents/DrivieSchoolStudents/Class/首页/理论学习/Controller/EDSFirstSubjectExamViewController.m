@@ -21,25 +21,6 @@
     
     self.navigationItem.title = @"考试";
     
-    UIImageView *imageView = [UIImageView imageViewWithSuperView:self.view];
-    imageView.image = [UIImage imageNamed:@"kscj_content_icon_time"];
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(10);
-        make.size.mas_equalTo(CGSizeMake(22, 22));
-    }];
-    
-    ZQCountDownView *countDownView = [[ZQCountDownView alloc] initWithFrame:CGRectMake(20, 6, 80, 20)];
-    countDownView.themeColor = TableColor;
-    countDownView.textColor = FirstColor;
-    countDownView.textFont = kFont(14);
-    [self.view addSubview:countDownView];
-    countDownView.countDownTimeInterval = 2700;
-    [countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(imageView.mas_centerY);
-        make.left.mas_equalTo(imageView.mas_right).mas_equalTo(8);
-        make.size.mas_equalTo(CGSizeMake(80, 20));
-    }];
 }
 
 
@@ -53,6 +34,25 @@
 {
     if (!_countDownView) {
         
+        UIImageView *imageView = [UIImageView imageViewWithSuperView:self.view];
+        imageView.image = [UIImage imageNamed:@"kscj_content_icon_time"];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.top.mas_equalTo(10);
+            make.size.mas_equalTo(CGSizeMake(22, 22));
+        }];
+        
+        _countDownView = [[ZQCountDownView alloc] initWithFrame:CGRectMake(20, 6, 80, 20)];
+        _countDownView.themeColor = TableColor;
+        _countDownView.textColor = FirstColor;
+        _countDownView.textFont = kFont(14);
+        [self.view addSubview:_countDownView];
+        _countDownView.countDownTimeInterval = 2700;
+        [_countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(imageView.mas_centerY);
+            make.left.mas_equalTo(imageView.mas_right).mas_equalTo(8);
+            make.size.mas_equalTo(CGSizeMake(80, 20));
+        }];
     }
     return _countDownView;
 }
