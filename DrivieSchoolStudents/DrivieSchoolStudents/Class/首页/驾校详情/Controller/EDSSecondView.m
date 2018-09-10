@@ -74,6 +74,7 @@
         
     }];
     request.schoolId = self.schoolId;
+    request.phone = [EDSSave account].phone;
     request.showHUD = YES;
     [request  startRequest];
 }

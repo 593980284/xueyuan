@@ -1,14 +1,12 @@
 //
-//  EDSPracticeViewController.m
+//  EDSCollectionViewController.m
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/8/30.
+//  Created by 卓森 on 2018/9/10.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSPracticeViewController.h"
-#import "EDSClearRecordViewController.h"//清除
-#import "PopAnimator.h"
+#import "EDSCollectionViewController.h"
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSPracticeTableViewCell.h"
@@ -18,12 +16,12 @@
 
 #import "EDSQuestionModel.h"
 
-@interface EDSPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSCollectionViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    BOOL _isChooes;
+    NSInteger _currentCount;
+    NSInteger _errorsCount;
+    NSInteger _correctCount;
 }
-
-@property (nonatomic, strong) PopAnimator *popAnimator;
 
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *tableViewModel;
@@ -32,16 +30,21 @@
 /** 脚部试图 */
 @property (nonatomic, strong) EDSPracticeFooterView  *footerView;
 
+
 @end
 
-@implementation EDSPracticeViewController
+@implementation EDSCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     self.view.backgroundColor = WhiteColor;
-    self.navigationItem.title = @"练习";
-    _isChooes = NO;
+    self.navigationItem.title = @"收藏";
+    
+    _currentCount = 1;
+    _errorsCount = 0;
+    _correctCount = 0;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -55,6 +58,17 @@
     }];
     
     self.headerView.questionModel = self.tableViewModel;
+    
+    if (self.tableViewModel.ID.length == 0) {
+        
+        [self.tableView removeFromSuperview];
+        [self.footerView removeFromSuperview];
+        
+        UILabel *label = [UILabel labelWithText:@"您还没有收藏题目" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.mas_equalTo(0);
+        }];
+    }
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
     
@@ -67,7 +81,6 @@
             for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
                 
                 if (self.tableViewModel.answerlists[i].isChoose) {
-                    self->_isChooes = NO;
                     [self getNextQuestion];
                     return;
                 }
@@ -77,84 +90,27 @@
             [SVProgressHUD dismissWithDelay:1.5];
         }else if ([titleStr isEqualToString:@"收藏"]){
             
-//            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:[EDSSave account].firstSubjectID];
-        }else if ([titleStr isEqualToString:@"清除"]){
-            
-            DLog(@"11111");
-            
-            [self clearRecordQuestion];
+            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.tableViewModel.ID];
         }
     };
 }
 
-- (void)clearRecordQuestion
-{
-    CGFloat width = 300;
-    
-    CGFloat height = 180;
-    
-    CGRect coverFrame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    
-    CGRect presentedFrame = CGRectMake((kScreenWidth - width)*0.5,175, width, height);
-    
-    self.popAnimator = [[PopAnimator alloc]initWithCoverFrame:coverFrame presentedFrame:presentedFrame startPoint:CGPointMake(0.5, 0.5) startTransform:CGAffineTransformMakeScale(0.5, 0.5) endTransform:CGAffineTransformMakeScale(0.0001, 0.0001)];
-    
-    self.popAnimator.isClose = YES;
-    
-    EDSClearRecordViewController *vc = [[EDSClearRecordViewController alloc] initWithNibName:@"EDSClearRecordViewController" bundle:[NSBundle mainBundle]];
-    
-    vc.modalPresentationStyle = UIModalPresentationCustom;
-    
-    vc.view.layer.masksToBounds = YES;
-    vc.view.layer.cornerRadius = 5;
-    
-    NSString *ID = [EDSSave account].firstSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
-    vc.allCount =  _isChooes ? [NSString stringWithFormat:@"%ld",(long)allcount] : [NSString stringWithFormat:@"%ld",(long)allcount-1];
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
-    vc.errorsCount = [NSString stringWithFormat:@"%ld",(long)errCount];
-    if (_isChooes) {
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    
-    @weakify(self);
-    vc.clearRecordDidCommitBtn = ^{
-        @strongify(self);
-        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
-        EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = @"";
-        [EDSSave save:account];
-        [self getNextQuestion];
-    };
-    
-    vc.transitioningDelegate = self.popAnimator;
-    
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-
 #pragma mark ------------------------ 下一题 --------------------------------
 - (void)getNextQuestion
 {
-    self.tableView.allowsSelection = YES;
+    _currentCount ++ ;
     
-    if (self.tableViewModel.ID.length > 0) {
+    self.tableView.allowsSelection = YES;
+
+    EDSQuestionModel *model = [[EDSDataBase sharedDataBase] getFirstSubjectCollectionWithID:self.tableViewModel.ID];
+    
+    if (model.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].firstSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
-        EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
-        [EDSSave save:account];
-        
-        self.tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        self.tableViewModel = model;
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
+        
         [self getFooterViewModel];
         
         [self.tableView reloadData];
@@ -166,29 +122,18 @@
     
 }
 
-#pragma mark ------------------------ 获取底部数据 --------------------------------
+#pragma mark ------------------------ 获取footerView数据 --------------------------------
 - (void)getFooterViewModel
 {
-    NSString *ID = [EDSSave account].firstSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
-    
     EDSPractioceFooterModel *model = [[EDSPractioceFooterModel alloc] init];
     model.ID = self.tableViewModel.ID;
     
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getOneFirstSubjectCount]] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
+    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getFirstSubjectCollectionCount]] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)_currentCount] diffentColor:ThirdColor];
     model.progressAttr = attStr;
     
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
-    if (_isChooes) {
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    model.errorStr = [NSString stringWithFormat:@"%ld",(long)errCount];
-    model.isCollection = self.tableViewModel.isCollection;
+    model.correctStr = [NSString stringWithFormat:@"%ld",_correctCount];
+    model.errorStr = [NSString stringWithFormat:@"%ld",(long)_errorsCount];
+    model.isCollection = YES;
     
     self.footerView.footerModel = model;
 }
@@ -264,7 +209,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _isChooes = YES;
     
     if (self.tableViewModel.isMultiple) {
         
@@ -301,10 +245,12 @@
             self.tableViewModel.answerlists[i].isCorrect = YES;
             if (i != index) {
                 //错题
+                _errorsCount ++ ;
                 [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
                 [self getFooterViewModel];
             }else{
-                
+                //正确
+                _correctCount ++ ;
                 [self getFooterViewModel];
             }
         }else{
@@ -319,7 +265,7 @@
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        _tableViewModel = [[EDSDataBase sharedDataBase] getFirstSubjectCollectionWithID:@""];
     }
     return _tableViewModel;
 }
@@ -352,5 +298,6 @@
     }
     return _footerView;
 }
+
 
 @end

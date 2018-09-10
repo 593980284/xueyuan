@@ -11,5 +11,7 @@
 @interface EDSSchoolStyleRequest : HQMBaseRequest
 
 @property (nonatomic, copy) NSString *schoolId;//驾校id
+@property (nonatomic, copy) NSString *phone;//手机号
+
 
 @end

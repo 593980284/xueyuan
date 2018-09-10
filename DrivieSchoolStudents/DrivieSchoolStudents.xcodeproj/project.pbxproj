@@ -2048,6 +2048,16 @@
 		E9D1C160213E90550042F9C3 /* EDSMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D1C15E213E90550042F9C3 /* EDSMessageTableViewCell.xib */; };
 		E9D1C163213E936C0042F9C3 /* EDSMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C162213E936C0042F9C3 /* EDSMessageDetailViewController.m */; };
 		E9D1C166213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */; };
+		E9FCD0292146189B00A8AAC4 /* EDSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD0282146189B00A8AAC4 /* EDSCollectionViewController.m */; };
+		E9FCD02C21464D0400A8AAC4 /* EDSErrorsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD02B21464D0400A8AAC4 /* EDSErrorsFooterView.m */; };
+		E9FCD02E21464D1300A8AAC4 /* EDSErrorsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FCD02D21464D1300A8AAC4 /* EDSErrorsFooterView.xib */; };
+		E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD0312146505800A8AAC4 /* EDSClearRecordViewController.m */; };
+		E9FCD0342146505800A8AAC4 /* EDSClearRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FCD0322146505800A8AAC4 /* EDSClearRecordViewController.xib */; };
+		E9FCD03A214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD039214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m */; };
+		E9FCD03D21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD03C21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m */; };
+		E9FCD03F21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FCD03E21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib */; };
+		E9FCD0422146799100A8AAC4 /* EDSFirstSubjectExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD0412146799100A8AAC4 /* EDSFirstSubjectExamViewController.m */; };
+		E9FCD04621467ACF00A8AAC4 /* ZQCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FCD04421467ACF00A8AAC4 /* ZQCountDownView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4270,6 +4280,23 @@
 		E9D1C162213E936C0042F9C3 /* EDSMessageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageDetailViewController.m; sourceTree = "<group>"; };
 		E9D1C164213E969E0042F9C3 /* EDSMessageDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageDetailTableViewCell.h; sourceTree = "<group>"; };
 		E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageDetailTableViewCell.m; sourceTree = "<group>"; };
+		E9FCD0272146189B00A8AAC4 /* EDSCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCollectionViewController.h; sourceTree = "<group>"; };
+		E9FCD0282146189B00A8AAC4 /* EDSCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCollectionViewController.m; sourceTree = "<group>"; };
+		E9FCD02A21464D0400A8AAC4 /* EDSErrorsFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSErrorsFooterView.h; sourceTree = "<group>"; };
+		E9FCD02B21464D0400A8AAC4 /* EDSErrorsFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSErrorsFooterView.m; sourceTree = "<group>"; };
+		E9FCD02D21464D1300A8AAC4 /* EDSErrorsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSErrorsFooterView.xib; sourceTree = "<group>"; };
+		E9FCD0302146505800A8AAC4 /* EDSClearRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSClearRecordViewController.h; sourceTree = "<group>"; };
+		E9FCD0312146505800A8AAC4 /* EDSClearRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSClearRecordViewController.m; sourceTree = "<group>"; };
+		E9FCD0322146505800A8AAC4 /* EDSClearRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSClearRecordViewController.xib; sourceTree = "<group>"; };
+		E9FCD038214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSRecitedPoliticsViewController.h; sourceTree = "<group>"; };
+		E9FCD039214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSRecitedPoliticsViewController.m; sourceTree = "<group>"; };
+		E9FCD03B21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSRecitedPoliticsFooterView.h; sourceTree = "<group>"; };
+		E9FCD03C21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSRecitedPoliticsFooterView.m; sourceTree = "<group>"; };
+		E9FCD03E21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSRecitedPoliticsFooterView.xib; sourceTree = "<group>"; };
+		E9FCD0402146799100A8AAC4 /* EDSFirstSubjectExamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFirstSubjectExamViewController.h; sourceTree = "<group>"; };
+		E9FCD0412146799100A8AAC4 /* EDSFirstSubjectExamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFirstSubjectExamViewController.m; sourceTree = "<group>"; };
+		E9FCD04421467ACF00A8AAC4 /* ZQCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCountDownView.m; sourceTree = "<group>"; };
+		E9FCD04521467ACF00A8AAC4 /* ZQCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCountDownView.h; sourceTree = "<group>"; };
 		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -6800,6 +6827,7 @@
 		E9A61AA621379F89006E5C2B /* 理论学习 */ = {
 			isa = PBXGroup;
 			children = (
+				E9FCD02F2146502600A8AAC4 /* 弹窗 */,
 				E952D5DC21426B0000EA3A0A /* Service */,
 				E9A61AA721379F89006E5C2B /* Controller */,
 				E9A61AC42137F84A006E5C2B /* Model */,
@@ -6817,6 +6845,12 @@
 				E9A61AB72137D633006E5C2B /* EDSPracticeViewController.m */,
 				E90B2F792143CE9D003ABF6B /* EDSEorrorsViewController.h */,
 				E90B2F7A2143CE9D003ABF6B /* EDSEorrorsViewController.m */,
+				E9FCD0272146189B00A8AAC4 /* EDSCollectionViewController.h */,
+				E9FCD0282146189B00A8AAC4 /* EDSCollectionViewController.m */,
+				E9FCD038214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.h */,
+				E9FCD039214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m */,
+				E9FCD0402146799100A8AAC4 /* EDSFirstSubjectExamViewController.h */,
+				E9FCD0412146799100A8AAC4 /* EDSFirstSubjectExamViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6837,6 +6871,12 @@
 				E9A61ABF2137EDB9006E5C2B /* EDSPracticeFooterView.h */,
 				E9A61AC02137EDB9006E5C2B /* EDSPracticeFooterView.m */,
 				E9A61AC22137EDD9006E5C2B /* EDSPracticeFooterView.xib */,
+				E9FCD02A21464D0400A8AAC4 /* EDSErrorsFooterView.h */,
+				E9FCD02B21464D0400A8AAC4 /* EDSErrorsFooterView.m */,
+				E9FCD02D21464D1300A8AAC4 /* EDSErrorsFooterView.xib */,
+				E9FCD03B21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.h */,
+				E9FCD03C21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m */,
+				E9FCD03E21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6967,6 +7007,7 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E9FCD04321467ACF00A8AAC4 /* 倒计时 */,
 				E952C7442141217D00EA3A0A /* 图片选择器 */,
 				E952C6D3213FD4F700EA3A0A /* Map */,
 				E9653875213E60FE00EDC3B8 /* UICustomDatePicker */,
@@ -7162,6 +7203,26 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E9FCD02F2146502600A8AAC4 /* 弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				E9FCD0302146505800A8AAC4 /* EDSClearRecordViewController.h */,
+				E9FCD0312146505800A8AAC4 /* EDSClearRecordViewController.m */,
+				E9FCD0322146505800A8AAC4 /* EDSClearRecordViewController.xib */,
+			);
+			name = "弹窗";
+			path = "Controller/弹窗";
+			sourceTree = "<group>";
+		};
+		E9FCD04321467ACF00A8AAC4 /* 倒计时 */ = {
+			isa = PBXGroup;
+			children = (
+				E9FCD04521467ACF00A8AAC4 /* ZQCountDownView.h */,
+				E9FCD04421467ACF00A8AAC4 /* ZQCountDownView.m */,
+			);
+			path = "倒计时";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -7333,6 +7394,7 @@
 				E952D3BD214268FF00EA3A0A /* jtbz_zlu166.jpg in Resources */,
 				E952D356214268FF00EA3A0A /* jtbz_zsd17.jpg in Resources */,
 				E952D111214268FE00EA3A0A /* 739.jpg in Resources */,
+				E9FCD02E21464D1300A8AAC4 /* EDSErrorsFooterView.xib in Resources */,
 				E952CFF3214268FE00EA3A0A /* 2139.jpg in Resources */,
 				E90F8FF6213D2A2C0061F448 /* EDSCoachTableViewCell.xib in Resources */,
 				E952D3DA214268FF00EA3A0A /* 656.jpg in Resources */,
@@ -7397,6 +7459,7 @@
 				E952D09E214268FE00EA3A0A /* jtbz_jg8.jpg in Resources */,
 				E952D46B214268FF00EA3A0A /* jtbz_zsbx3.jpg in Resources */,
 				E952D2B8214268FF00EA3A0A /* jtbz_zsd13.jpg in Resources */,
+				E9FCD0342146505800A8AAC4 /* EDSClearRecordViewController.xib in Resources */,
 				E952CECD214268FD00EA3A0A /* 1192.jpg in Resources */,
 				E952D174214268FE00EA3A0A /* jtbz_zlu186.jpg in Resources */,
 				E952D23E214268FE00EA3A0A /* 1107.jpg in Resources */,
@@ -9078,6 +9141,7 @@
 				E952D55E214268FF00EA3A0A /* 839.jpg in Resources */,
 				E952D386214268FF00EA3A0A /* 2184.jpg in Resources */,
 				E952CF27214268FE00EA3A0A /* jtbz_qtbz28.jpg in Resources */,
+				E9FCD03F21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib in Resources */,
 				E952CFEC214268FE00EA3A0A /* 830.jpg in Resources */,
 				E952D355214268FF00EA3A0A /* jtbz_jg73.jpg in Resources */,
 				E952D2A3214268FF00EA3A0A /* 679.jpg in Resources */,
@@ -9263,18 +9327,23 @@
 				E9A61A812136A655006E5C2B /* EDSChangePhoneOneViewController.m in Sources */,
 				E9A619B62133D736006E5C2B /* EDSMyHeaderView.m in Sources */,
 				E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */,
+				E9FCD04621467ACF00A8AAC4 /* ZQCountDownView.m in Sources */,
 				E90F8FFE213D2F9F0061F448 /* EDSFourView.m in Sources */,
 				E9A61A4821364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.m in Sources */,
+				E9FCD03A214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m in Sources */,
 				E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */,
 				E9A619AA2133D232006E5C2B /* EDSMyViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
+				E9FCD03D21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
+				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
 				E90B2F7B2143CE9D003ABF6B /* EDSEorrorsViewController.m in Sources */,
 				E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */,
 				E9D1C152213E8B4F0042F9C3 /* EDSDataPickerView.m in Sources */,
 				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
+				E9FCD0422146799100A8AAC4 /* EDSFirstSubjectExamViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
@@ -9329,6 +9398,7 @@
 				E952C6E4213FD4F700EA3A0A /* MKMapView+ZoomLevel.m in Sources */,
 				E90F9001213D30F60061F448 /* EDSFirstTableViewCell.m in Sources */,
 				E952D5DF21426E2D00EA3A0A /* EDSDataBase.m in Sources */,
+				E9FCD02C21464D0400A8AAC4 /* EDSErrorsFooterView.m in Sources */,
 				E9A61A9A21378765006E5C2B /* EDSCourseRecordHeaderView.m in Sources */,
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
@@ -9363,6 +9433,7 @@
 				E9A619D22134069C006E5C2B /* EDSPSWLogoViewController.m in Sources */,
 				E90F8FFA213D2D450061F448 /* EDSCheckSiteTableViewCell.m in Sources */,
 				E9A61A862136A9DE006E5C2B /* EDSChangePhoneTwoViewController.m in Sources */,
+				E9FCD0292146189B00A8AAC4 /* EDSCollectionViewController.m in Sources */,
 				E952C7602141447300EA3A0A /* EDSAppStudentOperatingSystemRequest.m in Sources */,
 				E952C75D2141226F00EA3A0A /* EDSUploadStudentImgRequest.m in Sources */,
 				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,

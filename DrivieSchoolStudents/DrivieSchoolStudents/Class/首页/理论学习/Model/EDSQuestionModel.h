@@ -29,6 +29,8 @@
 @property (nonatomic, copy) NSString *questionPictureUrl;
 /** 正确答案 */
 @property (nonatomic, copy) NSString *answer;
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 是否是单选 */
 @property (nonatomic, assign) BOOL isMultiple;
 /** 是否收藏 */

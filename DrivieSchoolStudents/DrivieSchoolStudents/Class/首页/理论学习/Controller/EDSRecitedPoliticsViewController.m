@@ -1,47 +1,49 @@
 //
-//  EDSPracticeViewController.m
+//  EDSRecitedPoliticsViewController.m
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/8/30.
+//  Created by 卓森 on 2018/9/10.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSPracticeViewController.h"
-#import "EDSClearRecordViewController.h"//清除
-#import "PopAnimator.h"
+#import "EDSRecitedPoliticsViewController.h"
 
 #import "EDSPracticeHeaderView.h"
+#import "EDSRecitedPoliticsFooterView.h"
 #import "EDSPracticeTableViewCell.h"
-#import "EDSPracticeFooterView.h"
 
 #import "EDSDataBase.h"
 
 #import "EDSQuestionModel.h"
 
-@interface EDSPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSRecitedPoliticsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    BOOL _isChooes;
+    NSInteger _currentCount;
+    NSInteger _errorsCount;
+    NSInteger _correctCount;
 }
-
-@property (nonatomic, strong) PopAnimator *popAnimator;
 
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *tableViewModel;
 /** 头部试图 */
 @property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 /** 脚部试图 */
-@property (nonatomic, strong) EDSPracticeFooterView  *footerView;
+@property (nonatomic, strong) EDSRecitedPoliticsFooterView  *footerView;
 
 @end
 
-@implementation EDSPracticeViewController
+@implementation EDSRecitedPoliticsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = WhiteColor;
-    self.navigationItem.title = @"练习";
-    _isChooes = NO;
+    self.navigationItem.title = @"背题";
+    
+    
+    _currentCount = 1;
+    _errorsCount = 0;
+    _correctCount = 0;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -53,109 +55,57 @@
         make.left.right.top.mas_equalTo(0);
         make.bottom.mas_equalTo(-120);
     }];
+    self.tableView.allowsSelection = NO;
     
     self.headerView.questionModel = self.tableViewModel;
+    
+    if (self.tableViewModel.ID.length == 0) {
+        
+        [self.tableView removeFromSuperview];
+        
+        UILabel *label = [UILabel labelWithText:@"您还没有收藏题目" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.mas_equalTo(0);
+        }];
+    }
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
     
     
-    @weakify(self);
-    self.footerView.practiceFooterViewDidSelectStringback = ^(NSString *titleStr) {
-        @strongify(self);
-        if ([titleStr isEqualToString:@"下一题"]) {
-            
-            for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
-                
-                if (self.tableViewModel.answerlists[i].isChoose) {
-                    self->_isChooes = NO;
-                    [self getNextQuestion];
-                    return;
-                }
-            }
-            
-            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
-            [SVProgressHUD dismissWithDelay:1.5];
-        }else if ([titleStr isEqualToString:@"收藏"]){
-            
-//            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:[EDSSave account].firstSubjectID];
-        }else if ([titleStr isEqualToString:@"清除"]){
-            
-            DLog(@"11111");
-            
-            [self clearRecordQuestion];
-        }
-    };
-}
-
-- (void)clearRecordQuestion
-{
-    CGFloat width = 300;
-    
-    CGFloat height = 180;
-    
-    CGRect coverFrame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    
-    CGRect presentedFrame = CGRectMake((kScreenWidth - width)*0.5,175, width, height);
-    
-    self.popAnimator = [[PopAnimator alloc]initWithCoverFrame:coverFrame presentedFrame:presentedFrame startPoint:CGPointMake(0.5, 0.5) startTransform:CGAffineTransformMakeScale(0.5, 0.5) endTransform:CGAffineTransformMakeScale(0.0001, 0.0001)];
-    
-    self.popAnimator.isClose = YES;
-    
-    EDSClearRecordViewController *vc = [[EDSClearRecordViewController alloc] initWithNibName:@"EDSClearRecordViewController" bundle:[NSBundle mainBundle]];
-    
-    vc.modalPresentationStyle = UIModalPresentationCustom;
-    
-    vc.view.layer.masksToBounds = YES;
-    vc.view.layer.cornerRadius = 5;
-    
-    NSString *ID = [EDSSave account].firstSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
-    vc.allCount =  _isChooes ? [NSString stringWithFormat:@"%ld",(long)allcount] : [NSString stringWithFormat:@"%ld",(long)allcount-1];
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
-    vc.errorsCount = [NSString stringWithFormat:@"%ld",(long)errCount];
-    if (_isChooes) {
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
+    self.footerView.ID = self.tableViewModel.ID;
+    self.footerView.isCollection = self.tableViewModel.isCollection;
     
     @weakify(self);
-    vc.clearRecordDidCommitBtn = ^{
+    [self.footerView.nextBtn  bk_whenTapped:^{
         @strongify(self);
-        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
-        EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = @"";
-        [EDSSave save:account];
         [self getNextQuestion];
-    };
-    
-    vc.transitioningDelegate = self.popAnimator;
-    
-    [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
-
 
 #pragma mark ------------------------ 下一题 --------------------------------
 - (void)getNextQuestion
 {
-    self.tableView.allowsSelection = YES;
+    _currentCount ++ ;
     
-    if (self.tableViewModel.ID.length > 0) {
+    NSString *firstSubjectRecitedPoliticeID = [EDSSave account].firstSubjectRecitedPoliticeID;
+    NSInteger ID = [firstSubjectRecitedPoliticeID intValue];
+    ID ++ ;
+    
+    EDSAccount *account = [EDSSave account];
+    account.firstSubjectRecitedPoliticeID = [NSString stringWithFormat:@"%ld",(long)ID];
+    [EDSSave save:account];
+    
+    EDSQuestionModel *model = [[EDSDataBase sharedDataBase] getFirstSubjectRecitePolitcsWithID:[NSString stringWithFormat:@"%ld",(long)ID]];
+    
+    if (model.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].firstSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
-        EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
-        [EDSSave save:account];
-        
-        self.tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        self.tableViewModel = model;
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
-        [self getFooterViewModel];
+        
+        self.footerView.ID = self.tableViewModel.ID;
+        self.footerView.isCollection = self.tableViewModel.isCollection;
         
         [self.tableView reloadData];
     }else
@@ -166,32 +116,6 @@
     
 }
 
-#pragma mark ------------------------ 获取底部数据 --------------------------------
-- (void)getFooterViewModel
-{
-    NSString *ID = [EDSSave account].firstSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
-    
-    EDSPractioceFooterModel *model = [[EDSPractioceFooterModel alloc] init];
-    model.ID = self.tableViewModel.ID;
-    
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getOneFirstSubjectCount]] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
-    model.progressAttr = attStr;
-    
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
-    if (_isChooes) {
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    model.errorStr = [NSString stringWithFormat:@"%ld",(long)errCount];
-    model.isCollection = self.tableViewModel.isCollection;
-    
-    self.footerView.footerModel = model;
-}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -264,7 +188,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _isChooes = YES;
     
     if (self.tableViewModel.isMultiple) {
         
@@ -278,7 +201,6 @@
                 self.tableViewModel.answerlists[i].isChoose = NO;
             }
         });
-        self.tableView.allowsSelection = NO;
     }else{
         
         EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
@@ -301,11 +223,13 @@
             self.tableViewModel.answerlists[i].isCorrect = YES;
             if (i != index) {
                 //错题
+                _errorsCount ++ ;
                 [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
-                [self getFooterViewModel];
+//                [self getFooterViewModel];
             }else{
-                
-                [self getFooterViewModel];
+                //正确
+                _correctCount ++ ;
+//                [self getFooterViewModel];
             }
         }else{
             
@@ -319,7 +243,9 @@
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        NSString *firstSubjectRecitedPoliticeID = [EDSSave account].firstSubjectRecitedPoliticeID;
+        firstSubjectRecitedPoliticeID = firstSubjectRecitedPoliticeID.length > 0 ? firstSubjectRecitedPoliticeID : @"1";
+        _tableViewModel = [[EDSDataBase sharedDataBase] getFirstSubjectRecitePolitcsWithID:firstSubjectRecitedPoliticeID];
     }
     return _tableViewModel;
 }
@@ -337,13 +263,11 @@
     return _headerView;
 }
 
-
-- (EDSPracticeFooterView *)footerView
+- (EDSRecitedPoliticsFooterView *)footerView
 {
     if (!_footerView) {
         
-        _footerView = [[EDSPracticeFooterView alloc] init];
-        [self getFooterViewModel];
+        _footerView = [[EDSRecitedPoliticsFooterView alloc] init];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);

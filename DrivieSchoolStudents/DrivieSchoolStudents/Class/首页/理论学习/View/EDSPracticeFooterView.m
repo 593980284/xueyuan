@@ -9,6 +9,11 @@
 #import "EDSPracticeFooterView.h"
 #import "EDSDataBase.h"
 
+
+@implementation EDSPractioceFooterModel
+
+@end
+
 @interface EDSPracticeFooterView ()
 @property (weak, nonatomic) IBOutlet UILabel *correctLbl;
 @property (weak, nonatomic) IBOutlet UILabel *errorLbl;
@@ -34,19 +39,23 @@
     [super awakeFromNib];
 }
 
-- (void)setIsCollection:(BOOL *)isCollection
+
+- (void)setFooterModel:(EDSPractioceFooterModel *)footerModel
 {
-    _isCollection = isCollection;
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getOneFirstSubjectCount]] normalTitle:@"" frontTitle:[EDSSave account].firstSubjectID diffentColor:ThirdColor];
-    self.progressLbl.attributedText = attStr;
+    _footerModel = footerModel;
+//    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getOneFirstSubjectCount]] normalTitle:@"" frontTitle:[EDSSave account].firstSubjectID diffentColor:ThirdColor];
     
-    NSInteger allcount = [[EDSSave account].firstSubjectID intValue];
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
+    self.progressLbl.attributedText = footerModel.progressAttr;
     
-    self.errorLbl.text = [NSString stringWithFormat:@"%ld",(long)errCount];
-    self.correctLbl.text = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
+//    NSInteger allcount = [[EDSSave account].firstSubjectID intValue];
+//    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
+//    self.errorLbl.text = [NSString stringWithFormat:@"%ld",(long)errCount];
+//    self.correctLbl.text = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
+//    self.collectionBtn.selected = isCollection;
     
-    self.collectionBtn.selected = isCollection;
+    self.errorLbl.text = footerModel.errorStr;
+    self.correctLbl.text = footerModel.correctStr;
+    self.collectionBtn.selected = footerModel.isCollection;
     
     @weakify(self);
     [self.collectionBtn bk_whenTapped:^{
@@ -54,13 +63,22 @@
         @strongify(self);
         if (self.collectionBtn.selected) {
             
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:[EDSSave account].firstSubjectID];
+            [[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:footerModel.ID];
             self.collectionBtn.selected = NO;
+            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+            [SVProgressHUD dismissWithDelay:1.5];
         }else{
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:[EDSSave account].firstSubjectID];
+            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:footerModel.ID];
             self.collectionBtn.selected = YES;
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+            [SVProgressHUD dismissWithDelay:1.5];
         }
     }];
+}
+
+- (void)setIsCollection:(BOOL *)isCollection
+{
+    
 }
 
 //下一题

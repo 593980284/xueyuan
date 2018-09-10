@@ -25,6 +25,8 @@
 
 /** 科目一练习 */
 @property (nonatomic, copy) NSString *firstSubjectID;
+/** 科目一背题 */
+@property (nonatomic, copy) NSString *firstSubjectRecitedPoliticeID;
 
 /** 本地经度 */
 @property (nonatomic, assign) double localLng;

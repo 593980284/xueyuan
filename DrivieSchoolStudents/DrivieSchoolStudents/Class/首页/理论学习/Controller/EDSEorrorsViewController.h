@@ -8,6 +8,6 @@
 
 #import "EDSPracticeViewController.h"
 
-@interface EDSEorrorsViewController : EDSPracticeViewController
+@interface EDSEorrorsViewController : BHYBaseViewController
 
 @end

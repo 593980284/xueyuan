@@ -7,7 +7,11 @@
 //
 
 #import "EDSTheoryLearningViewController.h"
-#import "EDSPracticeViewController.h"
+#import "EDSPracticeViewController.h"//联系
+#import "EDSCollectionViewController.h"//收藏
+#import "EDSEorrorsViewController.h"//错题
+#import "EDSRecitedPoliticsViewController.h"//背题
+#import "EDSFirstSubjectExamViewController.h"//科目一考试
 
 #import "EDSTheoryLearningHeaderView.h"
 #import "EDSTheoryLearningSubjectOneView.h"
@@ -73,23 +77,32 @@
     
     [self.subjectOneView.examBgView bk_whenTapped:^{
         DLog(@"考试");
+        EDSFirstSubjectExamViewController *vc = [[EDSFirstSubjectExamViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.subjectOneView.speakTextBgView bk_whenTapped:^{
         DLog(@"背题");
+        EDSRecitedPoliticsViewController *vc = [[EDSRecitedPoliticsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.subjectOneView.collectBgView bk_whenTapped:^{
         DLog(@"收藏");
+        EDSCollectionViewController *vc = [[EDSCollectionViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.subjectOneView.mistakesBgView bk_whenTapped:^{
         DLog(@"错题");
+        EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 
 
 #pragma mark ------------------------ 懒加载 --------------------------------
+
 - (EDSTheoryLearningSubjectOneView *)subjectOneView
 {
     if (!_subjectOneView) {
