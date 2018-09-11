@@ -26,7 +26,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-     
+        self.wz_width = kScreenWidth;
         [self setup];
         [self layoutIfNeeded];
     }
@@ -84,8 +84,8 @@
         make.height.mas_equalTo(heightR);
     }];
     
+    [self  getPracticeHeaderViewHeight];
     [self layoutIfNeeded];
-    DLog(@"---------%f",CGRectGetMaxY(_pictureImgView.frame));
 }
 
 - (CGFloat)getPracticeHeaderViewHeight

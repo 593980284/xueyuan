@@ -14,6 +14,13 @@
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
+		E902E0B421475D6600F49C51 /* EDSFirstSubjectExamFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E902E0B321475D6600F49C51 /* EDSFirstSubjectExamFooterView.m */; };
+		E902E0B621475DEA00F49C51 /* EDSFirstSubjectExamFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E902E0B521475DEA00F49C51 /* EDSFirstSubjectExamFooterView.xib */; };
+		E902E0B92147A5F900F49C51 /* EDSFirstSubjectExamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E902E0B82147A5F900F49C51 /* EDSFirstSubjectExamBase.m */; };
+		E902E0BD2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E902E0BB2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.m */; };
+		E902E0BE2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E902E0BC2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.xib */; };
+		E902E0C22147D95B00F49C51 /* EDSTheirPapersBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E902E0C02147D95B00F49C51 /* EDSTheirPapersBoxViewController.m */; };
+		E902E0C32147D95B00F49C51 /* EDSTheirPapersBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E902E0C12147D95B00F49C51 /* EDSTheirPapersBoxViewController.xib */; };
 		E90B2F762143A83F003ABF6B /* classify.db in Resources */ = {isa = PBXBuildFile; fileRef = E90B2F732143A83F003ABF6B /* classify.db */; };
 		E90B2F772143A83F003ABF6B /* icon.db in Resources */ = {isa = PBXBuildFile; fileRef = E90B2F742143A83F003ABF6B /* icon.db */; };
 		E90B2F782143A83F003ABF6B /* bank.db in Resources */ = {isa = PBXBuildFile; fileRef = E90B2F752143A83F003ABF6B /* bank.db */; };
@@ -2093,6 +2100,17 @@
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E902E0B221475D6600F49C51 /* EDSFirstSubjectExamFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFirstSubjectExamFooterView.h; sourceTree = "<group>"; };
+		E902E0B321475D6600F49C51 /* EDSFirstSubjectExamFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFirstSubjectExamFooterView.m; sourceTree = "<group>"; };
+		E902E0B521475DEA00F49C51 /* EDSFirstSubjectExamFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSFirstSubjectExamFooterView.xib; sourceTree = "<group>"; };
+		E902E0B72147A5F900F49C51 /* EDSFirstSubjectExamBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFirstSubjectExamBase.h; sourceTree = "<group>"; };
+		E902E0B82147A5F900F49C51 /* EDSFirstSubjectExamBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFirstSubjectExamBase.m; sourceTree = "<group>"; };
+		E902E0BA2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFirstSubjectResultsViewController.h; sourceTree = "<group>"; };
+		E902E0BB2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFirstSubjectResultsViewController.m; sourceTree = "<group>"; };
+		E902E0BC2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSFirstSubjectResultsViewController.xib; sourceTree = "<group>"; };
+		E902E0BF2147D95B00F49C51 /* EDSTheirPapersBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTheirPapersBoxViewController.h; sourceTree = "<group>"; };
+		E902E0C02147D95B00F49C51 /* EDSTheirPapersBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTheirPapersBoxViewController.m; sourceTree = "<group>"; };
+		E902E0C12147D95B00F49C51 /* EDSTheirPapersBoxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSTheirPapersBoxViewController.xib; sourceTree = "<group>"; };
 		E90B2F732143A83F003ABF6B /* classify.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = classify.db; sourceTree = "<group>"; };
 		E90B2F742143A83F003ABF6B /* icon.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.db; sourceTree = "<group>"; };
 		E90B2F752143A83F003ABF6B /* bank.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bank.db; sourceTree = "<group>"; };
@@ -6389,6 +6407,8 @@
 			children = (
 				E952D5DD21426E2D00EA3A0A /* EDSDataBase.h */,
 				E952D5DE21426E2D00EA3A0A /* EDSDataBase.m */,
+				E902E0B72147A5F900F49C51 /* EDSFirstSubjectExamBase.h */,
+				E902E0B82147A5F900F49C51 /* EDSFirstSubjectExamBase.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -6868,6 +6888,9 @@
 				E9FCD039214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m */,
 				E9FCD0402146799100A8AAC4 /* EDSFirstSubjectExamViewController.h */,
 				E9FCD0412146799100A8AAC4 /* EDSFirstSubjectExamViewController.m */,
+				E902E0BA2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.h */,
+				E902E0BB2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.m */,
+				E902E0BC2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6894,6 +6917,9 @@
 				E9FCD03B21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.h */,
 				E9FCD03C21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m */,
 				E9FCD03E21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib */,
+				E902E0B221475D6600F49C51 /* EDSFirstSubjectExamFooterView.h */,
+				E902E0B321475D6600F49C51 /* EDSFirstSubjectExamFooterView.m */,
+				E902E0B521475DEA00F49C51 /* EDSFirstSubjectExamFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7227,6 +7253,9 @@
 				E9FCD0302146505800A8AAC4 /* EDSClearRecordViewController.h */,
 				E9FCD0312146505800A8AAC4 /* EDSClearRecordViewController.m */,
 				E9FCD0322146505800A8AAC4 /* EDSClearRecordViewController.xib */,
+				E902E0BF2147D95B00F49C51 /* EDSTheirPapersBoxViewController.h */,
+				E902E0C02147D95B00F49C51 /* EDSTheirPapersBoxViewController.m */,
+				E902E0C12147D95B00F49C51 /* EDSTheirPapersBoxViewController.xib */,
 			);
 			name = "弹窗";
 			path = "Controller/弹窗";
@@ -7420,6 +7449,7 @@
 				E952D23F214268FE00EA3A0A /* 1852.jpg in Resources */,
 				E952D300214268FF00EA3A0A /* 1307.jpg in Resources */,
 				E952D5CC214268FF00EA3A0A /* jtbz_zl21.jpg in Resources */,
+				E902E0C32147D95B00F49C51 /* EDSTheirPapersBoxViewController.xib in Resources */,
 				E952D50F214268FF00EA3A0A /* 1837.jpg in Resources */,
 				E952D46F214268FF00EA3A0A /* 829.jpg in Resources */,
 				E952D21A214268FE00EA3A0A /* 2173.jpg in Resources */,
@@ -7451,6 +7481,7 @@
 				E952D2EC214268FF00EA3A0A /* 1105.jpg in Resources */,
 				E952D43F214268FF00EA3A0A /* 591.jpg in Resources */,
 				E952D541214268FF00EA3A0A /* jtbz_jg10.jpg in Resources */,
+				E902E0BE2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.xib in Resources */,
 				E952D243214268FE00EA3A0A /* jtbz_jg60.jpg in Resources */,
 				E952D3D4214268FF00EA3A0A /* 1103.jpg in Resources */,
 				E952D4E0214268FF00EA3A0A /* jtbz_zl33.jpg in Resources */,
@@ -7579,6 +7610,7 @@
 				E952D3BC214268FF00EA3A0A /* jtbz_zl8.jpg in Resources */,
 				E952D283214268FF00EA3A0A /* 647.jpg in Resources */,
 				E952D096214268FE00EA3A0A /* 707.jpg in Resources */,
+				E902E0B621475DEA00F49C51 /* EDSFirstSubjectExamFooterView.xib in Resources */,
 				E952D17C214268FE00EA3A0A /* 1280.jpg in Resources */,
 				E952CF68214268FE00EA3A0A /* 404.jpg in Resources */,
 				E952CF71214268FE00EA3A0A /* jtbz_jtsg10.jpg in Resources */,
@@ -9348,6 +9380,7 @@
 				E9FCD04621467ACF00A8AAC4 /* ZQCountDownView.m in Sources */,
 				E90F8FFE213D2F9F0061F448 /* EDSFourView.m in Sources */,
 				E9A61A4821364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.m in Sources */,
+				E902E0B92147A5F900F49C51 /* EDSFirstSubjectExamBase.m in Sources */,
 				E9FCD03A214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m in Sources */,
 				E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */,
 				E9A619AA2133D232006E5C2B /* EDSMyViewController.m in Sources */,
@@ -9382,6 +9415,7 @@
 				E9A619DD2134F106006E5C2B /* EDSMsgCodeLoginRequest.m in Sources */,
 				E9A61A64213690B2006E5C2B /* EDSOnlineAboutClassDetailAppointmentDownView.m in Sources */,
 				E9A61A5421366FB5006E5C2B /* calenCollectionViewCell.m in Sources */,
+				E902E0C22147D95B00F49C51 /* EDSTheirPapersBoxViewController.m in Sources */,
 				E90F9013213D45A50061F448 /* EDSSchoolStyleRequest.m in Sources */,
 				E9A61A962136B04E006E5C2B /* EDSCourseRecordCompleteTableViewCell.m in Sources */,
 				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
@@ -9422,6 +9456,7 @@
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
 				E9A61A0A21354A4F006E5C2B /* EDSEDSDrivingDetailsHeaderView.m in Sources */,
+				E902E0B421475D6600F49C51 /* EDSFirstSubjectExamFooterView.m in Sources */,
 				E9A61A7421369CF4006E5C2B /* EDSPersonalSettingsViewController.m in Sources */,
 				E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */,
 				E9A619F821352481006E5C2B /* EDSAccount.m in Sources */,
@@ -9444,6 +9479,7 @@
 				E90F9010213D3F430061F448 /* EDSSchoolInformationDetailModel.m in Sources */,
 				E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */,
 				E9A619A12133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.m in Sources */,
+				E902E0BD2147CF4E00F49C51 /* EDSFirstSubjectResultsViewController.m in Sources */,
 				E9A61A0421352CD7006E5C2B /* EDSDrivingSchoolModel.m in Sources */,
 				E935C6252138EF6E006FB53C /* EDSCourseRecordDetailFooterView.m in Sources */,
 				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,

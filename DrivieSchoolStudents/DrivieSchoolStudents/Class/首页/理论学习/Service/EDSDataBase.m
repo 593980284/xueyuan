@@ -186,6 +186,48 @@ static FMDatabaseQueue *_queue = nil;
     
     return count;
 }
+
+
+
+/** 根据id获取科目一题目 */
+- (EDSQuestionModel *)getSubjectFirstQuestionWithID:(NSString *)ID
+{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM onebankbean WHERE id = %@ LIMIT 1",ID]];
+    while ([res next]) {
+        
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%c",i + 65];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    
+    [_db close];
+    
+    return questionModel;
+}
+
 /** 错题数 */
 - (NSString *)getOneFirstSubjectErrorCount
 {
@@ -386,4 +428,5 @@ static FMDatabaseQueue *_queue = nil;
     
     [_db close];
 }
+
 @end

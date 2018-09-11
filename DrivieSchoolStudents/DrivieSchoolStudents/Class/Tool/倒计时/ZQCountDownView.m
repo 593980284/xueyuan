@@ -112,13 +112,13 @@
     }
     
     [_hourLabel sizeToFit];
-    CGFloat hourLabelWidth = _hourLabel.frame.size.width;
+    CGFloat hourLabelWidth = 0;//_hourLabel.frame.size.width;
     CGFloat width = frame.size.width;
     CGFloat colonWidth = 8.0;
-    CGFloat itemWidth = (width - colonWidth * 2) / 3;
+    CGFloat itemWidth = (width - colonWidth) / 2;
     if (hourLabelWidth < itemWidth)
     {
-        hourLabelWidth = itemWidth;
+//        hourLabelWidth = itemWidth;
     }
     itemWidth = (width - hourLabelWidth - colonWidth * 2) / 2;
     CGFloat itemHeight = frame.size.height;
@@ -132,11 +132,11 @@
         }
     }
     
-    UILabel *colonOne = [[UILabel alloc] initWithFrame:CGRectMake(hourLabelWidth, 0, colonWidth, itemHeight)];
+    UILabel *colonOne = [[UILabel alloc] initWithFrame:CGRectMake(itemWidth, 0, colonWidth, itemHeight)];
     colonOne.text = @":";
     colonOne.backgroundColor = [UIColor clearColor];
     colonOne.textColor = _colonColor;
-    colonOne.font = _textFont;
+    colonOne.font = [UIFont boldSystemFontOfSize:14];
     colonOne.textAlignment = NSTextAlignmentCenter;
     [self addSubview:colonOne];
     
@@ -153,9 +153,9 @@
     colonOne = nil;
 //    colonTwo = nil;
     
-//    _hourLabel.frame = CGRectMake(0, 0, hourLabelWidth, itemHeight);
+//    _hourLabel.frame = CGRectMake(0, 0, 0, itemHeight);
     _minuteLabel.frame = CGRectMake(0, 0, itemWidth, itemHeight);
-    _secondLabel.frame = CGRectMake(CGRectGetMaxX(_minuteLabel.frame) + colonWidth, 0, itemWidth, itemHeight);
+    _secondLabel.frame = CGRectMake(itemWidth + colonWidth, 0, itemWidth, itemHeight);
 }
 
 - (void)setHourText:(NSString *)hour

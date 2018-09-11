@@ -22,6 +22,8 @@
 - (EDSQuestionModel *)getSubjectFirstQuestion;
 /** 获取科目一一共多少题 */
 - (NSString *)getOneFirstSubjectCount;
+/** 根据id获取科目一题目 */
+- (EDSQuestionModel *)getSubjectFirstQuestionWithID:(NSString *)ID;
 
 
 /** 添加错题 */
@@ -48,7 +50,6 @@
 
 /** 清除科目一所有错题 */
 - (void)clearFirstSubjectAllWrongQuestions;
-
 
 //考试
 

@@ -7,34 +7,45 @@
 //
 
 #import "EDSFirstSubjectExamViewController.h"
+#import "EDSFirstSubjectResultsViewController.h"
+#import "EDSTheirPapersBoxViewController.h"
 
 #import "EDSPracticeHeaderView.h"
-#import "EDSRecitedPoliticsFooterView.h"
+#import "EDSFirstSubjectExamFooterView.h"
 #import "EDSPracticeTableViewCell.h"
 #import "ZQCountDownView.h"
+#import "PopAnimator.h"
 
 #import "EDSDataBase.h"
+#import "EDSFirstSubjectExamBase.h"
 
 #import "EDSQuestionModel.h"
 
 @interface EDSFirstSubjectExamViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger _currentCount;//当前多少题
-    NSInteger _errorsCount;//错题
-    NSInteger _correctCount;//对题
+    
+    NSIndexPath *_indexPath;
+    BOOL _isChooes;
 }
 
+@property (nonatomic, strong) PopAnimator *popAnimator;
 
 @property (nonatomic, strong) UITableView  *tableView;
 /** 倒计时 */
 @property (nonatomic, strong) ZQCountDownView  *countDownView;
-
+/** 交卷&提交答案&下一题 */
+@property (nonatomic, strong) UIButton  *nextBtn;
 /** 数据 */
 @property (nonatomic, strong) EDSQuestionModel  *tableViewModel;
 /** 头部试图 */
 @property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 /** 脚部试图 */
-@property (nonatomic, strong) EDSRecitedPoliticsFooterView  *footerView;
+@property (nonatomic, strong) EDSFirstSubjectExamFooterView  *footerView;
+/** 科目一id数组 */
+@property (nonatomic, strong) NSMutableArray  *subjectMulIDArr;
+/** 错题id数组 */
+@property (nonatomic, strong) NSMutableArray  *errorsMulIDArr;
 
 @end
 
@@ -48,12 +59,11 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.countDownView.countDownTimeInterval = 2700;
-    
+    self.errorsMulIDArr = [[NSMutableArray alloc] init];
     _currentCount = 1;
-    _errorsCount = 0;
-    _correctCount = 0;
+    _isChooes = NO;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -61,26 +71,59 @@
     self.tableView.backgroundColor = WhiteColor;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.countDownView.mas_bottom).mas_equalTo(10);
-        make.bottom.mas_equalTo(-120);
+        make.top.mas_equalTo(self.countDownView.mas_bottom);
+        make.bottom.mas_equalTo(self.nextBtn.mas_top).mas_equalTo(-10);
     }];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(35, 0, 0, 0);
-    [self.tableView  scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-    
-//    [self.tableView setTableHeaderView:self.headerView];
     self.headerView.questionModel = self.tableViewModel;
-    self.tableView.tableHeaderView = self.headerView;
-    
-    
-    self.footerView.ID = self.tableViewModel.ID;
-    self.footerView.isCollection = self.tableViewModel.isCollection;
+    CGFloat height = [self.headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect frame = self.headerView.bounds;
+    frame.size.height = height;
+    self.headerView.frame = frame;
+    [self.tableView setTableHeaderView:self.headerView];
+    [self setFooterViewModel];
     
     @weakify(self);
-    [self.footerView.nextBtn  bk_whenTapped:^{
+    [self.nextBtn  bk_whenTapped:^{
         @strongify(self);
-        [self getNextQuestion];
+        
+        if (self->_isChooes) {
+            
+            if (self->_currentCount == 100) {
+                
+                EDSFirstSubjectResultsViewController *vc = [[EDSFirstSubjectResultsViewController alloc] initWithNibName:@"EDSFirstSubjectResultsViewController" bundle:[NSBundle mainBundle]];
+                
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else{
+                [self getNextQuestion];
+            }
+            
+            [self setFooterViewModel];
+            
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"请先做完本题"];
+            [SVProgressHUD dismissWithDelay:1.5];
+            return;
+        }
     }];
+}
+
+#pragma mark ------------------------ 设置底部数据 --------------------------------
+- (void)setFooterViewModel
+{
+    [self getProcessCorrectAnswerWithIndex:self->_indexPath.row];
+    
+    EDSFirstSubjectExamFooterModel *model = [[EDSFirstSubjectExamFooterModel alloc] init];
+    
+    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/100" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)_currentCount] diffentColor:ThirdColor];
+    
+    model.attar = attStr;
+    model.correctstr =  _isChooes ? [NSString stringWithFormat:@"%ld",(long)_currentCount - self.errorsMulIDArr.count] :  [NSString stringWithFormat:@"%ld",(long)_currentCount - self.errorsMulIDArr.count - 1];
+    model.errorsstr = [NSString stringWithFormat:@"%ld",(long)self.errorsMulIDArr.count];
+    
+    self.footerView.footerModel = model;
 }
 
 
@@ -88,39 +131,75 @@
 - (void)getNextQuestion
 {
     _currentCount ++ ;
+    _isChooes = NO;
     
-    NSString *firstSubjectRecitedPoliticeID = [EDSSave account].firstSubjectRecitedPoliticeID;
-    NSInteger ID = [firstSubjectRecitedPoliticeID intValue];
-    ID ++ ;
-    
-    EDSAccount *account = [EDSSave account];
-    account.firstSubjectRecitedPoliticeID = [NSString stringWithFormat:@"%ld",(long)ID];
-    [EDSSave save:account];
-    
-    EDSQuestionModel *model = [[EDSDataBase sharedDataBase] getRandomSubjectFirst];
-    
-    if (model.ID.length > 0) {
+    if (_currentCount == 100) {
         
-        self.tableViewModel = model;
+        [self.nextBtn setTitle:@"提交" forState:UIControlStateNormal];
+    }else{
         
-        self.headerView.questionModel = self.tableViewModel;
-//        [self.tableView setTableHeaderView:self.headerView];
-        self.tableView.tableHeaderView = self.headerView;
-        
-        self.footerView.ID = self.tableViewModel.ID;
-        self.footerView.isCollection = self.tableViewModel.isCollection;
-//        [self.tableView scrollsToTop];
-        
-        [self.tableView  scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-        [self.tableView reloadData];
-    }else
-    {
-        [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [self.nextBtn setTitle:@"下一题" forState:UIControlStateNormal];
     }
     
+    self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestionWithID:self.subjectMulIDArr[_currentCount-1]];
+    
+    self.headerView.questionModel = self.tableViewModel;
+    CGFloat height = [self.headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect frame = self.headerView.bounds;
+    frame.size.height = height;
+    self.headerView.frame = frame;
+    [self.tableView setTableHeaderView:self.headerView];
+    
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.tableView reloadData];
 }
 
+#pragma mark ------------------------ 交卷 --------------------------------
+- (void)putTheirPapers
+{
+    [self.countDownView pauseCountDown];
+    
+    //方法一
+    [self getProcessCorrectAnswerWithIndex:self->_indexPath.row];
+    [self setFooterViewModel];
+    self.tableView.allowsSelection = _isChooes ? NO : YES;
+    
+    CGFloat width = 300;
+    
+    CGFloat height = 180;
+    
+    CGRect coverFrame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    
+    CGRect presentedFrame = CGRectMake((kScreenWidth - width)*0.5, 175, width, height);
+    
+    self.popAnimator = [[PopAnimator alloc]initWithCoverFrame:coverFrame presentedFrame:presentedFrame startPoint:CGPointMake(0.5, 0.5) startTransform:CGAffineTransformMakeScale(0.5, 0.5) endTransform:CGAffineTransformMakeScale(0.0001, 0.0001)];
+    
+    self.popAnimator.isClose = YES;
+    
+    EDSTheirPapersBoxViewController *vc = [[EDSTheirPapersBoxViewController alloc] initWithNibName:@"EDSTheirPapersBoxViewController" bundle:[NSBundle mainBundle]];
+    
+    vc.modalPresentationStyle = UIModalPresentationCustom;
+    
+    vc.view.layer.masksToBounds = YES;
+    vc.view.layer.cornerRadius = 5;
+    
+    vc.correctCount = self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1 ;
+    vc.errortCount = self.errorsMulIDArr.count;
+    
+    vc.transitioningDelegate = self.popAnimator;
+    @weakify(self);
+    vc.theirPapersBoxViewBackDidBtnString = ^(NSString *string) {
+        @strongify(self);
+        if ([string isEqualToString:@"交卷"]) {
+            
+        }else{
+            
+            [self.countDownView startCountDown];
+        }
+    };
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -140,12 +219,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 50;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.01;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -188,14 +267,6 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
-    
-    int index = [[NSString stringWithFormat:@"%ld",(long)indexPath.row] intValue] ;
-    
-    index += 65;
-    
-    answerModel.answerR = [NSString stringWithFormat:@"%c",index];
-    
     cell.answerModel = self.tableViewModel.answerlists[indexPath.row];
     
     return cell;
@@ -203,7 +274,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    _indexPath = indexPath;
     if (self.tableViewModel.isMultiple) {
         
         dispatch_apply(self.tableViewModel.answerlists.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
@@ -211,9 +282,11 @@
             if (i == indexPath.row) {
                 
                 self.tableViewModel.answerlists[i].isChoose = YES;
+                self.tableViewModel.answerlists[i].isCorrect = YES;
             }else{
                 
                 self.tableViewModel.answerlists[i].isChoose = NO;
+                self.tableViewModel.answerlists[i].isCorrect = NO;
             }
         });
     }else{
@@ -221,72 +294,79 @@
         EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
         answerModel.isChoose = !answerModel.isChoose;
     }
-    [self getProcessCorrectAnswerWithIndex:indexPath.row];
+    _isChooes = YES;
     [self.tableView reloadData];
 }
 
-
+//判断是否答错
 - (void)getProcessCorrectAnswerWithIndex:(NSInteger)index
 {
-    
-    for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
+    if (_isChooes) {
         
-        NSString *string = self.tableViewModel.answerlists[i].answerR;
-        
-        if ([string isEqualToString:self.tableViewModel.answer]) {
+        for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
             
-            self.tableViewModel.answerlists[i].isCorrect = YES;
-            if (i != index) {
-                //错题
-                _errorsCount ++ ;
-                [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
-                //                [self getFooterViewModel];
-            }else{
-                //正确
-                _correctCount ++ ;
-                //                [self getFooterViewModel];
+            NSString *string = self.tableViewModel.answerlists[i].answerR;
+            
+            if ([string isEqualToString:self.tableViewModel.answer]) {
+                
+                if (i != index) {
+                    //错题
+                    
+                    if (![self.errorsMulIDArr containsObject:self.subjectMulIDArr[_currentCount]]) {
+                        
+                        [self.errorsMulIDArr addObject:self.subjectMulIDArr[_currentCount]];
+                    }
+                    //添加错题
+                    [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
+                }
             }
-        }else{
-            
-            self.tableViewModel.answerlists[i].isCorrect = NO;
         }
     }
-    
 }
 
 - (EDSQuestionModel *)tableViewModel
 {
     if (!_tableViewModel) {
         
-        _tableViewModel = [[EDSDataBase sharedDataBase] getRandomSubjectFirst];
+        self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestionWithID:self.subjectMulIDArr[_currentCount-1]];
     }
     return _tableViewModel;
 }
 
+- (NSMutableArray *)subjectMulIDArr
+{
+    if (!_subjectMulIDArr) {
+     
+        _subjectMulIDArr = [[NSMutableArray alloc] initWithArray:[[EDSFirstSubjectExamBase sharedDataBase] getFirstSubjectExam]];
+    }
+    return _subjectMulIDArr;
+}
 
 - (EDSPracticeHeaderView *)headerView
 {
     if (!_headerView) {
         
-        _headerView = [[EDSPracticeHeaderView alloc] init];
-        [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(kScreenWidth);
-        }];
-        
-        self.tableView.tableHeaderView = _headerView;
+        _headerView = [[EDSPracticeHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
     }
     return _headerView;
 }
 
-- (EDSRecitedPoliticsFooterView *)footerView
+- (EDSFirstSubjectExamFooterView *)footerView
 {
     if (!_footerView) {
         
-        _footerView = [[EDSRecitedPoliticsFooterView alloc] init];
+        _footerView = [[EDSFirstSubjectExamFooterView alloc] init];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(120);
+            make.height.mas_equalTo(51);
+        }];
+        
+        @weakify(self);
+        [_footerView.commitBtn bk_whenTapped:^{
+            @strongify(self);
+            
+            [self putTheirPapers];
         }];
     }
     return _footerView;
@@ -304,7 +384,7 @@
             make.size.mas_equalTo(CGSizeMake(22, 22));
         }];
         
-        _countDownView = [[ZQCountDownView alloc] initWithFrame:CGRectMake(20, 6, 80, 20)];
+        _countDownView = [[ZQCountDownView alloc] initWithFrame:CGRectMake(20, 6, 60, 30)];
         _countDownView.themeColor = WhiteColor;
         _countDownView.textColor = FirstColor;
         _countDownView.textFont = kFont(14);
@@ -312,10 +392,31 @@
         [_countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(imageView.mas_centerY);
             make.left.mas_equalTo(imageView.mas_right).mas_equalTo(8);
-            make.size.mas_equalTo(CGSizeMake(80, 20));
+            make.size.mas_equalTo(CGSizeMake(60, 30));
         }];
     }
     return _countDownView;
+}
+
+- (UIButton *)nextBtn
+{
+    if (!_nextBtn) {
+        
+        _nextBtn = [[UIButton alloc] init];
+        [self.view addSubview:_nextBtn];
+        [_nextBtn setTitle:@"下一题" forState:UIControlStateNormal];
+        _nextBtn.backgroundColor = ThemeColor;
+        _nextBtn.layer.masksToBounds = YES;
+        _nextBtn.layer.cornerRadius = 5;
+        _nextBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+        [_nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(105);
+            make.right.mas_equalTo(-105);
+            make.height.mas_equalTo(45);
+            make.bottom.mas_equalTo(self.footerView.mas_top).mas_equalTo(-15);
+        }];
+    }
+    return _nextBtn;
 }
 
 @end

@@ -54,17 +54,7 @@
     [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
     [[XGPush defaultManager] reportXGNotificationInfo:launchOptions];
     
-    NSFileManager*fileManager =[NSFileManager defaultManager];
-    NSError*error;
-    NSArray*paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString*documentsDirectory =[paths objectAtIndex:0];
-    
-    NSString*txtPath = [documentsDirectory stringByAppendingPathComponent:@"bank.db"];
-    
-    if([fileManager fileExistsAtPath:txtPath] == NO){
-        NSString*resourcePath =[[NSBundle mainBundle] pathForResource:@"bank" ofType:@"db"];
-        [fileManager copyItemAtPath:resourcePath toPath:txtPath error:&error];
-    }
+    [self moveFilesToDocument];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[EDSTabBarViewController alloc] init];
@@ -74,6 +64,34 @@
 }
 
 
+//把数据库放到document
+- (void)moveFilesToDocument
+{
+    NSFileManager*fileManager =[NSFileManager defaultManager];
+    NSError*error;
+    NSArray*paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString*documentsDirectory =[paths objectAtIndex:0];
+
+    NSString*txtPath = [documentsDirectory stringByAppendingPathComponent:@"bank.db"];
+
+    if([fileManager fileExistsAtPath:txtPath] == NO){
+        NSString*resourcePath =[[NSBundle mainBundle] pathForResource:@"bank" ofType:@"db"];
+        [fileManager copyItemAtPath:resourcePath toPath:txtPath error:&error];
+    }
+    
+    NSFileManager*fileManager1 =[NSFileManager defaultManager];
+    NSError*error1;
+    NSArray*paths1 =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString*documentsDirectory1 =[paths1 objectAtIndex:0];
+    
+    NSString*txtPath1 = [documentsDirectory1 stringByAppendingPathComponent:@"classify.db"];
+    
+    if([fileManager1 fileExistsAtPath:txtPath1] == NO){
+        NSString*resourcePath =[[NSBundle mainBundle] pathForResource:@"classify" ofType:@"db"];
+        [fileManager1 copyItemAtPath:resourcePath toPath:txtPath1 error:&error1];
+    }
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
