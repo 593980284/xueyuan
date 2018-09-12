@@ -30,6 +30,11 @@
         self.button2.selected = NO;
         self.button3.selected = NO;
         [self indicatorAnimationWithCenterX:self.button1.wz_centerX];
+        
+        if (self.onlineAboutClassHeaderViewBackTitleStr) {
+            
+            self.onlineAboutClassHeaderViewBackTitleStr(@"0");
+        }
     }];
     
     [self.button2 bk_whenTapped:^{
@@ -38,6 +43,10 @@
         self.button2.selected = YES;
         self.button3.selected = NO;
         [self indicatorAnimationWithCenterX:self.button2.wz_centerX];
+        if (self.onlineAboutClassHeaderViewBackTitleStr) {
+            
+            self.onlineAboutClassHeaderViewBackTitleStr(@"1");
+        }
     }];
     
     [self.button3 bk_whenTapped:^{
@@ -46,6 +55,10 @@
         self.button2.selected = NO;
         self.button3.selected = YES;
         [self indicatorAnimationWithCenterX:self.button3.wz_centerX];
+        if (self.onlineAboutClassHeaderViewBackTitleStr) {
+            
+            self.onlineAboutClassHeaderViewBackTitleStr(@"2");
+        }
     }];
 }
 

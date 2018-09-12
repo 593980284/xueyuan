@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSOnlineClassListByDateModel;
 
 @interface EDSOnlineAboutClassTableViewCell : UITableViewCell
+
+@property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
 
 @end

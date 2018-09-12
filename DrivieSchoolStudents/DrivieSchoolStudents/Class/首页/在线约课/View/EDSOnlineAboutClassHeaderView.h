@@ -10,4 +10,6 @@
 
 @interface EDSOnlineAboutClassHeaderView : UIView
 
+@property (nonatomic, copy) void (^onlineAboutClassHeaderViewBackTitleStr)(NSString *headerTitlestr);
+
 @end

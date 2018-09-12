@@ -7,6 +7,8 @@
 //
 
 #import "EDSOnlineClassListByDateRequest.h"
+#import "EDSOnlineClassListByDateModel.h"
+
 
 @implementation EDSOnlineClassListByDateRequest
 
@@ -30,9 +32,13 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
+    NSArray<EDSOnlineClassListByDateModel *> *list1 = [EDSOnlineClassListByDateModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"list_1"]];
+    NSArray<EDSOnlineClassListByDateModel *> *list2 = [EDSOnlineClassListByDateModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"list_2"]];
+    NSArray<EDSOnlineClassListByDateModel *> *list3 = [EDSOnlineClassListByDateModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"list_3"]];
+    NSArray *model = [NSArray arrayWithObjects:list1,list2, list3, nil];
     if (self.successBlock) {
         
-        self.successBlock(resCode, data, nil);
+        self.successBlock(resCode, data, model);
     }
 }
 @end

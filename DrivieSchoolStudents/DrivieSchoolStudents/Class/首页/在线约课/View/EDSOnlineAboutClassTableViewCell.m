@@ -7,6 +7,19 @@
 //
 
 #import "EDSOnlineAboutClassTableViewCell.h"
+#import "EDSDriveStarView.h"
+
+#import "EDSOnlineClassListByDateModel.h"
+
+@interface EDSOnlineAboutClassTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *subjectLbl;
+@property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
+@property (weak, nonatomic) IBOutlet UILabel *numberRemainingLbl;
+@property (weak, nonatomic) IBOutlet UILabel *sexLbl;
+
+@end
 
 @implementation EDSOnlineAboutClassTableViewCell
 
@@ -19,6 +32,18 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setModel:(EDSOnlineClassListByDateModel *)model
+{
+    _model = model;
+    
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.showListImg] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    self.nameLbl.text = model.coachName;
+    self.subjectLbl.text = model.showSubjectTime;
+    self.driveStarView.selectNumber = model.showCoachStar;
+    self.sexLbl.text = model.coachSex;
+    self.numberRemainingLbl.text = model.showNoAppointmentNum;
 }
 
 @end

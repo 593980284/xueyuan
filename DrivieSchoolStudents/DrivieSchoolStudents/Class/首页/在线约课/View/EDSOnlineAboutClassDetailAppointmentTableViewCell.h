@@ -10,4 +10,6 @@
 
 @interface EDSOnlineAboutClassDetailAppointmentTableViewCell : UITableViewCell
 
+@property (nonatomic , copy) NSString *present;
+
 @end

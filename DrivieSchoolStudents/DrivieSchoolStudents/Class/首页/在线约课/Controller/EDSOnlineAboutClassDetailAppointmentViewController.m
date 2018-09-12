@@ -12,7 +12,12 @@
 #import "EDSOnlineAboutClassDetailAppointmentTableViewCell.h"
 #import "EDSOnlineAboutClassDetailAppointmentDownView.h"
 
+
+#import "EDSOnlineClassListByDateModel.h"
+
 @interface EDSOnlineAboutClassDetailAppointmentViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic , strong) EDSOnlineAboutClassDetailAppointmentHeaderView *headerView;
 
 @end
 
@@ -24,6 +29,7 @@
     self.navigationItem.title = @"在线约课";
     
     EDSOnlineAboutClassDetailAppointmentDownView *downView = [[EDSOnlineAboutClassDetailAppointmentDownView alloc] init];
+    downView.model = self.model;
     [self.view addSubview:downView];
     [downView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
@@ -41,9 +47,15 @@
     
     EDSOnlineAboutClassDetailAppointmentHeaderView *headerView = [[EDSOnlineAboutClassDetailAppointmentHeaderView alloc] init];
     headerView.wz_size = CGSizeMake(kScreenWidth, 425);
+    headerView.model = self.model;
     self.tableView.tableHeaderView = headerView;
+    self.headerView = headerView;
 }
 
+- (void)setModel:(EDSOnlineClassListByDateModel *)model
+{
+    _model = model;
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -54,7 +66,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,6 +85,8 @@
         cell = [[EDSOnlineAboutClassDetailAppointmentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.present = self.model.present;
     
     return cell;
 }

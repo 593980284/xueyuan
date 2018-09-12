@@ -39,19 +39,27 @@
     return self;
 }
 
+- (void)setPresent:(NSString *)present
+{
+    _present = present;
+    
+    self.descripLbl.text = present;
+}
+
 - (void)setup{
     
-    _iconImgView = [UIImageView imageViewWithSuperView:self.contentView];
-    _iconImgView.image = [UIImage imageNamed:@"zxykxq_content_like"];
-    [_iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(15);
-        make.size.mas_equalTo(CGSizeMake(21, 21));
-    }];
+//    _iconImgView = [UIImageView imageViewWithSuperView:self.contentView];
+//    _iconImgView.image = [UIImage imageNamed:@"zxykxq_content_like"];
+//    [_iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(15);
+//        make.top.mas_equalTo(15);
+//        make.size.mas_equalTo(CGSizeMake(21, 21));
+//    }];
     
     _descripLbl = [UILabel labelWithText:@"预约" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [_descripLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(46);
+//        make.left.mas_equalTo(46);
+        make.left.mas_equalTo(15);
         make.top.mas_equalTo(15);
         make.right.mas_equalTo(-15);
         make.bottom.mas_equalTo(-15);

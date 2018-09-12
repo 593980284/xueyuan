@@ -7,7 +7,10 @@
 //在线约课-详情页-预约
 
 #import "BHYBaseViewController.h"
+@class EDSOnlineClassListByDateModel;
 
 @interface EDSOnlineAboutClassDetailAppointmentViewController : BHYBaseViewController
+
+@property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
 
 @end

@@ -12,6 +12,7 @@
 		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
 		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
+		10BCCE4F214964D900548345 /* EDSStudentAppointmentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCCE4E214964D900548345 /* EDSStudentAppointmentRequest.m */; };
 		10C3F2502148B05800AA091A /* EDSStudentChangePassWordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F24F2148B05800AA091A /* EDSStudentChangePassWordRequest.m */; };
 		10C3F2532148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2522148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m */; };
 		10C3F2562148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2552148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m */; };
@@ -2109,6 +2110,8 @@
 		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
 		10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyOneTableViewCell.m; sourceTree = "<group>"; };
 		10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSSubscribeApplyOneTableViewCell.xib; sourceTree = "<group>"; };
+		10BCCE4D214964D900548345 /* EDSStudentAppointmentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentAppointmentRequest.h; sourceTree = "<group>"; };
+		10BCCE4E214964D900548345 /* EDSStudentAppointmentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentAppointmentRequest.m; sourceTree = "<group>"; };
 		10C3F24E2148B05800AA091A /* EDSStudentChangePassWordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentChangePassWordRequest.h; sourceTree = "<group>"; };
 		10C3F24F2148B05800AA091A /* EDSStudentChangePassWordRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentChangePassWordRequest.m; sourceTree = "<group>"; };
 		10C3F2512148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCheckOldPhoneRequest.h; sourceTree = "<group>"; };
@@ -4475,6 +4478,8 @@
 				10C3F2682148F18300AA091A /* EDSOnlineClassDateListRequest.m */,
 				10C3F2742149246100AA091A /* EDSOnlineClassListByDateRequest.h */,
 				10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */,
+				10BCCE4D214964D900548345 /* EDSStudentAppointmentRequest.h */,
+				10BCCE4E214964D900548345 /* EDSStudentAppointmentRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -9459,6 +9464,7 @@
 				E9D1C163213E936C0042F9C3 /* EDSMessageDetailViewController.m in Sources */,
 				E9A619DA2134F06A006E5C2B /* EDSStudentLoginRequest.m in Sources */,
 				E9A61AA521379876006E5C2B /* EDSLearningSituationViewController.m in Sources */,
+				10BCCE4F214964D900548345 /* EDSStudentAppointmentRequest.m in Sources */,
 				E9BC043A213146AE003A624F /* main.m in Sources */,
 				E9A61ABE2137E9E4006E5C2B /* EDSPracticeTableViewCell.m in Sources */,
 				E9A61A912136AC52006E5C2B /* EDSCourseRecordTableViewCell.m in Sources */,

@@ -12,8 +12,10 @@
 #import "EDSOnlineAboutClassTableViewCell.h"
 #import "EDSOnlineAboutClassHeaderView.h"
 #import "EDSOnlineAboutClassTableViewHeaderView.h"
+#import "EDSHeaderPageButtonView.h"
 
 #import "EDSOnlineClassDateListModel.h"
+#import "EDSOnlineClassListByDateModel.h"
 
 #import "EDSOnlineClassDateListRequest.h"
 #import "EDSOnlineClassListByDateRequest.h"
@@ -23,6 +25,12 @@
 @property (nonatomic , strong) NSArray <EDSOnlineClassDateListModel *> *dataArr;
 @property (nonatomic , strong) EDSOnlineAboutClassTableViewHeaderView *headerView;
 
+@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list1Arr;
+@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list2Arr;
+@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list3Arr;
+
+
+@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *tableViewListArr;
 
 @end
 
@@ -41,7 +49,7 @@
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
-        make.top.mas_equalTo(140);
+        make.top.mas_equalTo(185);
     }];
     
     [self requesDateListData];
@@ -69,10 +77,19 @@
 
 - (void)requestListByDateDataWithDate:(NSString *)date
 {
+    @weakify(self);
     EDSOnlineClassListByDateRequest *request = [EDSOnlineClassListByDateRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        
+        @strongify(self);
+        NSArray *modelArr = model;
         if (errCode == 1) {
             
+            self.list1Arr = modelArr[0];
+            self.list2Arr = modelArr[1];
+            self.list3Arr = modelArr[2];
+            
+            self.tableViewListArr = self.list1Arr;
+            
+            [self.tableView reloadData];
         }
     } failureBlock:^(NSError *error) {
     
@@ -85,7 +102,7 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tableViewListArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -111,30 +128,21 @@
     
     cell.backgroundColor = WhiteColor;
     
+    cell.model = self.tableViewListArr[indexPath.row];
+    
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 45;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    EDSOnlineAboutClassHeaderView *headerView = [[EDSOnlineAboutClassHeaderView alloc] init];
-    return headerView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
+    vc.model = self.tableViewListArr[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (EDSOnlineAboutClassTableViewHeaderView *)headerView
 {
     if (!_headerView) {
-        
         
         _headerView = [[EDSOnlineAboutClassTableViewHeaderView alloc] init];
         _headerView.frame = CGRectMake(0, 0, kScreenWidth, 140);
@@ -144,6 +152,30 @@
             @strongify(self);
             [self requestListByDateDataWithDate:datastr];
         };
+        
+        EDSHeaderPageButtonView *pageButtonView = [[EDSHeaderPageButtonView alloc] init];
+        [self.view addSubview:pageButtonView];
+        pageButtonView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
+            @strongify(self);
+            if ([titleStr isEqualToString:@"科一/文明驾驶"]) {
+                
+                self.tableViewListArr = self.list1Arr;
+            }else if ([titleStr isEqualToString:@"科二/三"]){
+                
+                self.tableViewListArr = self.list2Arr;
+            }else if ([titleStr isEqualToString:@"其他"]){
+                
+                self.tableViewListArr = self.list3Arr;
+            }
+            
+            [self.tableView reloadData];
+        };
+        pageButtonView.btnArr = @[@"科一/文明驾驶",@"科二/三",@"其他"];
+        [pageButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(self->_headerView.mas_bottom);
+            make.height.mas_equalTo(45);
+        }];
     }
     return _headerView;
 }

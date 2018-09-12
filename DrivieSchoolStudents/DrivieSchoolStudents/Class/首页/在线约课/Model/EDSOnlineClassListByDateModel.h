@@ -20,7 +20,7 @@
 @property (nonatomic , copy) NSString              * coachSex;//教练性别
 @property (nonatomic , copy) NSString              * appointmentId;//约课id
 @property (nonatomic , copy) NSString              * appointmentNum;//报名人数
-@property (nonatomic , copy) NSString              * coachName;//驾校名称
+@property (nonatomic , copy) NSString              * coachName;//教练名称
 @property (nonatomic , copy) NSString              * shortPeriodTime;//约课时间段("17:00-19:00")
 @property (nonatomic , copy) NSString              * schoolName;
 @property (nonatomic , copy) NSString              * noAppointmentNum;//剩余人数
@@ -28,5 +28,14 @@
 @property (nonatomic , copy) NSString              * coachStar;//教练评分
 @property (nonatomic , copy) NSString              * studentId;//学员id
 @property (nonatomic , copy) NSString              * subjectName;//科目名称
+
+
+
+@property (nonatomic , copy) NSString              * showListImg;//列表展示图片
+@property (nonatomic , copy) NSString              * showSubjectTime;//列表展示科目和时间
+@property (nonatomic , copy) NSString              * showSubjectAge;//列表展示科目和教龄
+@property (nonatomic , copy) NSString              * showNoAppointmentNum;//列表展示剩余人数
+@property (nonatomic , assign) NSInteger             showCoachStar;//列表展示星级
+
 
 @end

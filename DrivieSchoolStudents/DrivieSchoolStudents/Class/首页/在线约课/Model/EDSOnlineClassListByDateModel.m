@@ -10,4 +10,28 @@
 
 @implementation EDSOnlineClassListByDateModel
 
+- (NSString *)showListImg
+{
+    return [LINEURL stringByAppendingPathComponent:_coachPhoto];
+}
+
+- (NSString *)showSubjectTime
+{
+    return [NSString stringWithFormat:@"%@ %@",_subjectName,_shortPeriodTime];
+}
+
+- (NSString *)showSubjectAge
+{
+    return [NSString stringWithFormat:@"%@教龄 %@",_teachAge,_subjectName];
+}
+
+- (NSInteger)showCoachStar
+{
+    return ceil([_coachStar integerValue]/2);
+}
+
+- (NSString *)showNoAppointmentNum
+{
+    return [NSString stringWithFormat:@"剩余%@",_noAppointmentNum];
+}
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSOnlineClassListByDateModel;
 
 @interface EDSOnlineAboutClassDetailAppointmentDownView : UIView
 
+@property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
 @end

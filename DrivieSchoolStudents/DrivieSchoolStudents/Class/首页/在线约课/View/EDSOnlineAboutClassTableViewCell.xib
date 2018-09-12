@@ -76,7 +76,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="-206" y="89"/>
+            <connections>
+                <outlet property="driveStarView" destination="gDT-jS-IYi" id="enh-Ri-vLr"/>
+                <outlet property="imgView" destination="oBJ-Bv-cOE" id="ylk-Bd-Qap"/>
+                <outlet property="nameLbl" destination="GL1-M4-2aZ" id="OtV-Wz-Lib"/>
+                <outlet property="numberRemainingLbl" destination="x53-3J-Qbs" id="hrt-uh-Rc1"/>
+                <outlet property="sexLbl" destination="Zfx-nd-xmV" id="jci-P3-fJu"/>
+                <outlet property="subjectLbl" destination="iVC-db-0mH" id="RW8-Dw-TGd"/>
+            </connections>
+            <point key="canvasLocation" x="0.0" y="17"/>
         </tableViewCell>
     </objects>
     <resources>

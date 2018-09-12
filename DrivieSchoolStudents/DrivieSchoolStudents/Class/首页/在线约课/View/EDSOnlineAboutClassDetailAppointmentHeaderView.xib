@@ -201,6 +201,21 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ageSubjectLbl" destination="W7p-Zt-Jtb" id="rJP-sB-0Ba"/>
+                <outlet property="coachAppointmentNumLbl" destination="5dd-6h-3d5" id="UtG-uR-ulg"/>
+                <outlet property="coachNameLbl" destination="H7T-7r-B6g" id="ikv-OV-gF9"/>
+                <outlet property="coachNoAppointmentNumLbl" destination="aQd-BP-vjJ" id="lkw-4F-WHI"/>
+                <outlet property="coachSubjectLbl" destination="fRM-yb-2Mj" id="zdS-Lo-6dU"/>
+                <outlet property="coachTimeLbl" destination="EJD-ow-CzP" id="11J-h6-JCa"/>
+                <outlet property="coachhoursLbl" destination="phg-NP-gAZ" id="IsA-eI-pVa"/>
+                <outlet property="driveStarView" destination="iIm-1g-L0g" id="VaZ-24-Fki"/>
+                <outlet property="imgView" destination="wMj-iO-dKr" id="weh-Fl-60j"/>
+                <outlet property="nameLbl" destination="d2V-h6-45M" id="SEJ-r4-RB4"/>
+                <outlet property="numberRemainingLbl" destination="opj-bZ-Ltt" id="nSx-IB-i9U"/>
+                <outlet property="scoreLbl" destination="oRd-MN-0Lc" id="F2Q-Rw-8D0"/>
+                <outlet property="sexLbl" destination="ILg-Of-oMF" id="tcj-BC-VyT"/>
+            </connections>
             <point key="canvasLocation" x="-249.5" y="-26"/>
         </view>
     </objects>
