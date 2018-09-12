@@ -12,6 +12,19 @@
 		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
 		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
+		10C3F2502148B05800AA091A /* EDSStudentChangePassWordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F24F2148B05800AA091A /* EDSStudentChangePassWordRequest.m */; };
+		10C3F2532148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2522148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m */; };
+		10C3F2562148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2552148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m */; };
+		10C3F25A2148BA3F00AA091A /* EDSStrategyListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2592148BA3F00AA091A /* EDSStrategyListRequest.m */; };
+		10C3F25E2148BCF500AA091A /* EDSStrategyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F25D2148BCF500AA091A /* EDSStrategyListModel.m */; };
+		10C3F2622148DE4700AA091A /* EDSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2612148DE4700AA091A /* EDSRefreshHeader.m */; };
+		10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2642148DE8F00AA091A /* EDSRefreshFooter.m */; };
+		10C3F2692148F18300AA091A /* EDSOnlineClassDateListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2682148F18300AA091A /* EDSOnlineClassDateListRequest.m */; };
+		10C3F26D2148F20600AA091A /* EDSOnlineClassDateListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F26C2148F20600AA091A /* EDSOnlineClassDateListModel.m */; };
+		10C3F2702149045000AA091A /* EDSTopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F26F2149045000AA091A /* EDSTopScrollView.m */; };
+		10C3F2732149049400AA091A /* EDSDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2722149049400AA091A /* EDSDayView.m */; };
+		10C3F2762149246100AA091A /* EDSOnlineClassListByDateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */; };
+		10C3F27921492D4700AA091A /* EDSOnlineClassListByDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
 		E902E0B421475D6600F49C51 /* EDSFirstSubjectExamFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E902E0B321475D6600F49C51 /* EDSFirstSubjectExamFooterView.m */; };
@@ -2096,6 +2109,32 @@
 		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
 		10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyOneTableViewCell.m; sourceTree = "<group>"; };
 		10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSSubscribeApplyOneTableViewCell.xib; sourceTree = "<group>"; };
+		10C3F24E2148B05800AA091A /* EDSStudentChangePassWordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentChangePassWordRequest.h; sourceTree = "<group>"; };
+		10C3F24F2148B05800AA091A /* EDSStudentChangePassWordRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentChangePassWordRequest.m; sourceTree = "<group>"; };
+		10C3F2512148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCheckOldPhoneRequest.h; sourceTree = "<group>"; };
+		10C3F2522148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentCheckOldPhoneRequest.m; sourceTree = "<group>"; };
+		10C3F2542148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCheckNewPhoneRequest.h; sourceTree = "<group>"; };
+		10C3F2552148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentCheckNewPhoneRequest.m; sourceTree = "<group>"; };
+		10C3F2582148BA3F00AA091A /* EDSStrategyListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStrategyListRequest.h; sourceTree = "<group>"; };
+		10C3F2592148BA3F00AA091A /* EDSStrategyListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStrategyListRequest.m; sourceTree = "<group>"; };
+		10C3F25C2148BCF500AA091A /* EDSStrategyListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStrategyListModel.h; sourceTree = "<group>"; };
+		10C3F25D2148BCF500AA091A /* EDSStrategyListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStrategyListModel.m; sourceTree = "<group>"; };
+		10C3F2602148DE4700AA091A /* EDSRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSRefreshHeader.h; sourceTree = "<group>"; };
+		10C3F2612148DE4700AA091A /* EDSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSRefreshHeader.m; sourceTree = "<group>"; };
+		10C3F2632148DE8F00AA091A /* EDSRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSRefreshFooter.h; sourceTree = "<group>"; };
+		10C3F2642148DE8F00AA091A /* EDSRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSRefreshFooter.m; sourceTree = "<group>"; };
+		10C3F2672148F18300AA091A /* EDSOnlineClassDateListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassDateListRequest.h; sourceTree = "<group>"; };
+		10C3F2682148F18300AA091A /* EDSOnlineClassDateListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassDateListRequest.m; sourceTree = "<group>"; };
+		10C3F26B2148F20600AA091A /* EDSOnlineClassDateListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassDateListModel.h; sourceTree = "<group>"; };
+		10C3F26C2148F20600AA091A /* EDSOnlineClassDateListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassDateListModel.m; sourceTree = "<group>"; };
+		10C3F26E2149045000AA091A /* EDSTopScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTopScrollView.h; sourceTree = "<group>"; };
+		10C3F26F2149045000AA091A /* EDSTopScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTopScrollView.m; sourceTree = "<group>"; };
+		10C3F2712149049400AA091A /* EDSDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDayView.h; sourceTree = "<group>"; };
+		10C3F2722149049400AA091A /* EDSDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSDayView.m; sourceTree = "<group>"; };
+		10C3F2742149246100AA091A /* EDSOnlineClassListByDateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassListByDateRequest.h; sourceTree = "<group>"; };
+		10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassListByDateRequest.m; sourceTree = "<group>"; };
+		10C3F27721492D4700AA091A /* EDSOnlineClassListByDateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassListByDateModel.h; sourceTree = "<group>"; };
+		10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassListByDateModel.m; sourceTree = "<group>"; };
 		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
@@ -4400,6 +4439,57 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		10C3F2572148BA0500AA091A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F2582148BA3F00AA091A /* EDSStrategyListRequest.h */,
+				10C3F2592148BA3F00AA091A /* EDSStrategyListRequest.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		10C3F25B2148BB8B00AA091A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F25C2148BCF500AA091A /* EDSStrategyListModel.h */,
+				10C3F25D2148BCF500AA091A /* EDSStrategyListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10C3F25F2148DE2B00AA091A /* 刷新 */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F2602148DE4700AA091A /* EDSRefreshHeader.h */,
+				10C3F2612148DE4700AA091A /* EDSRefreshHeader.m */,
+				10C3F2632148DE8F00AA091A /* EDSRefreshFooter.h */,
+				10C3F2642148DE8F00AA091A /* EDSRefreshFooter.m */,
+			);
+			path = "刷新";
+			sourceTree = "<group>";
+		};
+		10C3F2662148F15E00AA091A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F2672148F18300AA091A /* EDSOnlineClassDateListRequest.h */,
+				10C3F2682148F18300AA091A /* EDSOnlineClassDateListRequest.m */,
+				10C3F2742149246100AA091A /* EDSOnlineClassListByDateRequest.h */,
+				10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		10C3F26A2148F1EA00AA091A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F26B2148F20600AA091A /* EDSOnlineClassDateListModel.h */,
+				10C3F26C2148F20600AA091A /* EDSOnlineClassDateListModel.m */,
+				10C3F27721492D4700AA091A /* EDSOnlineClassListByDateModel.h */,
+				10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		885737C458FA0E5F557DFB55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -4550,6 +4640,12 @@
 			children = (
 				E952C75B2141226F00EA3A0A /* EDSUploadStudentImgRequest.h */,
 				E952C75C2141226F00EA3A0A /* EDSUploadStudentImgRequest.m */,
+				10C3F24E2148B05800AA091A /* EDSStudentChangePassWordRequest.h */,
+				10C3F24F2148B05800AA091A /* EDSStudentChangePassWordRequest.m */,
+				10C3F2512148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.h */,
+				10C3F2522148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m */,
+				10C3F2542148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.h */,
+				10C3F2552148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -6693,6 +6789,8 @@
 		E9A61A35213646D4006E5C2B /* 在线约课 */ = {
 			isa = PBXGroup;
 			children = (
+				10C3F26A2148F1EA00AA091A /* Model */,
+				10C3F2662148F15E00AA091A /* Service */,
 				E9A61A36213646D4006E5C2B /* Controller */,
 				E9A61A37213646D4006E5C2B /* View */,
 			);
@@ -6728,6 +6826,10 @@
 				E9A61A6021368AD6006E5C2B /* EDSOnlineAboutClassDetailAppointmentTableViewCell.m */,
 				E9A61A62213690B2006E5C2B /* EDSOnlineAboutClassDetailAppointmentDownView.h */,
 				E9A61A63213690B2006E5C2B /* EDSOnlineAboutClassDetailAppointmentDownView.m */,
+				10C3F26E2149045000AA091A /* EDSTopScrollView.h */,
+				10C3F26F2149045000AA091A /* EDSTopScrollView.m */,
+				10C3F2712149049400AA091A /* EDSDayView.h */,
+				10C3F2722149049400AA091A /* EDSDayView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7050,6 +7152,7 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				10C3F25F2148DE2B00AA091A /* 刷新 */,
 				E9FCD04321467ACF00A8AAC4 /* 倒计时 */,
 				E952C7442141217D00EA3A0A /* 图片选择器 */,
 				E952C6D3213FD4F700EA3A0A /* Map */,
@@ -7138,6 +7241,8 @@
 		E9BC049C21315607003A624F /* 学车攻略 */ = {
 			isa = PBXGroup;
 			children = (
+				10C3F25B2148BB8B00AA091A /* Model */,
+				10C3F2572148BA0500AA091A /* Service */,
 				E9A619732133A63E006E5C2B /* Controller */,
 				E9A619782133A63E006E5C2B /* View */,
 			);
@@ -9350,6 +9455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10C3F2692148F18300AA091A /* EDSOnlineClassDateListRequest.m in Sources */,
 				E9D1C163213E936C0042F9C3 /* EDSMessageDetailViewController.m in Sources */,
 				E9A619DA2134F06A006E5C2B /* EDSStudentLoginRequest.m in Sources */,
 				E9A61AA521379876006E5C2B /* EDSLearningSituationViewController.m in Sources */,
@@ -9368,6 +9474,7 @@
 				E9A619C92133FE68006E5C2B /* EDSDriveSchollInfomationHeaderView.m in Sources */,
 				E9A61AAE2137BD05006E5C2B /* EDSTheoryLearningHeaderView.m in Sources */,
 				E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */,
+				10C3F26D2148F20600AA091A /* EDSOnlineClassDateListModel.m in Sources */,
 				E9A61A272135726B006E5C2B /* EDSCoachInformationViewController.m in Sources */,
 				E90F8FF5213D2A2C0061F448 /* EDSCoachTableViewCell.m in Sources */,
 				E9A619E8213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.m in Sources */,
@@ -9381,7 +9488,9 @@
 				E90F8FFE213D2F9F0061F448 /* EDSFourView.m in Sources */,
 				E9A61A4821364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.m in Sources */,
 				E902E0B92147A5F900F49C51 /* EDSFirstSubjectExamBase.m in Sources */,
+				10C3F25E2148BCF500AA091A /* EDSStrategyListModel.m in Sources */,
 				E9FCD03A214662FB00A8AAC4 /* EDSRecitedPoliticsViewController.m in Sources */,
+				10C3F2622148DE4700AA091A /* EDSRefreshHeader.m in Sources */,
 				E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */,
 				E9A619AA2133D232006E5C2B /* EDSMyViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
@@ -9389,13 +9498,16 @@
 				E9FCD03D21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
 				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
+				10C3F25A2148BA3F00AA091A /* EDSStrategyListRequest.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
+				10C3F2532148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m in Sources */,
 				E90B2F7B2143CE9D003ABF6B /* EDSEorrorsViewController.m in Sources */,
 				E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */,
 				E9D1C152213E8B4F0042F9C3 /* EDSDataPickerView.m in Sources */,
 				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
 				E9FCD0422146799100A8AAC4 /* EDSFirstSubjectExamViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
+				10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
@@ -9419,6 +9531,7 @@
 				E90F9013213D45A50061F448 /* EDSSchoolStyleRequest.m in Sources */,
 				E9A61A962136B04E006E5C2B /* EDSCourseRecordCompleteTableViewCell.m in Sources */,
 				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
+				10C3F2702149045000AA091A /* EDSTopScrollView.m in Sources */,
 				E90F9008213D39C30061F448 /* EDSStudentPreSignUpRequest.m in Sources */,
 				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
 				E90F9022213D516A0061F448 /* EDSSchoolRegionModel.m in Sources */,
@@ -9426,6 +9539,8 @@
 				E935C61D2138E756006FB53C /* EDSCourseRecordDetailViewController.m in Sources */,
 				E9A61A072135371D006E5C2B /* EDSMoLocationManager.m in Sources */,
 				E9BC048F21315283003A624F /* UIBarButtonItem+BHYCategory.m in Sources */,
+				10C3F2732149049400AA091A /* EDSDayView.m in Sources */,
+				10C3F27921492D4700AA091A /* EDSOnlineClassListByDateModel.m in Sources */,
 				E9A6197A2133A63E006E5C2B /* EDSStudentDriverStrategSubViewController.m in Sources */,
 				E9A61AC12137EDB9006E5C2B /* EDSPracticeFooterView.m in Sources */,
 				E9A619AE2133D24F006E5C2B /* EDSMyTableViewCell.m in Sources */,
@@ -9456,6 +9571,7 @@
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
 				E9A61A0A21354A4F006E5C2B /* EDSEDSDrivingDetailsHeaderView.m in Sources */,
+				10C3F2762149246100AA091A /* EDSOnlineClassListByDateRequest.m in Sources */,
 				E902E0B421475D6600F49C51 /* EDSFirstSubjectExamFooterView.m in Sources */,
 				E9A61A7421369CF4006E5C2B /* EDSPersonalSettingsViewController.m in Sources */,
 				E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */,
@@ -9494,8 +9610,10 @@
 				E9BC046321314A06003A624F /* AppDelegate.m in Sources */,
 				E9A61A7C2136A2F5006E5C2B /* EDSChangePasswordViewController.m in Sources */,
 				E9653870213E2A9700EDC3B8 /* EDSGetcoachCarTypeRequest.m in Sources */,
+				10C3F2562148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m in Sources */,
 				1038D5AD2146B603004DEA7C /* EDSStudentMsgRequest.m in Sources */,
 				E90F901C213D4C580061F448 /* EDSCoachListModel.m in Sources */,
+				10C3F2502148B05800AA091A /* EDSStudentChangePassWordRequest.m in Sources */,
 				E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */,
 				E9A61A5C21368235006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.m in Sources */,
 				E9BC049121315283003A624F /* UIView+BHYCore.m in Sources */,

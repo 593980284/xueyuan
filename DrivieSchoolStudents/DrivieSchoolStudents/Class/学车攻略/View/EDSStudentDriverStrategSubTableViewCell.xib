@@ -78,7 +78,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="clickLbl" destination="uPO-gv-UgO" id="ocF-ea-0kY"/>
                 <outlet property="imgView" destination="Ynd-u6-uvO" id="0sV-s2-A1D"/>
+                <outlet property="likeLbl" destination="1E5-Iw-w56" id="fsr-cO-x6i"/>
+                <outlet property="titleLbl" destination="0u2-Qg-tOf" id="iYZ-mH-dqf"/>
             </connections>
             <point key="canvasLocation" x="-175" y="121.5"/>
         </tableViewCell>

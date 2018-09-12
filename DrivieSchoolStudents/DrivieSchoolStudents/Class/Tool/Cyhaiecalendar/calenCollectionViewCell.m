@@ -56,8 +56,6 @@
     }];
     self.numberlabel.text = num;
     
-    
-    
     if (comp.year == todaycomp.year && todaycomp.month == comp.month && comp.day == todaycomp.day &&indexPath.row ==( week_firsday_month - 1 + comp.day + 7 ) ){
   
         self.numberlabel.textColor = WhiteColor;

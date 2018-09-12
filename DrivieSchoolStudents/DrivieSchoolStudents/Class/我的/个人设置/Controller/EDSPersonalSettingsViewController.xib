@@ -119,10 +119,28 @@
                         <constraint firstItem="QJe-ac-Exg" firstAttribute="top" secondItem="ajF-Bq-TpS" secondAttribute="bottom" id="rvQ-Y5-U9U"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-4T-xjy">
+                    <rect key="frame" x="15" y="196" width="345" height="45"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="15b-bx-dTM"/>
+                    </constraints>
+                    <state key="normal" title="退出登录"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="gooutClick:" destination="-1" eventType="touchUpInside" id="yiA-EQ-rbe"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="kB8-4T-xjy" firstAttribute="top" secondItem="dZy-dd-AE4" secondAttribute="bottom" constant="30" id="10d-iw-daa"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="kB8-4T-xjy" secondAttribute="trailing" constant="15" id="4oS-Rb-bFj"/>
                 <constraint firstItem="dZy-dd-AE4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Wk-lw-2IA"/>
+                <constraint firstItem="kB8-4T-xjy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="7TS-YY-gKL"/>
                 <constraint firstItem="dZy-dd-AE4" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ZOC-BN-nMO"/>
                 <constraint firstItem="dZy-dd-AE4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="cUD-JF-nhD"/>
             </constraints>

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSOnlineClassDateListModel;
 
 @interface EDSOnlineAboutClassTableViewHeaderView : UIView
+
+@property (nonatomic , strong) NSArray <EDSOnlineClassDateListModel *> *dataArr;
+
+@property (nonatomic, copy) void (^onlineAboutClassTableViewHeaderViewDidBackData)(NSString *datastr);
 
 @end

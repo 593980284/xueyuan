@@ -153,8 +153,14 @@
         
         [cell.numberlabel removeFromSuperview];
     }
+#warning ------------------------------
+    if (_comp.year == 2018 && _comp.month == 9 && (indexPath.row + 1 -_week_firsday_month - 7) == 15) {
+        
+        cell.tagview.hidden = NO;
+    }else{
+        cell.tagview.hidden = YES;
+    }
     
-    cell.tagview.hidden = NO;
     
     if (indexPath.row >(_week_firsday_month - 1 + 7) && indexPath.row < (_days+ (_week_firsday_month + 7))) {
 
@@ -163,8 +169,13 @@
         
         if ((_comp.year == _todaycomp.year && _todaycomp.month == _comp.month && _comp.day == _todaycomp.day &&indexPath.row ==( _week_firsday_month - 1 + _comp.day + 7 )) )
         {
+            
+            NSString * datestr = [NSString stringWithFormat:@"%ld-%ld-%ld",_comp.year,_comp.month,(indexPath.row + 1 -_week_firsday_month - 7)];
+            _Y_M_Dlabel.text = [NSString stringWithFormat:@"%ld-%ld-%ld",_comp.year,_comp.month,(indexPath.row + 1 -_week_firsday_month - 7)];
+            [self.daydelegate getDatestring:datestr];
+            
             NSIndexPath *monthindexPath =[NSIndexPath indexPathForRow:indexPath.row inSection:0];
-            [self.calenCollectionview selectItemAtIndexPath:monthindexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone ];
+            [self.calenCollectionview selectItemAtIndexPath:monthindexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
             
             allcell = cell;

@@ -11,9 +11,18 @@
 #import "EDSStudentDriverStrategyHeaderView.h"
 #import "EDSStudentDriverStrategSubTableViewCell.h"
 
+#import "EDSStrategyListRequest.h"
+
+#import "EDSStrategyListModel.h"
+
 #import "StudentDriverStrategConstants.h"
 
 @interface EDSStudentDriverStrategyViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSString *_type;
+}
+
+@property (nonatomic , strong) NSArray<EDSStrategyListModel *> *tableArr;
 
 @end
 
@@ -22,14 +31,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableArr = [[NSArray alloc] init];
+    _type = @"0";
+    self.page = 1;
+    
     EDSStudentDriverStrategyHeaderView *headerView = [[EDSStudentDriverStrategyHeaderView alloc] init];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(StudentDriverStrategHeaderViewH);
     }];
+    @weakify(self);
     headerView.viewDidSelectBtnBlock = ^(NSString *backBlock) {
         DLog(@"%@",backBlock);
+        @strongify(self);
+        self->_type = backBlock;
+        
+        [self requestDataWithType:self->_type];
     };
     
     self.tableView.delegate = self;
@@ -40,8 +58,55 @@
         make.top.mas_equalTo(StudentDriverStrategHeaderViewH);
         make.bottom.mas_equalTo(0);
     }];
+    
+    [self requestDataWithType:_type];
+    [self tableViewPullUp];
 }
 
+#pragma mark ------------------------ 网络请求 ------------------------------
+- (void)tableViewPullUp
+{
+    @weakify(self);
+    self.tableView.mj_header = [EDSRefreshHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        self.page = 1;
+        [self requestDataWithType:self->_type];
+    }];
+    
+    self.tableView.mj_footer = [EDSRefreshFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+        self.page = self.page + 1 ;
+        [self requestDataWithType:self->_type];
+    }];
+    self.tableView.mj_footer.hidden = NO;
+}
+
+- (void)requestDataWithType:(NSString *)type
+{
+    @weakify(self);
+    EDSStrategyListRequest *request = [EDSStrategyListRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        
+        if (errCode == 1) {
+            
+            NSArray<EDSStrategyListModel *> *arr = model;
+            self.tableView.mj_footer.hidden = arr.count == [NumPerPage intValue] ? NO : YES;
+            self.tableArr = model;
+            [self.tableView reloadData];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        
+        @strongify(self);
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    request.page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    request.strategyType = type;
+    [request  startRequest];
+}
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -51,7 +116,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return self.tableArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +127,8 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.strategyListModel = self.tableArr[indexPath.row];
     
     return cell;
 }

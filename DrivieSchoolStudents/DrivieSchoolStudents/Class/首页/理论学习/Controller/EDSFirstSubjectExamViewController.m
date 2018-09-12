@@ -132,6 +132,7 @@
 {
     _currentCount ++ ;
     _isChooes = NO;
+    self.tableView.allowsSelection = YES;
     
     if (_currentCount == 100) {
         

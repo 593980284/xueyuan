@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSChangePhoneOneViewController">
             <connections>
+                <outlet property="codeBtn" destination="IVd-uT-lph" id="Bqr-QU-zeW"/>
+                <outlet property="codeTextF" destination="Ss6-4F-qX4" id="4yh-S4-GXK"/>
+                <outlet property="phoneTextF" destination="e0j-g2-hna" id="MGg-Km-kDh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -95,6 +98,9 @@
                                     <state key="normal" title="获取验证码">
                                         <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="codeBtnClick:" destination="-1" eventType="touchUpInside" id="mVn-b4-zRD"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

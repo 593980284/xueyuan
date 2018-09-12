@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSStrategyListModel;
 
 @interface EDSStudentDriverStrategSubTableViewCell : UITableViewCell
+
+@property (nonatomic , strong) EDSStrategyListModel *strategyListModel;
 
 @end

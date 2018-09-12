@@ -349,4 +349,8 @@
  */
 + (NSString *)ImageTobase64:(UIImage *)_originImage;
 
+/**
+ *  根据当前日期计算星期几
+ */
++ (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
 @end

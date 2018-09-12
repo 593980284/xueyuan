@@ -7,13 +7,17 @@
 //
 
 #import "EDSOnlineAboutClassTableViewHeaderView.h"
-#import "cyhCalenbarview.h"
+#import "EDSTopScrollView.h"
 
-@interface EDSOnlineAboutClassTableViewHeaderView ()<getdataString>
+#import "EDSOnlineClassDateListModel.h"
 
-@property (nonatomic , strong)cyhCalenbarview * cyhcalenbar;
+@interface EDSOnlineAboutClassTableViewHeaderView ()
+
+//@property (nonatomic , strong)cyhCalenbarview * cyhcalenbar;
 //@property (nonatomic , strong)monthCalenbarview * monthCalenbar;
 @property (nonatomic , copy)NSString * daydatestr;
+
+@property (nonatomic , strong)UILabel * dataLbl;
 
 @end
 
@@ -25,7 +29,6 @@
     if (self) {
         
         self.backgroundColor = WhiteColor;
-        [self setup];
     }
     return self;
 }
@@ -36,33 +39,51 @@
     return [self initWithFrame:self.frame];
 }
 
+- (void)setDataArr:(NSArray<EDSOnlineClassDateListModel *> *)dataArr
+{
+    _dataArr = dataArr;
+    
+    [self setup];
+}
 
 - (void)setup{
     
-    //初始化，如果日历小于120.0的高度将默认为120.0高度
-    _cyhcalenbar = [[cyhCalenbarview alloc] initD_calenbarframe:CGRectMake(0, 0,kScreenWidth, 130)];
-    _cyhcalenbar.daydelegate = self;
-    //注册使用
-    [_cyhcalenbar daycalenbarviewNSdate];
+    _dataLbl = [UILabel labelWithText:@"2018-07" font:[UIFont boldSystemFontOfSize:16] textColor:FirstColor backGroundColor:ClearColor superView:self];
+    [_dataLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(15);
+        make.centerX.mas_equalTo(0);
+    }];
     
-    //日历背景颜色
-    _cyhcalenbar.calenbarBGcolor = WhiteColor;
+    EDSTopScrollView * scrollView = [[EDSTopScrollView alloc] initWithFrame:CGRectMake(0, 45, kScreenWidth, 76)];
+    [scrollView setUserInteractionEnabled:YES];
+    [scrollView setScrollEnabled:YES];
     
-    //星期排列背景颜色
-    _cyhcalenbar.WeekBGcolor = WhiteColor;
+    //NO - 设置scrollView不能取消传递touch事件，此时就算手指若在subView上滑动，scrollView不滚动; YES - 设置scrollView可取消传递touch事件
+    [scrollView setCanCancelContentTouches:YES];
+    [scrollView setBounces:NO];
     
-    //当天日期圆点颜色
-    _cyhcalenbar.todayNumBGcolor = [EDSToolClass getColorWithHexString:@"#FEAE3C"];
+    //NO - 立即通知touchesShouldBegin:withEvent:inContentView
+    [scrollView setDelaysContentTouches:NO];
+    CGFloat viewW = kScreenWidth / 7 ;
+    [scrollView setContentSize:CGSizeMake(viewW*self.dataArr.count, 76)];
+    @weakify(self);
+    scrollView.topScrollViewDidBackData = ^(NSString *datastr) {
+        @strongify(self);
+        if (self.onlineAboutClassTableViewHeaderViewDidBackData) {
+            
+            self.onlineAboutClassTableViewHeaderViewDidBackData(datastr);
+        }
+    };
     
-    //被选中的日期圆点颜色
-    _cyhcalenbar.SelecNumBGcolor = ThemeColor;
+    [self addSubview:scrollView];
+//    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(0);
+//        make.bottom.mas_equalTo(-10);
+//        make.top.mas_equalTo(self->_dataLbl.mas_bottom).mas_equalTo(15);
+//    }];
     
-    //当天日期数字颜色
-    _cyhcalenbar.todaytextColor = SecondColor;
-    
-    [self addSubview:_cyhcalenbar.daycalenbarview];
-    
-    
+    scrollView.dataArr = self.dataArr;
+
     UIView *line = [UIView viewWithBackgroundColor:TableColor superView:self];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
@@ -70,10 +91,4 @@
     }];
 }
 
-- (void)getDatestring:(NSString *)datestring
-{
-    _daydatestr = datestring;
-    NSLog(@"回调回来的日期:%@",_daydatestr);
-    
-}
 @end

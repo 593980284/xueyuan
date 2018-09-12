@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSChangePhoneTwoViewController">
             <connections>
+                <outlet property="codeBtn" destination="6WS-N1-Mii" id="yk9-Hd-c00"/>
+                <outlet property="codeTextF" destination="hAt-gE-xYY" id="1Sv-zK-lyn"/>
+                <outlet property="phoneTextF" destination="6RD-ly-pih" id="A4v-Ct-rjt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,6 +35,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitClick:" destination="-1" eventType="touchUpInside" id="a5j-dh-z1m"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhU-GR-N02">
                     <rect key="frame" x="0.0" y="20" width="375" height="111"/>
@@ -92,6 +98,9 @@
                                     <state key="normal" title="获取验证码">
                                         <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="codeBtnClick:" destination="-1" eventType="touchUpInside" id="ap4-5A-axF"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

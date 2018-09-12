@@ -32,7 +32,7 @@
         [self indicatorAnimationWithCenterX:self.testGaugeBtn.wz_centerX];
         if (self.viewDidSelectBtnBlock) {
             
-            self.viewDidSelectBtnBlock(@"1");
+            self.viewDidSelectBtnBlock(@"0");
         }
     }];
     [self.skillsBtn bk_whenTapped:^{
@@ -43,7 +43,7 @@
         [self indicatorAnimationWithCenterX:self.skillsBtn.wz_centerX];
         if (self.viewDidSelectBtnBlock) {
             
-            self.viewDidSelectBtnBlock(@"2");
+            self.viewDidSelectBtnBlock(@"1");
         }
     }];
     [self.funBtn bk_whenTapped:^{
@@ -54,7 +54,7 @@
         [self indicatorAnimationWithCenterX:self.funBtn.wz_centerX];
         if (self.viewDidSelectBtnBlock) {
             
-            self.viewDidSelectBtnBlock(@"3");
+            self.viewDidSelectBtnBlock(@"2");
         }
     }];
 }

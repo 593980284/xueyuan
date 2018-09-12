@@ -125,6 +125,25 @@
 //    [self editInfomationWithNiceName:@"" sex:@"" birthday:@"" images:@[resultImage]];
 }
 
+
+#pragma mark - 退出登录
+
+- (IBAction)gooutClick:(id)sender {
+    
+    [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
+    [SVProgressHUD dismissWithDelay:1.5];
+    EDSAccount *account = [EDSSave account];
+    account.userID = @"";
+    [EDSSave save:account];
+    
+    @weakify(self);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        @strongify(self);
+        self.navigationController.tabBarController.selectedIndex = 0;
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
+}
+
 #pragma mark - 2.UIImagePickerController的委托
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {

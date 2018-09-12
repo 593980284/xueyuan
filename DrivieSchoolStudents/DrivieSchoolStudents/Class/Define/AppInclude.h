@@ -29,6 +29,8 @@
 #import "EDSAccount.h"
 #import "EDSSave.h"
 #import "EDSToolClass.h"
+#import "EDSRefreshFooter.h"
+#import "EDSRefreshHeader.h"
 
 #import "UIBarButtonItem+BHYCategory.h"
 #import "AppDelegate+JSJCategory.h"
