@@ -85,6 +85,11 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="agebtn" destination="Yex-sI-TOt" id="6lr-7I-nGh"/>
+                <outlet property="coachNameLbl" destination="mUf-EE-rys" id="TWx-zT-2Tu"/>
+                <outlet property="imgView" destination="lr8-Tz-ffQ" id="3qO-k0-eix"/>
+                <outlet property="periodTimeLbl" destination="fMG-Ai-Dp3" id="rBd-No-wCp"/>
+                <outlet property="schoolNameLbl" destination="yub-lh-XbR" id="aYy-gr-FP2"/>
+                <outlet property="subjecthourLbl" destination="ysR-gK-jW7" id="LIA-qk-eYg"/>
             </connections>
             <point key="canvasLocation" x="-89.5" y="29.5"/>
         </tableViewCell>

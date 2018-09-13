@@ -77,6 +77,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ageSubjectLbl" destination="Prz-OS-ybV" id="fAA-qw-gP9"/>
+                <outlet property="coachScoreView" destination="Luo-x5-P7d" id="xZ8-5m-Mjz"/>
+                <outlet property="coursNameLbl" destination="ugl-ns-dny" id="v1c-VW-Lvg"/>
+                <outlet property="coursSexLbl" destination="Yv4-C3-nvg" id="Gcj-E1-L9r"/>
+                <outlet property="imgView" destination="QGu-Vx-4O4" id="OQv-g1-64S"/>
+                <outlet property="scoreLbl" destination="y7B-u4-h0L" id="Io0-Qk-31v"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="-168"/>
         </view>
     </objects>

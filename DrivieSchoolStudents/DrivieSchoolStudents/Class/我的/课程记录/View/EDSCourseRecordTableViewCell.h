@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class EDSCourseRecordModel;
+
 @interface EDSCourseRecordTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) EDSCourseRecordModel *courseRecordModel;
 
 @end

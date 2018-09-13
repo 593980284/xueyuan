@@ -50,9 +50,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZr-EI-d65">
-                        <rect key="frame" x="138" y="21.5" width="100" height="15"/>
+                        <rect key="frame" x="138" y="20.5" width="100" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="TtV-07-FO6"/>
+                            <constraint firstAttribute="height" constant="17" id="TtV-07-FO6"/>
                             <constraint firstAttribute="width" constant="100" id="izF-yD-52j"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -95,7 +95,10 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="ageLbl" destination="kZr-EI-d65" id="1sh-TF-YuM"/>
+                <outlet property="coachNameLbl" destination="2j4-y7-bZU" id="YVh-N1-Ab7"/>
                 <outlet property="driveStarView" destination="46W-uY-hCU" id="S0X-Ep-ib6"/>
+                <outlet property="imgView" destination="pfh-g6-kaZ" id="Yhc-tV-rzQ"/>
+                <outlet property="schoolNameLbl" destination="VQf-wa-D3p" id="8Sq-hY-3c1"/>
                 <outlet property="statusLbl" destination="Q5O-B1-bcL" id="gVp-0V-wdK"/>
             </connections>
             <point key="canvasLocation" x="-151.5" y="4"/>

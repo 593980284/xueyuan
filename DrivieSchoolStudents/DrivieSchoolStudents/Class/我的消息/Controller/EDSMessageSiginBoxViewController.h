@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSStudentMsgModel;
 
 @interface EDSMessageSiginBoxViewController : UIViewController
-
+@property (nonatomic , strong) EDSStudentMsgModel *msgModel;
 @end

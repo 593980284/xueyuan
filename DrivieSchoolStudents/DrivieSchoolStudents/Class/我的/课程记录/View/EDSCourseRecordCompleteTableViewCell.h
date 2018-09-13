@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class  EDSCourseRecordModel;
 
 @interface EDSCourseRecordCompleteTableViewCell : UITableViewCell
-
+@property (nonatomic , strong) EDSCourseRecordModel *courseRecordModel;
 @end

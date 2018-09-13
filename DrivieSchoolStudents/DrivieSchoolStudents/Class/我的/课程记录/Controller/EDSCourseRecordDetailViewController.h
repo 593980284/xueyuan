@@ -8,6 +8,10 @@
 
 #import "BHYBaseViewController.h"
 
+@class EDSCourseRecordModel;
+
 @interface EDSCourseRecordDetailViewController : BHYBaseViewController
+
+@property (nonatomic, strong) EDSCourseRecordModel *courseRecordModel;
 
 @end

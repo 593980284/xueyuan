@@ -12,6 +12,8 @@
 #import "EDSCourseRecordDetailHeaderView.h"
 #import "EDSCourseRecordDetailFooterView.h"
 
+#import "EDSCourseRecordModel.h"
+
 @interface EDSCourseRecordDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -29,10 +31,12 @@
     
     EDSCourseRecordDetailHeaderView *headerView = [[EDSCourseRecordDetailHeaderView alloc] init];
     headerView.wz_size = CGSizeMake(kScreenWidth, 111);
+    headerView.courseRecordModel = self.courseRecordModel;
     self.tableView.tableHeaderView = headerView;
     
     EDSCourseRecordDetailFooterView *footerView = [[EDSCourseRecordDetailFooterView alloc] init];
     footerView.wz_size = CGSizeMake(kScreenWidth, 321);
+    footerView.courseRecordModel = self.courseRecordModel;
     self.tableView.tableFooterView = footerView;
     
     UIButton *determineBtn = [[UIButton alloc] init];

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class  EDSCourseRecordModel;
 
 @interface EDSCourseRecordDetailFooterView : UIView
+
+@property (nonatomic , strong) EDSCourseRecordModel *courseRecordModel;
 
 @end

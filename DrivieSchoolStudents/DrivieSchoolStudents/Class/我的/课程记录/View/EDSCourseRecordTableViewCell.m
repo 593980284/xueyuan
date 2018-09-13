@@ -7,10 +7,16 @@
 //
 
 #import "EDSCourseRecordTableViewCell.h"
+#import "EDSCourseRecordModel.h"
 
 @interface EDSCourseRecordTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *coachNameLbl;
 @property (weak, nonatomic) IBOutlet UIButton *agebtn;
+@property (weak, nonatomic) IBOutlet UILabel *schoolNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *periodTimeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *subjecthourLbl;
 
 @end
 
@@ -30,6 +36,18 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setCourseRecordModel:(EDSCourseRecordModel *)courseRecordModel
+{
+    _courseRecordModel = courseRecordModel;
+    
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    self.coachNameLbl.text = courseRecordModel.coachName;
+    [self.agebtn setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
+    self.schoolNameLbl.text = courseRecordModel.schoolName;
+    self.periodTimeLbl.text = courseRecordModel.periodTime;
+    self.subjecthourLbl.text = courseRecordModel.showSubjecthour;
 }
 
 @end

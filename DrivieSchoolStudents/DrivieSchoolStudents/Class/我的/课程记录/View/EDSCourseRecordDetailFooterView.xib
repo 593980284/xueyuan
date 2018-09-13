@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSCourseRecordDetailHeaderView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSCourseRecordDetailFooterView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="321"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -138,6 +138,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="hoursLbl" destination="ZdV-i9-1KT" id="YMR-od-fn2"/>
+                <outlet property="noReachStuNumLbl" destination="0Cv-rd-ok3" id="WvS-E2-jyy"/>
+                <outlet property="periodTimeLbl" destination="v0q-dG-9oP" id="Fa0-ut-5ZC"/>
+                <outlet property="reachStuNumLbl" destination="qhu-YV-uWO" id="59A-0o-qNM"/>
+                <outlet property="schoolNameLbl" destination="pNM-Ha-tGg" id="J2X-Nh-RfU"/>
+                <outlet property="subjectNameLbl" destination="XoT-H9-umO" id="kWd-Uc-QlI"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="-139.5"/>
         </view>
     </objects>

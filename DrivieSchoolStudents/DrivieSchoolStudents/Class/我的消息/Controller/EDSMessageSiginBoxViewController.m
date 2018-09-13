@@ -7,8 +7,15 @@
 //
 
 #import "EDSMessageSiginBoxViewController.h"
+#import "EDSStudentAttendanceRequest.h"
+#import "EDSStudentMsgDetailRequest.h"
+
+#import "EDSStudentMsgModel.h"
+
 
 @interface EDSMessageSiginBoxViewController ()
+
+@property (nonatomic , copy) NSString *courseRecordId;
 
 @end
 
@@ -16,22 +23,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    @weakify(self);
+    EDSStudentMsgDetailRequest *request = [EDSStudentMsgDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        if (errCode == 1) {
+            
+            self.courseRecordId = responseDict[@"courseRecordId"];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.msgId = self.msgModel.msgId;
+    
+    [request  startRequest];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)confirmClick:(id)sender {
+    
+    EDSStudentAttendanceRequest *request = [EDSStudentAttendanceRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        if (errCode == 1) {
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        }
+    } failureBlock:^(NSError *error) {
+    
+    }];
+    request.courseRecordId = self.courseRecordId;
+    request.status = @"6";
+    [request  startRequest];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)noGoClick:(id)sender {
+    
+    EDSStudentAttendanceRequest *request = [EDSStudentAttendanceRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        if (errCode == 1) {
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.courseRecordId = self.courseRecordId;
+    request.status = @"7";
+    [request  startRequest];
+    
 }
-*/
 
 @end

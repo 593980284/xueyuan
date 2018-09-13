@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class  EDSCourseRecordModel;
+
 @interface EDSCourseRecordDetailHeaderView : UIView
+
+@property (nonatomic , strong) EDSCourseRecordModel *courseRecordModel;
 
 @end
