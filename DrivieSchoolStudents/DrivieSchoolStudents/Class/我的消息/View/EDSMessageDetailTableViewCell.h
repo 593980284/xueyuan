@@ -13,4 +13,9 @@
 /** 是否是问题 */
 @property (nonatomic, assign) BOOL isQuestion;
 
+@property (nonatomic, strong) UILabel  *typeLbl;
+@property (nonatomic, strong) UILabel  *titleLbl;
+@property (nonatomic, strong) UILabel  *descrpLbl;
+@property (nonatomic, strong) UILabel  *timeLbl;
+
 @end

@@ -25,6 +25,52 @@
     return [NSString stringWithFormat:@"%@教龄 %@",_teachAge,_subjectName];
 }
 
+- (NSDate *)startSiginDate
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    if (_periodTime.length > 0) {
+        
+        NSString *datestr = [_periodTime substringToIndex:16];
+        date = [fmt dateFromString:datestr];
+    }
+    date = [date dateByAddingTimeInterval:-[_advanceSignInTime intValue]*60];
+    DLog(@"%@",[fmt stringFromDate:date]);
+    return date;
+}
+
+- (NSDate *)endSiginDate
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    if (_periodTime.length > 0) {
+        
+        NSString *datestr = [_periodTime substringToIndex:16];
+        date = [fmt dateFromString:datestr];
+    }
+    date = [date dateByAddingTimeInterval:[_hours intValue]*60*60];
+    DLog(@"%@",[fmt stringFromDate:date]);
+    return date;
+}
+
+- (NSDate *)cancleAppDate
+{
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    if (_periodTime.length > 0) {
+        
+        NSString *datestr = [_periodTime substringToIndex:16];
+        date = [fmt dateFromString:datestr];
+    }
+    date = [date dateByAddingTimeInterval:-[_advanceCancelHours intValue]*60*60];
+    DLog(@"%@",[fmt stringFromDate:date]);
+    return date;
+}
+
 - (NSInteger)showCoachStar
 {
     return ceil([_coachStar integerValue]/2);

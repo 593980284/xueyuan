@@ -7,7 +7,10 @@
 //
 
 #import "EDSLearningSituationViewController.h"
+
 #import "EDSHeaderPageButtonView.h"
+#import "EDSLearningSituationView.h"
+#import "EDSTestCaseView.h"
 
 @interface EDSLearningSituationViewController ()
 
@@ -17,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"学习";
     
     EDSHeaderPageButtonView *headerView = [[EDSHeaderPageButtonView alloc] init];
     headerView.btnArr = @[@"学习情况",@"考试情况"];
@@ -28,6 +33,16 @@
     headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
         DLog(@"%@",titleStr);
     };
+    
+    
+    EDSTestCaseView *learningSituationView = [[EDSTestCaseView alloc] init];
+    [self.view addSubview:learningSituationView];
+    [learningSituationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(190);
+        make.top.mas_equalTo(headerView.mas_bottom);
+    }];
+    
 }
 
 

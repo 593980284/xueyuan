@@ -7,6 +7,12 @@
 //
 
 #import "EDSMessageTableViewCell.h"
+#import "EDSStudentMsgModel.h"
+@interface EDSMessageTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *contentLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+
+@end
 
 @implementation EDSMessageTableViewCell
 
@@ -21,4 +27,12 @@
     // Configure the view for the selected state
 }
 
+
+- (void)setMesModel:(EDSStudentMsgModel *)mesModel
+{
+    _mesModel = mesModel;
+    
+    self.contentLbl.text = mesModel.content;
+    self.timeLbl.text = mesModel.date;
+}
 @end

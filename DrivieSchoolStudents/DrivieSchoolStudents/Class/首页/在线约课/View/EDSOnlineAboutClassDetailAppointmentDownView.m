@@ -45,55 +45,132 @@
         self.determineBtn.hidden = NO;
         self.signinBtn.hidden = YES;
         self.canleBtn.hidden = YES;
-        @weakify(self);
-        [self.determineBtn bk_whenTapped:^{
-            @strongify(self);
-            
-            EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-                
-            } failureBlock:^(NSError *error) {
-                
-            }];
-            request.schoolId = model.schoolId;
-            request.appointmentId = model.appointmentId;
-            request.studentId = [EDSSave account].userID;
-            request.status = @"0";
-            [request  startRequest];
-        }];
-    }else{
         
+    }else{
         self.determineBtn.hidden = YES;
         self.signinBtn.hidden = NO;
         self.canleBtn.hidden = NO;
         
-        [self.signinBtn bk_whenTapped:^{
+        if ([model.isAppointment isEqualToString:@"1"]) {
             
-            EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            self.signinBtn.enabled = NO;
+            _signinBtn.backgroundColor = ThirdColor;
+            [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
+        }else{
+            
+            if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
                 
-            } failureBlock:^(NSError *error) {
+                self.signinBtn.enabled = YES;
+                self.signinBtn.backgroundColor = ThemeColor;
+            }else{
                 
-            }];
-            request.schoolId = model.schoolId;
-            request.appointmentId = model.appointmentId;
-            request.studentId = [EDSSave account].userID;
-            request.status = @"1";
-            [request  startRequest];
-        }];
+                self.signinBtn.enabled = NO;
+                self.signinBtn.backgroundColor = ThirdColor;
+            }
+        }
         
-        [self.canleBtn bk_whenTapped:^{
+    }
+    @weakify(self);
+    [self.determineBtn bk_whenTapped:^{
+        
+        @strongify(self);
+        
+        EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model1) {
             
-            EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            if (errCode == 1) {
                 
-            } failureBlock:^(NSError *error) {
+                self.determineBtn.hidden = YES;
+                self.signinBtn.hidden = NO;
+                self.canleBtn.hidden = NO;
+                
+                if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
+                    
+                    self.signinBtn.enabled = YES;
+                    self.signinBtn.backgroundColor = ThemeColor;
+                }else{
+                    
+                    self.signinBtn.enabled = NO;
+                    self.signinBtn.backgroundColor = ThirdColor;
+                }
+            }
+        } failureBlock:^(NSError *error) {
+            
+        }];
+        request.schoolId = model.schoolId;
+        request.appointmentId = model.appointmentId;
+        request.studentId = model.studentId;
+        request.status = @"0";
+        [request  startRequest];
+    }];
+    
+    [self.signinBtn bk_whenTapped:^{
+        
+        @strongify(self);
+        EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            
+            if (errCode == 1) {
+                
+                [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
+                self.signinBtn.enabled = NO;
+            }
+        } failureBlock:^(NSError *error) {
+            
+        }];
+        request.schoolId = model.schoolId;
+        request.appointmentId = model.appointmentId;
+        request.studentId = model.studentId;
+        request.status = @"1";
+        [request  startRequest];
+    }];
+    
+    [self.canleBtn bk_whenTapped:^{
+        @strongify(self);
+        // 手机当前时间
+        NSDate *nowDate = [NSDate date];
+        // 获得比较结果(谁大谁小)
+        NSComparisonResult result = [nowDate compare:model.cancleAppDate];
+        if (result == NSOrderedAscending) { // 升序, 越往右边越大
+            
+            UIAlertController *alerController = [UIAlertController alertControllerWithTitle:nil message:@"是否确定取消本次预约？" preferredStyle:UIAlertControllerStyleAlert];UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+                    
+                    if (errCode == 1) {
+                        
+                        self.determineBtn.hidden = NO;
+                        self.signinBtn.hidden = YES;
+                        self.canleBtn.hidden = YES;
+                    }
+                } failureBlock:^(NSError *error) {
+                    
+                }];
+                request.schoolId = model.schoolId;
+                request.appointmentId = model.appointmentId;
+                request.studentId = model.studentId;
+                request.status = @"10";
+                [request startRequest];
                 
             }];
-            request.schoolId = model.schoolId;
-            request.appointmentId = model.appointmentId;
-            request.studentId = [EDSSave account].userID;
-            request.status = @"10";
-            [request startRequest];
-        }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alerController addAction:okAction];
+            [alerController addAction:cancelAction];
+            [[self getCurrentVC] presentViewController:alerController animated:YES completion:nil];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"可取消时间已过"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
+    }];
+}
+
+//当前时间是否在时间段内
+- (BOOL)judgeTimeByStartAndEnd:(NSDate *)startTime withExpireTime:(NSDate *)expireTime {
+    NSDate *today = [NSDate date];
+    
+    if ([today compare:startTime] == NSOrderedDescending && [today compare:expireTime] == NSOrderedAscending) {
+        return YES;
     }
+    return NO;
 }
 
 
@@ -104,6 +181,7 @@
         
         _determineBtn = [[UIButton alloc] init];
         [_determineBtn setTitle:@"确认预约" forState:UIControlStateNormal];
+        _determineBtn.enabled = YES;
         [_determineBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
         _determineBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         _determineBtn.backgroundColor = ThemeColor;
@@ -164,5 +242,41 @@
     return _canleBtn;
 }
 
-
+- (UIViewController*)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                
+                break
+                ;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        
+        result = nextResponder;
+    
+    else
+        
+        result = window.rootViewController;
+    
+    return result;
+}
 @end

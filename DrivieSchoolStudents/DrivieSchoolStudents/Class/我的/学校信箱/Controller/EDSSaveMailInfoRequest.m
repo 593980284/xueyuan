@@ -1,26 +1,26 @@
 //
-//  EDSStudentMsgRequest.m
+//  EDSSaveMailInfoRequest.m
 //  DrivieSchoolStudents
 //
-//  Created by 班文政 on 2018/9/10.
+//  Created by 班文政 on 2018/9/13.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSStudentMsgRequest.h"
-#import "EDSStudentMsgModel.h"
+#import "EDSSaveMailInfoRequest.h"
 
-@implementation EDSStudentMsgRequest
+@implementation EDSSaveMailInfoRequest
 
 - (NSString *)requestURLPath
 {
-    return @"/app/lexiang/message/findStudentMsg";
+    return @"/app/lexiang/schoolMailbox/saveMailInfo";
 }
 
 - (NSDictionary *)requestArguments
 {
     return @{
              @"phone":_phone,
-             @"type":_type
+             @"type":_type,
+             @"pubContent":_pubContent,
              };
 }
 
@@ -31,10 +31,9 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    NSArray <EDSStudentMsgModel *>*model = [EDSStudentMsgModel mj_objectArrayWithKeyValuesArray:data];
     if (self.successBlock) {
         
-        self.successBlock(resCode, data, model);
+        self.successBlock(resCode, data, nil);
     }
 }
 

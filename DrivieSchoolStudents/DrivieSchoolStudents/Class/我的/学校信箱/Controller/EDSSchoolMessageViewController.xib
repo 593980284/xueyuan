@@ -73,6 +73,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitClick:" destination="-1" eventType="touchUpInside" id="jpg-fG-FDF"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -8,9 +8,16 @@
 
 #import "EDSMessageDetailViewController.h"
 
+#import "EDSStudentMsgDetailRequest.h"
+
+#import "EDSStudentMsgModel.h"
+#import "EDSStudentMsgDetailModel.h"
+
 #import "EDSMessageDetailTableViewCell.h"
 
 @interface EDSMessageDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic , strong) EDSStudentMsgDetailModel *detailModel;
 
 @end
 
@@ -29,9 +36,34 @@
     }];
 }
 
+- (void)setMsgModel:(EDSStudentMsgModel *)msgModel
+{
+    _msgModel = msgModel;
+    
+    EDSStudentMsgDetailRequest *request = [EDSStudentMsgDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        if (errCode == 1) {
+            
+            self.detailModel = [[EDSStudentMsgDetailModel alloc] init];
+            self.detailModel.problemTime = responseDict[@"date"];
+            self.detailModel.problemTitle = responseDict[@"title"];
+            self.detailModel.problemContent = responseDict[@"content"];
+            self.detailModel.answerTime = responseDict[@"replyDate"];
+            self.detailModel.answerTitle = responseDict[@"title"];
+            self.detailModel.answerContent = responseDict[@"replyContent"];
+            
+            [self.tableView reloadData];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.msgId = msgModel.msgId;
+    [request  startRequest];
+}
+
 -  (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.detailModel.answerContent.length > 0 ? 2 : 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -53,9 +85,26 @@
     
     if (indexPath.row == 0) {
         
-        cell.isQuestion = YES;
+        cell.titleLbl.text = self.detailModel.problemTitle;
+        cell.descrpLbl.text = self.detailModel.problemContent;
+        cell.timeLbl.text = self.detailModel.problemTime;
+        
+        if (self.detailModel.answerContent.length == 0) {
+            
+            [cell.typeLbl mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.size.mas_equalTo(CGSizeMake(0, 0));
+                make.left.mas_equalTo(0);
+            }];
+        }else{
+            
+            cell.isQuestion = YES;
+        }
     }else
     {
+        cell.titleLbl.text = self.detailModel.answerTitle;
+        cell.descrpLbl.text = self.detailModel.answerContent;
+        cell.timeLbl.text = self.detailModel.answerTime;
+        
         cell.isQuestion = NO;
     }
     return cell;

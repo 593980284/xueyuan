@@ -10,10 +10,6 @@
 
 @interface EDSMessageDetailTableViewCell ()
 
-@property (nonatomic, strong) UILabel  *typeLbl;
-@property (nonatomic, strong) UILabel  *titleLbl;
-@property (nonatomic, strong) UILabel  *descrpLbl;
-@property (nonatomic, strong) UILabel  *timeLbl;
 
 @end
 
@@ -35,7 +31,6 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        [self setup];
     }
     return self;
 }
@@ -46,46 +41,75 @@
     
     if (isQuestion) {
         
-        _typeLbl.backgroundColor = ThemeColor;
-        _typeLbl.text = @"Q";
+        self.typeLbl.backgroundColor = ThemeColor;
+        self.typeLbl.text = @"Q";
     }else{
         
-        _typeLbl.backgroundColor = [EDSToolClass getColorWithHexString:@"#FF4F4F"];
-        _typeLbl.text = @"A";
+        self.typeLbl.backgroundColor = [EDSToolClass getColorWithHexString:@"#FF4F4F"];
+        self.typeLbl.text = @"A";
     }
 }
 
-- (void)setup{
-    
-    _typeLbl = [UILabel labelWithText:@"Q" font:[UIFont boldSystemFontOfSize:20] textColor:WhiteColor backGroundColor:ThemeColor superView:self.contentView];
-    _typeLbl.textAlignment = NSTextAlignmentCenter;
-    _typeLbl.layer.cornerRadius = 5;
-    _typeLbl.layer.masksToBounds = YES;
-    [_typeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(15);
-        make.size.mas_equalTo(CGSizeMake(25, 25));
-    }];
-    
-    _titleLbl = [UILabel labelWithText:@"标题信息标题信息标题信息" font:[UIFont boldSystemFontOfSize:18] textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
-    [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self->_typeLbl.mas_right).mas_equalTo(11);
-        make.centerY.mas_equalTo(self->_typeLbl.mas_centerY);
-    }];
-    
-    _descrpLbl = [UILabel labelWithText:@"      内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内" font:kFont(16) textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
-    [_descrpLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(self->_titleLbl.mas_bottom).mas_equalTo(15);
-        make.right.mas_equalTo(-15);
-    }];
-    
-    _titleLbl = [UILabel labelWithText:@"2018-07-18 10:00:00" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
-    [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+
+
+- (UILabel *)typeLbl
+{
+    if (!_typeLbl) {
         
-        make.right.mas_equalTo(-15);
-        make.top.mas_equalTo(self->_descrpLbl.mas_bottom).mas_equalTo(23);
-        make.bottom.mas_equalTo(-15);
-    }];
+        _typeLbl = [UILabel labelWithText:@"Q" font:[UIFont boldSystemFontOfSize:20] textColor:WhiteColor backGroundColor:ThemeColor superView:self.contentView];
+        _typeLbl.textAlignment = NSTextAlignmentCenter;
+        _typeLbl.layer.cornerRadius = 5;
+        _typeLbl.layer.masksToBounds = YES;
+        [_typeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.mas_equalTo(15);
+            make.size.mas_equalTo(CGSizeMake(25, 25));
+        }];
+    }
+    return _typeLbl;
+}
+
+- (UILabel *)titleLbl
+{
+    if (!_titleLbl) {
+     
+        
+        _titleLbl = [UILabel labelWithText:@"标题信息标题信息标题信息" font:[UIFont boldSystemFontOfSize:18] textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
+        [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.typeLbl.mas_right).mas_equalTo(11);
+            make.centerY.mas_equalTo(self.typeLbl.mas_centerY);
+        }];
+    }
+    return _titleLbl;
+}
+
+- (UILabel *)descrpLbl
+{
+    if (!_descrpLbl) {
+        
+        
+        _descrpLbl = [UILabel labelWithText:@"      内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内" font:kFont(16) textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
+        [_descrpLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.top.mas_equalTo(self.titleLbl.mas_bottom).mas_equalTo(15);
+            make.right.mas_equalTo(-15);
+        }];
+    }
+    return _descrpLbl;
+}
+
+- (UILabel *)timeLbl
+{
+    if (!_timeLbl) {
+        
+        _timeLbl = [UILabel labelWithText:@"2018-07-18 10:00:00" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
+        [_timeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.right.mas_equalTo(-15);
+            make.top.mas_equalTo(self.descrpLbl.mas_bottom).mas_equalTo(23);
+            make.bottom.mas_equalTo(-15);
+        }];
+    }
+    return _timeLbl;
 }
 
 @end

@@ -23,7 +23,7 @@
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
     
     NSLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
-    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"17625296836" type:XGPushTokenBindTypeAccount];
+    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"" type:XGPushTokenBindTypeAccount];
 }
 
 - (void)xgPushDidFinishStop:(BOOL)isSuccess error:(NSError *)error {
@@ -37,6 +37,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    //只获取一次
+    __block  BOOL isOnece = YES;
+    [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){
+        isOnece = NO;
+        //只打印一次经纬度
+        DLog(@"lat lng (%f, %f)", lat, lng);
+        
+        [UserDefault setObject:@{@"lat":[NSString stringWithFormat:@"%f",lat],@"lng":[NSString stringWithFormat:@"%f",lng]} forKey:KuserDefaultsLocation];
+        
+        if (!isOnece) {
+            [EDSMoLocationManager stop];
+        }
+    } Failure:^(NSError *error){
+        isOnece = NO;
+        DLog(@"error = %@", error);
+        if (!isOnece) {
+            [EDSMoLocationManager stop];
+        }
+    }];
+    
+    
+    //    //一直持续获取定位则
+    //    [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){
+    //        //不断的打印经纬度
+    //        DLog(@"lat lng (%f, %f)", lat, lng);
+    //    } Failure:^(NSError *error){
+    //        DLog(@"error = %@", error);
+    //    }];
+    
     
     [[XGPush defaultManager] setEnableDebug:YES];
     XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];

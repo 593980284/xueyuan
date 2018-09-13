@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class  EDSStudentMsgModel;
 
 @interface EDSMessageTableViewCell : UITableViewCell
+
+@property (nonatomic , strong) EDSStudentMsgModel *mesModel;
 
 @end

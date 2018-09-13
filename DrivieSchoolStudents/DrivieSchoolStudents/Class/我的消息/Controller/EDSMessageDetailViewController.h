@@ -7,7 +7,10 @@
 //
 
 #import "BHYBaseViewController.h"
+@class EDSStudentMsgModel;
 
 @interface EDSMessageDetailViewController : BHYBaseViewController
+
+@property (nonatomic , strong) EDSStudentMsgModel *msgModel;
 
 @end

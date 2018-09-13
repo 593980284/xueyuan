@@ -14,17 +14,20 @@
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
     if (self = [super init]) {
+        
+        _phone = [NSString stringWithFormat:@"%@",dict[@"phone"]];
+        _schoolId = [NSString stringWithFormat:@"%@",dict[@"schoolId"]];
+        _userID = [NSString stringWithFormat:@"%@",dict[@"id"]];
+        _learnProgress = [NSString stringWithFormat:@"%@",dict[@"learnProgress"]];
+        _schoolName = [NSString stringWithFormat:@"%@",dict[@"schoolName"]];
+        _photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:dict[@"photo"]]];;
         _state = [NSString stringWithFormat:@"%@",dict[@"state"]];
-        _touristState = [NSString stringWithFormat:@"%@",dict[@"touristState"]];
-        _userID = @"1";
+        _applyDriveCar = [NSString stringWithFormat:@"%@",dict[@"applyDriveCar"]];
     }
     return self;
 }
 
-- (NSString *)showPicUrl
-{
-    return [LINEURL stringByAppendingPathComponent:_picUrl];
-}
+
 
 + (instancetype)accountWithDict:(NSDictionary *)dict
 {

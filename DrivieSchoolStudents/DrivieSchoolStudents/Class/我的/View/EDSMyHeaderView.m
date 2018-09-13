@@ -11,7 +11,12 @@
 @interface EDSMyHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avarterImgView;
+@property (weak, nonatomic) IBOutlet UILabel *carTypeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *learnProgressLbl;
+@property (weak, nonatomic) IBOutlet UILabel *schoolNameLbl;
 
+@property (weak, nonatomic) IBOutlet UILabel *phoneLbl;
+@property (weak, nonatomic) IBOutlet UILabel *calssLbl;
 
 @end
 
@@ -37,9 +42,16 @@
 {
     _headerArr = headerArr;
     
-    NSURL *url = [NSURL URLWithString:[EDSSave account].showPicUrl];
+    NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
 
     [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
+    
+    self.carTypeLbl.text = [EDSSave account].applyDriveCar;
+    self.learnProgressLbl.text = [NSString stringWithFormat:@"科目%@",[EDSSave account].learnProgress];
+    self.schoolNameLbl.text = [EDSSave account].schoolName;
+    
+    self.phoneLbl.text = [EDSSave account].phone;
+    self.calssLbl.text = [NSString stringWithFormat:@"班级：科目%@",[EDSSave account].learnProgress];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

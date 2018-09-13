@@ -143,6 +143,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="avarterImgView" destination="G3p-GG-exc" id="j2T-VD-0qz"/>
+                <outlet property="calssLbl" destination="4wg-H0-ezA" id="1j3-1D-sl6"/>
+                <outlet property="carTypeLbl" destination="fUH-iz-CiN" id="bNy-vf-59D"/>
+                <outlet property="learnProgressLbl" destination="wPh-FQ-mit" id="C3V-00-8Oq"/>
+                <outlet property="phoneLbl" destination="Sdu-sf-sg9" id="hFI-UW-Wsj"/>
+                <outlet property="schoolNameLbl" destination="gvA-TX-clO" id="C1h-gx-KcP"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="-180"/>
         </view>

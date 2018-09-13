@@ -32,7 +32,7 @@
     _strategyListModel = strategyListModel;
     
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:strategyListModel.strategyPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
-    self.titleLbl.text = strategyListModel.titleCover;
+    self.titleLbl.text = strategyListModel.strategyName;
     self.likeLbl.text = strategyListModel.likeCount;
     self.clickLbl.text = strategyListModel.clickCount;
 }

@@ -30,7 +30,7 @@
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
     EDSAccount *account = [EDSSave account];
-    account.picUrl = [data valueForKey:@"picUrl"];
+    account.photo = [LINEURL stringByAppendingPathComponent:[data valueForKey:@"picUrl"]];
     [EDSSave save:account];
     
     if (self.successBlock) {

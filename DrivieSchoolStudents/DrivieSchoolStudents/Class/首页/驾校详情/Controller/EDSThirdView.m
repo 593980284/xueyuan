@@ -54,6 +54,7 @@
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.dataSource = self;
+    self.tableView.bounces = NO;
     self.tableView.delegate = self;
     [self addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -149,7 +149,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
-    vc.schoolId = @"140000000111";
+    vc.schoolId = self.listsArr[indexPath.row].schoolId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -54,14 +54,7 @@
 {
     [super viewWillAppear:animated];
     
-    if ([EDSSave account].userID.length > 0) {
-        
-        [self homeRequestData];
-    }else{
-        
-        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
+    [self homeRequestData];
 }
 
 - (void)setupNavigationView
@@ -72,8 +65,14 @@
 
 - (void)homeRightBarButtonItemClick
 {
-    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
+    if ([EDSSave account].userID.length > 0) {
+        
+        self.tabBarController.selectedIndex = 3;
+    }else{
+        
+        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void)homeFuntionBtnClick:(NSNotification *)notification
@@ -88,18 +87,46 @@
         
         EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if ([titleStr isEqualToString:@"在线约课"]){
+    }else if ([titleStr isEqualToString:@"在线约课"]){//
         
-        EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if ([titleStr isEqualToString:@"理论学习"]){
-        
-        EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([EDSSave account].userID.length > 0) {
+            
+            EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+    }else if ([titleStr isEqualToString:@"理论学习"]){//
+        if ([EDSSave account].userID.length > 0) {
+            
+            EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
     }else if ([titleStr isEqualToString:@"品牌介绍"]){
         
         EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"在线约考"]){//
+        if ([EDSSave account].userID.length > 0) {
+            
+//            EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+//            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+        
+    }else if ([titleStr isEqualToString:@"价格公示"]){
+        
+    }else if ([titleStr isEqualToString:@"报名流程"]){
+        
     }
 }
 
@@ -115,7 +142,6 @@
     } failureBlock:^(NSError *error) {
         
     }];
-#warning 需要修改
     request2.schoolId = @"0";
     [request2 startRequest];
 }

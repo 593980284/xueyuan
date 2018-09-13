@@ -60,7 +60,7 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 
@@ -86,7 +86,14 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.present = self.model.present;
+    if (indexPath.row == 0) {
+        
+        cell.present = self.model.present;
+        
+    }else{
+        
+        cell.present = [NSString stringWithFormat:@"预约的课程如因为其他原因不想预约，可以在课程开始前%@小时在我的课程记录中取消预约",self.model.advanceCancelHours];
+    }
     
     return cell;
 }

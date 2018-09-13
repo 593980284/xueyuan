@@ -54,6 +54,7 @@
     self.modelArr = [[NSArray alloc] init];
     
     self.collectionView.delegate = self;
+    self.collectionView.bounces = NO;
     self.collectionView.dataSource = self;
     
 }

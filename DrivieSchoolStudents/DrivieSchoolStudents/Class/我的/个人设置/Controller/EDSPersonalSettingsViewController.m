@@ -36,7 +36,7 @@
     
     self.navigationItem.title = @"个人设置";
     
-    NSURL *url = [NSURL URLWithString:[EDSSave account].showPicUrl];
+    NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
     [self.avaimg sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
     
     @weakify(self);

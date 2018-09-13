@@ -11,6 +11,7 @@
 #import "EDSPersonalSettingsViewController.h"//个人设置
 #import "EDSCourseRecordViewController.h"//课程记录
 #import "EDSLearningSituationViewController.h"//学习情况
+#import "EDSPSWLogoViewController.h"
 
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
@@ -62,6 +63,12 @@
     [super viewWillAppear:animated];
     
     self.headerView.headerArr = @[];
+    
+    if ([EDSSave account].userID.length == 0) {
+        
+        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 #pragma mark ------------------------ tableView --------------------------------
