@@ -16,6 +16,7 @@
 @interface EDSMessageSiginBoxViewController ()
 
 @property (nonatomic , copy) NSString *courseRecordId;
+@property (weak, nonatomic) IBOutlet UILabel *contentLbl;
 
 @end
 
@@ -30,6 +31,7 @@
         if (errCode == 1) {
             
             self.courseRecordId = responseDict[@"courseRecordId"];
+            self.contentLbl.text = responseDict[@"content"];
         }
     } failureBlock:^(NSError *error) {
         

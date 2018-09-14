@@ -11,6 +11,7 @@
 
 #import "EDSCourseRecordDetailHeaderView.h"
 #import "EDSCourseRecordDetailFooterView.h"
+#import "EDSCourseRecordDetailDownView.h"
 
 #import "EDSCourseRecordModel.h"
 
@@ -39,25 +40,14 @@
     footerView.courseRecordModel = self.courseRecordModel;
     self.tableView.tableFooterView = footerView;
     
-    UIButton *determineBtn = [[UIButton alloc] init];
-    [determineBtn setTitle:@"评价" forState:UIControlStateNormal];
-    [determineBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
-    determineBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    determineBtn.backgroundColor = ThemeColor;
-    determineBtn.layer.cornerRadius = 5;
-    determineBtn.layer.masksToBounds = YES;
-    [self.view addSubview:determineBtn];
-    [determineBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.right.mas_equalTo(-15);
-        make.height.mas_equalTo(45);
-        make.bottom.mas_equalTo(-18);
-    }];
-    @weakify(self);
-    [determineBtn bk_whenTapped:^{
-        @strongify(self);
-        EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
-        [self.navigationController pushViewController:vc animated:YES];
+    //        EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
+    //        [self.navigationController pushViewController:vc animated:YES];
+    
+    EDSCourseRecordDetailDownView *downView = [[EDSCourseRecordDetailDownView alloc] init];
+    [self.view addSubview:downView];
+    [downView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(70);
     }];
 }
 

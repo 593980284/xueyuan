@@ -50,10 +50,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZr-EI-d65">
-                        <rect key="frame" x="138" y="20.5" width="100" height="17"/>
+                        <rect key="frame" x="138" y="20.5" width="120" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="TtV-07-FO6"/>
-                            <constraint firstAttribute="width" constant="100" id="izF-yD-52j"/>
+                            <constraint firstAttribute="width" constant="120" id="izF-yD-52j"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="科目一5年教龄">

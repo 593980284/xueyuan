@@ -43,22 +43,29 @@
 - (void)setCourseRecordModel:(EDSCourseRecordModel *)courseRecordModel
 {
     _courseRecordModel = courseRecordModel;
+ 
+    self.statusLbl.text = courseRecordModel.showStatus;
     
-    if (courseRecordModel.coachScore.length > 0) {
+    if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
         
-        self.driveStarView.hidden = NO;
-        self.statusLbl.hidden = YES;
-        self.driveStarView.selectNumber = ceil([courseRecordModel.coachScore doubleValue]/2);
+        if (courseRecordModel.coachScore.length > 0) {
+            
+            self.driveStarView.hidden = NO;
+            self.statusLbl.hidden = YES;
+            self.driveStarView.selectNumber = ceil([courseRecordModel.coachScore doubleValue]/2);
+        }else{
+            
+            self.driveStarView.hidden = YES;
+            self.statusLbl.hidden = NO;
+        }
     }else{
         
         self.driveStarView.hidden = YES;
         self.statusLbl.hidden = NO;
-        
-        self.statusLbl.text = courseRecordModel.showStatus;
     }
-    
     self.coachNameLbl.text = courseRecordModel.coachName;
     [self.ageLbl setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
+    self.ageLbl.wz_size = CGSizeMake([NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(12) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5, 15);
     self.schoolNameLbl.text = courseRecordModel.schoolName;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
     

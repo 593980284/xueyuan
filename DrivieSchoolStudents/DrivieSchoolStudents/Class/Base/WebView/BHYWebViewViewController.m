@@ -9,6 +9,9 @@
 #import "BHYWebViewViewController.h"
 
 @interface BHYWebViewViewController ()<WKUIDelegate,WKNavigationDelegate>
+{
+    BOOL _isFinish;
+}
 
 
 @property (nonatomic,strong) UIProgressView *progress;
@@ -88,12 +91,12 @@
     // NSString *jsString = @"localStorage.getItem('userContent')";
 //    [webView evaluateJavaScript:jsString completionHandler:nil];
     
-//    if (!_isFinish) {
-//
-//        _isFinish = YES;
-//
-//        [self.webView reload];
-//    }
+    if (!_isFinish) {
+
+        _isFinish = YES;
+
+        [self.webView reload];
+    }
 }
 
 

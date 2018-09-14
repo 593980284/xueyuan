@@ -43,6 +43,13 @@
 #import "CALayer+BHYXibBorderColor.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 
+/**
+ #查询风采# http://111.39.245.156:8087/lexiang/dist/index.html?id=4000001 需要ID字段
+ #学习#http://111.39.245.156:8087/lexiang/dist/index.html#/study
+ #学习流程#http://111.39.245.156:8087/lexiang/dist/index.html#/studyFlow
+ #报名流程#http://111.39.245.156:8087/lexiang/dist/index.html#/signUp
+ #价格公示#http://111.39.245.156:8087/lexiang/dist/index.html#/priceShowindex.html?id=4000001&className&carType  需要ID className(可为空) carTpye（可为空）
+ */
 #endif
 
 #endif /* AppInclude_h */

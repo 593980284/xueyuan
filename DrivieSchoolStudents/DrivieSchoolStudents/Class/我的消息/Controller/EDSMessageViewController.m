@@ -146,6 +146,7 @@
         EDSMessageSiginBoxViewController *vc = [[EDSMessageSiginBoxViewController alloc] initWithNibName:@"EDSMessageSiginBoxViewController" bundle:[NSBundle mainBundle]];
         
         vc.modalPresentationStyle = UIModalPresentationCustom;
+        vc.msgModel = self.tableViewArr[indexPath.row];
         
         vc.view.layer.masksToBounds = YES;
         vc.view.layer.cornerRadius = 5;

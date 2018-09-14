@@ -12,9 +12,13 @@
 
 - (NSString *)showSubjectAge
 {
-    return [NSString stringWithFormat:@"%@ %@年教龄",_subjectName,_teachAge];
+    return [NSString stringWithFormat:@"%@ %@年教龄",_teachType,self.teachAge];
 }
 
+- (NSString *)teachAge
+{
+    return _teachAge.length > 0 ? _teachAge : @"0";
+}
 
 - (NSString *)coachPhoto
 {

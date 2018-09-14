@@ -17,6 +17,8 @@
 #import "EDSMyHeaderView.h"
 #import "MyConstants.h"
 
+#import "EDSGetStudentInfoRequest.h"
+
 @interface EDSMyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /** 数据 */
@@ -62,13 +64,23 @@
 {
     [super viewWillAppear:animated];
     
-    self.headerView.headerArr = @[];
-    
     if ([EDSSave account].userID.length == 0) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        
+        EDSGetStudentInfoRequest *request = [EDSGetStudentInfoRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            
+            self.headerView.headerArr = @[];
+            
+        } failureBlock:^(NSError *error) {
+        
+        }];
+        request.phone = [EDSSave account].phone;
+        [request startRequest];
     }
+    
 }
 
 #pragma mark ------------------------ tableView --------------------------------

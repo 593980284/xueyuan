@@ -9,10 +9,13 @@
 #import "EDSLearningSituationViewController.h"
 
 #import "EDSHeaderPageButtonView.h"
-#import "EDSLearningSituationView.h"
 #import "EDSTestCaseView.h"
+#import "EDSCaseBgView.h"
 
 @interface EDSLearningSituationViewController ()
+
+@property (nonatomic ,strong) EDSTestCaseView *learningSituationView;
+@property (nonatomic ,strong) EDSCaseBgView *caseBgView;
 
 @end
 
@@ -30,20 +33,43 @@
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(45);
     }];
-    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
-        DLog(@"%@",titleStr);
-    };
     
-    
-    EDSTestCaseView *learningSituationView = [[EDSTestCaseView alloc] init];
-    [self.view addSubview:learningSituationView];
-    [learningSituationView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _learningSituationView = [[EDSTestCaseView alloc] init];
+    [self.view addSubview:_learningSituationView];
+    [_learningSituationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(190);
-        make.top.mas_equalTo(headerView.mas_bottom);
+        make.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(45);
     }];
     
+    _caseBgView = [[EDSCaseBgView alloc] init];
+    [self.view addSubview:_caseBgView];
+    [_caseBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(45);
+    }];
+    
+    _learningSituationView.hidden = NO;
+    _caseBgView.hidden = YES;
+    
+    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
+        
+        if ([titleStr isEqualToString:@"学习情况"]) {
+            
+            self->_learningSituationView.hidden = NO;
+            self->_caseBgView.hidden = YES;
+            
+        }else{
+            
+            self->_learningSituationView.hidden = YES;
+            self->_caseBgView.hidden = NO;
+        }
+    };
+    
 }
+
+
 
 
 

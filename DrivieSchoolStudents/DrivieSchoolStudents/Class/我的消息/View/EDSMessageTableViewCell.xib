@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,9 +22,13 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="system_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="Mff-ke-gf7">
                         <rect key="frame" x="15" y="15.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="i8Q-6y-hqV"/>
+                            <constraint firstAttribute="height" constant="45" id="mvH-ud-AQo"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的课程已结束，感谢您的评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jy-Kt-jmR">
-                        <rect key="frame" x="70" y="18" width="200" height="17"/>
+                        <rect key="frame" x="70" y="18" width="336" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,6 +46,7 @@
                     <constraint firstItem="Mff-ke-gf7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ob0-Oq-qOE"/>
                     <constraint firstItem="Mff-ke-gf7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Oud-4r-Z3J"/>
                     <constraint firstItem="fYV-cs-l1u" firstAttribute="leading" secondItem="Mff-ke-gf7" secondAttribute="trailing" constant="10" id="ROt-HD-MGA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5jy-Kt-jmR" secondAttribute="trailing" constant="15" id="f5e-J3-DMR"/>
                     <constraint firstItem="fYV-cs-l1u" firstAttribute="top" secondItem="5jy-Kt-jmR" secondAttribute="bottom" constant="4" id="icd-Ci-6SY"/>
                 </constraints>
             </tableViewCellContentView>
