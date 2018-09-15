@@ -9,6 +9,7 @@
 #import "EDSFirstSubjectExamViewController.h"
 #import "EDSFirstSubjectResultsViewController.h"
 #import "EDSTheirPapersBoxViewController.h"
+#import "EDSFirstSubjectResultsViewController.h"
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSFirstSubjectExamFooterView.h"
@@ -58,10 +59,6 @@
     self.view.backgroundColor = WhiteColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.countDownView.countDownTimeInterval = 2700;
-    self.errorsMulIDArr = [[NSMutableArray alloc] init];
-    _currentCount = 1;
-    _isChooes = NO;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -75,17 +72,12 @@
         make.bottom.mas_equalTo(self.nextBtn.mas_top).mas_equalTo(-10);
     }];
     
-    self.headerView.questionModel = self.tableViewModel;
-    CGFloat height = [self.headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    CGRect frame = self.headerView.bounds;
-    frame.size.height = height;
-    self.headerView.frame = frame;
-    [self.tableView setTableHeaderView:self.headerView];
-    [self setFooterViewModel];
     
     @weakify(self);
     [self.nextBtn  bk_whenTapped:^{
         @strongify(self);
+        
+        [self setFooterViewModel];
         
         if (self->_isChooes) {
             
@@ -96,10 +88,9 @@
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }else{
+                
                 [self getNextQuestion];
             }
-            
-            [self setFooterViewModel];
             
         }else
         {
@@ -108,6 +99,30 @@
             return;
         }
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.countDownView.countDownTimeInterval = 2700;
+    [self.countDownView startCountDown];
+    self.errorsMulIDArr = [[NSMutableArray alloc] init];
+    _currentCount = 1;
+    _indexPath = [NSIndexPath indexPathForItem:-1 inSection:-1];
+    _isChooes = NO;
+    self.tableView.allowsSelection = YES;
+    self.subjectMulIDArr = [[NSMutableArray alloc] initWithArray:[[EDSFirstSubjectExamBase sharedDataBase] getFirstSubjectExam]];
+    self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestionWithID:self.subjectMulIDArr[_currentCount-1]];
+    
+    self.headerView.questionModel = self.tableViewModel;
+    CGFloat height = [self.headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect frame = self.headerView.bounds;
+    frame.size.height = height;
+    self.headerView.frame = frame;
+    [self.tableView setTableHeaderView:self.headerView];
+    [self setFooterViewModel];
+    [self.tableView reloadData];
 }
 
 #pragma mark ------------------------ 设置底部数据 --------------------------------
@@ -131,7 +146,9 @@
 - (void)getNextQuestion
 {
     _currentCount ++ ;
+    
     _isChooes = NO;
+    
     self.tableView.allowsSelection = YES;
     
     if (_currentCount == 100) {
@@ -153,6 +170,8 @@
     
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     [self.tableView reloadData];
+    
+    [self setFooterViewModel];
 }
 
 #pragma mark ------------------------ 交卷 --------------------------------
@@ -184,7 +203,7 @@
     vc.view.layer.masksToBounds = YES;
     vc.view.layer.cornerRadius = 5;
     
-    vc.correctCount = self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1 ;
+    vc.correctCount =
     vc.errortCount = self.errorsMulIDArr.count;
     
     vc.transitioningDelegate = self.popAnimator;
@@ -192,6 +211,18 @@
     vc.theirPapersBoxViewBackDidBtnString = ^(NSString *string) {
         @strongify(self);
         if ([string isEqualToString:@"交卷"]) {
+            
+            EDSFirstSubjectResultsViewController *vc = [[EDSFirstSubjectResultsViewController alloc] initWithNibName:@"EDSFirstSubjectResultsViewController" bundle:[NSBundle mainBundle]];
+            
+            EDSFirstSubjectExamResultModel *model = [[EDSFirstSubjectExamResultModel alloc] init];
+            model.time = [NSString stringWithFormat:@"%f",self.countDownView.countDownTimeInterval];
+//            model.errors = @"0";
+//            model.right = @"100";
+            model.errors = [NSString stringWithFormat:@"%lu",(unsigned long)self.errorsMulIDArr.count];
+            model.right = [NSString stringWithFormat:@"%lu",self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1];
+            vc.errorsArr = [NSArray arrayWithArray:self.errorsMulIDArr];
+            vc.resultModel = model;
+            [self.navigationController pushViewController:vc animated:YES];
             
         }else{
             

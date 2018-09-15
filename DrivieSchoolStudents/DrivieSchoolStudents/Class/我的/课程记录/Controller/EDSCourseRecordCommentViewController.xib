@@ -21,10 +21,15 @@
                 <outlet property="driveStarView1" destination="0QI-Av-0Ep" id="Tbj-eL-sBn"/>
                 <outlet property="driveStarView2" destination="qmN-mS-baM" id="Hc5-Da-FCg"/>
                 <outlet property="driveStarView3" destination="B8F-3W-pm9" id="Y7w-ee-da5"/>
+                <outlet property="imgView" destination="2XS-2w-iVg" id="3HM-gI-Pc1"/>
+                <outlet property="nameLbl" destination="wO8-cg-BMm" id="O6d-7F-HZQ"/>
                 <outlet property="scrollViewHeight" destination="xGd-Sb-Q97" id="oHZ-36-FhO"/>
+                <outlet property="sexLbl" destination="MrH-7d-8xE" id="atd-Vb-JZl"/>
+                <outlet property="subjectLbl" destination="WjU-1b-X69" id="DFc-Lq-dZK"/>
                 <outlet property="submitBtn" destination="3kd-1V-FrJ" id="Q1C-Aq-2gQ"/>
                 <outlet property="tagBgView" destination="JE6-cT-7Ex" id="gdx-VD-B3E"/>
                 <outlet property="textView" destination="orN-K2-mMq" id="gpy-46-OdC"/>
+                <outlet property="timeLbl" destination="nFO-LY-agm" id="85p-AC-OCb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -102,7 +107,7 @@
                                                 <constraint firstAttribute="height" constant="24" id="ldc-cA-4si"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <state key="normal" title="文明教学">
+                                            <state key="normal">
                                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <state key="selected">
@@ -282,7 +287,7 @@
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-Av-0Ep" customClass="EDSDriveStarView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-Av-0Ep" customClass="EDSCommentStarsView">
                                             <rect key="frame" x="130" y="25.5" width="140" height="20"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -290,7 +295,7 @@
                                                 <constraint firstAttribute="height" constant="20" id="KrW-zn-QKV"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmN-mS-baM" customClass="EDSDriveStarView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmN-mS-baM" customClass="EDSCommentStarsView">
                                             <rect key="frame" x="130" y="59.5" width="140" height="20"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -298,7 +303,7 @@
                                                 <constraint firstAttribute="width" constant="140" id="yIe-jP-p9L"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-3W-pm9" customClass="EDSDriveStarView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-3W-pm9" customClass="EDSCommentStarsView">
                                             <rect key="frame" x="130" y="93" width="140" height="20"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>

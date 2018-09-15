@@ -13,17 +13,22 @@
 #import "EDSRecitedPoliticsViewController.h"//背题
 #import "EDSFirstSubjectExamViewController.h"//科目一考试
 
+//科四
+#import "EDSSubjectFourPracticeViewController.h"//练习
+
 #import "EDSTheoryLearningHeaderView.h"
 #import "EDSTheoryLearningSubjectOneView.h"
+#import "EDSSubjectTwoView.h"
+#import "EDSSubjectThreeView.h"
 
 @interface EDSTheoryLearningViewController ()
 
 /** 科目一 */
 @property (nonatomic, strong) EDSTheoryLearningSubjectOneView  *subjectOneView;
 /** 科目二 */
-@property (nonatomic, strong) UIView  *subjectTwoView;
+@property (nonatomic, strong) EDSSubjectTwoView  *subjectTwoView;
 /** 科目三 */
-@property (nonatomic, strong) UIView  *subjectThreeView;
+@property (nonatomic, strong) EDSSubjectThreeView  *subjectThreeView;
 /** 科目四 */
 @property (nonatomic, strong) EDSTheoryLearningSubjectOneView  *subjectFourView;
 
@@ -98,6 +103,13 @@
         EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    
+    
+    [self.subjectFourView.practiceBgView bk_whenTapped:^{
+       
+        EDSSubjectFourPracticeViewController *vc = [[EDSSubjectFourPracticeViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 
@@ -117,24 +129,27 @@
     return _subjectOneView;
 }
 
-- (UIView *)subjectTwoView
+- (EDSSubjectTwoView *)subjectTwoView
 {
     if (!_subjectTwoView) {
         
-        _subjectTwoView = [UIView viewWithBackgroundColor:ThemeColor superView:self.view];
+        _subjectTwoView = [[EDSSubjectTwoView alloc] init];
+        [self.view addSubview:_subjectTwoView];
         [_subjectTwoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
             make.top.mas_equalTo(45);
         }];
+        
     }
     return _subjectTwoView;
 }
 
-- (UIView *)subjectThreeView
+- (EDSSubjectThreeView *)subjectThreeView
 {
     if (!_subjectThreeView) {
         
-        _subjectThreeView = [UIView viewWithBackgroundColor:ThemeColor superView:self.view];
+        _subjectThreeView = [[EDSSubjectThreeView alloc] init];
+        [self.view addSubview:_subjectThreeView];
         [_subjectThreeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
             make.top.mas_equalTo(45);

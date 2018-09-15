@@ -26,6 +26,12 @@
 /** 科目一背题 */
 @property (nonatomic, copy) NSString *firstSubjectRecitedPoliticeID;
 
+
+/** 科目四练习 */
+@property (nonatomic, copy) NSString *fourSubjectID;
+/** 科目四背题 */
+@property (nonatomic, copy) NSString *fourSubjectRecitedPoliticeID;
+
 /** 本地经度 */
 @property (nonatomic, assign) double localLng;
 /** 本地纬度 */

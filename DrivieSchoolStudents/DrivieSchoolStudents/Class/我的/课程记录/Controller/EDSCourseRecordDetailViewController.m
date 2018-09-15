@@ -8,6 +8,7 @@
 
 #import "EDSCourseRecordDetailViewController.h"
 #import "EDSCourseRecordCommentViewController.h"//评价
+#import "EDSSeeEvaluationViewController.h"//查看评价
 
 #import "EDSCourseRecordDetailHeaderView.h"
 #import "EDSCourseRecordDetailFooterView.h"
@@ -40,15 +41,30 @@
     footerView.courseRecordModel = self.courseRecordModel;
     self.tableView.tableFooterView = footerView;
     
-    //        EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
-    //        [self.navigationController pushViewController:vc animated:YES];
     
     EDSCourseRecordDetailDownView *downView = [[EDSCourseRecordDetailDownView alloc] init];
     [self.view addSubview:downView];
+//    self.courseRecordModel.status = @"7";
+//    self.courseRecordModel.coachScore = @"";
+    downView.courseRecordModel = self.courseRecordModel;
     [downView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(70);
     }];
+    downView.courseRecordDetailDownViewDidButtonBackTitle = ^(NSString *title) {
+        
+        if ([title isEqualToString:@"评价"]) {
+            
+            EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
+            vc.courseRecordModel = self.courseRecordModel;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            //查看评价
+            EDSSeeEvaluationViewController *vc = [[EDSSeeEvaluationViewController alloc] initWithNibName:@"EDSSeeEvaluationViewController" bundle:[NSBundle mainBundle]];
+            vc.courseRecordModel = self.courseRecordModel;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    };
 }
 
 

@@ -9,5 +9,7 @@
 #import "HQMBaseRequest.h"
 
 @interface EDSStudentEvaluationCoachRequest : HQMBaseRequest
+
 @property (nonatomic , copy) NSString *courseRecordId;
+
 @end

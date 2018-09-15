@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSFirstSubjectResultsViewController">
             <connections>
+                <outlet property="descripLbl" destination="jSk-8l-lI4" id="0j5-RD-Y4A"/>
+                <outlet property="errorView" destination="TI8-qK-Frl" id="m3c-Ix-9Li"/>
+                <outlet property="nextExamView" destination="baf-wp-McJ" id="BHm-cI-9wy"/>
+                <outlet property="resultLbl" destination="32F-l4-JyE" id="rzE-k7-Doe"/>
+                <outlet property="scorceLbl" destination="Q5d-Pa-SXQ" id="0FX-Af-7gG"/>
+                <outlet property="timeLbl" destination="CpD-mB-15v" id="Ade-Rc-gzO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

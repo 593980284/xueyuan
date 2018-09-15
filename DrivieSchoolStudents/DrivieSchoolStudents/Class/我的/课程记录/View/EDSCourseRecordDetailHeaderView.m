@@ -43,6 +43,23 @@
 {
     _courseRecordModel = courseRecordModel;
     
+    if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
+        //已到 有分数显示分数，没分数显示待评价
+        if (courseRecordModel.coachScore.length > 0) {
+            
+            self.coachScoreView.hidden = NO;
+            self.scoreLbl.hidden = NO;
+        }else{
+            
+            self.coachScoreView.hidden = YES;
+            self.scoreLbl.hidden = YES;
+        }
+    }else{
+        
+        self.coachScoreView.hidden = YES;
+        self.scoreLbl.hidden = YES;
+    }
+    
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
     self.coursNameLbl.text = courseRecordModel.coachName;
     self.coursSexLbl.text = courseRecordModel.coachSex;

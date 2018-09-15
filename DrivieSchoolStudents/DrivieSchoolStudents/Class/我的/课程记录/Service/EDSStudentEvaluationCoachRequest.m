@@ -7,6 +7,7 @@
 //
 
 #import "EDSStudentEvaluationCoachRequest.h"
+#import "EDSCommentDetailModel.h"
 
 @implementation EDSStudentEvaluationCoachRequest
 
@@ -29,9 +30,11 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
+    EDSCommentDetailModel *model = [EDSCommentDetailModel mj_objectWithKeyValues:data];
+    
     if (self.successBlock) {
         
-        self.successBlock(resCode, data, nil);
+        self.successBlock(resCode, data, model);
     }
 }
 @end

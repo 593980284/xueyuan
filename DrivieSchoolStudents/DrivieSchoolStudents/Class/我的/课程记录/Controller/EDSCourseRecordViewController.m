@@ -8,6 +8,7 @@
 
 #import "EDSCourseRecordViewController.h"
 #import "EDSCourseRecordDetailViewController.h"//课程详情
+#import "EDSUnCourseRecordViewController.h"//未完成课程详情
 
 #import "EDSCourseRecordTableViewCell.h"
 #import "EDSCourseRecordCompleteTableViewCell.h"
@@ -65,6 +66,12 @@
         }
     };
     
+    [self requestData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -130,14 +137,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDSCourseRecordDetailViewController *vc = [[EDSCourseRecordDetailViewController alloc] init];
     
     if (_isFinish) {
+        
+        EDSCourseRecordDetailViewController *vc = [[EDSCourseRecordDetailViewController alloc] init];
         vc.courseRecordModel = self.clistArr[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
+        EDSUnCourseRecordViewController *vc = [[EDSUnCourseRecordViewController alloc] initWithNibName:@"EDSUnCourseRecordViewController" bundle:[NSBundle mainBundle]];
         vc.courseRecordModel = self.ulistArr[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

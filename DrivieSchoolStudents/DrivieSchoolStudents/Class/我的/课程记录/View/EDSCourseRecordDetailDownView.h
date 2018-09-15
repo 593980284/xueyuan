@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EDSCourseRecordModel;
 
 @interface EDSCourseRecordDetailDownView : UIView
+
+@property (nonatomic, strong) EDSCourseRecordModel *courseRecordModel;
+
+@property (nonatomic, copy) void (^courseRecordDetailDownViewDidButtonBackTitle)(NSString *title);
 
 @end

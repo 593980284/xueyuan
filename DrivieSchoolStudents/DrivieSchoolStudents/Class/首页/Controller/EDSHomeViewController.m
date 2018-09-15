@@ -14,6 +14,8 @@
 #import "EDSTheoryLearningViewController.h"//理论学习
 #import "EDSDrivingShcoolDetailViewController.h"//驾校详情
 #import "EDSBrandIntroductionViewController.h"//品牌介绍
+#import "EDSRegistrationProcessViewController.h"//报名流程
+#import "EDSPricePublicViewController.h"//价格公示
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -125,8 +127,13 @@
         
     }else if ([titleStr isEqualToString:@"价格公示"]){
         
+        EDSPricePublicViewController *vc = [[EDSPricePublicViewController alloc] initWithNibName:@"EDSPricePublicViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if ([titleStr isEqualToString:@"报名流程"]){
         
+        EDSRegistrationProcessViewController *vc = [[EDSRegistrationProcessViewController alloc] initWithNibName:@"EDSRegistrationProcessViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

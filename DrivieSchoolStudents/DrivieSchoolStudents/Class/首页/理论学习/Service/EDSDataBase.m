@@ -16,7 +16,6 @@ static FMDatabaseQueue *_queue = nil;
 
 @interface EDSDataBase()<NSCopying,NSMutableCopying>{
     FMDatabase  *_db;
-    
 }
 @end
 
