@@ -1,12 +1,13 @@
 //
-//  EDSSubjectFourPracticeViewController.m
+//  EDSSubjectFourErrorsViewController.m
 //  DrivieSchoolStudents
 //
-//  Created by 班文政 on 2018/9/15.
+//  Created by 班文政 on 2018/9/17.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSSubjectFourPracticeViewController.h"
+#import "EDSSubjectFourErrorsViewController.h"
+
 #import "EDSClearRecordViewController.h"//清除
 #import "PopAnimator.h"
 
@@ -18,9 +19,12 @@
 
 #import "EDSQuestionModel.h"
 
-@interface EDSSubjectFourPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSSubjectFourErrorsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isChooes;
+    NSInteger _currentCount;
+    NSInteger _errorsCount;
+    NSInteger _correctCount;
 }
 
 @property (nonatomic, strong) PopAnimator *popAnimator;
@@ -31,16 +35,21 @@
 /** 脚部试图 */
 @property (nonatomic, strong) EDSFourPracticeView  *footerView;
 
+
 @end
 
-@implementation EDSSubjectFourPracticeViewController
+@implementation EDSSubjectFourErrorsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = WhiteColor;
-    self.navigationItem.title = @"练习";
+    self.navigationItem.title = @"错题";
     _isChooes = NO;
+    
+    _currentCount = 1;
+    _errorsCount = 0;
+    _correctCount = 0;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -167,20 +176,19 @@
 #pragma mark ------------------------ 下一题 --------------------------------
 - (void)getNextQuestion
 {
+    _currentCount ++ ;
+    
     self.tableView.allowsSelection = YES;
     
-    if (self.tableViewModel.ID.length > 0) {
+    EDSQuestionModel *model = [[EDSFourDataBase sharedDataBase] getFourSubjectErrorWithID:self.tableViewModel.ID];
+    
+    if (model.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].fourSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
-        EDSAccount *account = [EDSSave account];
-        account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
-        [EDSSave save:account];
-        
-        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectID];
+        self.tableViewModel = model;
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
+        
         [self getFooterViewModel];
         
         [self.tableView reloadData];
@@ -199,25 +207,15 @@
 #pragma mark ------------------------ 获取底部数据 --------------------------------
 - (void)getFooterViewModel
 {
-    NSString *ID = [EDSSave account].fourSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] - 1325 : 1;
-    
     EDSFourPracticeViewModel *model = [[EDSFourPracticeViewModel alloc] init];
     model.ID = self.tableViewModel.ID;
     
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/1236" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
+    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount]] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)_currentCount] diffentColor:ThirdColor];
     model.progressAttr = attStr;
     
-    NSInteger errCount = [[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount] intValue];
-    if (_isChooes) {
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    model.errorStr = [NSString stringWithFormat:@"%ld",(long)errCount];
+    model.correctStr = [NSString stringWithFormat:@"%ld",_correctCount];
+    model.errorStr = [NSString stringWithFormat:@"%ld",(long)_errorsCount];
+    
     model.isCollection = self.tableViewModel.isCollection;
     
     self.footerView.footerModel = model;
@@ -355,35 +353,25 @@
     
     if (![answeStr isEqualToString:string]) {
         //错题
+        _errorsCount ++ ;
+        //错题
         [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.tableViewModel.ID];
+    }else{
+        
+        //正确
+        _correctCount ++ ;
+        [self getFooterViewModel];
     }
     
     [self getFooterViewModel];
     [self.tableView reloadData];
 }
 
-//每隔4个字符添加一个空格的字符串算法
-- (NSString *)dealWithString:(NSString *)number
-{
-    NSString *doneTitle = @"";
-    int count = 0;
-    for (int i = 0; i < number.length; i++) {
-        
-        count++;
-        doneTitle = [doneTitle stringByAppendingString:[number substringWithRange:NSMakeRange(i, 1)]];
-        if (count == 1) {
-            doneTitle = [NSString stringWithFormat:@"%@,", doneTitle];
-            count = 0;
-        }
-    }
-    return doneTitle;
-}
-
 - (EDSQuestionModel *)tableViewModel
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:[EDSSave account].fourSubjectID];
+        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectErrorWithID:@""];
     }
     return _tableViewModel;
 }
@@ -409,6 +397,7 @@
         _footerView = [[EDSFourPracticeView alloc] init];
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
+        _footerView.clearBtn.hidden = YES;
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
             make.height.mas_equalTo(120);
@@ -416,5 +405,6 @@
     }
     return _footerView;
 }
+
 
 @end

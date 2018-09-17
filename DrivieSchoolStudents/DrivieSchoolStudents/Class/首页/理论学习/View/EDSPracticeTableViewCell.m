@@ -56,6 +56,10 @@
                     self.chooesImgView.image = [UIImage imageNamed:@"ct_content_option_wrong"];
                     self.chooesImgView.hidden = NO;
                     self.optionsLbl.hidden = YES;
+                }else{
+                    
+                    self.chooesImgView.hidden = YES;
+                    self.optionsLbl.hidden = NO;
                 }
             }
         }else{

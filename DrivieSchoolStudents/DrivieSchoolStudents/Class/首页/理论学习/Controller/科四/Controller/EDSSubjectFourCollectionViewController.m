@@ -85,14 +85,13 @@
         @strongify(self);
         if ([self.footerView.commitBtn.titleLabel.text isEqualToString:@"下一题"]) {
             
-            [self.footerView.commitBtn setTitle:@"提交" forState:UIControlStateNormal];
-            
             self.tableView.allowsSelection = YES;
             
             for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
                 
                 if (self.tableViewModel.answerlists[i].isChoose) {
                     self->_isChooes = NO;
+                    [self.footerView.commitBtn setTitle:@"提交" forState:UIControlStateNormal];
                     [self getNextQuestion];
                     return;
                 }
@@ -101,14 +100,22 @@
             [SVProgressHUD showErrorWithStatus:@"请做完本题"];
             [SVProgressHUD dismissWithDelay:1.5];
         }else{
-            [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
             
-            self.tableView.allowsSelection = NO;
-            //查看答案
-            self->_isChooes = YES;
+            for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
+                
+                if (self.tableViewModel.answerlists[i].isChoose) {
+                    
+                    [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+                    self.tableView.allowsSelection = NO;
+                    //查看答案
+                    self->_isChooes = YES;
+                    [self getProcessCorrectAnswer];
+                    return;
+                }
+            }
             
-            [self getProcessCorrectAnswer];
-            
+            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
+            [SVProgressHUD dismissWithDelay:1.5];
         }
     }];
 }
@@ -388,6 +395,7 @@
         _footerView = [[EDSFourPracticeView alloc] init];
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
+        _footerView.clearBtn.hidden = YES;
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
             make.height.mas_equalTo(120);

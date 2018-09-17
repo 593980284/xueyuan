@@ -21,6 +21,7 @@
 @interface EDSFourPracticeView : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *clearBtn;
 
 @property (nonatomic, strong) EDSFourPracticeViewModel  *footerModel;
 

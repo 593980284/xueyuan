@@ -167,29 +167,45 @@ static FMDatabaseQueue *_queue = nil;
 }
 
 
-
-/** 收藏 */
-- (void)upDataFourSubjectCollectionWithID:(NSString *)ID
+/** 获取科目四错题题目 */
+- (EDSQuestionModel *)getFourSubjectErrorWithID:(NSString *)ID
 {
     [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
     
-    ID = ID.length > 0 ? ID : @"1";
+    NSInteger iD = ID.length > 0 ? [ID integerValue] : 0;
     
-    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
+    FMResultSet *res = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM fourbankbean WHERE errors = 1 AND id > %ld LIMIT 1",(long)iD]];
+    while ([res next]) {
+        
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
     
     [_db close];
-}
-
-/** 取消收藏 */
-- (void)upDataFourSubjectunCollectionWithID:(NSString *)ID
-{
-    [_db open];
     
-    ID = ID.length > 0 ? ID : @"1";
-    
-    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
-    
-    [_db close];
+    return questionModel;
 }
 
 /** 清除科目四所有错题 */
@@ -215,6 +231,32 @@ static FMDatabaseQueue *_queue = nil;
     
     return count;
 }
+
+
+/** 收藏 */
+- (void)upDataFourSubjectCollectionWithID:(NSString *)ID
+{
+    [_db open];
+    
+    ID = ID.length > 0 ? ID : @"1";
+    
+    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
+    
+    [_db close];
+}
+
+/** 取消收藏 */
+- (void)upDataFourSubjectunCollectionWithID:(NSString *)ID
+{
+    [_db open];
+    
+    ID = ID.length > 0 ? ID : @"1";
+    
+    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
+    
+    [_db close];
+}
+
 
 /** 获取科目四收藏题目 */
 - (EDSQuestionModel *)getFourSubjectCollectionWithID:(NSString *)ID

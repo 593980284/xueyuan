@@ -16,6 +16,8 @@
 //科四
 #import "EDSSubjectFourPracticeViewController.h"//练习
 #import "EDSSubjectFourCollectionViewController.h"//收藏
+#import "EDSSubjectFourErrorsViewController.h"//错题
+#import "EDSSubjectFourRecitedPoliticsViewController.h"//背题
 
 #import "EDSTheoryLearningHeaderView.h"
 #import "EDSTheoryLearningSubjectOneView.h"
@@ -114,6 +116,16 @@
     [self.subjectFourView.collectBgView bk_whenTapped:^{
         
         EDSSubjectFourCollectionViewController *vc = [[EDSSubjectFourCollectionViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [self.subjectFourView.mistakesBgView bk_whenTapped:^{
+       
+        EDSSubjectFourErrorsViewController *vc = [[EDSSubjectFourErrorsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [self.subjectFourView.speakTextBgView bk_whenTapped:^{
+        
+        EDSSubjectFourRecitedPoliticsViewController *vc = [[EDSSubjectFourRecitedPoliticsViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

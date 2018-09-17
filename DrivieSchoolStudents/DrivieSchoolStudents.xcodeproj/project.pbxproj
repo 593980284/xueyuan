@@ -52,6 +52,8 @@
 		10EDA15B214F52A300C43EB4 /* EDSFourPracticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA15A214F52A300C43EB4 /* EDSFourPracticeView.m */; };
 		10EDA15D214F52AD00C43EB4 /* EDSFourPracticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EDA15C214F52AD00C43EB4 /* EDSFourPracticeView.xib */; };
 		10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */; };
+		10EDA163214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */; };
+		10EDA166214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */; };
 		10F74D58214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */; };
 		10F74D59214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */; };
 		10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D5B214CB50900FA3ECC /* EDSCommentStarsView.m */; };
@@ -2227,6 +2229,10 @@
 		10EDA15C214F52AD00C43EB4 /* EDSFourPracticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSFourPracticeView.xib; sourceTree = "<group>"; };
 		10EDA15E214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourCollectionViewController.h; sourceTree = "<group>"; };
 		10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourCollectionViewController.m; sourceTree = "<group>"; };
+		10EDA161214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourErrorsViewController.h; sourceTree = "<group>"; };
+		10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourErrorsViewController.m; sourceTree = "<group>"; };
+		10EDA164214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourRecitedPoliticsViewController.h; sourceTree = "<group>"; };
+		10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourRecitedPoliticsViewController.m; sourceTree = "<group>"; };
 		10F74D55214CA2A100FA3ECC /* EDSUnCourseRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUnCourseRecordViewController.h; sourceTree = "<group>"; };
 		10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUnCourseRecordViewController.m; sourceTree = "<group>"; };
 		10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSUnCourseRecordViewController.xib; sourceTree = "<group>"; };
@@ -4698,6 +4704,10 @@
 				10EDA156214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.m */,
 				10EDA15E214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.h */,
 				10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */,
+				10EDA161214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.h */,
+				10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */,
+				10EDA164214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.h */,
+				10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -9796,6 +9806,7 @@
 				10F74D58214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m in Sources */,
 				E9A619AA2133D232006E5C2B /* EDSMyViewController.m in Sources */,
 				10C2FCBA214BB91C00498C52 /* EDSStudentExamResultInfoModel.m in Sources */,
+				10EDA166214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m in Sources */,
 				10F74D9A214D0E2300FA3ECC /* EDSCollectionViewController.m in Sources */,
 				10F74D99214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
@@ -9904,6 +9915,7 @@
 				E9A61AC72137F895006E5C2B /* EDSQuestionModel.m in Sources */,
 				E952C7542141217D00EA3A0A /* UIImagePickerController+ST.m in Sources */,
 				E9BC04C421315DC5003A624F /* EDSHomeTableViewHeaderView.m in Sources */,
+				10EDA163214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m in Sources */,
 				E9A61AB32137C106006E5C2B /* EDSTheoryLearningSubjectOneView.m in Sources */,
 				E9BC048C21315283003A624F /* UIImageView+BHYCustom.m in Sources */,
 				E90F901F213D50A80061F448 /* EDSSchoolRegionRequest.m in Sources */,

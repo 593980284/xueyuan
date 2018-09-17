@@ -142,6 +142,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="clearBtn" destination="7wR-9x-NMp" id="N0N-6u-1e0"/>
                 <outlet property="collectionBtn" destination="Prd-I8-3CB" id="Rpy-Ca-PBx"/>
                 <outlet property="commitBtn" destination="aXI-u9-HSy" id="ksi-cs-tvw"/>
                 <outlet property="correctLbl" destination="whB-vY-95f" id="Pgh-gO-KTH"/>

@@ -25,6 +25,10 @@
 - (void)upDateFourSubjectErrorsWithID:(NSString *)ID;
 /** 错题数 */
 - (NSString *)getOneFourSubjectErrorCount;
+/** 获取科目四错题题目 */
+- (EDSQuestionModel *)getFourSubjectErrorWithID:(NSString *)ID;
+
+
 /** 获取收藏数量 */
 - (NSString *)getFourSubjectCollectionCount;
 /** 获取科目四收藏题目 */
