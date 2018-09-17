@@ -1,24 +1,24 @@
 //
-//  EDSPracticeViewController.m
+//  EDSSubjectFourPracticeViewController.m
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/8/30.
+//  Created by 班文政 on 2018/9/15.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "EDSPracticeViewController.h"
+#import "EDSSubjectFourPracticeViewController.h"
 #import "EDSClearRecordViewController.h"//清除
 #import "PopAnimator.h"
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSPracticeTableViewCell.h"
-#import "EDSPracticeFooterView.h"
+#import "EDSFourPracticeView.h"
 
-#import "EDSDataBase.h"
+#import "EDSFourDataBase.h"
 
 #import "EDSQuestionModel.h"
 
-@interface EDSPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSSubjectFourPracticeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isChooes;
 }
@@ -29,11 +29,11 @@
 /** 头部试图 */
 @property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 /** 脚部试图 */
-@property (nonatomic, strong) EDSPracticeFooterView  *footerView;
+@property (nonatomic, strong) EDSFourPracticeView  *footerView;
 
 @end
 
-@implementation EDSPracticeViewController
+@implementation EDSSubjectFourPracticeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,11 +57,30 @@
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
     
-    
     @weakify(self);
     self.footerView.practiceFooterViewDidSelectStringback = ^(NSString *titleStr) {
         @strongify(self);
-        if ([titleStr isEqualToString:@"下一题"]) {
+        if ([titleStr isEqualToString:@"清除"]){
+            
+            DLog(@"11111");
+            
+            [self clearRecordQuestion];
+        }
+    };
+    
+    if (self.tableViewModel.isMultiple) {
+        
+        [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    }
+    
+    [self.footerView.commitBtn bk_whenTapped:^{
+        
+        @strongify(self);
+        if ([self.footerView.commitBtn.titleLabel.text isEqualToString:@"下一题"]) {
+            
+            [self.footerView.commitBtn setTitle:@"提交" forState:UIControlStateNormal];
+            
+            self.tableView.allowsSelection = YES;
             
             for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
                 
@@ -74,16 +93,17 @@
             
             [SVProgressHUD showErrorWithStatus:@"请做完本题"];
             [SVProgressHUD dismissWithDelay:1.5];
-        }else if ([titleStr isEqualToString:@"收藏"]){
+        }else{
+            [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
             
-//            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:[EDSSave account].firstSubjectID];
-        }else if ([titleStr isEqualToString:@"清除"]){
+            self.tableView.allowsSelection = NO;
+            //查看答案
+            self->_isChooes = YES;
             
-            DLog(@"11111");
+            [self getProcessCorrectAnswer];
             
-            [self clearRecordQuestion];
         }
-    };
+    }];
 }
 
 - (void)clearRecordQuestion
@@ -111,7 +131,7 @@
     
     NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
     vc.allCount =  _isChooes ? [NSString stringWithFormat:@"%ld",(long)allcount] : [NSString stringWithFormat:@"%ld",(long)allcount-1];
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
+    NSInteger errCount = [[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount] intValue];
     vc.errorsCount = [NSString stringWithFormat:@"%ld",(long)errCount];
     if (_isChooes) {
         
@@ -124,9 +144,9 @@
     @weakify(self);
     vc.clearRecordDidCommitBtn = ^{
         @strongify(self);
-        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
+        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
         EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = @"";
+        account.fourSubjectID = @"";
         [EDSSave save:account];
         [self getNextQuestion];
     };
@@ -142,15 +162,15 @@
 {
     self.tableView.allowsSelection = YES;
     
-    self.tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
-    
     if (self.tableViewModel.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].firstSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
+        NSString *ID = [EDSSave account].fourSubjectID;
+        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
         EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+        account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
         [EDSSave save:account];
+        
+        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectID];
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
@@ -163,22 +183,26 @@
         [SVProgressHUD dismissWithDelay:1.5];
     }
     
+    if (self.tableViewModel.isMultiple) {
+        
+        [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark ------------------------ 获取底部数据 --------------------------------
 - (void)getFooterViewModel
 {
-    NSString *ID = [EDSSave account].firstSubjectID;
+    NSString *ID = [EDSSave account].fourSubjectID;
     
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
+    NSInteger allcount = ID.length > 0 ? [ID intValue] - 1325 : 1;
     
-    EDSPractioceFooterModel *model = [[EDSPractioceFooterModel alloc] init];
+    EDSFourPracticeViewModel *model = [[EDSFourPracticeViewModel alloc] init];
     model.ID = self.tableViewModel.ID;
     
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%@",[[EDSDataBase sharedDataBase] getOneFirstSubjectCount]] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
+    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/1236" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
     model.progressAttr = attStr;
     
-    NSInteger errCount = [[[EDSDataBase sharedDataBase] getOneFirstSubjectErrorCount] intValue];
+    NSInteger errCount = [[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount] intValue];
     if (_isChooes) {
         
         model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
@@ -222,16 +246,15 @@
         make.left.mas_equalTo(20);
         make.centerY.mas_equalTo(0);
     }];
-    for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
+    
+    if (_isChooes) {
         
-        if (self.tableViewModel.answerlists[i].isChoose) {
-            footerLbl.hidden = NO;
-            break;
-        }else{
-            
-            footerLbl.hidden = YES;
-        }
+        footerLbl.hidden = NO;
+    }else{
+        
+        footerLbl.hidden = YES;
     }
+    
     return bgView;
 }
 
@@ -263,12 +286,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _isChooes = YES;
-    
     if (self.tableViewModel.isMultiple) {
         
         dispatch_apply(self.tableViewModel.answerlists.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
             
+            self.tableViewModel.answerlists[i].isSubjectFour = YES;
+            self.tableViewModel.answerlists[i].isSubjectFour = YES;
             if (i == indexPath.row) {
                 
                 self.tableViewModel.answerlists[i].isChoose = YES;
@@ -278,47 +301,82 @@
             }
         });
         self.tableView.allowsSelection = NO;
+        //查看答案
+        self->_isChooes = YES;
+        [self getProcessCorrectAnswer];
+        
     }else{
         
         EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
         answerModel.isChoose = !answerModel.isChoose;
+        answerModel.isSubjectFour = YES;
+        [self.tableView reloadData];
     }
-    [self getProcessCorrectAnswerWithIndex:indexPath.row];
-    [self.tableView reloadData];
 }
 
 
-- (void)getProcessCorrectAnswerWithIndex:(NSInteger)index
+- (void)getProcessCorrectAnswer
 {
+    NSString *string = self.tableViewModel.answer;
+    NSString *answeStr = @"";
     
     for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
         
-        NSString *string = self.tableViewModel.answerlists[i].answerR;
+        self.tableViewModel.answerlists[i].isLook = YES;
         
-        if ([string isEqualToString:self.tableViewModel.answer]) {
+        int index = i;
+        
+        index += 65;
+        
+        NSString *answerstr = [NSString stringWithFormat:@"%c",index];
+        
+        if ([string rangeOfString:answerstr].location != NSNotFound) {
             
             self.tableViewModel.answerlists[i].isCorrect = YES;
-            if (i != index) {
-                //错题
-                [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.tableViewModel.ID];
-                [self getFooterViewModel];
-            }else{
-                
-                [self getFooterViewModel];
-            }
         }else{
             
             self.tableViewModel.answerlists[i].isCorrect = NO;
         }
+        
+        if (self.tableViewModel.answerlists[i].isChoose) {
+            
+            int index = i;
+            index += 65;
+            answeStr = [NSString stringWithFormat:@"%@%c",answeStr,index];
+        }
     }
     
+    if (![answeStr isEqualToString:string]) {
+        //错题
+        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.tableViewModel.ID];
+    }
+    
+    [self getFooterViewModel];
+    [self.tableView reloadData];
+}
+
+//每隔4个字符添加一个空格的字符串算法
+- (NSString *)dealWithString:(NSString *)number
+{
+    NSString *doneTitle = @"";
+    int count = 0;
+    for (int i = 0; i < number.length; i++) {
+        
+        count++;
+        doneTitle = [doneTitle stringByAppendingString:[number substringWithRange:NSMakeRange(i, 1)]];
+        if (count == 1) {
+            doneTitle = [NSString stringWithFormat:@"%@,", doneTitle];
+            count = 0;
+        }
+    }
+    return doneTitle;
 }
 
 - (EDSQuestionModel *)tableViewModel
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:[EDSSave account].fourSubjectID];
     }
     return _tableViewModel;
 }
@@ -337,11 +395,11 @@
 }
 
 
-- (EDSPracticeFooterView *)footerView
+- (EDSFourPracticeView *)footerView
 {
     if (!_footerView) {
         
-        _footerView = [[EDSPracticeFooterView alloc] init];
+        _footerView = [[EDSFourPracticeView alloc] init];
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {

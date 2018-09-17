@@ -289,6 +289,7 @@
     if (!_footerView) {
         
         _footerView = [[EDSPracticeFooterView alloc] init];
+        _footerView.clearBtn.hidden = YES;
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {

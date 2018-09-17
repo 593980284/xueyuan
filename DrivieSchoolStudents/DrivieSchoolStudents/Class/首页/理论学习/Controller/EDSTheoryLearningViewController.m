@@ -15,6 +15,7 @@
 
 //科四
 #import "EDSSubjectFourPracticeViewController.h"//练习
+#import "EDSSubjectFourCollectionViewController.h"//收藏
 
 #import "EDSTheoryLearningHeaderView.h"
 #import "EDSTheoryLearningSubjectOneView.h"
@@ -108,6 +109,11 @@
     [self.subjectFourView.practiceBgView bk_whenTapped:^{
        
         EDSSubjectFourPracticeViewController *vc = [[EDSSubjectFourPracticeViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [self.subjectFourView.collectBgView bk_whenTapped:^{
+        
+        EDSSubjectFourCollectionViewController *vc = [[EDSSubjectFourCollectionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

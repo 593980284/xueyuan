@@ -18,6 +18,11 @@
 @property (nonatomic, assign) BOOL isCorrect;
 /** 选择 */
 @property (nonatomic, assign) BOOL isChoose;
+/** 是否单选 */
+@property (nonatomic, assign) BOOL isSubjectFour;
+/** 是否查看答案 */
+@property (nonatomic, assign) BOOL isLook;
+
 
 @end
 

@@ -1,15 +1,14 @@
 //
-//  EDSPracticeFooterView.h
+//  EDSFourPracticeView.h
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/8/30.
+//  Created by 班文政 on 2018/9/17.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface EDSPractioceFooterModel : NSObject
-
+@interface EDSFourPracticeViewModel : NSObject
 
 @property (nonatomic, copy) NSAttributedString *progressAttr;//进度
 @property (nonatomic, copy) NSString *errorStr;//错题
@@ -19,10 +18,12 @@
 
 @end
 
-@interface EDSPracticeFooterView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *clearBtn;
+@interface EDSFourPracticeView : UIView
+
+@property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+
+@property (nonatomic, strong) EDSFourPracticeViewModel  *footerModel;
 
 @property (nonatomic, copy) void (^practiceFooterViewDidSelectStringback)(NSString *titleStr);
 
-@property (nonatomic, strong) EDSPractioceFooterModel  *footerModel;
 @end

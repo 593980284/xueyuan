@@ -7,6 +7,7 @@
 //
 
 #import "EDSPracticeHeaderView.h"
+#import <UIImage+GIF.h>
 
 #import "EDSQuestionModel.h"
 
@@ -47,6 +48,8 @@
 {
     _questionModel = questionModel;
     
+    _choosetypeLbl.text = questionModel.isMultiple ? @"单选题" : @"多选题";
+    
     NSString *labelText = [NSString stringWithFormat:@"  %@",questionModel.questionTitle];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@""];
     // 添加表情
@@ -68,7 +71,18 @@
     
     _titleLbl.attributedText = attributedString;
     
-    _pictureImgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",questionModel.questionPictureUrl]];
+    if ([questionModel.questionPictureUrl isEqualToString:@"1326"] || [questionModel.questionPictureUrl isEqualToString:@"1327"] || [questionModel.questionPictureUrl isEqualToString:@"1328"] || [questionModel.questionPictureUrl isEqualToString:@"1329"] || [questionModel.questionPictureUrl isEqualToString:@"1330"]|| [questionModel.questionPictureUrl isEqualToString:@"1331"]||[questionModel.questionPictureUrl isEqualToString:@"1332"]||[questionModel.questionPictureUrl isEqualToString:@"1400"] ||[questionModel.questionPictureUrl isEqualToString:@"1401"]||[questionModel.questionPictureUrl isEqualToString:@"1410"]||[questionModel.questionPictureUrl isEqualToString:@"1424"]||[questionModel.questionPictureUrl isEqualToString:@"1458"]||[questionModel.questionPictureUrl isEqualToString:@"1465"]||[questionModel.questionPictureUrl isEqualToString:@"1474"]||[questionModel.questionPictureUrl isEqualToString:@"1485"]||[questionModel.questionPictureUrl isEqualToString:@"1488"]||[questionModel.questionPictureUrl isEqualToString:@"2020"]||[questionModel.questionPictureUrl isEqualToString:@"2028"]||[questionModel.questionPictureUrl isEqualToString:@"2208"]||[questionModel.questionPictureUrl isEqualToString:@"2272"]||[questionModel.questionPictureUrl isEqualToString:@"2301"]||[questionModel.questionPictureUrl isEqualToString:@"2302"]||[questionModel.questionPictureUrl isEqualToString:@"1333"]) {
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:questionModel.questionPictureUrl ofType:@"gif"];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        UIImage *image = [UIImage sd_animatedGIFWithData:data];
+        _pictureImgView.image = image;
+        
+    }else{
+        
+        _pictureImgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",questionModel.questionPictureUrl]];
+    }
+    
     
     CGFloat widthR = kScreenWidth - 30;
     CGFloat width = _pictureImgView.image.size.width;

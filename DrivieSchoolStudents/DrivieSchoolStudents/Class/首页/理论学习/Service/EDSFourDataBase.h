@@ -14,7 +14,28 @@
 
 + (instancetype)sharedDataBase;
 
+
+/** 获取科目四一共多少题 */
+- (NSString *)getOneFourSubjectCount;
 /** 科目四根据ID获取题目 */
 - (EDSQuestionModel *)getFourSubjectQuestionWithID:(NSString *)ID;
 
+
+/** 添加科目四错题 */
+- (void)upDateFourSubjectErrorsWithID:(NSString *)ID;
+/** 错题数 */
+- (NSString *)getOneFourSubjectErrorCount;
+/** 获取收藏数量 */
+- (NSString *)getFourSubjectCollectionCount;
+/** 获取科目四收藏题目 */
+- (EDSQuestionModel *)getFourSubjectCollectionWithID:(NSString *)ID;
+
+
+/** 收藏 */
+- (void)upDataFourSubjectCollectionWithID:(NSString *)ID;
+/** 取消收藏 */
+- (void)upDataFourSubjectunCollectionWithID:(NSString *)ID;
+
+/** 清除科目四所有错题 */
+- (void)clearFourSubjectAllWrongQuestions;
 @end

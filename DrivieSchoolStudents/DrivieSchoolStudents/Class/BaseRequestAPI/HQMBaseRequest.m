@@ -352,7 +352,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
 - (NSDictionary<NSString *, NSString *> *)requestHeaderFieldValueDictionary {
     NSString *token = @"";//;[BHYSave account].token;
     token = token.length > 0 ? token : @"";
-     return @{@"token":token};
+//    return @{@"token":token};
+     return nil;
 }
 
 - (HQMRequestMethod)requestMethod {

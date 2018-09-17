@@ -8,7 +8,7 @@
 
 #import "EDSPersonalSettingsViewController.h"
 #import "EDSChangePasswordViewController.h"//修改密码
-#import "EDSChangePhoneOneViewController.h"//跟换手机号码
+#import "EDSChangePhoneOneViewController.h"//跟换手机号
 
 
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -17,6 +17,8 @@
 #import "STConfig.h"
 
 #import "EDSUploadStudentImgRequest.h"
+#import "EDSFourDataBase.h"
+#import "EDSDataBase.h"
 
 @interface EDSPersonalSettingsViewController ()<UIImagePickerControllerDelegate, UIActionSheetDelegate, STPhotoKitDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *changePasswordBgview;
@@ -134,6 +136,10 @@
     [SVProgressHUD dismissWithDelay:1.5];
     EDSAccount *account = [EDSSave account];
     account.userID = @"";
+    account.firstSubjectID = @"";
+    account.fourSubjectID = @"";
+    [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
+    [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
     [EDSSave save:account];
     
     @weakify(self);

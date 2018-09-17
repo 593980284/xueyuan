@@ -48,6 +48,10 @@
 		10ED4E50214A2F5A00DF50F7 /* EDSSaveMailInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED4E4F214A2F5A00DF50F7 /* EDSSaveMailInfoRequest.m */; };
 		10ED4E5A214A6CA900DF50F7 /* EDSLearningSituationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED4E59214A6CA900DF50F7 /* EDSLearningSituationViewController.m */; };
 		10ED4E61214A6DBF00DF50F7 /* EDSTestCaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED4E60214A6DBF00DF50F7 /* EDSTestCaseView.m */; };
+		10EDA158214F51F600C43EB4 /* EDSSubjectFourPracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA156214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.m */; };
+		10EDA15B214F52A300C43EB4 /* EDSFourPracticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA15A214F52A300C43EB4 /* EDSFourPracticeView.m */; };
+		10EDA15D214F52AD00C43EB4 /* EDSFourPracticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EDA15C214F52AD00C43EB4 /* EDSFourPracticeView.xib */; };
+		10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */; };
 		10F74D58214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */; };
 		10F74D59214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */; };
 		10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D5B214CB50900FA3ECC /* EDSCommentStarsView.m */; };
@@ -71,7 +75,6 @@
 		10F74D99214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D8E214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m */; };
 		10F74D9A214D0E2300FA3ECC /* EDSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D8F214D0E2300FA3ECC /* EDSCollectionViewController.m */; };
 		10F74D9B214D0E2300FA3ECC /* EDSEorrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D91214D0E2300FA3ECC /* EDSEorrorsViewController.m */; };
-		10F74D9F214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D9E214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.m */; };
 		10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
@@ -2217,6 +2220,13 @@
 		10ED4E59214A6CA900DF50F7 /* EDSLearningSituationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSLearningSituationViewController.m; sourceTree = "<group>"; };
 		10ED4E5F214A6DBF00DF50F7 /* EDSTestCaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTestCaseView.h; sourceTree = "<group>"; };
 		10ED4E60214A6DBF00DF50F7 /* EDSTestCaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTestCaseView.m; sourceTree = "<group>"; };
+		10EDA155214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourPracticeViewController.h; sourceTree = "<group>"; };
+		10EDA156214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourPracticeViewController.m; sourceTree = "<group>"; };
+		10EDA159214F52A300C43EB4 /* EDSFourPracticeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFourPracticeView.h; sourceTree = "<group>"; };
+		10EDA15A214F52A300C43EB4 /* EDSFourPracticeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourPracticeView.m; sourceTree = "<group>"; };
+		10EDA15C214F52AD00C43EB4 /* EDSFourPracticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSFourPracticeView.xib; sourceTree = "<group>"; };
+		10EDA15E214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourCollectionViewController.h; sourceTree = "<group>"; };
+		10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourCollectionViewController.m; sourceTree = "<group>"; };
 		10F74D55214CA2A100FA3ECC /* EDSUnCourseRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUnCourseRecordViewController.h; sourceTree = "<group>"; };
 		10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUnCourseRecordViewController.m; sourceTree = "<group>"; };
 		10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSUnCourseRecordViewController.xib; sourceTree = "<group>"; };
@@ -2256,8 +2266,6 @@
 		10F74D91214D0E2300FA3ECC /* EDSEorrorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSEorrorsViewController.m; sourceTree = "<group>"; };
 		10F74D92214D0E2300FA3ECC /* EDSRecitedPoliticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSRecitedPoliticsViewController.h; sourceTree = "<group>"; };
 		10F74D93214D0E2300FA3ECC /* EDSFirsExamErrorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSFirsExamErrorsViewController.h; sourceTree = "<group>"; };
-		10F74D9D214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourPracticeViewController.h; sourceTree = "<group>"; };
-		10F74D9E214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourPracticeViewController.m; sourceTree = "<group>"; };
 		10F74DA0214D0FD800FA3ECC /* EDSFourDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFourDataBase.h; sourceTree = "<group>"; };
 		10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourDataBase.m; sourceTree = "<group>"; };
 		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
@@ -4683,6 +4691,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		10EDA154214F51F500C43EB4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10EDA155214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.h */,
+				10EDA156214F51F500C43EB4 /* EDSSubjectFourPracticeViewController.m */,
+				10EDA15E214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.h */,
+				10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10EDA157214F51F500C43EB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10EDA159214F52A300C43EB4 /* EDSFourPracticeView.h */,
+				10EDA15A214F52A300C43EB4 /* EDSFourPracticeView.m */,
+				10EDA15C214F52AD00C43EB4 /* EDSFourPracticeView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		10F74D78214D08D300FA3ECC /* 科二 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4728,8 +4757,8 @@
 		10F74D9C214D0E7500FA3ECC /* 科四 */ = {
 			isa = PBXGroup;
 			children = (
-				10F74D9D214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.h */,
-				10F74D9E214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.m */,
+				10EDA154214F51F500C43EB4 /* Controller */,
+				10EDA157214F51F500C43EB4 /* View */,
 			);
 			path = "科四";
 			sourceTree = "<group>";
@@ -9398,6 +9427,7 @@
 				E952D339214268FF00EA3A0A /* jtbz_jtsg8.jpg in Resources */,
 				E952D16A214268FE00EA3A0A /* jtbz_zlu151.jpg in Resources */,
 				E952CFBA214268FE00EA3A0A /* 2098.jpg in Resources */,
+				10EDA15D214F52AD00C43EB4 /* EDSFourPracticeView.xib in Resources */,
 				E952D532214268FF00EA3A0A /* jtbz_zsd1.jpg in Resources */,
 				E952CF74214268FE00EA3A0A /* 1392.jpg in Resources */,
 				E952D322214268FF00EA3A0A /* 2385.jpg in Resources */,
@@ -9736,7 +9766,6 @@
 				E952C7552141217D00EA3A0A /* STPhotoKitController.m in Sources */,
 				E935C6202138EBC1006FB53C /* EDSCourseRecordDetailHeaderView.m in Sources */,
 				10ED4E4A214A14F200DF50F7 /* EDSStudentMsgModel.m in Sources */,
-				10F74D9F214D0ECA00FA3ECC /* EDSSubjectFourPracticeViewController.m in Sources */,
 				E90F9016213D479B0061F448 /* EDSSchoolStyleModel.m in Sources */,
 				10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */,
 				10F74D65214CD5B500FA3ECC /* EDSCommentSubmitReqest.m in Sources */,
@@ -9788,6 +9817,7 @@
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
+				10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */,
 				10F74D81214D0AA500FA3ECC /* EDSSubjectThreeView.m in Sources */,
 				E9A619F2213517B8006E5C2B /* EDSDrivingDetailsFooterView.m in Sources */,
 				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,
@@ -9840,6 +9870,7 @@
 				E9A61A6D21369494006E5C2B /* EDSSchoolMessageViewController.m in Sources */,
 				1038D5B02146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m in Sources */,
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
+				10EDA15B214F52A300C43EB4 /* EDSFourPracticeView.m in Sources */,
 				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
 				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
 				E952C7562141217D00EA3A0A /* STConst.m in Sources */,
@@ -9916,6 +9947,7 @@
 				E9A619C42133F711006E5C2B /* EDSDriveSchollInfomationSearchView.m in Sources */,
 				E9A619FB2135248D006E5C2B /* EDSSave.m in Sources */,
 				E952C7592141217D00EA3A0A /* UIView+ST.m in Sources */,
+				10EDA158214F51F600C43EB4 /* EDSSubjectFourPracticeViewController.m in Sources */,
 				E9A61A1221355A08006E5C2B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				E9A61ACA2137FB87006E5C2B /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				E9A619FE213527B2006E5C2B /* EDSAppTouristRegistRequest.m in Sources */,
