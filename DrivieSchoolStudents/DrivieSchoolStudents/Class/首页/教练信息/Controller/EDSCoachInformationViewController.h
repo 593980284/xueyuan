@@ -8,6 +8,10 @@
 
 #import "BHYBaseViewController.h"
 
+@class  EDSCoachListModel;
+
 @interface EDSCoachInformationViewController : BHYBaseViewController
+
+@property (nonatomic , strong) EDSCoachListModel *coachModel;
 
 @end

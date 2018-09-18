@@ -211,6 +211,7 @@
         _thirdView = [[EDSThirdView alloc] init];
         _thirdView.topView = self.topView;
         _thirdView.schoolId = self.schoolId;
+        _thirdView.parentView = self;
         [self.view addSubview:_thirdView];
         [_thirdView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);

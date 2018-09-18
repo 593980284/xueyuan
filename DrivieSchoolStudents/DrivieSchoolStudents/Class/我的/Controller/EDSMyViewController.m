@@ -12,6 +12,8 @@
 #import "EDSCourseRecordViewController.h"//课程记录
 #import "EDSLearningSituationViewController.h"//学习情况
 #import "EDSPSWLogoViewController.h"
+#import "EDSAboutUsViewController.h"//关于我们
+#import "EDSDrivingShcoolDetailViewController.h"//驾校详情
 
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
@@ -37,9 +39,11 @@
     self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, MyTableViewSeparatorLeft, 0, 0);
     
+    NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
+    
     self.cellArr = @[
                      @[
-                         @[@"我的报名",@"wdbm_content_icon_default"],
+                         @[string,@"wdbm_content_icon_default"],
                          @[@"课程记录",@"kcjl_content_icon_default"],
                          @[@"学习查询",@"xxcx_content_icon_default"],
                          @[@"学校信箱",@"xxxx_content_icon_default"],
@@ -134,7 +138,17 @@
         EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([string isEqualToString:@"学习查询"]){
+        
         EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([string isEqualToString:@"关于我们"]){
+        
+        EDSAboutUsViewController *vc = [[EDSAboutUsViewController alloc] initWithNibName:@"EDSAboutUsViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([string isEqualToString:@"我的驾校"]){
+        
+        EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+        vc.schoolId = [EDSSave account].schoolId;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

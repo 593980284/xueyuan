@@ -8,6 +8,7 @@
 
 #import "EDSRecitedPoliticsFooterView.h"
 #import "EDSDataBase.h"
+#import "EDSFourDataBase.h"
 
 @interface EDSRecitedPoliticsFooterView ()
 @property (weak, nonatomic) IBOutlet UIButton *collectionBrn;
@@ -35,6 +36,7 @@
 {
     _isCollection = isCollection;
     
+    NSInteger ID = [self.ID intValue];
     self.collectionBrn.selected = isCollection;
     @weakify(self);
     [self.collectionBrn bk_whenTapped:^{
@@ -42,15 +44,35 @@
         @strongify(self);
         if (self.collectionBrn.selected) {
             
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.ID];
-            self.collectionBrn.selected = NO;
-            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
+            if (ID > 1325) {
+                
+                [[EDSFourDataBase sharedDataBase] upDataFourSubjectunCollectionWithID:self.ID];
+                self.collectionBrn.selected = NO;
+                [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }else{
+                
+                [[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.ID];
+                self.collectionBrn.selected = NO;
+                [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }
+            
         }else{
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.ID];
-            self.collectionBrn.selected = YES;
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
+            
+            if (ID > 1325) {
+                
+                [[EDSFourDataBase sharedDataBase] upDataFourSubjectCollectionWithID:self.ID];
+                self.collectionBrn.selected = YES;
+                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }else{
+                
+                [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.ID];
+                self.collectionBrn.selected = YES;
+                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }
         }
     }];
 }

@@ -12,8 +12,11 @@
 @interface EDSThirdView : UIView
 
 @property (nonatomic, strong) EDSEDSDrivingDetailsHeaderView  *topView;
+@property (nonatomic, strong) UIViewController  *parentView;
 
 /** 学校id */
 @property (nonatomic, copy) NSString *schoolId;
+
+
 
 @end

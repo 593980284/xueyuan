@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class EDSCoachListModel;
+
 @interface EDSCoachInformationFooterView : UITableViewCell
+
+@property (nonatomic , strong) EDSCoachListModel *coachModel;
 
 @end

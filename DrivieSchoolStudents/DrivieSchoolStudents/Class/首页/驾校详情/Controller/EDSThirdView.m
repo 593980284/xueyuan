@@ -8,6 +8,7 @@
 
 #import "EDSThirdView.h"
 #import "EDSEDSDrivingDetailsHeaderView.h"
+#import "EDSCoachInformationViewController.h"
 
 #import "EDSCoachTableViewCell.h"
 
@@ -114,6 +115,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 110;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EDSCoachInformationViewController *vc = [[EDSCoachInformationViewController alloc] init];
+    vc.coachModel = self.listArr[indexPath.row];
+    [self.parentView.navigationController  pushViewController:vc animated:YES];
 }
 
 #pragma mark - firstTableView的代理方法scrollViewDidScroll

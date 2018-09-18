@@ -77,6 +77,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="carLbl" destination="slL-yn-X32" id="SeO-Ss-DVJ"/>
+                <outlet property="driveStarView" destination="FmV-ex-eQl" id="aBb-Y0-YiW"/>
+                <outlet property="imgView" destination="aci-Rd-2ep" id="Gcd-at-GZb"/>
+                <outlet property="nameLbl" destination="8hH-9x-EGm" id="gUY-wX-ehc"/>
+                <outlet property="scoceLbl" destination="AUS-kx-akP" id="Qki-lB-bj6"/>
+                <outlet property="sexLbl" destination="0bT-Fh-w6Y" id="FNV-OE-VWZ"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="-217"/>
         </view>
     </objects>

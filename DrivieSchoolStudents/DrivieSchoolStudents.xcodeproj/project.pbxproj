@@ -12,6 +12,8 @@
 		1082B099214A74A200305093 /* EDSTestCaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B098214A74A200305093 /* EDSTestCaseView.xib */; };
 		1082B09D214A7A4800305093 /* EDSMessageSiginBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */; };
 		1082B09E214A7A4800305093 /* EDSMessageSiginBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B09C214A7A4800305093 /* EDSMessageSiginBoxViewController.xib */; };
+		1096BCA221509EBE00CBB0DF /* EDSAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1096BCA021509EBE00CBB0DF /* EDSAboutUsViewController.m */; };
+		1096BCA321509EBE00CBB0DF /* EDSAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1096BCA121509EBE00CBB0DF /* EDSAboutUsViewController.xib */; };
 		10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */; };
 		10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A48A9B2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.m */; };
 		10A48A9E2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A48A9C2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.xib */; };
@@ -2152,6 +2154,9 @@
 		1082B09A214A7A4800305093 /* EDSMessageSiginBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageSiginBoxViewController.h; sourceTree = "<group>"; };
 		1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageSiginBoxViewController.m; sourceTree = "<group>"; };
 		1082B09C214A7A4800305093 /* EDSMessageSiginBoxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSMessageSiginBoxViewController.xib; sourceTree = "<group>"; };
+		1096BC9F21509EBE00CBB0DF /* EDSAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSAboutUsViewController.h; sourceTree = "<group>"; };
+		1096BCA021509EBE00CBB0DF /* EDSAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSAboutUsViewController.m; sourceTree = "<group>"; };
+		1096BCA121509EBE00CBB0DF /* EDSAboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSAboutUsViewController.xib; sourceTree = "<group>"; };
 		10A48A972134376400FA2A38 /* EDSSubscribeApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyViewController.h; sourceTree = "<group>"; };
 		10A48A982134376400FA2A38 /* EDSSubscribeApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubscribeApplyViewController.m; sourceTree = "<group>"; };
 		10A48A9A2134390200FA2A38 /* EDSSubscribeApplyOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubscribeApplyOneTableViewCell.h; sourceTree = "<group>"; };
@@ -6865,6 +6870,9 @@
 				E9A619A72133D232006E5C2B /* MyConstants.h */,
 				E9A619A82133D232006E5C2B /* EDSMyViewController.h */,
 				E9A619A62133D232006E5C2B /* EDSMyViewController.m */,
+				1096BC9F21509EBE00CBB0DF /* EDSAboutUsViewController.h */,
+				1096BCA021509EBE00CBB0DF /* EDSAboutUsViewController.m */,
+				1096BCA121509EBE00CBB0DF /* EDSAboutUsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -8440,6 +8448,7 @@
 				E952D468214268FF00EA3A0A /* 1359.jpg in Resources */,
 				E952D0B8214268FE00EA3A0A /* 2348.jpg in Resources */,
 				E952D183214268FE00EA3A0A /* 2004.jpg in Resources */,
+				1096BCA321509EBE00CBB0DF /* EDSAboutUsViewController.xib in Resources */,
 				E952D0C0214268FE00EA3A0A /* jtbz_qtbx4.jpg in Resources */,
 				E952D0D5214268FE00EA3A0A /* jtbz_zlu31.jpg in Resources */,
 				E952D2D4214268FF00EA3A0A /* 718.jpg in Resources */,
@@ -9920,6 +9929,7 @@
 				E9BC048C21315283003A624F /* UIImageView+BHYCustom.m in Sources */,
 				E90F901F213D50A80061F448 /* EDSSchoolRegionRequest.m in Sources */,
 				E9BC0470213150B6003A624F /* EDSNavigationViewController.m in Sources */,
+				1096BCA221509EBE00CBB0DF /* EDSAboutUsViewController.m in Sources */,
 				10F74D69214CE0AB00FA3ECC /* EDSSeeEvaluationViewController.m in Sources */,
 				10F74D96214D0E2300FA3ECC /* EDSRecitedPoliticsViewController.m in Sources */,
 				E9A619E02134F656006E5C2B /* EDSMsgCodeRequest.m in Sources */,

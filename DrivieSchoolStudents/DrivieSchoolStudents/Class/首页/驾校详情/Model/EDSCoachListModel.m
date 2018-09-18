@@ -20,6 +20,11 @@
     return [LINEURL stringByAppendingPathComponent:_coachPhoto];
 }
 
+- (NSArray *)showTagArr
+{
+    return [_coachLabel componentsSeparatedByString:@","];
+}
+
 - (NSString *)showCoachDescrp
 {
     return [NSString stringWithFormat:@"%@年教练 · %@",_teachAge,_teachType];

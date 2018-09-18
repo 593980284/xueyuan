@@ -19,10 +19,13 @@
 @property (nonatomic, copy) NSString *coachStar;        //教练星级
 @property (nonatomic, copy) NSString *teachAge;         //教龄
 @property (nonatomic, copy) NSString *teachType;        //准教类型
+@property (nonatomic, copy) NSString *coachLabel;       //教练标签
+@property (nonatomic, copy) NSString *present;          //教练简介
 
 
 
 @property (nonatomic, copy) NSString *showCoachPhoto;                   //展示图片
 @property (nonatomic, assign) NSInteger showCoachStarInterger;          //展示图片
-@property (nonatomic, copy) NSString *showCoachDescrp;                   //展示图片
+@property (nonatomic, copy) NSString *showCoachDescrp;                  //展示图片
+@property (nonatomic, strong) NSArray *showTagArr;                      //教练标签
 @end

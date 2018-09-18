@@ -170,6 +170,8 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"[XGDemo] receive slient Notification");
     NSLog(@"[XGDemo] userinfo %@", userInfo);
+    [SVProgressHUD showWithStatus:userInfo];
+    [SVProgressHUD dismissWithDelay:5];
     [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
@@ -190,6 +192,8 @@
         NSLog(@"click from Action2");
     }
     
+    [SVProgressHUD showWithStatus:response.actionIdentifier];
+    [SVProgressHUD dismissWithDelay:5];
     [[XGPush defaultManager] reportXGNotificationResponse:response];
     
     completionHandler();

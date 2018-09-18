@@ -7,6 +7,7 @@
 //
 
 #import "EDSMsgCodeLoginRequest.h"
+#import "XGPush.h"
 
 @implementation EDSMsgCodeLoginRequest
 
@@ -28,6 +29,7 @@
     if (resCode == 1) {
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
         [EDSSave save:account];
+        [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:account.phone type:XGPushTokenBindTypeAccount];
     }
     if (self.successBlock) {
         self.successBlock(resCode, data, nil);

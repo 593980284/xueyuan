@@ -7,6 +7,7 @@
 //
 
 #import "EDSCoachInformationFooterView.h"
+#import "EDSCoachListModel.h"
 
 @interface EDSCoachInformationFooterView ()
 @property (nonatomic , strong) UILabel *ageLbl;//教龄
@@ -42,6 +43,17 @@
         [self setup];
     }
     return self;
+}
+
+- (void)setCoachModel:(EDSCoachListModel *)coachModel
+{
+    _coachModel = coachModel;
+    
+    [self addTagLblView];
+    
+    self.ageLbl.text = [NSString stringWithFormat:@"%@年",coachModel.teachAge];
+    self.subjectsLbl.text = coachModel.teachType;
+    self.descriptionLbl.text = coachModel.present;
 }
 
 - (void)setup{
@@ -81,19 +93,18 @@
         make.top.mas_equalTo(subjectstagLbl.mas_bottom).mas_equalTo(22);
         make.height.mas_equalTo(60);
     }];
-    [self addTagLblView];
     
     UILabel *descriptiontagLbl = [UILabel labelWithText:@"个人简介" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [descriptiontagLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.top.mas_equalTo(self.tagBgView.mas_bottom).mas_equalTo(29);
+        make.top.mas_equalTo(self.tagBgView.mas_bottom).mas_equalTo(19  );
     }];
     _descriptionLbl = [UILabel labelWithText:@"个人简介个人简，介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [_descriptionLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(descriptiontagLbl.mas_top);
         make.right.mas_equalTo(-15);
         make.width.mas_equalTo(KLineX(255));
-        make.bottom.mas_equalTo(-23);
+        make.bottom.mas_equalTo(-20);
     }];
 }
 
@@ -105,12 +116,12 @@
         make.top.mas_equalTo(7);
     }];
     
-    for (int i = 0; i < 4; i ++) {
+    for (int i = 0; i < self.coachModel.showTagArr.count; i ++) {
         
         NSInteger x = i / 2;
         NSInteger y = i % 2;
         
-        UILabel *label = [UILabel labelWithText:@"文明教学" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.tagBgView];
+        UILabel *label = [UILabel labelWithText:self.coachModel.showTagArr[i] font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.tagBgView];
         label.textAlignment = NSTextAlignmentCenter;
         label.layer.masksToBounds = YES;
         label.layer.cornerRadius = 5;
@@ -122,7 +133,7 @@
             make.right.mas_equalTo(-15 - 100*y);
         }];
         
-        if (i == 3) {
+        if (i == self.coachModel.showTagArr.count - 1) {
             
             [self.tagBgView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(40*2);

@@ -7,6 +7,7 @@
 //
 
 #import "EDSStudentLoginRequest.h"
+#import "XGPush.h"
 
 @implementation EDSStudentLoginRequest
 
@@ -33,6 +34,7 @@
     EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
     [EDSSave save:account];
     
+    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:account.phone type:XGPushTokenBindTypeAccount];
     if (self.successBlock) {
         
         self.successBlock(resCode, data, nil);

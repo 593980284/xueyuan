@@ -12,7 +12,7 @@
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSPracticeTableViewCell.h"
-#import "EDSFourPracticeView.h"
+#import "EDSRecitedPoliticsFooterView.h"
 
 #import "EDSFourDataBase.h"
 
@@ -29,7 +29,7 @@
 /** 头部试图 */
 @property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 /** 脚部试图 */
-@property (nonatomic, strong) EDSFourPracticeView  *footerView;
+@property (nonatomic, strong) EDSRecitedPoliticsFooterView  *footerView;
 
 @end
 
@@ -57,19 +57,13 @@
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
     
-    @weakify(self);
-    self.footerView.practiceFooterViewDidSelectStringback = ^(NSString *titleStr) {
-        @strongify(self);
-        if ([titleStr isEqualToString:@"清除"]){
-            
-            DLog(@"11111");
-            
-            [self clearRecordQuestion];
-        }
-    };
     
-    [self.footerView.commitBtn bk_whenTapped:^{
-        
+    self.footerView.ID = self.tableViewModel.ID;
+    self.footerView.isCollection = self.tableViewModel.isCollection;
+    
+    @weakify(self);
+    [self.footerView.nextBtn  bk_whenTapped:^{
+        @strongify(self);
         [self getNextQuestion];
     }];
 }
@@ -159,7 +153,9 @@
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
-        [self getFooterViewModel];
+        
+        self.footerView.ID = self.tableViewModel.ID;
+        self.footerView.isCollection = self.tableViewModel.isCollection;
         
         [self.tableView reloadData];
     }else
@@ -168,37 +164,12 @@
         [SVProgressHUD dismissWithDelay:1.5];
     }
     
-    if (self.tableViewModel.isMultiple) {
-        
-        [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
-    }
 }
 
 #pragma mark ------------------------ 获取底部数据 --------------------------------
 - (void)getFooterViewModel
 {
-    NSString *ID = [EDSSave account].fourSubjectID;
     
-    NSInteger allcount = ID.length > 0 ? [ID intValue] - 1325 : 1;
-    
-    EDSFourPracticeViewModel *model = [[EDSFourPracticeViewModel alloc] init];
-    model.ID = self.tableViewModel.ID;
-    
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/1236" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)allcount] diffentColor:ThirdColor];
-    model.progressAttr = attStr;
-    
-    NSInteger errCount = [[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount] intValue];
-    if (_isChooes) {
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        model.correctStr = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    model.errorStr = [NSString stringWithFormat:@"%ld",(long)errCount];
-    model.isCollection = self.tableViewModel.isCollection;
-    
-    self.footerView.footerModel = model;
 }
 
 #pragma mark ------------------------ tableView --------------------------------
@@ -331,11 +302,11 @@
 }
 
 
-- (EDSFourPracticeView *)footerView
+- (EDSRecitedPoliticsFooterView *)footerView
 {
     if (!_footerView) {
         
-        _footerView = [[EDSFourPracticeView alloc] init];
+        _footerView = [[EDSRecitedPoliticsFooterView alloc] init];
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
