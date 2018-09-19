@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "EDSTabBarViewController.h"
 #import "EDSMoLocationManager.h"
+#import "EDSTheoryLearningViewController.h"
+#import "EDSNavigationViewController.h"
+#import "NSObject+EDSTool.h"
 
 #import "XGPush.h"
 
@@ -22,10 +25,10 @@
 @implementation AppDelegate
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
     
-    NSLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
+    DLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
     if ([EDSSave account].phone.length > 0) {
         
-        [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"1212" type:XGPushTokenBindTypeAccount];
+        [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     }else{
         
         [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"" type:XGPushTokenBindTypeAccount];
@@ -37,7 +40,7 @@
 }
 
 - (void)xgPushDidRegisteredDeviceToken:(NSString *)deviceToken error:(NSError *)error {
-    NSLog(@"%s, result %@, error %@", __FUNCTION__, error?@"NO":@"OK", error);
+    DLog(@"%s, result %@, error %@", __FUNCTION__, error?@"NO":@"OK", error);
 }
 
 
@@ -127,7 +130,6 @@
         NSString*resourcePath =[[NSBundle mainBundle] pathForResource:@"classify" ofType:@"db"];
         [fileManager1 copyItemAtPath:resourcePath toPath:txtPath1 error:&error1];
     }
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -162,7 +164,7 @@
 //}
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"[XGDemo] register APNS fail.\n[XGDemo] reason : %@", error);
+    DLog(@"[XGDemo] register APNS fail.\n[XGDemo] reason : %@", error);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"registerDeviceFailed" object:nil];
 }
 
@@ -174,10 +176,13 @@
  @param completionHandler 完成回调
  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSLog(@"[XGDemo] receive slient Notification");
-    NSLog(@"[XGDemo] userinfo %@", userInfo);
-    [SVProgressHUD showWithStatus:userInfo];
-    [SVProgressHUD dismissWithDelay:5];
+    DLog(@"[XGDemo] receive slient Notification");
+    DLog(@"[XGDemo] userinfo %@", userInfo);
+    
+    EDSTheoryLearningViewController *VC = [EDSTheoryLearningViewController new];
+    EDSNavigationViewController *na = [[EDSNavigationViewController alloc] initWithRootViewController:VC];
+    [self.window.rootViewController presentViewController:na animated:YES completion:nil];
+    
     [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
@@ -191,15 +196,9 @@
 // 无论本地推送还是远程推送都会走这个回调
 - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     
-    NSLog(@"[XGDemo] click notification");
-    if ([response.actionIdentifier isEqualToString:@"xgaction001"]) {
-        NSLog(@"click from Action1");
-    } else if ([response.actionIdentifier isEqualToString:@"xgaction002"]) {
-        NSLog(@"click from Action2");
-    }
+    EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+    [[self currentViewController].navigationController pushViewController:vc animated:YES];
     
-    [SVProgressHUD showWithStatus:response.actionIdentifier];
-    [SVProgressHUD dismissWithDelay:5];
     [[XGPush defaultManager] reportXGNotificationResponse:response];
     
     completionHandler();

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1038D5AD2146B603004DEA7C /* EDSStudentMsgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1038D5AC2146B603004DEA7C /* EDSStudentMsgRequest.m */; };
 		1038D5B02146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */; };
+		104DFFDC21529704004D9CBC /* NSObject+EDSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DFFDB21529704004D9CBC /* NSObject+EDSTool.m */; };
+		104DFFDF2152974B004D9CBC /* UIView+EDSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DFFDE2152974B004D9CBC /* UIView+EDSTool.m */; };
 		105A8BC62152508000B3E092 /* EDSOnlineClassListDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BC42152507F00B3E092 /* EDSOnlineClassListDetailRequest.m */; };
 		105A8BCA2152511F00B3E092 /* EDSCoachDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BC92152511F00B3E092 /* EDSCoachDetailRequest.m */; };
 		105A8BCD215258EA00B3E092 /* EDSFourSubjectExamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */; };
@@ -2153,6 +2155,10 @@
 		1038D5AC2146B603004DEA7C /* EDSStudentMsgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentMsgRequest.m; sourceTree = "<group>"; };
 		1038D5AE2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentMsgDetailRequest.h; sourceTree = "<group>"; };
 		1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentMsgDetailRequest.m; sourceTree = "<group>"; };
+		104DFFDA21529704004D9CBC /* NSObject+EDSTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+EDSTool.h"; sourceTree = "<group>"; };
+		104DFFDB21529704004D9CBC /* NSObject+EDSTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EDSTool.m"; sourceTree = "<group>"; };
+		104DFFDD2152974B004D9CBC /* UIView+EDSTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EDSTool.h"; sourceTree = "<group>"; };
+		104DFFDE2152974B004D9CBC /* UIView+EDSTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EDSTool.m"; sourceTree = "<group>"; };
 		105A8BC42152507F00B3E092 /* EDSOnlineClassListDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassListDetailRequest.m; sourceTree = "<group>"; };
 		105A8BC52152508000B3E092 /* EDSOnlineClassListDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassListDetailRequest.h; sourceTree = "<group>"; };
 		105A8BC82152511F00B3E092 /* EDSCoachDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachDetailRequest.h; sourceTree = "<group>"; };
@@ -7521,6 +7527,10 @@
 				E9BC048821315283003A624F /* AppDelegate+JSJCategory.m */,
 				E9A61AC82137FB87006E5C2B /* UILabel+ChangeLineSpaceAndWordSpace.h */,
 				E9A61AC92137FB87006E5C2B /* UILabel+ChangeLineSpaceAndWordSpace.m */,
+				104DFFDA21529704004D9CBC /* NSObject+EDSTool.h */,
+				104DFFDB21529704004D9CBC /* NSObject+EDSTool.m */,
+				104DFFDD2152974B004D9CBC /* UIView+EDSTool.h */,
+				104DFFDE2152974B004D9CBC /* UIView+EDSTool.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -9831,6 +9841,7 @@
 				E9FCD04621467ACF00A8AAC4 /* ZQCountDownView.m in Sources */,
 				10C2FCB3214BB60600498C52 /* EDSCaseTableViewCell.m in Sources */,
 				E90F8FFE213D2F9F0061F448 /* EDSFourView.m in Sources */,
+				104DFFDC21529704004D9CBC /* NSObject+EDSTool.m in Sources */,
 				E9A61A4821364F6F006E5C2B /* EDSOnlineAboutClassHeaderView.m in Sources */,
 				E902E0B92147A5F900F49C51 /* EDSFirstSubjectExamBase.m in Sources */,
 				10C3F25E2148BCF500AA091A /* EDSStrategyListModel.m in Sources */,
@@ -9890,6 +9901,7 @@
 				E90F9008213D39C30061F448 /* EDSStudentPreSignUpRequest.m in Sources */,
 				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
 				10C2FCC4214BC2FB00498C52 /* EDSCourseRecordDetailFooterView.m in Sources */,
+				104DFFDF2152974B004D9CBC /* UIView+EDSTool.m in Sources */,
 				E90F9022213D516A0061F448 /* EDSSchoolRegionModel.m in Sources */,
 				10F74D71214D04CA00FA3ECC /* EDSRegistrationProcessViewController.m in Sources */,
 				E9D1C166213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m in Sources */,

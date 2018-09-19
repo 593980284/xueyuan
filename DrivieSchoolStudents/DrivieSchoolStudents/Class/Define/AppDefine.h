@@ -21,5 +21,6 @@
 
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
 #define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置
+#define kXGNotfificationPushVC                        @"kXGNotfificationPushVC"//信鸽推送跳转页面
 
 #endif /* AppDefine_h */
