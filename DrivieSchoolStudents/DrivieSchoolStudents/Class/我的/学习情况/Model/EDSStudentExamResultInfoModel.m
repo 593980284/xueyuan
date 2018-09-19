@@ -23,7 +23,7 @@
         return @"科目三";
     }else if ([_subType isEqual:@"4"])
     {
-        return @"科目四";
+        return @"文明驾驶";
     }
     return @"";
 }
