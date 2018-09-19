@@ -51,7 +51,7 @@
     self.schoolNameLbl.text = [EDSSave account].schoolName;
     
     self.phoneLbl.text = [EDSSave account].phone;
-    self.calssLbl.text = [NSString stringWithFormat:@"班级：科目%@",[EDSSave account].learnProgress];
+    self.calssLbl.text = [NSString stringWithFormat:@"班级：%@",[EDSSave account].learnProgress];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

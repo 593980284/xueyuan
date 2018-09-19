@@ -28,6 +28,23 @@
     return self;
 }
 
+- (NSString *)learnProgress
+{
+    if ([_learnProgress isEqual:@"1"]) {
+        
+        return @"科目一";
+    }else if ([_learnProgress isEqual:@"2"]){
+        
+        return @"科目二";
+    }else if ([_learnProgress isEqual:@"3"]){
+        
+        return @"科目三";
+    }else{
+        
+        return @"文明驾驶";
+    }
+    return @"";
+}
 
 
 + (instancetype)accountWithDict:(NSDictionary *)dict

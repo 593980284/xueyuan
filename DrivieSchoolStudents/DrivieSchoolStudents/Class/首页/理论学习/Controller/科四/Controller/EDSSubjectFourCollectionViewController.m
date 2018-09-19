@@ -61,6 +61,18 @@
     }];
     
     self.headerView.questionModel = self.tableViewModel;
+    
+    if (self.tableViewModel.ID.length == 0) {
+        
+        [self.tableView removeFromSuperview];
+        [self.footerView removeFromSuperview];
+        
+        UILabel *label = [UILabel labelWithText:@"您还没有收藏题目" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.mas_equalTo(0);
+        }];
+    }
+    
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView.tableHeaderView layoutIfNeeded];
     
