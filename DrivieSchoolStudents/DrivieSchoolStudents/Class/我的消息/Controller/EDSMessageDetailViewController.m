@@ -39,9 +39,9 @@
 - (void)setMsgModel:(EDSStudentMsgModel *)msgModel
 {
     _msgModel = msgModel;
-    
+    @weakify(self);
     EDSStudentMsgDetailRequest *request = [EDSStudentMsgDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        
+        @strongify(self);
         if (errCode == 1) {
             
             self.detailModel = [[EDSStudentMsgDetailModel alloc] init];

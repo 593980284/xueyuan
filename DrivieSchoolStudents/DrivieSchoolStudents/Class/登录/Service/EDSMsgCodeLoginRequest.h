@@ -4,7 +4,7 @@
 //
 //  Created by 卓森 on 2018/8/28.
 //  Copyright © 2018年 班文政. All rights reserved.
-//发送验证码
+//验证码登录
 
 #import "HQMBaseRequest.h"
 

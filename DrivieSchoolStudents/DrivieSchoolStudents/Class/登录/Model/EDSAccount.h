@@ -20,6 +20,7 @@
 @property (nonatomic , copy) NSString              * photo;//头像路径
 @property (nonatomic , copy) NSString              * state;//用户状态。游客：1，非游客：0
 @property (nonatomic , copy) NSString              * applyDriveCar;//学员申请车型
+@property (nonatomic , copy) NSString              * studentId;//学员id
 
 /** 科目一练习 */
 @property (nonatomic, copy) NSString *firstSubjectID;

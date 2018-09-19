@@ -312,7 +312,11 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             [SVProgressHUD dismissWithDelay:0.5];
             DLog(@"resultData:%@",resultData);
             [self handleData:resultData errCode:1];
-        }else{
+        }else if (code == -2){
+            
+            [self handleData:@{} errCode:-2];
+        }
+        else{
             
             id resultData = @{};
             DLog(@"resultData:%@",resultData);

@@ -30,13 +30,14 @@
 {
     EDSAccount *account = [EDSSave account];
     account.phone = [NSString stringWithFormat:@"%@",data[@"phone"]];
-    account.schoolId = [NSString stringWithFormat:@"%@",data[@"schoolId"]];
+    account.schoolId = [NSString stringWithFormat:@"%@",[data valueForKey:@"schoolId"]];
     account.userID = [NSString stringWithFormat:@"%@",data[@"id"]];
     account.learnProgress = [NSString stringWithFormat:@"%@",data[@"learnProgress"]];
     account.schoolName = [NSString stringWithFormat:@"%@",data[@"schoolName"]];
     account.photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:data[@"photo"]]];;
     account.state = [NSString stringWithFormat:@"%@",data[@"state"]];
     account.applyDriveCar = [NSString stringWithFormat:@"%@",data[@"applyDriveCar"]];
+    account.studentId = [NSString stringWithFormat:@"%@",data[@"studentId"]];
     [EDSSave save:account];
     if (self.successBlock) {
         

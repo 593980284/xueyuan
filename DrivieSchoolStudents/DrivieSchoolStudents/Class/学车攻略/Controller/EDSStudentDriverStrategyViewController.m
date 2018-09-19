@@ -7,6 +7,7 @@
 //
 
 #import "EDSStudentDriverStrategyViewController.h"
+#import "EDSPSWLogoViewController.h"
 
 #import "EDSStudentDriverStrategyHeaderView.h"
 #import "EDSStudentDriverStrategSubTableViewCell.h"
@@ -95,6 +96,10 @@
             self.tableView.mj_footer.hidden = arr.count == [NumPerPage intValue] ? NO : YES;
             self.tableArr = model;
             [self.tableView reloadData];
+        }else if (errCode == -2){
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
         }
         
     } failureBlock:^(NSError *error) {

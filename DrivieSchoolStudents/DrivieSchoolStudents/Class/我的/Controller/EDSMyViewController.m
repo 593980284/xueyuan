@@ -39,21 +39,6 @@
     self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, MyTableViewSeparatorLeft, 0, 0);
     
-    NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
-    
-    self.cellArr = @[
-                     @[
-                         @[string,@"wdbm_content_icon_default"],
-                         @[@"课程记录",@"kcjl_content_icon_default"],
-                         @[@"学习查询",@"xxcx_content_icon_default"],
-                         @[@"学校信箱",@"xxxx_content_icon_default"],
-                         ],
-                     @[
-                         @[@"刷新缓存",@"sxhc_content_icon_default"],
-                         @[@"检查更新",@"jcgx_content_icon_default"],
-                         @[@"关于我们",@"gywm_content_icon_default"],
-                         ],
-                     ];
     
     @weakify(self);
     self.headerView.headerImgViewDidClick = ^{
@@ -76,7 +61,32 @@
         
         EDSGetStudentInfoRequest *request = [EDSGetStudentInfoRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             
-            self.headerView.headerArr = @[];
+            if (errCode == -2) {
+                
+                EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+                [self presentViewController:vc animated:YES completion:nil];
+                
+            }else if (errCode == 1){
+                
+                NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
+                DLog(@"%@",[EDSSave account].schoolId);
+                self.cellArr = @[
+                                 @[
+                                     @[string,@"wdbm_content_icon_default"],
+                                     @[@"课程记录",@"kcjl_content_icon_default"],
+                                     @[@"学习查询",@"xxcx_content_icon_default"],
+                                     @[@"学校信箱",@"xxxx_content_icon_default"],
+                                     ],
+                                 @[
+                                     @[@"刷新缓存",@"sxhc_content_icon_default"],
+                                     @[@"检查更新",@"jcgx_content_icon_default"],
+                                     @[@"关于我们",@"gywm_content_icon_default"],
+                                     ],
+                                 ];
+                
+                self.headerView.headerArr = @[];
+                [self.tableView reloadData];
+            }
             
         } failureBlock:^(NSError *error) {
         
@@ -85,7 +95,27 @@
         [request startRequest];
     }
     
+    NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
+    DLog(@"%@",[EDSSave account].schoolId);
+    self.cellArr = @[
+                     @[
+                         @[string,@"wdbm_content_icon_default"],
+                         @[@"课程记录",@"kcjl_content_icon_default"],
+                         @[@"学习查询",@"xxcx_content_icon_default"],
+                         @[@"学校信箱",@"xxxx_content_icon_default"],
+                         ],
+                     @[
+                         @[@"刷新缓存",@"sxhc_content_icon_default"],
+                         @[@"检查更新",@"jcgx_content_icon_default"],
+                         @[@"关于我们",@"gywm_content_icon_default"],
+                         ],
+                     ];
+    
+    self.headerView.headerArr = @[];
+    [self.tableView reloadData];
 }
+
+
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -150,6 +180,28 @@
         EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
         vc.schoolId = [EDSSave account].schoolId;
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([string isEqualToString:@"刷新缓存"]){
+        
+        [SVProgressHUD showWithStatus:@"正在清除缓存···"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                
+//                NSFileManager *mgr = [NSFileManager defaultManager];
+//                [mgr removeItemAtPath:GYLCustomFile error:nil];
+//                [mgr createDirectoryAtPath:GYLCustomFile withIntermediateDirectories:YES attributes:nil error:nil];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    // 设置文字
+//                    self.detailTextLabel.text = nil;
+                });
+            });
+        }];
+        
     }
 }
 
@@ -160,7 +212,6 @@
         
         _headerView = [[EDSMyHeaderView alloc] init];
         _headerView.wz_size = CGSizeMake(kScreenWidth, MyTableViewHeaderViewH);
-        
     }
     return _headerView;
 }

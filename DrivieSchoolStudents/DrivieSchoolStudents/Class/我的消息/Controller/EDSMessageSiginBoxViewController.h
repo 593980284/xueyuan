@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class EDSStudentMsgModel;
+@class EDSOnlineClassListByDateModel;
 
 @interface EDSMessageSiginBoxViewController : UIViewController
+
 @property (nonatomic , strong) EDSStudentMsgModel *msgModel;
+
+@property (nonatomic, copy) void (^messageSiginBoxViewControllerDidClick)(EDSOnlineClassListByDateModel *model);
 @end

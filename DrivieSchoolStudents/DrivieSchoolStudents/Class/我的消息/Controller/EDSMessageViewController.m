@@ -11,6 +11,7 @@
 #import "EDSPSWLogoViewController.h"
 #import "PopAnimator.h"
 #import "EDSMessageSiginBoxViewController.h"
+#import "EDSOnlineAboutClassDetailAppointmentViewController.h"
 
 #import "EDSHeaderPageButtonView.h"
 #import "EDSMessageTableViewCell.h"
@@ -58,6 +59,9 @@
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        
+        [self requestDataWithType:@"1"];
     }
 }
 
@@ -81,6 +85,10 @@
             
             self.tableViewArr = model;
             [self.tableView reloadData];
+        }else if (errCode == -2){
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
         }
     } failureBlock:^(NSError *error) {
     
@@ -152,6 +160,16 @@
         vc.view.layer.cornerRadius = 5;
         
         vc.transitioningDelegate = self.popAnimator;
+        
+        @weakify(self);
+        vc.messageSiginBoxViewControllerDidClick = ^(EDSOnlineClassListByDateModel *model) {
+          
+            @strongify(self);
+            
+            EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
+            vc.model = model;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         
         [self presentViewController:vc animated:YES completion:nil];
         

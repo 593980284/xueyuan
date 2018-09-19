@@ -23,7 +23,13 @@
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
     
     NSLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
-    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"" type:XGPushTokenBindTypeAccount];
+    if ([EDSSave account].phone.length > 0) {
+        
+        [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"1212" type:XGPushTokenBindTypeAccount];
+    }else{
+        
+        [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"" type:XGPushTokenBindTypeAccount];
+    }
 }
 
 - (void)xgPushDidFinishStop:(BOOL)isSuccess error:(NSError *)error {

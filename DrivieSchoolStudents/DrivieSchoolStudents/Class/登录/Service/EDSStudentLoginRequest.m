@@ -8,6 +8,8 @@
 
 #import "EDSStudentLoginRequest.h"
 #import "XGPush.h"
+#import "EDSFourDataBase.h"
+#import "EDSDataBase.h"
 
 @implementation EDSStudentLoginRequest
 
@@ -31,10 +33,23 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
-    [EDSSave save:account];
+    if ([[EDSSave account].phone isEqualToString:_phone]) {
+        
+        EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
+        [EDSSave save:account];
+    }else{
+        
+        EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
+        account.firstSubjectID = @"";
+        account.fourSubjectID = @"";
+        account.firstSubjectRecitedPoliticeID = @"";
+        account.fourSubjectRecitedPoliticeID = @"";
+        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
+        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
+        [EDSSave save:account];
+    }
     
-    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:account.phone type:XGPushTokenBindTypeAccount];
+    [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     if (self.successBlock) {
         
         self.successBlock(resCode, data, nil);

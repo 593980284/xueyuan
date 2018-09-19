@@ -125,7 +125,10 @@
         if (isPSW && isPhone) {
             EDSMsgCodeLoginRequest *request = [EDSMsgCodeLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
-                [self appStudentOperatingSystem];
+                if (errCode == 1) {
+                    [self appStudentOperatingSystem];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
                 
             } failureBlock:^(NSError *error) {
                 

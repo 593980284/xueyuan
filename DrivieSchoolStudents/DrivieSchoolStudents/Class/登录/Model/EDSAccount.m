@@ -16,13 +16,14 @@
     if (self = [super init]) {
         
         _phone = [NSString stringWithFormat:@"%@",dict[@"phone"]];
-        _schoolId = [NSString stringWithFormat:@"%@",dict[@"schoolId"]];
+        _schoolId = [NSString stringWithFormat:@"%@",[dict valueForKey:@"schoolId"]];
         _userID = [NSString stringWithFormat:@"%@",dict[@"id"]];
         _learnProgress = [NSString stringWithFormat:@"%@",dict[@"learnProgress"]];
         _schoolName = [NSString stringWithFormat:@"%@",dict[@"schoolName"]];
         _photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:dict[@"photo"]]];;
         _state = [NSString stringWithFormat:@"%@",dict[@"state"]];
         _applyDriveCar = [NSString stringWithFormat:@"%@",dict[@"applyDriveCar"]];
+        _studentId = [NSString stringWithFormat:@"%@",dict[@"studentId"]];
     }
     return self;
 }

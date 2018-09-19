@@ -136,10 +136,7 @@
     [SVProgressHUD dismissWithDelay:1.5];
     EDSAccount *account = [EDSSave account];
     account.userID = @"";
-    account.firstSubjectID = @"";
-    account.fourSubjectID = @"";
-    [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
-    [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
+    account.schoolId = @"";
     [EDSSave save:account];
     
     @weakify(self);

@@ -68,57 +68,6 @@
     }];
 }
 
-- (void)clearRecordQuestion
-{
-    CGFloat width = 300;
-    
-    CGFloat height = 180;
-    
-    CGRect coverFrame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    
-    CGRect presentedFrame = CGRectMake((kScreenWidth - width)*0.5,175, width, height);
-    
-    self.popAnimator = [[PopAnimator alloc]initWithCoverFrame:coverFrame presentedFrame:presentedFrame startPoint:CGPointMake(0.5, 0.5) startTransform:CGAffineTransformMakeScale(0.5, 0.5) endTransform:CGAffineTransformMakeScale(0.0001, 0.0001)];
-    
-    self.popAnimator.isClose = YES;
-    
-    EDSClearRecordViewController *vc = [[EDSClearRecordViewController alloc] initWithNibName:@"EDSClearRecordViewController" bundle:[NSBundle mainBundle]];
-    
-    vc.modalPresentationStyle = UIModalPresentationCustom;
-    
-    vc.view.layer.masksToBounds = YES;
-    vc.view.layer.cornerRadius = 5;
-    
-    NSString *ID = [EDSSave account].firstSubjectID;
-    
-    NSInteger allcount = ID.length > 0 ? [ID intValue] : 1;
-    vc.allCount =  _isChooes ? [NSString stringWithFormat:@"%ld",(long)allcount] : [NSString stringWithFormat:@"%ld",(long)allcount-1];
-    NSInteger errCount = [[[EDSFourDataBase sharedDataBase] getOneFourSubjectErrorCount] intValue];
-    vc.errorsCount = [NSString stringWithFormat:@"%ld",(long)errCount];
-    if (_isChooes) {
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount)];
-    }else{
-        
-        vc.correctCount = [NSString stringWithFormat:@"%ld",(allcount - errCount - 1)];
-    }
-    
-    @weakify(self);
-    vc.clearRecordDidCommitBtn = ^{
-        @strongify(self);
-        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
-        EDSAccount *account = [EDSSave account];
-        account.fourSubjectID = @"";
-        [EDSSave save:account];
-        [self getNextQuestion];
-    };
-    
-    vc.transitioningDelegate = self.popAnimator;
-    
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-
 #pragma mark ------------------------ 下一题 --------------------------------
 - (void)getNextQuestion
 {
@@ -126,13 +75,13 @@
     
     if (self.tableViewModel.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].fourSubjectID;
+        NSString *ID = [EDSSave account].fourSubjectRecitedPoliticeID;
         NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
         EDSAccount *account = [EDSSave account];
-        account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+        account.fourSubjectRecitedPoliticeID = [NSString stringWithFormat:@"%ld",(long)iD];
         [EDSSave save:account];
         
-        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectID];
+        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectRecitedPoliticeID];
         _isChooes = YES;
         NSString *string = self.tableViewModel.answer;
         for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
@@ -266,7 +215,7 @@
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:[EDSSave account].fourSubjectID];
+        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:[EDSSave account].fourSubjectRecitedPoliticeID];
         _isChooes = YES;
         NSString *string = self.tableViewModel.answer;
         for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
