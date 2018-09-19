@@ -11,6 +11,8 @@
 		1038D5B02146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1038D5AF2146B6DA004DEA7C /* EDSStudentMsgDetailRequest.m */; };
 		105A8BC62152508000B3E092 /* EDSOnlineClassListDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BC42152507F00B3E092 /* EDSOnlineClassListDetailRequest.m */; };
 		105A8BCA2152511F00B3E092 /* EDSCoachDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BC92152511F00B3E092 /* EDSCoachDetailRequest.m */; };
+		105A8BCD215258EA00B3E092 /* EDSFourSubjectExamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */; };
+		105A8BD021525CD400B3E092 /* EDSSubjectFourExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */; };
 		1082B099214A74A200305093 /* EDSTestCaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B098214A74A200305093 /* EDSTestCaseView.xib */; };
 		1082B09D214A7A4800305093 /* EDSMessageSiginBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */; };
 		1082B09E214A7A4800305093 /* EDSMessageSiginBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B09C214A7A4800305093 /* EDSMessageSiginBoxViewController.xib */; };
@@ -2155,6 +2157,10 @@
 		105A8BC52152508000B3E092 /* EDSOnlineClassListDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassListDetailRequest.h; sourceTree = "<group>"; };
 		105A8BC82152511F00B3E092 /* EDSCoachDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachDetailRequest.h; sourceTree = "<group>"; };
 		105A8BC92152511F00B3E092 /* EDSCoachDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachDetailRequest.m; sourceTree = "<group>"; };
+		105A8BCB215258EA00B3E092 /* EDSFourSubjectExamBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSFourSubjectExamBase.h; sourceTree = "<group>"; };
+		105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourSubjectExamBase.m; sourceTree = "<group>"; };
+		105A8BCE21525CD400B3E092 /* EDSSubjectFourExamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourExamViewController.h; sourceTree = "<group>"; };
+		105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourExamViewController.m; sourceTree = "<group>"; };
 		1082B098214A74A200305093 /* EDSTestCaseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSTestCaseView.xib; sourceTree = "<group>"; };
 		1082B09A214A7A4800305093 /* EDSMessageSiginBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageSiginBoxViewController.h; sourceTree = "<group>"; };
 		1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageSiginBoxViewController.m; sourceTree = "<group>"; };
@@ -4728,6 +4734,8 @@
 				10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */,
 				10EDA164214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.h */,
 				10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */,
+				105A8BCE21525CD400B3E092 /* EDSSubjectFourExamViewController.h */,
+				105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6810,6 +6818,8 @@
 				E902E0B82147A5F900F49C51 /* EDSFirstSubjectExamBase.m */,
 				10F74DA0214D0FD800FA3ECC /* EDSFourDataBase.h */,
 				10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */,
+				105A8BCB215258EA00B3E092 /* EDSFourSubjectExamBase.h */,
+				105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -9875,6 +9885,7 @@
 				10E6EF72214A9D7900088875 /* EDSStudentCourseRecordRequest.m in Sources */,
 				1082B09D214A7A4800305093 /* EDSMessageSiginBoxViewController.m in Sources */,
 				E9BC049321315283003A624F /* UILabel+BHYCustom.m in Sources */,
+				105A8BD021525CD400B3E092 /* EDSSubjectFourExamViewController.m in Sources */,
 				10C3F2702149045000AA091A /* EDSTopScrollView.m in Sources */,
 				E90F9008213D39C30061F448 /* EDSStudentPreSignUpRequest.m in Sources */,
 				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
@@ -9906,6 +9917,7 @@
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
 				10EDA15B214F52A300C43EB4 /* EDSFourPracticeView.m in Sources */,
 				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
+				105A8BCD215258EA00B3E092 /* EDSFourSubjectExamBase.m in Sources */,
 				10A48A9D2134390300FA2A38 /* EDSSubscribeApplyOneTableViewCell.m in Sources */,
 				E952C7562141217D00EA3A0A /* STConst.m in Sources */,
 				E9A61A3321363CAB006E5C2B /* EDSSubscribeApplyTwoTableViewCell.m in Sources */,
