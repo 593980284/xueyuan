@@ -13,6 +13,7 @@
 @property (nonatomic , copy) NSString *time;        //时间
 @property (nonatomic , copy) NSString *right;       //对
 @property (nonatomic , copy) NSString *errors;      //错
+@property (nonatomic , assign) BOOL isFour;         //是否是科目四
 
 @end
 

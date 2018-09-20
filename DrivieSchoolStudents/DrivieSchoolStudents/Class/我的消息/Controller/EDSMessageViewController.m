@@ -17,6 +17,8 @@
 #import "EDSMessageTableViewCell.h"
 
 #import "EDSStudentMsgRequest.h"
+#import "EDSStudentMsgDetailRequest.h"
+#import "EDSOnlineClassListDetailRequest.h"
 
 #import "EDSStudentMsgModel.h"
 
@@ -60,8 +62,7 @@
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }else{
-        
-        [self requestDataWithType:@"1"];
+        [self.tableView.mj_header beginRefreshing];
     }
 }
 
@@ -173,11 +174,58 @@
         
         [self presentViewController:vc animated:YES completion:nil];
         
-    }else{
+    }else if ([self.tableViewArr[indexPath.row].msgType isEqualToString:@"3"]){
+        
+        [self jumpPageViewWithMsgId:self.tableViewArr[indexPath.row].msgId];
+    }
+    else{
         EDSMessageDetailViewController *vc = [[EDSMessageDetailViewController alloc] init];
         vc.msgModel = self.tableViewArr[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (void)jumpPageViewWithMsgId:(NSString *)msgId
+{
+    
+    @weakify(self);
+    EDSStudentMsgDetailRequest *request = [EDSStudentMsgDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        if (errCode == 1) {
+            
+            NSString *courseRecordId = responseDict[@"courseRecordId"];
+            NSString *appointmentId = responseDict[@"appointmentId"];
+            NSString *studentId = responseDict[@"studentId"];
+            
+            [self onlineClassListDetailRequestWithAppointmentId:appointmentId studentId:studentId];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    request.msgId = msgId;
+    [request  startRequest];
+}
+
+
+- (void)onlineClassListDetailRequestWithAppointmentId:(NSString *)appointmentId studentId:(NSString *)studentId
+{
+    @weakify(self);
+    EDSOnlineClassListDetailRequest *request = [EDSOnlineClassListDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        
+        EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.showHUD = YES;
+    request.appointmentId = appointmentId;
+    request.studentId = studentId;
+    [request startRequest];
 }
 
 - (EDSHeaderPageButtonView *)headerView

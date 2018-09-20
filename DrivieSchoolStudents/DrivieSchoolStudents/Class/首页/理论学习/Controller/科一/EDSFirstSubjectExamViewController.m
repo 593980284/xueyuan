@@ -85,6 +85,15 @@
                 
                 EDSFirstSubjectResultsViewController *vc = [[EDSFirstSubjectResultsViewController alloc] initWithNibName:@"EDSFirstSubjectResultsViewController" bundle:[NSBundle mainBundle]];
                 
+                EDSFirstSubjectExamResultModel *model = [[EDSFirstSubjectExamResultModel alloc] init];
+                model.time = [NSString stringWithFormat:@"%f",self.countDownView.countDownTimeInterval];
+                //            model.errors = @"0";
+                //            model.right = @"100";
+                model.errors = [NSString stringWithFormat:@"%lu",(unsigned long)self.errorsMulIDArr.count];
+                model.right = [NSString stringWithFormat:@"%lu",self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1];
+                model.isFour = NO;
+                vc.errorsArr = [NSArray arrayWithArray:self.errorsMulIDArr];
+                vc.resultModel = model;
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }else{
@@ -203,7 +212,7 @@
     vc.view.layer.masksToBounds = YES;
     vc.view.layer.cornerRadius = 5;
     
-    vc.correctCount =
+    vc.correctCount = _isChooes ? _currentCount : _currentCount -1;
     vc.errortCount = self.errorsMulIDArr.count;
     
     vc.transitioningDelegate = self.popAnimator;
@@ -220,6 +229,7 @@
 //            model.right = @"100";
             model.errors = [NSString stringWithFormat:@"%lu",(unsigned long)self.errorsMulIDArr.count];
             model.right = [NSString stringWithFormat:@"%lu",self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1];
+            model.isFour = NO;
             vc.errorsArr = [NSArray arrayWithArray:self.errorsMulIDArr];
             vc.resultModel = model;
             [self.navigationController pushViewController:vc animated:YES];
@@ -349,7 +359,7 @@
                         [self.errorsMulIDArr addObject:self.subjectMulIDArr[_currentCount]];
                     }
                     //添加错题
-                    [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
+                    [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
                 }
             }
         }

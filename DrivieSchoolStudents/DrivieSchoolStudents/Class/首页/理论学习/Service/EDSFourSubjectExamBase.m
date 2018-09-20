@@ -89,7 +89,7 @@ static FMDatabaseQueue *_queue = nil;
     
     [_db open];
     
-    FMResultSet *res = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid = 23 ORDER BY random() LIMIT 10"]];
+    FMResultSet *res = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid = 23 AND CAST ( bankid AS int ) > 1325 ORDER BY random() LIMIT 10"]];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     while ([res next]) {
@@ -98,14 +98,14 @@ static FMDatabaseQueue *_queue = nil;
     }
 //    SELECT *FROM classifyfourbean WHERE tagid != 23 AND tagid != 24 ORDER BY random() LIMIT 30
     
-    FMResultSet *res1 = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid != 23 AND tagid != 24 ORDER BY random() LIMIT 30"]];
+    FMResultSet *res1 = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid != 23 AND tagid != 24 AND CAST ( bankid AS int ) > 1325 ORDER BY random() LIMIT 30"]];
     
     while ([res1 next]) {
         
         [arr addObject:[res1 stringForColumn:@"bankid"]];
     }
     
-    FMResultSet *res2 = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid = 24 ORDER BY random() LIMIT 10"]];
+    FMResultSet *res2 = [_db executeQuery:[NSString stringWithFormat:@"SELECT *FROM classifyfourbean WHERE tagid = 24 AND CAST ( bankid AS int ) > 1325 ORDER BY random() LIMIT 10"]];
     
     while ([res2 next]) {
         

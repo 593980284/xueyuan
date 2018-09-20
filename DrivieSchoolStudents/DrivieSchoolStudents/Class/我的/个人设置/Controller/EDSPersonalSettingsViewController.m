@@ -9,6 +9,7 @@
 #import "EDSPersonalSettingsViewController.h"
 #import "EDSChangePasswordViewController.h"//修改密码
 #import "EDSChangePhoneOneViewController.h"//跟换手机号
+#import "XGPush.h"
 
 
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -138,6 +139,7 @@
     account.userID = @"";
     account.schoolId = @"";
     [EDSSave save:account];
+    [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     
     @weakify(self);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

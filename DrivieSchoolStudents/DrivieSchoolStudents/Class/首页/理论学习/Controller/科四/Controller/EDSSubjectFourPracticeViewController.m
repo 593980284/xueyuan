@@ -362,22 +362,7 @@
     [self.tableView reloadData];
 }
 
-//每隔4个字符添加一个空格的字符串算法
-- (NSString *)dealWithString:(NSString *)number
-{
-    NSString *doneTitle = @"";
-    int count = 0;
-    for (int i = 0; i < number.length; i++) {
-        
-        count++;
-        doneTitle = [doneTitle stringByAppendingString:[number substringWithRange:NSMakeRange(i, 1)]];
-        if (count == 1) {
-            doneTitle = [NSString stringWithFormat:@"%@,", doneTitle];
-            count = 0;
-        }
-    }
-    return doneTitle;
-}
+
 
 - (EDSQuestionModel *)tableViewModel
 {

@@ -12,6 +12,7 @@
 #import "EDSTheoryLearningViewController.h"
 #import "EDSNavigationViewController.h"
 #import "NSObject+EDSTool.h"
+#import "EDSBeingPushedViewController.h"
 
 #import "XGPush.h"
 
@@ -26,13 +27,14 @@
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
     
     DLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
-    if ([EDSSave account].phone.length > 0) {
+    if ([EDSSave account].userID.length > 0) {
         
         [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     }else{
         
         [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:@"" type:XGPushTokenBindTypeAccount];
     }
+    
 }
 
 - (void)xgPushDidFinishStop:(BOOL)isSuccess error:(NSError *)error {
@@ -179,10 +181,6 @@
     DLog(@"[XGDemo] receive slient Notification");
     DLog(@"[XGDemo] userinfo %@", userInfo);
     
-    EDSTheoryLearningViewController *VC = [EDSTheoryLearningViewController new];
-    EDSNavigationViewController *na = [[EDSNavigationViewController alloc] initWithRootViewController:VC];
-    [self.window.rootViewController presentViewController:na animated:YES completion:nil];
-    
     [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
@@ -196,10 +194,14 @@
 // 无论本地推送还是远程推送都会走这个回调
 - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     
-    EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+    NSString *msgID = [response.notification.request.content.userInfo valueForKey:@"msgId"] ;
+    
+    EDSBeingPushedViewController *vc = [[EDSBeingPushedViewController alloc] init];
+    vc.msgID = msgID;
     [[self currentViewController].navigationController pushViewController:vc animated:YES];
     
     [[XGPush defaultManager] reportXGNotificationResponse:response];
+    
     
     completionHandler();
 }
@@ -212,4 +214,5 @@
     completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 }
 #endif
+
 @end

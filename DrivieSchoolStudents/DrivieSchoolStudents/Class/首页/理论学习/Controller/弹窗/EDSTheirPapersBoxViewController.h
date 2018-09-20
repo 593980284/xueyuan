@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) NSInteger correctCount;
 @property (nonatomic, assign) NSInteger errortCount;
+@property (nonatomic , assign) BOOL isFour;
 
 @property (nonatomic, copy) void (^theirPapersBoxViewBackDidBtnString)(NSString *string);
 

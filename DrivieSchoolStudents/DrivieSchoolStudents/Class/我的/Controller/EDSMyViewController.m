@@ -14,6 +14,7 @@
 #import "EDSPSWLogoViewController.h"
 #import "EDSAboutUsViewController.h"//关于我们
 #import "EDSDrivingShcoolDetailViewController.h"//驾校详情
+#import <SDImageCache.h>
 
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
@@ -78,7 +79,7 @@
                                      @[@"学校信箱",@"xxxx_content_icon_default"],
                                      ],
                                  @[
-                                     @[@"刷新缓存",@"sxhc_content_icon_default"],
+                                     @[@"刷新缓存",@"sxhc_content_icon_default" , [NSString stringWithFormat:@"%d",[self clearTmpPics]]],
                                      @[@"检查更新",@"jcgx_content_icon_default"],
                                      @[@"关于我们",@"gywm_content_icon_default"],
                                      ],
@@ -105,7 +106,7 @@
                          @[@"学校信箱",@"xxxx_content_icon_default"],
                          ],
                      @[
-                         @[@"刷新缓存",@"sxhc_content_icon_default"],
+                         @[@"刷新缓存",@"sxhc_content_icon_default" , [NSString stringWithFormat:@"%d",[self clearTmpPics]]],
                          @[@"检查更新",@"jcgx_content_icon_default"],
                          @[@"关于我们",@"gywm_content_icon_default"],
                          ],
@@ -182,28 +183,102 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([string isEqualToString:@"刷新缓存"]){
         
-        [SVProgressHUD showWithStatus:@"正在清除缓存···"];
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showWithStatus:@"正在清除缓存..."];
+        //清理结果的信息
+        NSString *message = nil;//提示文字
+        BOOL clearSuccess = YES;//是否删除成功
+        NSError *error = nil;//错误信息
         
-        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                
-//                NSFileManager *mgr = [NSFileManager defaultManager];
-//                [mgr removeItemAtPath:GYLCustomFile error:nil];
-//                [mgr createDirectoryAtPath:GYLCustomFile withIntermediateDirectories:YES attributes:nil error:nil];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    [SVProgressHUD dismiss];
-                    
-                    // 设置文字
-//                    self.detailTextLabel.text = nil;
-                });
-            });
-        }];
+        //构建需要删除的文件或文件夹的路径，这里以Documents为例
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        
+        //拿到path路径的下一级目录的子文件夹
+        NSArray *subPathArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+        
+        for (NSString *subPath in subPathArray)
+        {
+            //如果是数据库文件，不做操作
+            if ([subPath isEqualToString:@"bank.db"] || [subPath isEqualToString:@"classify.db"] || [subPath isEqualToString:@"icon.db"] || [subPath isEqualToString:@"account.plist"])
+            {
+                continue;
+            }
+            
+            NSString *filePath = [path stringByAppendingPathComponent:subPath];
+            //删除子文件夹
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+            if (error)
+            {
+                message = [NSString stringWithFormat:@"%@这个路径的文件夹删除失败了",filePath];
+                clearSuccess = NO;
+            }
+            else
+            {
+                message = @"清除缓存成功";
+                [SVProgressHUD showSuccessWithStatus:@"清除缓存成功"];
+                [SVProgressHUD dismissWithDelay:0.2];
+            }
+        }
         
     }
 }
+
+#pragma 清理缓存图片
+
+- (int)clearTmpPics
+{
+    //计算结果
+    int totalSize = 0;
+    
+    // 构建需要计算大小的文件或文件夹的路径，这里以Documents为例
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+    // 1.获得文件夹管理者
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    // 2.检测路径的合理性
+    BOOL dir = NO;
+    BOOL exits = [mgr fileExistsAtPath:path isDirectory:&dir];
+    if (!exits) return 0;
+    
+    // 3.判断是否为文件夹
+    if (dir)//文件夹, 遍历文件夹里面的所有文件
+    {
+        //这个方法能获得这个文件夹下面的所有子路径(直接\间接子路径),包括子文件夹下面的所有文件及文件夹
+        NSArray *subPaths = [mgr subpathsAtPath:path];
+        
+        //遍历所有子路径
+        for (NSString *subPath in subPaths)
+        {
+            //拼成全路径
+            NSString *fullSubPath = [path stringByAppendingPathComponent:subPath];
+            
+            BOOL dir = NO;
+            [mgr fileExistsAtPath:fullSubPath isDirectory:&dir];
+            if (!dir)//子路径是个文件
+            {
+//                //如果是数据库文件，不加入计算
+                if ([subPath isEqualToString:@"bank.db"] || [subPath isEqualToString:@"classify.db"] || [subPath isEqualToString:@"icon.db"])
+                {
+                    continue;
+                }
+                NSDictionary *attrs = [mgr attributesOfItemAtPath:fullSubPath error:nil];
+                totalSize += [attrs[NSFileSize] intValue];
+            }
+        }
+        totalSize = totalSize / (1024 * 1024.0);//单位M
+    }
+    else//文件
+    {
+        NSDictionary *attrs = [mgr attributesOfItemAtPath:path error:nil];
+        totalSize = [attrs[NSFileSize] intValue] / (1024 * 1024.0);//单位M
+    }
+    return totalSize;
+}
+
+
+
+
+
 
 #pragma mark ------------------------ 懒加载 --------------------------------
 - (EDSMyHeaderView *)headerView

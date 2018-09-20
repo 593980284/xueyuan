@@ -9,6 +9,7 @@
 #import "EDSFirstSubjectResultsViewController.h"
 
 #import "EDSFirsExamErrorsViewController.h"
+#import "EDSSubjectFourExamErrorsViewController.h"
 
 #import "EDSFirstSubjectExamFooterView.h"
 
@@ -16,11 +17,17 @@
 
 - (NSString *)time
 {
-    NSInteger second = 2700 - [_time integerValue];
+    NSInteger second = 1000;
+    
+    if (_isFour) {
+        second = 1800 - [_time integerValue];
+    }else{
+        second = 2700 - [_time integerValue];
+    }
     
     NSInteger fen = second / 60;
     
-    return [NSString stringWithFormat:@"用时%ld分%d秒",(long)fen , second - fen];
+    return [NSString stringWithFormat:@"用时%ld分%ld秒",(long)fen , second - fen];
 }
 
 @end
@@ -49,8 +56,16 @@
     [self setFooterViewModel];
     
     self.timeLbl.text = self.resultModel.time;
-    self.scorceLbl.text = [NSString stringWithFormat:@"%@分",self.resultModel.right];
-    self.descripLbl.text = [NSString stringWithFormat:@"做对%@道，做错%@道，%d道未做。",self.resultModel.right,self.resultModel.errors , (100 - [self.resultModel.right intValue] - [self.resultModel.errors intValue])];
+    
+    if (self.resultModel.isFour) {
+        
+        self.scorceLbl.text = [NSString stringWithFormat:@"%ld分",[self.resultModel.right integerValue]*2];
+        self.descripLbl.text = [NSString stringWithFormat:@"做对%@道，做错%@道，%d道未做。",self.resultModel.right,self.resultModel.errors , (50 - [self.resultModel.right intValue] - [self.resultModel.errors intValue])];
+    }else{
+        
+        self.scorceLbl.text = [NSString stringWithFormat:@"%@分",self.resultModel.right];
+        self.descripLbl.text = [NSString stringWithFormat:@"做对%@道，做错%@道，%d道未做。",self.resultModel.right,self.resultModel.errors , (100 - [self.resultModel.right intValue] - [self.resultModel.errors intValue])];
+    }
     
     [self.nextExamView bk_whenTapped:^{
         [self.navigationController popViewControllerAnimated:YES];
@@ -59,12 +74,26 @@
     @weakify(self);
     [self.errorView bk_whenTapped:^{
         @strongify(self);
-        EDSFirsExamErrorsViewController *vc = [[EDSFirsExamErrorsViewController alloc] init];
-        vc.errorsArr = self.errorsArr;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (self.resultModel.isFour) {
+            
+            EDSSubjectFourExamErrorsViewController *vc = [[EDSSubjectFourExamErrorsViewController alloc] init];
+            vc.errorsArr = self.errorsArr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+            EDSFirsExamErrorsViewController *vc = [[EDSFirsExamErrorsViewController alloc] init];
+            vc.errorsArr = self.errorsArr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     
-    self.resultLbl.text = [self.resultModel.right integerValue] >= 90 ? @"合格" : @"不合格";
+    if (self.resultModel.isFour) {
+        
+        self.resultLbl.text = [self.resultModel.right integerValue]*2 >= 90 ? @"合格" : @"不合格";
+    }else{
+        
+        self.resultLbl.text = [self.resultModel.right integerValue] >= 90 ? @"合格" : @"不合格";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,9 +112,16 @@
 {
     EDSFirstSubjectExamFooterModel *model = [[EDSFirstSubjectExamFooterModel alloc] init];
     
-    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/100" normalTitle:@"" frontTitle:self.resultModel.right diffentColor:ThirdColor];
+    if (self.resultModel.isFour) {
+        
+        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/50" normalTitle:@"" frontTitle:self.resultModel.right diffentColor:ThirdColor];
+        model.attar = attStr;
+    }else{
+        
+        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/100" normalTitle:@"" frontTitle:self.resultModel.right diffentColor:ThirdColor];
+        model.attar = attStr;
+    }
     
-    model.attar = attStr;
     model.correctstr = self.resultModel.right;
     model.errorsstr = self.resultModel.errors;
     

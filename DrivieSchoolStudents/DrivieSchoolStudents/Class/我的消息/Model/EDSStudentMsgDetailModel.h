@@ -17,6 +17,9 @@
 @property (nonatomic , copy) NSString *answerTitle;//回答标题
 @property (nonatomic , copy) NSString *answerContent;//回答内容
 @property (nonatomic , copy) NSString *answerTime;//回答时间
+@property (nonatomic , copy) NSString *msdType; //类型
+@property (nonatomic , copy) NSString *appointmentId;
+@property (nonatomic , copy) NSString *studentId; 
 
 
 @end

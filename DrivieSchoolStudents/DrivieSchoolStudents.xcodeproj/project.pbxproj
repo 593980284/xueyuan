@@ -48,6 +48,9 @@
 		10C3F2732149049400AA091A /* EDSDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2722149049400AA091A /* EDSDayView.m */; };
 		10C3F2762149246100AA091A /* EDSOnlineClassListByDateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */; };
 		10C3F27921492D4700AA091A /* EDSOnlineClassListByDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */; };
+		10D0E9C02153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9BF2153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m */; };
+		10D0E9C32153958C00BADD59 /* EDSBeingPushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C22153958C00BADD59 /* EDSBeingPushedViewController.m */; };
+		10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */; };
 		10E6EF6E214A9A7800088875 /* EDSStudentAttendanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */; };
 		10E6EF72214A9D7900088875 /* EDSStudentCourseRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF71214A9D7900088875 /* EDSStudentCourseRecordRequest.m */; };
 		10E6EF76214A9E7F00088875 /* EDSCourseRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF75214A9E7F00088875 /* EDSCourseRecordModel.m */; };
@@ -2228,6 +2231,12 @@
 		10C3F2752149246100AA091A /* EDSOnlineClassListByDateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassListByDateRequest.m; sourceTree = "<group>"; };
 		10C3F27721492D4700AA091A /* EDSOnlineClassListByDateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineClassListByDateModel.h; sourceTree = "<group>"; };
 		10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineClassListByDateModel.m; sourceTree = "<group>"; };
+		10D0E9BE2153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourExamErrorsViewController.h; sourceTree = "<group>"; };
+		10D0E9BF2153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourExamErrorsViewController.m; sourceTree = "<group>"; };
+		10D0E9C12153958C00BADD59 /* EDSBeingPushedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBeingPushedViewController.h; sourceTree = "<group>"; };
+		10D0E9C22153958C00BADD59 /* EDSBeingPushedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBeingPushedViewController.m; sourceTree = "<group>"; };
+		10D0E9C52153A92700BADD59 /* EDSClearCacheCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSClearCacheCell.h; sourceTree = "<group>"; };
+		10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSClearCacheCell.m; sourceTree = "<group>"; };
 		10E6EF6C214A9A7800088875 /* EDSStudentAttendanceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentAttendanceRequest.h; sourceTree = "<group>"; };
 		10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentAttendanceRequest.m; sourceTree = "<group>"; };
 		10E6EF70214A9D7900088875 /* EDSStudentCourseRecordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCourseRecordRequest.h; sourceTree = "<group>"; };
@@ -4742,6 +4751,8 @@
 				10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */,
 				105A8BCE21525CD400B3E092 /* EDSSubjectFourExamViewController.h */,
 				105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */,
+				10D0E9BE2153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.h */,
+				10D0E9BF2153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4783,17 +4794,17 @@
 				10F74D85214D0E2300FA3ECC /* EDSPracticeViewController.m */,
 				10F74D8B214D0E2300FA3ECC /* EDSCollectionViewController.h */,
 				10F74D8F214D0E2300FA3ECC /* EDSCollectionViewController.m */,
-				10F74D90214D0E2300FA3ECC /* EDSFirstSubjectExamViewController.h */,
+				10F74D86214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.h */,
 				10F74D8E214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m */,
+				10F74D87214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.xib */,
 				10F74D8A214D0E2300FA3ECC /* EDSEorrorsViewController.h */,
 				10F74D91214D0E2300FA3ECC /* EDSEorrorsViewController.m */,
 				10F74D92214D0E2300FA3ECC /* EDSRecitedPoliticsViewController.h */,
 				10F74D88214D0E2300FA3ECC /* EDSRecitedPoliticsViewController.m */,
 				10F74D93214D0E2300FA3ECC /* EDSFirsExamErrorsViewController.h */,
 				10F74D8C214D0E2300FA3ECC /* EDSFirsExamErrorsViewController.m */,
-				10F74D86214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.h */,
+				10F74D90214D0E2300FA3ECC /* EDSFirstSubjectExamViewController.h */,
 				10F74D89214D0E2300FA3ECC /* EDSFirstSubjectExamViewController.m */,
-				10F74D87214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.xib */,
 			);
 			path = "科一";
 			sourceTree = "<group>";
@@ -6916,6 +6927,8 @@
 				E9A619B42133D736006E5C2B /* EDSMyHeaderView.h */,
 				E9A619B52133D736006E5C2B /* EDSMyHeaderView.m */,
 				E9A619B72133D741006E5C2B /* EDSMyHeaderView.xib */,
+				10D0E9C52153A92700BADD59 /* EDSClearCacheCell.h */,
+				10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7444,6 +7457,8 @@
 				E9BC0433213146AE003A624F /* Assets.xcassets */,
 				E9BC0435213146AE003A624F /* LaunchScreen.storyboard */,
 				E9BC0439213146AE003A624F /* main.m */,
+				10D0E9C12153958C00BADD59 /* EDSBeingPushedViewController.h */,
+				10D0E9C22153958C00BADD59 /* EDSBeingPushedViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -9860,6 +9875,7 @@
 				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
 				10C3F25A2148BA3F00AA091A /* EDSStrategyListRequest.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
+				10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */,
 				10ED4E5A214A6CA900DF50F7 /* EDSLearningSituationViewController.m in Sources */,
 				10C3F2532148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m in Sources */,
 				E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */,
@@ -9914,6 +9930,7 @@
 				E9A6197A2133A63E006E5C2B /* EDSStudentDriverStrategSubViewController.m in Sources */,
 				E9A61AC12137EDB9006E5C2B /* EDSPracticeFooterView.m in Sources */,
 				E9A619AE2133D24F006E5C2B /* EDSMyTableViewCell.m in Sources */,
+				10D0E9C32153958C00BADD59 /* EDSBeingPushedViewController.m in Sources */,
 				E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */,
 				E9A61A5621366FB5006E5C2B /* cyhCalenbarview.m in Sources */,
 				E9A6197E2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.m in Sources */,
@@ -9934,6 +9951,7 @@
 				E952C7562141217D00EA3A0A /* STConst.m in Sources */,
 				E9A61A3321363CAB006E5C2B /* EDSSubscribeApplyTwoTableViewCell.m in Sources */,
 				E9A619E42134FEE3006E5C2B /* EDSHomeRollPictureRequest.m in Sources */,
+				10D0E9C02153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m in Sources */,
 				10ED4E50214A2F5A00DF50F7 /* EDSSaveMailInfoRequest.m in Sources */,
 				E9A6199E2133C301006E5C2B /* EDSStudentDriverStrategyViewController.m in Sources */,
 				10C2FCBE214BBC9B00498C52 /* EDSGetStudentInfoRequest.m in Sources */,

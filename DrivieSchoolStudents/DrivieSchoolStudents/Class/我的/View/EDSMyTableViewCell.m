@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *descripLbl;
 
 @end
 
@@ -33,5 +34,10 @@
     _cellArr = cellArr;
     self.iconImgView.image = [UIImage imageNamed:cellArr[1]];
     self.titleLbl.text = cellArr[0];
+    
+    if ([cellArr[0] isEqualToString:@"刷新缓存"]) {
+        
+        self.descripLbl.text = [NSString stringWithFormat:@"%@MB",cellArr[2]];
+    }
 }
 @end

@@ -53,7 +53,7 @@
     
     request.msgId = self.msgModel.msgId;
     
-    [request  startRequest];
+    [request startRequest];
 }
 
 - (void)onlineClassListDetailRequest

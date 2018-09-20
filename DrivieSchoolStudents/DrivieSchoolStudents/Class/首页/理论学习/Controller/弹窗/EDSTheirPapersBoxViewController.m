@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
 }
 
 
@@ -28,9 +27,16 @@
 {
     _errortCount = errortCount;
     
-    self.resultsLbl.text = self.correctCount >= 90 ? @"成绩合格" : @"成绩不合格";
+    if (self.isFour) {
+        
+        self.resultsLbl.text = self.correctCount*2 >= 90 ? @"成绩合格" : @"成绩不合格";
+        self.titleLbl.text = [NSString stringWithFormat:@"已答错%ld题,剩余%ld道未答,是否继续答题？",(long)self.errortCount,50 - self.correctCount];
+    }else{
+        
+        self.resultsLbl.text = self.correctCount >= 90 ? @"成绩合格" : @"成绩不合格";
+        self.titleLbl.text = [NSString stringWithFormat:@"已答错%ld题,剩余%ld道未答,是否继续答题？",(long)self.errortCount,100 - self.correctCount];
+    }
     
-    self.titleLbl.text = [NSString stringWithFormat:@"已答错%ld题,剩余%ld道未答,是否继续答题？",(long)self.errortCount,100 - self.correctCount - self.errortCount];
 }
 
 - (void)setCorrectCount:(NSInteger)correctCount
