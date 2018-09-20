@@ -21,6 +21,7 @@
 #import "MyConstants.h"
 
 #import "EDSGetStudentInfoRequest.h"
+#import "EDSVersionUpdateRequest.h"
 
 @interface EDSMyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -219,6 +220,19 @@
             }
         }
         
+    }else if ([string isEqualToString:@"检查更新"]){
+        
+        @weakify(self);
+        EDSVersionUpdateRequest *request = [EDSVersionUpdateRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            @strongify(self);
+            
+            [SVProgressHUD showSuccessWithStatus:@"您已经是最新版本不需要更新"];
+            [SVProgressHUD dismissWithDelay:1];
+        } failureBlock:^(NSError *error) {
+        
+        }];
+        request.title = @"乐享学员APP版本(iOS)";
+        [request startRequest];
     }
 }
 
@@ -274,10 +288,6 @@
     }
     return totalSize;
 }
-
-
-
-
 
 
 #pragma mark ------------------------ 懒加载 --------------------------------
