@@ -193,6 +193,11 @@
     [self setFooterViewModel];
     self.tableView.allowsSelection = _isChooes ? NO : YES;
     
+    [self  jupmViewPage];
+}
+
+- (void)jupmViewPage
+{
     CGFloat width = 300;
     
     CGFloat height = 180;
@@ -225,8 +230,8 @@
             
             EDSFirstSubjectExamResultModel *model = [[EDSFirstSubjectExamResultModel alloc] init];
             model.time = [NSString stringWithFormat:@"%f",self.countDownView.countDownTimeInterval];
-//            model.errors = @"0";
-//            model.right = @"100";
+            //            model.errors = @"0";
+            //            model.right = @"100";
             model.errors = [NSString stringWithFormat:@"%lu",(unsigned long)self.errorsMulIDArr.count];
             model.right = [NSString stringWithFormat:@"%lu",self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1];
             model.isFour = NO;
@@ -360,8 +365,13 @@
                     }
                     //添加错题
                     [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
+                    
                 }
             }
+        }
+        if (self.errorsMulIDArr.count > 10) {
+            
+            [self  jupmViewPage];
         }
     }
 }

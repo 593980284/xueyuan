@@ -193,6 +193,11 @@
     [self setFooterViewModel];
     self.tableView.allowsSelection = _isChooes ? NO : YES;
     
+    [self jupmViewPage];
+}
+
+- (void)jupmViewPage
+{
     CGFloat width = 300;
     
     CGFloat height = 180;
@@ -381,6 +386,13 @@
         }
         //添加错题
         [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
+        
+    }
+    
+    
+    if (self.errorsMulIDArr.count > 5) {
+        
+        [self jupmViewPage];
     }
     
     [self.tableView reloadData];
