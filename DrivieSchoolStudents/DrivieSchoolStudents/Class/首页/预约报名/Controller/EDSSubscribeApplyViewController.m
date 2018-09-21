@@ -87,14 +87,13 @@
     }];
     
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:PLACEHOLDERGOODSIMAGE];
-    cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+    cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
     cycleScrollView.showPageControl = YES;
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     cycleScrollView.frame = CGRectMake(0, 0, kScreenWidth, EDSHomeTableViewHeaderSlideH);
     self.tableView.tableHeaderView = cycleScrollView;
     cycleScrollView.imageURLStringsGroup = @[
-                                             @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
-                                             @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
+                                             [NSString stringWithFormat:@"%@/files/lexiang/presignup/topImg.png?time=%ld",LINEURL,(long)[self getNowTimestamp]],
                                              ];
     
     UIButton *determineBtn = [[UIButton alloc] init];
@@ -122,6 +121,31 @@
         make.left.mas_equalTo(15);
         make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-25);
     }];
+}
+
+- (NSInteger)getNowTimestamp{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    //设置时区,这个对于时间的处理有时很重要
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    
+    [formatter setTimeZone:timeZone];
+    
+    NSDate *datenow = [NSDate date];//现在时间
+    
+    //时间转时间戳的方法:
+    NSInteger timeSp = [[NSNumber numberWithDouble:[datenow timeIntervalSince1970]] integerValue];
+    
+    return timeSp;
+    
 }
 
 #pragma mark ------------------------ 网络请求 --------------------------------

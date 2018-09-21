@@ -92,7 +92,7 @@
         }
     }
     
-    [[XGPush defaultManager] startXGWithAppID:2200309040 appKey:@"IPG9R71U6H8B" delegate:self];
+    [[XGPush defaultManager] startXGWithAppID:2200309037 appKey:@"IE5JCL1H877B" delegate:self];
     [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
     [[XGPush defaultManager] reportXGNotificationInfo:launchOptions];
     

@@ -10222,7 +10222,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6MZFMA6Y84;
+				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -10234,7 +10234,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivieSchoolStudents/database",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -10248,7 +10248,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6MZFMA6Y84;
+				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -10260,7 +10260,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DrivieSchoolStudents/database",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhuosen.DrivieSchoolStudents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
