@@ -8,6 +8,7 @@
 
 #import "EDSStudentDriverStrategyViewController.h"
 #import "EDSPSWLogoViewController.h"
+#import "EDSStudentDriverStrategyDetailViewController.h"
 
 #import "EDSStudentDriverStrategyHeaderView.h"
 #import "EDSStudentDriverStrategSubTableViewCell.h"
@@ -141,6 +142,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return StudentDriverStrategTableViewCellH;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EDSStudentDriverStrategyDetailViewController *vc = [[EDSStudentDriverStrategyDetailViewController alloc] initWithNibName:@"EDSStudentDriverStrategyDetailViewController" bundle:[NSBundle mainBundle]];
+    vc.studyStrategyId = self.tableArr[indexPath.row].studyStrategyId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

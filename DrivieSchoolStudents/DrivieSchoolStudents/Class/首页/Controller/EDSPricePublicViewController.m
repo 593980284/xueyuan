@@ -20,9 +20,18 @@
     
     self.navigationItem.title = @"价格公示";
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://111.39.245.156:8087/lexiang/dist/index.html#/priceShowindex.html?id=4000001&className&carType"]]];
+    if (self.schoolID.length > 0) {
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?id=%@",JGGS,self.schoolID]]]];
+    }else{
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:JGGS]]];
+    }
 }
 
-
+- (void)setSchoolID:(NSString *)schoolID
+{
+    _schoolID = schoolID;
+}
 
 @end

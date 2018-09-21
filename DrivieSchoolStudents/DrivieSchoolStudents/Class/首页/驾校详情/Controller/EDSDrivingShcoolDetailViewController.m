@@ -9,6 +9,7 @@
 #import "EDSDrivingShcoolDetailViewController.h"
 #import "EDSSubscribeApplyViewController.h"
 #import "EDSMapViewController.h"
+#import "EDSPricePublicViewController.h"
 
 #import "EDSEDSDrivingDetailsHeaderView.h"
 #import "EDSDrivingDetailsFooterView.h"
@@ -129,6 +130,9 @@
             [EDSToolClass getOpenTelphone:self.detailModel.phone];
         }else if ([titleStr isEqualToString:@"价格公示"]){
             
+            EDSPricePublicViewController *vc = [[EDSPricePublicViewController alloc] initWithNibName:@"EDSPricePublicViewController" bundle:[NSBundle mainBundle]];
+            vc.schoolID = self.detailModel.schoolId;
+            [self.navigationController pushViewController:vc animated:YES];
         }else{
             
             EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
@@ -193,6 +197,7 @@
         _secondView = [[EDSSecondView alloc] init];
         _secondView.topView = self.topView;
         _secondView.schoolId = self.schoolId;
+        _secondView.parentView = self;
         [self.view addSubview:_secondView];
         [_secondView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);

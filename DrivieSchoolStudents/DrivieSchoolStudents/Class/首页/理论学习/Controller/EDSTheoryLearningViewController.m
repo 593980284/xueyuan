@@ -66,9 +66,11 @@
         }else if ([string isEqualToString:@"科目二"]){
             
             self.subjectTwoView.hidden = NO;
+            self.subjectTwoView.subjectLoad = @"";
         }else if ([string isEqualToString:@"科目三"]){
             
             self.subjectThreeView.hidden = NO;
+            self.subjectThreeView.subjectLoad = @"";
         }else{
             
             self.subjectFourView.hidden = NO;

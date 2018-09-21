@@ -10,4 +10,6 @@
 
 @interface EDSSubjectThreeView : UIView
 
+@property (nonatomic , copy) NSString *subjectLoad;
+
 @end

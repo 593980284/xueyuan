@@ -10,4 +10,5 @@
 
 @interface EDSSubjectTwoView : UIView
 
+@property (nonatomic , copy) NSString *subjectLoad;
 @end

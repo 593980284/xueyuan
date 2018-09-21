@@ -8,6 +8,7 @@
 
 #import "EDSSecondView.h"
 #import "HomeConstants.h"
+#import "EDSElegantDemeanourViewController.h"
 
 #import "EDSTeachingStyleCollectionViewCell.h"//教学风采cell
 #import "EDSEDSDrivingDetailsHeaderView.h"
@@ -112,8 +113,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    EDSCoachInformationViewController *vc = [[EDSCoachInformationViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
+    EDSElegantDemeanourViewController *vc = [[EDSElegantDemeanourViewController alloc] initWithNibName:@"EDSElegantDemeanourViewController" bundle:[NSBundle mainBundle]];
+    vc.schoolId = self.modelArr[indexPath.item].styleId;
+    [self.parentView.navigationController pushViewController:vc animated:YES];
 }
 
 //设置每个item的尺寸
@@ -123,6 +125,9 @@
     //    return CGSizeMake(EDSCheckSiteCollectionViewCellW, EDSCheckSiteCollectionViewCellH);
         return CGSizeMake(EDSTeachingStyleCollectionViewCellW, EDSTeachingStyleCollectionViewCellH);
 }
+
+
+
 
 - (UICollectionView *)collectionView
 {

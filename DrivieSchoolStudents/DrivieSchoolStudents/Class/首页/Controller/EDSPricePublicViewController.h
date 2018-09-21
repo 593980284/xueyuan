@@ -10,4 +10,6 @@
 
 @interface EDSPricePublicViewController : UIViewController
 
+@property (nonatomic , copy) NSString *schoolID;
+
 @end

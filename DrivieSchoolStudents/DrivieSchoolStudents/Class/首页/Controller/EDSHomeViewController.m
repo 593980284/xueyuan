@@ -134,6 +134,11 @@
         
         EDSRegistrationProcessViewController *vc = [[EDSRegistrationProcessViewController alloc] initWithNibName:@"EDSRegistrationProcessViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([titleStr isEqualToString:@"我的驾校"]){
+        
+        EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+        vc.schoolId = [EDSSave account].schoolId;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

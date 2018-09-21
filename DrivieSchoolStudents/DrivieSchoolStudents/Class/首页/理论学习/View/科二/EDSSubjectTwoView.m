@@ -33,6 +33,13 @@
 {
     [super awakeFromNib];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://111.39.245.156:8087/lexiang/dist/index.html#/theoryStudy2"]]];
 }
+
+- (void)setSubjectLoad:(NSString *)subjectLoad
+{
+    _subjectLoad = subjectLoad;
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?subType=%@",KMLB,@"2"]]]];
+}
+
 @end
