@@ -91,13 +91,13 @@
     [_tagBgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(subjectstagLbl.mas_bottom).mas_equalTo(22);
-        make.height.mas_equalTo(60);
+        make.height.mas_equalTo(35);
     }];
     
     UILabel *descriptiontagLbl = [UILabel labelWithText:@"个人简介" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [descriptiontagLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.top.mas_equalTo(self.tagBgView.mas_bottom).mas_equalTo(19  );
+        make.top.mas_equalTo(self.tagBgView.mas_bottom).mas_equalTo(19);
     }];
     _descriptionLbl = [UILabel labelWithText:@"个人简介个人简，介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.contentView];
     [_descriptionLbl mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -365,7 +365,7 @@
         //错题
         _errorsCount ++ ;
         //错题
-        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.tableViewModel.ID];
+//        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.tableViewModel.ID];
     }else{
         
         //正确

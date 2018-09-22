@@ -22,7 +22,7 @@
 
 #import "EDSQuestionModel.h"
 
-@interface EDSFirstSubjectExamViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSFirstSubjectExamViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCountDownViewDelegate>
 {
     NSInteger _currentCount;//当前多少题
     
@@ -132,6 +132,12 @@
     [self.tableView setTableHeaderView:self.headerView];
     [self setFooterViewModel];
     [self.tableView reloadData];
+}
+
+- (void)countDownDidFinished
+{
+    self.tableView.allowsSelection = NO;
+    [self putTheirPapers];
 }
 
 #pragma mark ------------------------ 设置底部数据 --------------------------------
@@ -364,7 +370,7 @@
                         [self.errorsMulIDArr addObject:self.subjectMulIDArr[_currentCount]];
                     }
                     //添加错题
-                    [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
+//                    [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
                     
                 }
             }
@@ -439,6 +445,7 @@
         _countDownView = [[ZQCountDownView alloc] initWithFrame:CGRectMake(20, 6, 60, 30)];
         _countDownView.themeColor = WhiteColor;
         _countDownView.textColor = FirstColor;
+        _countDownView.delegate = self;
         _countDownView.textFont = kFont(14);
         [self.view addSubview:_countDownView];
         [_countDownView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -12,7 +12,7 @@
 
 #import "EDSPracticeHeaderView.h"
 #import "EDSPracticeTableViewCell.h"
-#import "EDSRecitedPoliticsFooterView.h"
+#import "EDSFourPracticeView.h"
 
 #import "EDSFourDataBase.h"
 
@@ -21,8 +21,7 @@
 @interface EDSSubjectFourExamErrorsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isChooes;
-    
-    NSInteger _currentCount;
+    NSInteger _currount;
     NSInteger _errorsCount;
     NSInteger _correctCount;
 }
@@ -33,8 +32,7 @@
 /** 头部试图 */
 @property (nonatomic, strong) EDSPracticeHeaderView  *headerView;
 /** 脚部试图 */
-@property (nonatomic, strong) EDSRecitedPoliticsFooterView  *footerView;
-
+@property (nonatomic, strong) EDSFourPracticeView  *footerView;
 
 @end
 
@@ -46,7 +44,7 @@
     self.view.backgroundColor = WhiteColor;
     self.navigationItem.title = @"错题回顾";
     _isChooes = NO;
-    _currentCount = 1;
+    _currount = 0;
     _errorsCount = 0;
     _correctCount = 0;
     
@@ -64,8 +62,6 @@
     if (self.errorsArr.count > 0) {
         
         self.headerView.questionModel = self.tableViewModel;
-        [self.tableView setTableHeaderView:self.headerView];
-        [self.tableView.tableHeaderView layoutIfNeeded];
     }else{
         
         [self.tableView removeFromSuperview];
@@ -77,48 +73,68 @@
         }];
     }
     
-    
-    self.footerView.ID = self.tableViewModel.ID;
-    self.footerView.isCollection = self.tableViewModel.isCollection;
+    [self.tableView setTableHeaderView:self.headerView];
+    [self.tableView.tableHeaderView layoutIfNeeded];
     
     @weakify(self);
-    [self.footerView.nextBtn  bk_whenTapped:^{
+    if (self.tableViewModel.isMultiple) {
+        [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    }
+    
+    [self.footerView.commitBtn bk_whenTapped:^{
+        
         @strongify(self);
-        [self getNextQuestion];
+        if ([self.footerView.commitBtn.titleLabel.text isEqualToString:@"下一题"]) {
+            
+            self.tableView.allowsSelection = YES;
+            
+            for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
+                
+                if (self.tableViewModel.answerlists[i].isChoose) {
+                    self->_isChooes = NO;
+                    [self.footerView.commitBtn setTitle:@"提交" forState:UIControlStateNormal];
+                    [self getNextQuestion];
+                    return;
+                }
+            }
+            
+            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }else{
+            
+            for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
+                
+                if (self.tableViewModel.answerlists[i].isChoose) {
+                    
+                    [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+                    self.tableView.allowsSelection = NO;
+                    //查看答案
+                    self->_isChooes = YES;
+                    [self getProcessCorrectAnswer];
+                    return;
+                }
+            }
+            
+            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
     }];
 }
+
 
 #pragma mark ------------------------ 下一题 --------------------------------
 - (void)getNextQuestion
 {
-    _currentCount ++ ;
     self.tableView.allowsSelection = YES;
+    _currount ++ ;
     
-    if (_currentCount  <= self.errorsArr.count ) {
-        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:self.errorsArr[_currentCount -1]];
-        _isChooes = YES;
-        NSString *string = self.tableViewModel.answer;
-        for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
-            
-            self.tableViewModel.answerlists[i].isLook = YES;
-            self.tableViewModel.answerlists[i].isSubjectFour = self.tableViewModel.isMultiple;
-            
-            int index = i;
-            index += 65;
-            NSString *answerstr = [NSString stringWithFormat:@"%c",index];
-            
-            if ([string rangeOfString:answerstr].location != NSNotFound) {
-                
-                self.tableViewModel.answerlists[i].isCorrect = YES;
-                self.tableViewModel.answerlists[i].isChoose = YES;
-            }
-        }
+    if (self.errorsArr.count > _currount) {
+        
+        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:self.errorsArr[_currount]];
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
-        
-        self.footerView.ID = self.tableViewModel.ID;
-        self.footerView.isCollection = self.tableViewModel.isCollection;
+        [self getFooterViewModel];
         
         [self.tableView reloadData];
     }else
@@ -127,12 +143,34 @@
         [SVProgressHUD dismissWithDelay:1.5];
     }
     
+    if (self.tableViewModel.isMultiple) {
+        
+        [self.footerView.commitBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark ------------------------ 获取底部数据 --------------------------------
 - (void)getFooterViewModel
 {
     
+    EDSFourPracticeViewModel *model = [[EDSFourPracticeViewModel alloc] init];
+    model.ID = self.tableViewModel.ID;
+    
+    NSAttributedString *attStr = [NSString attributedStringWithColorTitle:[NSString stringWithFormat:@"/%lu",(unsigned long)self.errorsArr.count] normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",(long)_currount+1] diffentColor:ThirdColor];
+    model.progressAttr = attStr;
+    
+    if (_isChooes) {
+        
+        model.correctStr = [NSString stringWithFormat:@"%ld",(_currount+1 - _errorsCount)];
+    }else{
+        
+        model.correctStr = [NSString stringWithFormat:@"%ld",(_currount+1 - _errorsCount - 1)];
+    }
+    model.errorStr = [NSString stringWithFormat:@"%ld",(long)_errorsCount];
+    
+    model.isCollection = self.tableViewModel.isCollection;
+    
+    self.footerView.footerModel = model;
 }
 
 #pragma mark ------------------------ tableView --------------------------------
@@ -205,48 +243,83 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.tableViewModel.isMultiple) {
+        
+        dispatch_apply(self.tableViewModel.answerlists.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
+            
+            self.tableViewModel.answerlists[i].isSubjectFour = YES;
+            self.tableViewModel.answerlists[i].isSubjectFour = YES;
+            if (i == indexPath.row) {
+                
+                self.tableViewModel.answerlists[i].isChoose = YES;
+            }else{
+                
+                self.tableViewModel.answerlists[i].isChoose = NO;
+            }
+        });
+        self.tableView.allowsSelection = NO;
+        //查看答案
+        self->_isChooes = YES;
+        [self getProcessCorrectAnswer];
+        
+    }else{
+        
+        EDSAnswerModel *answerModel = self.tableViewModel.answerlists[indexPath.row];
+        answerModel.isChoose = !answerModel.isChoose;
+        answerModel.isSubjectFour = YES;
+        [self.tableView reloadData];
+    }
 }
 
-//每隔4个字符添加一个空格的字符串算法
-- (NSString *)dealWithString:(NSString *)number
+
+- (void)getProcessCorrectAnswer
 {
-    NSString *doneTitle = @"";
-    int count = 0;
-    for (int i = 0; i < number.length; i++) {
+    NSString *string = self.tableViewModel.answer;
+    NSString *answeStr = @"";
+    
+    for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
         
-        count++;
-        doneTitle = [doneTitle stringByAppendingString:[number substringWithRange:NSMakeRange(i, 1)]];
-        if (count == 1) {
-            doneTitle = [NSString stringWithFormat:@"%@,", doneTitle];
-            count = 0;
+        self.tableViewModel.answerlists[i].isLook = YES;
+        
+        int index = i;
+        
+        index += 65;
+        
+        NSString *answerstr = [NSString stringWithFormat:@"%c",index];
+        
+        if ([string rangeOfString:answerstr].location != NSNotFound) {
+            
+            self.tableViewModel.answerlists[i].isCorrect = YES;
+        }else{
+            
+            self.tableViewModel.answerlists[i].isCorrect = NO;
+        }
+        
+        if (self.tableViewModel.answerlists[i].isChoose) {
+            
+            int index = i;
+            index += 65;
+            answeStr = [NSString stringWithFormat:@"%@%c",answeStr,index];
         }
     }
-    return doneTitle;
+    
+    if (![answeStr isEqualToString:string]) {
+        //错题
+//        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.tableViewModel.ID];
+        _errorsCount ++ ;
+    }
+    
+    [self getFooterViewModel];
+    [self.tableView reloadData];
 }
+
+
 
 - (EDSQuestionModel *)tableViewModel
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:self.errorsArr[0]];
-        _isChooes = YES;
-        NSString *string = self.tableViewModel.answer;
-        for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
-            
-            self.tableViewModel.answerlists[i].isLook = YES;
-            self.tableViewModel.answerlists[i].isSubjectFour = self.tableViewModel.isMultiple;
-            
-            int index = i;
-            index += 65;
-            NSString *answerstr = [NSString stringWithFormat:@"%c",index];
-            
-            if ([string rangeOfString:answerstr].location != NSNotFound) {
-                
-                self.tableViewModel.answerlists[i].isCorrect = YES;
-                self.tableViewModel.answerlists[i].isChoose = YES;
-            }
-        }
+        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:self.errorsArr[_currount]];
     }
     return _tableViewModel;
 }
@@ -265,11 +338,12 @@
 }
 
 
-- (EDSRecitedPoliticsFooterView *)footerView
+- (EDSFourPracticeView *)footerView
 {
     if (!_footerView) {
         
-        _footerView = [[EDSRecitedPoliticsFooterView alloc] init];
+        _footerView = [[EDSFourPracticeView alloc] init];
+        _footerView.clearBtn.hidden = YES;
         [self getFooterViewModel];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -279,6 +353,5 @@
     }
     return _footerView;
 }
-
 
 @end

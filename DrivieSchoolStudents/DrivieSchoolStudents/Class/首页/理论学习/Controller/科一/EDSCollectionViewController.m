@@ -246,7 +246,7 @@
             if (i != index) {
                 //错题
                 _errorsCount ++ ;
-                [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
+//                [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:[EDSSave account].firstSubjectID];
                 [self getFooterViewModel];
             }else{
                 //正确

@@ -22,7 +22,7 @@
 
 #import "EDSQuestionModel.h"
 
-@interface EDSSubjectFourExamViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSSubjectFourExamViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCountDownViewDelegate>
 {
     NSInteger _currentCount;//当前多少题
     
@@ -178,6 +178,12 @@
     [self.tableView reloadData];
     
     [self setFooterViewModel];
+}
+
+- (void)countDownDidFinished
+{
+    self.tableView.allowsSelection = NO;
+    [self putTheirPapers];
 }
 
 #pragma mark ------------------------ 交卷 --------------------------------
@@ -385,10 +391,8 @@
             [self.errorsMulIDArr addObject:self.subjectMulIDArr[_currentCount]];
         }
         //添加错题
-        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
-        
+//        [[EDSFourDataBase sharedDataBase] upDateFourSubjectErrorsWithID:self.subjectMulIDArr[_currentCount]];
     }
-    
     
     if (self.errorsMulIDArr.count > 5) {
         
@@ -463,6 +467,7 @@
         _countDownView.themeColor = WhiteColor;
         _countDownView.textColor = FirstColor;
         _countDownView.textFont = kFont(14);
+        _countDownView.delegate = self;
         [self.view addSubview:_countDownView];
         [_countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(imageView.mas_centerY);
