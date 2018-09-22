@@ -39,6 +39,7 @@
 
 - (void)setSubjectLoad:(NSString *)subjectLoad
 {
+    DLog(@"%@",[NSString stringWithFormat:@"%@?subType=%@",KMLB,@"3"]);
     _subjectLoad = subjectLoad;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?subType=%@",KMLB,@"3"]]]];
 }

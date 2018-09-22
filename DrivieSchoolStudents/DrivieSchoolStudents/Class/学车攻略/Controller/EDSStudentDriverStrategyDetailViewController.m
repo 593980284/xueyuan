@@ -20,6 +20,7 @@
     
     self.navigationItem.title = @"攻略详情";
     
+    DLog(@"%@",[NSString stringWithFormat:@"%@?studyStrategyId=%@&phone=%@",XCGL,self.studyStrategyId,[EDSSave account].phone]);
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?studyStrategyId=%@&phone=%@",XCGL,self.studyStrategyId,[EDSSave account].phone]]]];
 }
 
@@ -27,4 +28,5 @@
 {
     _studyStrategyId = studyStrategyId;
 }
+
 @end

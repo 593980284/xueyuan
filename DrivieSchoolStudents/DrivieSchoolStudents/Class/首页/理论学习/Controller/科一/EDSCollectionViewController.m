@@ -116,6 +116,8 @@
         [self.tableView reloadData];
     }else
     {
+        self.tableView.allowsSelection = NO;
+        
         [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
         [SVProgressHUD dismissWithDelay:1.5];
     }
@@ -209,7 +211,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (self.tableViewModel.isMultiple) {
         
         dispatch_apply(self.tableViewModel.answerlists.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
@@ -235,6 +236,8 @@
 
 - (void)getProcessCorrectAnswerWithIndex:(NSInteger)index
 {
+    
+    self.tableView.allowsSelection = NO;
     
     for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
         

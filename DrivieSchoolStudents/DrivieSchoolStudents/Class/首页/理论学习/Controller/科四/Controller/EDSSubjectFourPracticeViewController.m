@@ -186,6 +186,7 @@
         [self.tableView reloadData];
     }else
     {
+        self.tableView.allowsSelection = NO;
         [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
         [SVProgressHUD dismissWithDelay:1.5];
     }

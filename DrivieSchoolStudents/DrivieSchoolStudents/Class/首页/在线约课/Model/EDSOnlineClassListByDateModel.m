@@ -22,7 +22,7 @@
 
 - (NSString *)showSubjectAge
 {
-    return [NSString stringWithFormat:@"%@教龄 %@",_teachAge,_subjectName];
+    return [NSString stringWithFormat:@"%@年教龄 %@",_teachAge,_subjectName];
 }
 
 - (NSDate *)startSiginDate
@@ -73,7 +73,7 @@
 
 - (NSInteger)showCoachStar
 {
-    return ceil([_coachStar integerValue]/2);
+    return ceil([_coachStar floatValue]/2);
 }
 
 - (NSString *)showNoAppointmentNum
