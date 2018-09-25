@@ -353,4 +353,10 @@
  *  根据当前日期计算星期几
  */
 + (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
+
+/**
+ *  判断字符串是否为空
+ */
++ (BOOL)isBlankString:(NSString *)aStr;
+
 @end

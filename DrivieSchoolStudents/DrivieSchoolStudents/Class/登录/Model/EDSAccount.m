@@ -10,21 +10,21 @@
 
 @implementation EDSAccount
 
-
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
     if (self = [super init]) {
-        
-        _phone = [NSString stringWithFormat:@"%@",dict[@"phone"]];
-        _schoolId = [NSString stringWithFormat:@"%@",[dict valueForKey:@"schoolId"]];
-        _userID = [NSString stringWithFormat:@"%@",dict[@"id"]];
-        _learnProgress = [NSString stringWithFormat:@"%@",dict[@"learnProgress"]];
-        _schoolName = [NSString stringWithFormat:@"%@",dict[@"schoolName"]];
+    
+        _phone = [NSDictionary changeType:dict[@"phone"]];
+        _schoolId = [NSDictionary changeType:dict[@"schoolId"]];
+        _userID = [NSDictionary changeType:dict[@"id"]];
+        _learnProgress = [NSDictionary changeType:dict[@"learnProgress"]];
+        _schoolName = [NSDictionary changeType:dict[@"schoolName"]];
         _photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:dict[@"photo"]]];;
-        _state = [NSString stringWithFormat:@"%@",dict[@"state"]];
-        _applyDriveCar = [NSString stringWithFormat:@"%@",dict[@"applyDriveCar"]];
-        _studentId = [NSString stringWithFormat:@"%@",dict[@"studentId"]];
-        _bookingExamUrl = [NSString stringWithFormat:@"%@",dict[@"bookingExamUrl"]];
+        _state = [NSDictionary changeType:dict[@"state"]];
+        _applyDriveCar = [NSDictionary changeType:dict[@"applyDriveCar"]];
+        _studentId = [NSDictionary changeType:dict[@"studentId"]];
+        _bookingExamUrl = [NSDictionary changeType:dict[@"bookingExamUrl"]];
+        _touristState = [NSDictionary changeType:dict[@"touristState"]];
     }
     return self;
 }
@@ -45,6 +45,11 @@
         return @"文明驾驶";
     }
     return @"";
+}
+
+- (NSString *)touristState
+{
+    return [NSString stringWithFormat:@"%@",_touristState];
 }
 
 

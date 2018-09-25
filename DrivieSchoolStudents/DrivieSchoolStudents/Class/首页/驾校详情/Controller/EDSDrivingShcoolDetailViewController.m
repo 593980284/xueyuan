@@ -163,11 +163,13 @@
 {
     if (!_footerView) {
         
+        DLog(@"%d",SafeAreaBottomHeight);
         _footerView = [[EDSDrivingDetailsFooterView alloc] init];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(69);
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(-SafeAreaBottomHeight);
+            make.height.mas_equalTo(KLineY(69));
         }];
     }
     return _footerView;

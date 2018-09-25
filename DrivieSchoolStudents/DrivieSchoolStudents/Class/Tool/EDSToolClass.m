@@ -1142,4 +1142,28 @@ static EDSToolClass *_instance;
     
 }
 
++ (BOOL)isBlankString:(NSString *)aStr {
+    
+    aStr = [NSString stringWithFormat:@"%@",aStr];
+    
+    if (!aStr) {
+        return YES;
+    }
+    if ([aStr isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if (!aStr.length) {
+        return YES;
+    }
+    if ([aStr isEqualToString:@"(null)"]) {
+        return YES;
+    }
+    NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmedStr = [aStr stringByTrimmingCharactersInSet:set];
+    if (!trimmedStr.length) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

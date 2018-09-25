@@ -7,6 +7,7 @@
 //
 
 #import "EDSPSWLogoViewController.h"
+#import "EDSLoginSettingsPasswordViewController.h"
 #import <IQKeyboardManager.h>
 
 #import "EDSMsgCodeLoginRequest.h"
@@ -125,9 +126,21 @@
         if (isPSW && isPhone) {
             EDSMsgCodeLoginRequest *request = [EDSMsgCodeLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
+                [self appStudentOperatingSystem];
+                
                 if (errCode == 1) {
-                    [self appStudentOperatingSystem];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                    if ([[EDSSave account].state isEqual:@"1"] && [[EDSSave account].touristState isEqual:@"0"]) {
+                        
+                        EDSLoginSettingsPasswordViewController *vc = [[EDSLoginSettingsPasswordViewController alloc] initWithNibName:@"EDSLoginSettingsPasswordViewController" bundle:[NSBundle mainBundle]];
+                        [self.navigationController presentViewController:vc animated:YES completion:^{
+                            
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        }];
+                    }else{
+                        
+                        [self  dismissViewControllerAnimated:YES completion:nil];
+                    }
                 }
                 
             } failureBlock:^(NSError *error) {

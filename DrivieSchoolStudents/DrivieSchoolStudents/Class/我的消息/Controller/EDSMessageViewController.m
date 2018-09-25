@@ -56,7 +56,7 @@
 {
     [super viewWillAppear:animated];
     
-    if ([EDSSave account].userID.length == 0) {
+    if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];

@@ -42,6 +42,7 @@
 #import "UIView+BHYCore.h"
 #import "CALayer+BHYXibBorderColor.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "NSDictionary+JSJCustomDict_h.h"
 
 /**
  #查询风采# http://111.39.245.156:8087/lexiang/dist/index.html?id=4000001 需要ID字段

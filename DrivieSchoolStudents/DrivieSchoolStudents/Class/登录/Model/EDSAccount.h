@@ -21,7 +21,11 @@
 @property (nonatomic , copy) NSString              * state;                     //用户状态。游客：1，非游客：0
 @property (nonatomic , copy) NSString              * applyDriveCar;             //学员申请车型
 @property (nonatomic , copy) NSString              * studentId;                 //学员id
-@property (nonatomic , copy) NSString              * bookingExamUrl;            //驾培系统中学员id
+@property (nonatomic , copy) NSString              * bookingExamUrl;            //驾培系统中学员
+@property (nonatomic , copy) NSString              * touristState;              //游客登录状态。首次登录：0，非首次登录：1(只有游客登录才有的字段)
+
+
+
 
 /** 科目一练习 */
 @property (nonatomic, copy) NSString *firstSubjectID;

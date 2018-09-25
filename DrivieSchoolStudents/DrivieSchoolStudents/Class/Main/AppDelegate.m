@@ -27,7 +27,7 @@
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(NSError *)error {
     
     DLog(@"%s, result %@, error %@", __FUNCTION__, isSuccess?@"OK":@"NO", error);
-    if ([EDSSave account].userID.length > 0) {
+    if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     }else{

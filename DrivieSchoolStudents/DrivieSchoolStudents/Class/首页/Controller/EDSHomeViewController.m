@@ -165,13 +165,12 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    if ([EDSSave account].schoolId.length > 0) {
-        
-        request2.schoolId = [EDSSave account].schoolId;
-    }else
-    {
+    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
         
         request2.schoolId = @"0";
+    }else
+    {
+        request2.schoolId = [EDSSave account].schoolId;
     }
     [request2 startRequest];
 }

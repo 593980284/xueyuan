@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,15 +40,12 @@
                         <action selector="toSignUpClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tT5-f1-KC5"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-nV-Xww">
-                    <rect key="frame" x="0.0" y="1" width="91" height="68"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-nV-Xww" customClass="EDSUpDownButton">
+                    <rect key="frame" x="0.0" y="1" width="80" height="68"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="91" id="sUu-KK-3Gh"/>
+                        <constraint firstAttribute="width" constant="80" id="sUu-KK-3Gh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <inset key="contentEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="titleEdgeInsets" minX="-10" minY="30" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="25"/>
                     <state key="normal" title="咨询" image="qt_content_icon_default">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -56,15 +53,12 @@
                         <action selector="consultingClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="OaZ-rs-BVW"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw6-uH-hoz">
-                    <rect key="frame" x="93" y="1" width="94" height="68"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw6-uH-hoz" customClass="EDSUpDownButton">
+                    <rect key="frame" x="82" y="1" width="105" height="68"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="94" id="8oh-uH-hCT"/>
+                        <constraint firstAttribute="width" constant="105" id="8oh-uH-hCT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <inset key="contentEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="titleEdgeInsets" minX="-20" minY="30" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="25"/>
                     <state key="normal" title="价格公式" image="price_content_icon_default">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -89,11 +83,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-54.5" y="15.5"/>
+            <point key="canvasLocation" x="-55.200000000000003" y="14.842578710644679"/>
         </view>
     </objects>
     <resources>
         <image name="price_content_icon_default" width="25" height="25"/>
-        <image name="qt_content_icon_default" width="25" height="25"/>
+        <image name="qt_content_icon_default" width="25.5" height="25.5"/>
     </resources>
 </document>

@@ -55,7 +55,9 @@
 {
     [super viewWillAppear:animated];
     
-    if ([EDSSave account].userID.length == 0) {
+    DLog(@"%@",[EDSSave account].userID);
+    
+    if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
@@ -70,8 +72,8 @@
                 
             }else if (errCode == 1){
                 
-                NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
                 DLog(@"%@",[EDSSave account].schoolId);
+                NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ?  @"我的报名" : @"我的驾校";
                 self.cellArr = @[
                                  @[
                                      @[string,@"wdbm_content_icon_default"],
@@ -97,8 +99,7 @@
         [request startRequest];
     }
     
-    NSString *string = [EDSSave account].schoolId.length > 0 ? @"我的驾校" : @"我的报名";
-    DLog(@"%@",[EDSSave account].schoolId);
+    NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ? @"我的驾校" : @"我的报名";
     self.cellArr = @[
                      @[
                          @[string,@"wdbm_content_icon_default"],

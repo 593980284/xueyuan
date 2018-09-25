@@ -21,6 +21,10 @@
 		105A8BCA2152511F00B3E092 /* EDSCoachDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BC92152511F00B3E092 /* EDSCoachDetailRequest.m */; };
 		105A8BCD215258EA00B3E092 /* EDSFourSubjectExamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */; };
 		105A8BD021525CD400B3E092 /* EDSSubjectFourExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */; };
+		1066111E215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1066111C215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m */; };
+		1066111F215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1066111D215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.xib */; };
+		10661122215A2A52001C69C1 /* NSDictionary+JSJCustomDict_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 10661120215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.m */; };
+		10661129215A454D001C69C1 /* EDSUpDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10661128215A454D001C69C1 /* EDSUpDownButton.m */; };
 		1082B099214A74A200305093 /* EDSTestCaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B098214A74A200305093 /* EDSTestCaseView.xib */; };
 		1082B09D214A7A4800305093 /* EDSMessageSiginBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */; };
 		1082B09E214A7A4800305093 /* EDSMessageSiginBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1082B09C214A7A4800305093 /* EDSMessageSiginBoxViewController.xib */; };
@@ -2186,6 +2190,13 @@
 		105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourSubjectExamBase.m; sourceTree = "<group>"; };
 		105A8BCE21525CD400B3E092 /* EDSSubjectFourExamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourExamViewController.h; sourceTree = "<group>"; };
 		105A8BCF21525CD400B3E092 /* EDSSubjectFourExamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourExamViewController.m; sourceTree = "<group>"; };
+		1066111B215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSLoginSettingsPasswordViewController.h; sourceTree = "<group>"; };
+		1066111C215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSLoginSettingsPasswordViewController.m; sourceTree = "<group>"; };
+		1066111D215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSLoginSettingsPasswordViewController.xib; sourceTree = "<group>"; };
+		10661120215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSJCustomDict_h.m"; sourceTree = "<group>"; };
+		10661121215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSJCustomDict_h.h"; sourceTree = "<group>"; };
+		10661127215A454D001C69C1 /* EDSUpDownButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUpDownButton.h; sourceTree = "<group>"; };
+		10661128215A454D001C69C1 /* EDSUpDownButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUpDownButton.m; sourceTree = "<group>"; };
 		1082B098214A74A200305093 /* EDSTestCaseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSTestCaseView.xib; sourceTree = "<group>"; };
 		1082B09A214A7A4800305093 /* EDSMessageSiginBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMessageSiginBoxViewController.h; sourceTree = "<group>"; };
 		1082B09B214A7A4800305093 /* EDSMessageSiginBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMessageSiginBoxViewController.m; sourceTree = "<group>"; };
@@ -6973,6 +6984,9 @@
 				E9A619CF2134069C006E5C2B /* EDSPSWLogoViewController.h */,
 				E9A619D02134069C006E5C2B /* EDSPSWLogoViewController.m */,
 				E9A619D12134069C006E5C2B /* EDSPSWLogoViewController.xib */,
+				1066111B215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.h */,
+				1066111C215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m */,
+				1066111D215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -7537,6 +7551,8 @@
 				E9653860213E25C600EDC3B8 /* EDSChooseBoxViewController.h */,
 				E9653861213E25C600EDC3B8 /* EDSChooseBoxViewController.m */,
 				E965386C213E28F500EDC3B8 /* EDSChooseBoxViewController.xib */,
+				10661127215A454D001C69C1 /* EDSUpDownButton.h */,
+				10661128215A454D001C69C1 /* EDSUpDownButton.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -7544,6 +7560,8 @@
 		E9BC047521315283003A624F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				10661121215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.h */,
+				10661120215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.m */,
 				E9BC048121315283003A624F /* CALayer+BHYXibBorderColor.h */,
 				E9BC047821315283003A624F /* CALayer+BHYXibBorderColor.m */,
 				E9BC048321315283003A624F /* UIImageView+BHYCustom.h */,
@@ -9404,6 +9422,7 @@
 				E952CF09214268FE00EA3A0A /* jtbz_jzbx9.jpg in Resources */,
 				E952D461214268FF00EA3A0A /* jtbz_zlu59.jpg in Resources */,
 				E952D007214268FE00EA3A0A /* jtbz_zlu83.png in Resources */,
+				1066111F215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.xib in Resources */,
 				E952CFC3214268FE00EA3A0A /* jtbz_zsd8.jpg in Resources */,
 				E952D12A214268FE00EA3A0A /* 1865.jpg in Resources */,
 				E952D303214268FF00EA3A0A /* 863.jpg in Resources */,
@@ -9918,6 +9937,7 @@
 				10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */,
 				10ED4E4D214A243C00DF50F7 /* EDSStudentMsgDetailModel.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
+				10661122215A2A52001C69C1 /* NSDictionary+JSJCustomDict_h.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
@@ -10015,6 +10035,7 @@
 				E9BC048E21315283003A624F /* CALayer+BHYXibBorderColor.m in Sources */,
 				E9A61AC72137F895006E5C2B /* EDSQuestionModel.m in Sources */,
 				E952C7542141217D00EA3A0A /* UIImagePickerController+ST.m in Sources */,
+				10661129215A454D001C69C1 /* EDSUpDownButton.m in Sources */,
 				105A8BC62152508000B3E092 /* EDSOnlineClassListDetailRequest.m in Sources */,
 				E9BC04C421315DC5003A624F /* EDSHomeTableViewHeaderView.m in Sources */,
 				10EDA163214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m in Sources */,
@@ -10058,6 +10079,7 @@
 				E9BC04C721315FC3003A624F /* EDSHomeFunctionBtn.m in Sources */,
 				E9A61A5C21368235006E5C2B /* EDSOnlineAboutClassDetailAppointmentHeaderView.m in Sources */,
 				E9BC049121315283003A624F /* UIView+BHYCore.m in Sources */,
+				1066111E215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m in Sources */,
 				10F74D5F214CD25B00FA3ECC /* EDSCommentDetailModel.m in Sources */,
 				E9A61A162135666E006E5C2B /* EDSTeachingStyleCollectionViewCell.m in Sources */,
 				E9A619C42133F711006E5C2B /* EDSDriveSchollInfomationSearchView.m in Sources */,

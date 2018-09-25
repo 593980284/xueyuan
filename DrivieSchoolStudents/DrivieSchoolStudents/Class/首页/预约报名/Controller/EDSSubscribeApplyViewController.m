@@ -224,10 +224,10 @@
             
             dispatch_apply(self.carTypeArr.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
                 
-                EDSChooseBoxModel *model = [[EDSChooseBoxModel alloc] init];
-                model.name = self.carTypeArr[i].name;
-                model.code = self.carTypeArr[i].code;
-                [self.chooseBoxModelArr addObject:model];
+                EDSChooseBoxModel *boxModel = [[EDSChooseBoxModel alloc] init];
+                boxModel.name = self.carTypeArr[i].name;
+                boxModel.code = self.carTypeArr[i].code;
+                [self.chooseBoxModelArr addObject:boxModel];
                 
             });
         }else
