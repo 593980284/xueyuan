@@ -16,6 +16,7 @@
 #import "EDSBrandIntroductionViewController.h"//品牌介绍
 #import "EDSRegistrationProcessViewController.h"//报名流程
 #import "EDSPricePublicViewController.h"//价格公示
+#import "EDSOnlineAboutTestViewController.h"//在线约考
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -30,6 +31,7 @@
 
 /** 驾校消息 */
 @property (nonatomic, strong) NSArray<EDSDrivingSchoolModel *>  *tableViewListArr;
+@property (nonatomic , strong) EDSHomeTableViewHeaderView *headerView;
 
 @end
 
@@ -45,9 +47,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    EDSHomeTableViewHeaderView *headerView = [[EDSHomeTableViewHeaderView alloc] init];
-    headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
-    self.tableView.tableHeaderView = headerView;
+    _headerView = [[EDSHomeTableViewHeaderView alloc] init];
+    _headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
+    _headerView.headerArr = @[];
+    self.tableView.tableHeaderView = _headerView;
     
     [NotificationCenter addObserver:self selector:@selector(homeFuntionBtnClick:) name:kZSNotificationHomeBtnCenter object:nil];
 }
@@ -57,6 +60,8 @@
     [super viewWillAppear:animated];
     
     [self homeRequestData];
+    
+    _headerView.headerArr = @[];
 }
 
 - (void)setupNavigationView
@@ -93,8 +98,14 @@
         
         if ([EDSSave account].userID.length > 0) {
             
-            EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            if ([EDSSave account].schoolId.length > 0) {
+                
+                EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }
         }else{
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
@@ -115,14 +126,14 @@
         EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"在线约考"]){//
-        if ([EDSSave account].userID.length > 0) {
+        if ([EDSSave account].schoolId.length > 0) {
             
-//            EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
-//            [self.navigationController pushViewController:vc animated:YES];
+            EDSOnlineAboutTestViewController *vc = [[EDSOnlineAboutTestViewController alloc] initWithNibName:@"EDSOnlineAboutTestViewController" bundle:[NSBundle mainBundle]];
+            [self.navigationController pushViewController:vc animated:YES];
         }else{
             
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            [SVProgressHUD showErrorWithStatus:@"您还没有报名奥^_^!"];
+            [SVProgressHUD dismissWithDelay:1.5];
         }
         
     }else if ([titleStr isEqualToString:@"价格公示"]){

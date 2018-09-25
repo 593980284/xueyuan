@@ -10,4 +10,6 @@
 
 @interface EDSHomeTableViewHeaderView : UIView
 
+@property (nonatomic , strong) NSArray *headerArr;
+
 @end

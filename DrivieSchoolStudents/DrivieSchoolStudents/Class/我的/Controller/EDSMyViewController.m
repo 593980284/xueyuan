@@ -167,12 +167,24 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([string isEqualToString:@"课程记录"]){
         
-        EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([EDSSave account].schoolId.length > 0) {
+            
+            EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
     }else if ([string isEqualToString:@"学习查询"]){
         
-        EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([EDSSave account].schoolId.length > 0) {
+            
+            EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
     }else if ([string isEqualToString:@"关于我们"]){
         
         EDSAboutUsViewController *vc = [[EDSAboutUsViewController alloc] initWithNibName:@"EDSAboutUsViewController" bundle:[NSBundle mainBundle]];

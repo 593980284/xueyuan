@@ -24,6 +24,7 @@
         _state = [NSString stringWithFormat:@"%@",dict[@"state"]];
         _applyDriveCar = [NSString stringWithFormat:@"%@",dict[@"applyDriveCar"]];
         _studentId = [NSString stringWithFormat:@"%@",dict[@"studentId"]];
+        _bookingExamUrl = [NSString stringWithFormat:@"%@",dict[@"bookingExamUrl"]];
     }
     return self;
 }

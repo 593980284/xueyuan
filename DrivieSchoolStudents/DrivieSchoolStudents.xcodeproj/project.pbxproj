@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10092F2E215A07C300E39C3D /* EDSOnlineAboutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */; };
+		10092F2F215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */; };
 		1036A3D421549FFC00F32B8E /* EDSElegantDemeanourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1036A3D221549FFC00F32B8E /* EDSElegantDemeanourViewController.m */; };
 		1036A3D521549FFC00F32B8E /* EDSElegantDemeanourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1036A3D321549FFC00F32B8E /* EDSElegantDemeanourViewController.xib */; };
 		1036A3D92154C31E00F32B8E /* EDSStudentDriverStrategyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1036A3D72154C31E00F32B8E /* EDSStudentDriverStrategyDetailViewController.m */; };
@@ -2159,6 +2161,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10092F2B215A07C300E39C3D /* EDSOnlineAboutTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineAboutTestViewController.h; sourceTree = "<group>"; };
+		10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineAboutTestViewController.m; sourceTree = "<group>"; };
+		10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSOnlineAboutTestViewController.xib; sourceTree = "<group>"; };
 		1036A3D121549FFC00F32B8E /* EDSElegantDemeanourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSElegantDemeanourViewController.h; sourceTree = "<group>"; };
 		1036A3D221549FFC00F32B8E /* EDSElegantDemeanourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSElegantDemeanourViewController.m; sourceTree = "<group>"; };
 		1036A3D321549FFC00F32B8E /* EDSElegantDemeanourViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSElegantDemeanourViewController.xib; sourceTree = "<group>"; };
@@ -7671,6 +7676,9 @@
 				10F74D73214D073400FA3ECC /* EDSPricePublicViewController.h */,
 				10F74D74214D073400FA3ECC /* EDSPricePublicViewController.m */,
 				10F74D75214D073400FA3ECC /* EDSPricePublicViewController.xib */,
+				10092F2B215A07C300E39C3D /* EDSOnlineAboutTestViewController.h */,
+				10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */,
+				10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -9572,6 +9580,7 @@
 				E952D38D214268FF00EA3A0A /* 1664.jpg in Resources */,
 				E952D108214268FE00EA3A0A /* 704.jpg in Resources */,
 				E952CFDA214268FE00EA3A0A /* jtbz_zlu95.png in Resources */,
+				10092F2F215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib in Resources */,
 				E952D024214268FE00EA3A0A /* jtbz_zsbx53.jpg in Resources */,
 				E952CEDB214268FD00EA3A0A /* jtbz_zlu120.jpg in Resources */,
 				E952D38F214268FF00EA3A0A /* 2345.jpg in Resources */,
@@ -9942,6 +9951,7 @@
 				E965386A213E266200EDC3B8 /* PopAnimator.m in Sources */,
 				10C2FCC4214BC2FB00498C52 /* EDSCourseRecordDetailFooterView.m in Sources */,
 				104DFFDF2152974B004D9CBC /* UIView+EDSTool.m in Sources */,
+				10092F2E215A07C300E39C3D /* EDSOnlineAboutTestViewController.m in Sources */,
 				E90F9022213D516A0061F448 /* EDSSchoolRegionModel.m in Sources */,
 				10F74D71214D04CA00FA3ECC /* EDSRegistrationProcessViewController.m in Sources */,
 				E9D1C166213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m in Sources */,
