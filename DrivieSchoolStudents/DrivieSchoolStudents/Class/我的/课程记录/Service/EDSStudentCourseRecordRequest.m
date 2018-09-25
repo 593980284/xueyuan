@@ -32,7 +32,20 @@
     NSArray <EDSCourseRecordModel *>*clist = [EDSCourseRecordModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"clist"]];
     NSArray <EDSCourseRecordModel *>*ulist = [EDSCourseRecordModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"ulist"]];
     
-    NSArray *model = @[clist,ulist];
+    NSArray *model = @[@[],@[]];
+    
+    if (clist.count > 0) {
+        model = @[clist,@[]];
+    }
+    
+    if (ulist.count > 0) {
+        
+        model = @[@[],ulist];
+    }
+    
+    if (clist.count > 0 && ulist.count > 0) {
+        model = @[clist,ulist];
+    }
     
     if (self.successBlock) {
         

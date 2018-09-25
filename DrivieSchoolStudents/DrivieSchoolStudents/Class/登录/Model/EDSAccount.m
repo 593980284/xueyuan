@@ -39,7 +39,7 @@
     }else if ([_learnProgress isEqual:@"3"]){
         
         return @"科目三";
-    }else{
+    }else if ([_learnProgress isEqual:@"4"]){
         
         return @"文明驾驶";
     }

@@ -114,11 +114,11 @@
     
     if (self.resultModel.isFour) {
         
-        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/50" normalTitle:@"" frontTitle:self.resultModel.right diffentColor:ThirdColor];
+        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/50" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",[self.resultModel.errors integerValue] + [self.resultModel.right integerValue]] diffentColor:ThirdColor];
         model.attar = attStr;
     }else{
         
-        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/100" normalTitle:@"" frontTitle:self.resultModel.right diffentColor:ThirdColor];
+        NSAttributedString *attStr = [NSString attributedStringWithColorTitle:@"/100" normalTitle:@"" frontTitle:[NSString stringWithFormat:@"%ld",[self.resultModel.errors integerValue] + [self.resultModel.right integerValue]] diffentColor:ThirdColor];
         model.attar = attStr;
     }
     

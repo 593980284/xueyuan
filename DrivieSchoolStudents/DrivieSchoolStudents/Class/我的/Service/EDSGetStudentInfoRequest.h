@@ -4,7 +4,7 @@
 //
 //  Created by 班文政 on 2018/9/14.
 //  Copyright © 2018年 班文政. All rights reserved.
-//
+//获取个人信息
 
 #import "HQMBaseRequest.h"
 

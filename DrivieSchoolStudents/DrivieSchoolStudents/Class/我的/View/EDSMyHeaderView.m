@@ -47,7 +47,7 @@
     [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
     
     self.carTypeLbl.text = [EDSSave account].applyDriveCar;
-    self.learnProgressLbl.text = [EDSSave account].learnProgress.length > 0 ?  [NSString stringWithFormat:@"科目%@",[EDSSave  account].learnProgress] : @"";
+    self.learnProgressLbl.text = [EDSSave account].learnProgress.length > 0 ?  [NSString stringWithFormat:@"%@",[EDSSave  account].learnProgress] : @"";
     self.schoolNameLbl.text = [EDSSave account].schoolName;
     
     self.phoneLbl.text = [EDSSave account].phone;

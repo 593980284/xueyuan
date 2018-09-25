@@ -54,10 +54,10 @@
  字段id可以为（1,2,3），phone
  */
 
-#define JGGS  @"http://h5.k-ku.com/game/lexiang/#/priceShow"            //价格公示   ?id=4000001&className&carType
-#define JXFC  @"http://h5.k-ku.com/game/lexiang/"                       //教学风采
-#define KMLB  @"http://h5.k-ku.com/game/lexiang/#/theoryStudy"          //科二科三
-#define XCGL  @"http://h5.k-ku.com/game/lexiang/#/strategyPage"         //科二科三
+#define JGGS  @"http://111.39.245.156:8087/lexiang/dist/index.html#/priceShow"            //价格公示   ?id=4000001&className&carType
+#define JXFC  @"http://111.39.245.156:8087/lexiang/dist/index.html"                       //教学风采
+#define KMLB  @"http://111.39.245.156:8087/lexiang/dist/index.html#/theoryStudy"          //科二科三
+#define XCGL  @"http://111.39.245.156:8087/lexiang/dist/index.html#/strategyPage"         //科二科三
 
 #endif
 

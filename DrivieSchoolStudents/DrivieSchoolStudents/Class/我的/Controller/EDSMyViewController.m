@@ -233,6 +233,10 @@
         }];
         request.title = @"乐享学员APP版本(iOS)";
         [request startRequest];
+    }else if ([string isEqualToString:@"我的报名"]){
+        
+        [SVProgressHUD showErrorWithStatus:@"您还没有报名"];
+        [SVProgressHUD dismissWithDelay:1.5];
     }
 }
 
