@@ -62,9 +62,36 @@
         @strongify(self);
         if ([titleStr isEqualToString:@"清除"]){
             
-            DLog(@"11111");
-            
             [self clearRecordQuestion];
+        }else if ([titleStr isEqualToString:@"收藏"]){
+            
+            if (self.tableViewModel.isCollection) {
+                
+                if ([[EDSFourDataBase sharedDataBase] upDataFourSubjectunCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = NO;
+                    [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }else{
+                
+                if ([[EDSFourDataBase sharedDataBase] upDataFourSubjectCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = YES;
+                    [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }
+            
+            [self getFooterViewModel];
         }
     };
     
@@ -169,15 +196,15 @@
 {
     self.tableView.allowsSelection = YES;
     
+    NSString *ID = [EDSSave account].fourSubjectID;
+    NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
+    EDSAccount *account = [EDSSave account];
+    account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+    [EDSSave save:account];
+    
+    self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectID];
+    
     if (self.tableViewModel.ID.length > 0) {
-        
-        NSString *ID = [EDSSave account].fourSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
-        EDSAccount *account = [EDSSave account];
-        account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
-        [EDSSave save:account];
-        
-        self.tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:account.fourSubjectID];
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
@@ -369,7 +396,13 @@
 {
     if (!_tableViewModel) {
         
-        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:[EDSSave account].fourSubjectID];
+        NSString *ID = [EDSSave account].fourSubjectID;
+        ID = ID.length > 0 ? ID : @"1326";
+        EDSAccount *account = [EDSSave account];
+        account.fourSubjectID = [NSString stringWithFormat:@"%@",ID];
+        [EDSSave save:account];
+        
+        _tableViewModel =  [[EDSFourDataBase sharedDataBase] getFourSubjectQuestionWithID:ID];
     }
     return _tableViewModel;
 }

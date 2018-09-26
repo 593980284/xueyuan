@@ -36,9 +36,9 @@
 
 
 /** 收藏 */
-- (void)upDataFourSubjectCollectionWithID:(NSString *)ID;
+- (BOOL)upDataFourSubjectCollectionWithID:(NSString *)ID;
 /** 取消收藏 */
-- (void)upDataFourSubjectunCollectionWithID:(NSString *)ID;
+- (BOOL)upDataFourSubjectunCollectionWithID:(NSString *)ID;
 
 /** 清除科目四所有错题 */
 - (void)clearFourSubjectAllWrongQuestions;

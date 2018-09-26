@@ -46,10 +46,16 @@
             
             if (ID > 1325) {
                 
-                [[EDSFourDataBase sharedDataBase] upDataFourSubjectunCollectionWithID:self.ID];
-                self.collectionBrn.selected = NO;
-                [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
-                [SVProgressHUD dismissWithDelay:1.5];
+                if ([[EDSFourDataBase sharedDataBase] upDataFourSubjectunCollectionWithID:self.ID]) {
+                    
+                    self.collectionBrn.selected = NO;
+                    [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
             }else{
                 
                 if ([[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.ID]) {
@@ -68,10 +74,16 @@
             
             if (ID > 1325) {
                 
-                [[EDSFourDataBase sharedDataBase] upDataFourSubjectCollectionWithID:self.ID];
-                self.collectionBrn.selected = YES;
-                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-                [SVProgressHUD dismissWithDelay:1.5];
+                if ([[EDSFourDataBase sharedDataBase] upDataFourSubjectCollectionWithID:self.ID]) {
+                    
+                    self.collectionBrn.selected = YES;
+                    [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
             }else{
                 if ([[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.ID]) {
                     

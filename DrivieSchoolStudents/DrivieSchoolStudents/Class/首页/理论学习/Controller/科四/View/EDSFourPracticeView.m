@@ -57,19 +57,11 @@
     
     @weakify(self);
     [self.collectionBtn bk_whenTapped:^{
-        
         @strongify(self);
-        if (self.collectionBtn.selected) {
+        
+        if (self.practiceFooterViewDidSelectStringback) {
             
-            [[EDSFourDataBase sharedDataBase] upDataFourSubjectunCollectionWithID:footerModel.ID];
-            self.collectionBtn.selected = NO;
-            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
-        }else{
-            [[EDSFourDataBase sharedDataBase] upDataFourSubjectCollectionWithID:footerModel.ID];
-            self.collectionBtn.selected = YES;
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
+            self.practiceFooterViewDidSelectStringback(@"收藏");
         }
     }];
 }

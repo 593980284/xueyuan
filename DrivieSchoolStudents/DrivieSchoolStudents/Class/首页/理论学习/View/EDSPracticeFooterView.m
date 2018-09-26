@@ -92,6 +92,7 @@
 
 //下一题
 - (IBAction)nextClick:(id)sender {
+    
     if (self.practiceFooterViewDidSelectStringback) {
         
         self.practiceFooterViewDidSelectStringback(@"下一题");

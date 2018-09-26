@@ -234,27 +234,31 @@ static FMDatabaseQueue *_queue = nil;
 
 
 /** 收藏 */
-- (void)upDataFourSubjectCollectionWithID:(NSString *)ID
+- (BOOL)upDataFourSubjectCollectionWithID:(NSString *)ID
 {
     [_db open];
     
     ID = ID.length > 0 ? ID : @"1";
     
-    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
+    BOOL res =  [_db executeUpdate:@"UPDATE fourbankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
     
     [_db close];
+    
+    return res ? YES : NO;
 }
 
 /** 取消收藏 */
-- (void)upDataFourSubjectunCollectionWithID:(NSString *)ID
+- (BOOL)upDataFourSubjectunCollectionWithID:(NSString *)ID
 {
     [_db open];
     
     ID = ID.length > 0 ? ID : @"1";
     
-    [_db executeUpdate:@"UPDATE fourbankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
+    BOOL res =  [_db executeUpdate:@"UPDATE fourbankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
     
     [_db close];
+    
+    return res ? YES : NO;
 }
 
 

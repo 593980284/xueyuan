@@ -168,15 +168,16 @@
 {
     self.tableView.allowsSelection = YES;
     
+    NSString *ID = [EDSSave account].firstSubjectID;
+    NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
+    EDSAccount *account = [EDSSave account];
+    account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+    [EDSSave save:account];
+    
     self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
     
     if (self.tableViewModel.ID.length > 0) {
         
-        NSString *ID = [EDSSave account].firstSubjectID;
-        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
-        EDSAccount *account = [EDSSave account];
-        account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
-        [EDSSave save:account];
         
         self.headerView.questionModel = self.tableViewModel;
         [self.tableView setTableHeaderView:self.headerView];
@@ -344,6 +345,12 @@
 - (EDSQuestionModel *)tableViewModel
 {
     if (!_tableViewModel) {
+        
+        NSString *ID = [EDSSave account].firstSubjectID;
+        ID = ID.length > 0 ? ID : @"1";
+        EDSAccount *account = [EDSSave account];
+        account.firstSubjectID = [NSString stringWithFormat:@"%@",ID];
+        [EDSSave save:account];
         
         _tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
     }
