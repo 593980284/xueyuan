@@ -76,7 +76,33 @@
             [SVProgressHUD dismissWithDelay:1.5];
         }else if ([titleStr isEqualToString:@"收藏"]){
             
-//            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:[EDSSave account].firstSubjectID];
+            if (self.tableViewModel.isCollection) {
+                
+                if ([[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = NO;
+                    [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }else{
+                
+                if ([[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = YES;
+                    [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }else{
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }
+            [self getFooterViewModel];
+            
         }else if ([titleStr isEqualToString:@"清除"]){
             
             DLog(@"11111");
@@ -142,7 +168,7 @@
 {
     self.tableView.allowsSelection = YES;
     
-    self.tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+    self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
     
     if (self.tableViewModel.ID.length > 0) {
         

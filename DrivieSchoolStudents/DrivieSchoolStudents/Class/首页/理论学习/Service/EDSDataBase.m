@@ -294,27 +294,38 @@ static FMDatabaseQueue *_queue = nil;
 }
 
 //收藏
-- (void)upDataFirstSubjectCollectionWithID:(NSString *)ID
+- (BOOL)upDataFirstSubjectCollectionWithID:(NSString *)ID
 {
     [_db open];
     
     ID = ID.length > 0 ? ID : @"1";
     
-    [_db executeUpdate:@"UPDATE onebankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
+    BOOL res = [_db executeUpdate:@"UPDATE onebankbean SET collection = 1 WHERE id = ?" values:@[ID] error:nil];
     
     [_db close];
+    if (res) {
+        return  YES;
+    }else{
+        return  NO;
+    }
 }
 
 //取消收藏
-- (void)upDataFirstSubjectunCollectionWithID:(NSString *)ID
+- (BOOL)upDataFirstSubjectunCollectionWithID:(NSString *)ID
 {
     [_db open];
     
     ID = ID.length > 0 ? ID : @"1";
     
-    [_db executeUpdate:@"UPDATE onebankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
+    BOOL res = [_db executeUpdate:@"UPDATE onebankbean SET collection = 0 WHERE id = ?" values:@[ID] error:nil];
     
     [_db close];
+    
+    if (res) {
+        return  YES;
+    }else{
+        return  NO;
+    }
 }
 
 

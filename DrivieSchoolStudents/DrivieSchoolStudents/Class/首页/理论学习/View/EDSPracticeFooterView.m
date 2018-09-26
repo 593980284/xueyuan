@@ -52,23 +52,37 @@
     self.correctLbl.text = footerModel.correctStr;
     self.collectionBtn.selected = footerModel.isCollection;
     
-    @weakify(self);
-    [self.collectionBtn bk_whenTapped:^{
-        
-        @strongify(self);
-        if (self.collectionBtn.selected) {
-            
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:footerModel.ID];
-            self.collectionBtn.selected = NO;
-            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
-        }else{
-            [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:footerModel.ID];
-            self.collectionBtn.selected = YES;
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
-        }
-    }];
+//    @weakify(self);
+//    [self.collectionBtn bk_whenTapped:^{
+//        
+//        @strongify(self);
+//        if (self.collectionBtn.selected) {
+//            
+//            if ([[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:footerModel.ID]) {
+//                
+//                footerModel.isCollection = NO;
+//                self.collectionBtn.selected = NO;
+//                [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+//                [SVProgressHUD dismissWithDelay:1.5];
+//            }else{
+//                
+//                [SVProgressHUD showSuccessWithStatus:@"请重试"];
+//                [SVProgressHUD dismissWithDelay:1.5];
+//            }
+//        }else{
+//            if ([[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:footerModel.ID]) {
+//                
+//                self.collectionBtn.selected = YES;
+//                footerModel.isCollection = YES;
+//                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+//                [SVProgressHUD dismissWithDelay:1.5];
+//            }else{
+//                
+//                [SVProgressHUD showSuccessWithStatus:@"请重试"];
+//                [SVProgressHUD dismissWithDelay:1.5];
+//            }
+//        }
+//    }];
 }
 
 - (void)setIsCollection:(BOOL *)isCollection

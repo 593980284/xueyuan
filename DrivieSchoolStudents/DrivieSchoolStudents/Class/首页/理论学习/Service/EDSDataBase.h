@@ -35,9 +35,9 @@
 
 
 /** 收藏 */
-- (void)upDataFirstSubjectCollectionWithID:(NSString *)ID;
+- (BOOL)upDataFirstSubjectCollectionWithID:(NSString *)ID;
 /** 取消收藏 */
-- (void)upDataFirstSubjectunCollectionWithID:(NSString *)ID;
+- (BOOL)upDataFirstSubjectunCollectionWithID:(NSString *)ID;
 /** 获取收藏数量 */
 - (NSString *)getFirstSubjectCollectionCount;
 /** 获取科目一收藏题目 */
