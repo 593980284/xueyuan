@@ -74,6 +74,8 @@
     
     self.navigationItem.title = @"驾校详情";
     
+    self.view.backgroundColor = WhiteColor;
+    
     [self.view addSubview:self.topView];
     @weakify(self);
     self.topView.drivingDetailsHeaderViewDidSelectStringback = ^(NSString *titleStr) {
@@ -163,13 +165,12 @@
 {
     if (!_footerView) {
         
-        DLog(@"%d",SafeAreaBottomHeight);
         _footerView = [[EDSDrivingDetailsFooterView alloc] init];
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);
             make.bottom.mas_equalTo(-SafeAreaBottomHeight);
-            make.height.mas_equalTo(KLineY(69));
+            make.height.mas_equalTo(KLineY(59));
         }];
     }
     return _footerView;

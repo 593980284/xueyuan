@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1005F784215B3B5400710A9F /* EDSBrandIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1005F782215B3B5400710A9F /* EDSBrandIntroductionViewController.m */; };
+		1005F785215B3B5400710A9F /* EDSBrandIntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1005F783215B3B5400710A9F /* EDSBrandIntroductionViewController.xib */; };
 		10092F2E215A07C300E39C3D /* EDSOnlineAboutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */; };
 		10092F2F215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */; };
 		1036A3D421549FFC00F32B8E /* EDSElegantDemeanourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1036A3D221549FFC00F32B8E /* EDSElegantDemeanourViewController.m */; };
@@ -134,8 +136,7 @@
 		E935C6272138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E935C6262138EF79006FB53C /* EDSCourseRecordDetailFooterView.xib */; };
 		E952C6B0213F711800EA3A0A /* EDSSchoolListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6AF213F711800EA3A0A /* EDSSchoolListRequest.m */; };
 		E952C6B8213FB1B900EA3A0A /* EDSSchoolListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6B7213FB1B900EA3A0A /* EDSSchoolListModel.m */; };
-		E952C6BA213FBED200EA3A0A /* 品牌介绍.docx in Resources */ = {isa = PBXBuildFile; fileRef = E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */; };
-		E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */; };
+		E952C6BA213FBED200EA3A0A /* ppjs.docx in Resources */ = {isa = PBXBuildFile; fileRef = E952C6B9213FBED100EA3A0A /* ppjs.docx */; };
 		E952C6DF213FD4F700EA3A0A /* AATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6D7213FD4F700EA3A0A /* AATableViewCell.m */; };
 		E952C6E0213FD4F700EA3A0A /* QYAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6D9213FD4F700EA3A0A /* QYAnnotation.m */; };
 		E952C6E1213FD4F700EA3A0A /* DestinationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = E952C6DA213FD4F700EA3A0A /* DestinationMode.m */; };
@@ -2165,6 +2166,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1005F781215B3B5400710A9F /* EDSBrandIntroductionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBrandIntroductionViewController.h; sourceTree = "<group>"; };
+		1005F782215B3B5400710A9F /* EDSBrandIntroductionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBrandIntroductionViewController.m; sourceTree = "<group>"; };
+		1005F783215B3B5400710A9F /* EDSBrandIntroductionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSBrandIntroductionViewController.xib; sourceTree = "<group>"; };
 		10092F2B215A07C300E39C3D /* EDSOnlineAboutTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineAboutTestViewController.h; sourceTree = "<group>"; };
 		10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSOnlineAboutTestViewController.m; sourceTree = "<group>"; };
 		10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSOnlineAboutTestViewController.xib; sourceTree = "<group>"; };
@@ -2394,9 +2398,7 @@
 		E952C6B5213F833C00EA3A0A /* DrivieSchoolStudents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DrivieSchoolStudents.entitlements; sourceTree = "<group>"; };
 		E952C6B6213FB1B900EA3A0A /* EDSSchoolListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSchoolListModel.h; sourceTree = "<group>"; };
 		E952C6B7213FB1B900EA3A0A /* EDSSchoolListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSchoolListModel.m; sourceTree = "<group>"; };
-		E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "品牌介绍.docx"; sourceTree = "<group>"; };
-		E952C6BB213FBFC100EA3A0A /* EDSBrandIntroductionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBrandIntroductionViewController.h; sourceTree = "<group>"; };
-		E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBrandIntroductionViewController.m; sourceTree = "<group>"; };
+		E952C6B9213FBED100EA3A0A /* ppjs.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ppjs.docx; sourceTree = "<group>"; };
 		E952C6D4213FD4F700EA3A0A /* QYAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAnnotation.h; sourceTree = "<group>"; };
 		E952C6D5213FD4F700EA3A0A /* BBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTableViewCell.h; sourceTree = "<group>"; };
 		E952C6D6213FD4F700EA3A0A /* DestinationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationMode.h; sourceTree = "<group>"; };
@@ -7489,7 +7491,7 @@
 		E9BC045D21314A06003A624F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E952C6B9213FBED100EA3A0A /* 品牌介绍.docx */,
+				E952C6B9213FBED100EA3A0A /* ppjs.docx */,
 				E9BC045E21314A06003A624F /* AppDelegate.h */,
 				E9BC046021314A06003A624F /* AppDelegate.m */,
 				E9BC046121314A06003A624F /* ViewController.h */,
@@ -7684,8 +7686,6 @@
 			children = (
 				E9BC04BD21315AE6003A624F /* EDSHomeViewController.h */,
 				E9BC04BC21315AE6003A624F /* EDSHomeViewController.m */,
-				E952C6BB213FBFC100EA3A0A /* EDSBrandIntroductionViewController.h */,
-				E952C6BC213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m */,
 				E952C6E5213FD53100EA3A0A /* EDSMapViewController.h */,
 				E952C6E6213FD53100EA3A0A /* EDSMapViewController.m */,
 				10F74D6E214D04CA00FA3ECC /* EDSRegistrationProcessViewController.h */,
@@ -7697,6 +7697,9 @@
 				10092F2B215A07C300E39C3D /* EDSOnlineAboutTestViewController.h */,
 				10092F2C215A07C300E39C3D /* EDSOnlineAboutTestViewController.m */,
 				10092F2D215A07C300E39C3D /* EDSOnlineAboutTestViewController.xib */,
+				1005F781215B3B5400710A9F /* EDSBrandIntroductionViewController.h */,
+				1005F782215B3B5400710A9F /* EDSBrandIntroductionViewController.m */,
+				1005F783215B3B5400710A9F /* EDSBrandIntroductionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -8902,7 +8905,7 @@
 				E952D06B214268FE00EA3A0A /* 897.jpg in Resources */,
 				E952D118214268FE00EA3A0A /* 1252.jpg in Resources */,
 				E952D494214268FF00EA3A0A /* 2028.gif in Resources */,
-				E952C6BA213FBED200EA3A0A /* 品牌介绍.docx in Resources */,
+				E952C6BA213FBED200EA3A0A /* ppjs.docx in Resources */,
 				E952D254214268FE00EA3A0A /* jtbz_jl23.jpg in Resources */,
 				E952D1A3214268FE00EA3A0A /* 674.jpg in Resources */,
 				E952D377214268FF00EA3A0A /* 1314.jpg in Resources */,
@@ -9463,6 +9466,7 @@
 				E952D22F214268FE00EA3A0A /* 849.jpg in Resources */,
 				E952D109214268FE00EA3A0A /* jtbz_jl15.jpg in Resources */,
 				E952D1F7214268FE00EA3A0A /* 1254.jpg in Resources */,
+				1005F785215B3B5400710A9F /* EDSBrandIntroductionViewController.xib in Resources */,
 				E952D447214268FF00EA3A0A /* jtbz_zlu71.png in Resources */,
 				E952D406214268FF00EA3A0A /* jtbz_dlsg25.jpg in Resources */,
 				E952D332214268FF00EA3A0A /* 2024.jpg in Resources */,
@@ -10009,6 +10013,7 @@
 				10D0E9C02153832D00BADD59 /* EDSSubjectFourExamErrorsViewController.m in Sources */,
 				10ED4E50214A2F5A00DF50F7 /* EDSSaveMailInfoRequest.m in Sources */,
 				E9A6199E2133C301006E5C2B /* EDSStudentDriverStrategyViewController.m in Sources */,
+				1005F784215B3B5400710A9F /* EDSBrandIntroductionViewController.m in Sources */,
 				10C2FCBE214BBC9B00498C52 /* EDSGetStudentInfoRequest.m in Sources */,
 				E952C7572141217D00EA3A0A /* STUI.m in Sources */,
 				E9A6196B213391EB006E5C2B /* EDSDriveStarView.m in Sources */,
@@ -10025,7 +10030,6 @@
 				10C3F2762149246100AA091A /* EDSOnlineClassListByDateRequest.m in Sources */,
 				E902E0B421475D6600F49C51 /* EDSFirstSubjectExamFooterView.m in Sources */,
 				E9A61A7421369CF4006E5C2B /* EDSPersonalSettingsViewController.m in Sources */,
-				E952C6BD213FBFC100EA3A0A /* EDSBrandIntroductionViewController.m in Sources */,
 				E9A619F821352481006E5C2B /* EDSAccount.m in Sources */,
 				E9A61A6121368AD6006E5C2B /* EDSOnlineAboutClassDetailAppointmentTableViewCell.m in Sources */,
 				1036A3D421549FFC00F32B8E /* EDSElegantDemeanourViewController.m in Sources */,

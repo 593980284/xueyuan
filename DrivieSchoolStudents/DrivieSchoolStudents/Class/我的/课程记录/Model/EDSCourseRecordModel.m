@@ -53,10 +53,10 @@
         return @"缺勤";
     }else if ([_status isEqual:@"0"] || [_status isEqual:@"1"] || [_status isEqual:@"4"])
     {
-        return @"未确定";
+        return @"未确认";
     }else{
         
-        return @"未确定";
+        return @"未确认";
     }
     return @"";
 }

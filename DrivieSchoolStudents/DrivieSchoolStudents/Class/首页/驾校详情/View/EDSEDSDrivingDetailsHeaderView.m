@@ -310,6 +310,7 @@
     if (!_commentDriveNameLbl) {
         
         _commentDriveNameLbl = [UILabel labelWithText:@"小白驾校" font:[UIFont boldSystemFontOfSize:17] textColor:FirstColor backGroundColor:ClearColor superView:self.commentBgView];
+        _commentDriveNameLbl.numberOfLines = 1;
         [_commentDriveNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(15);
             make.centerY.mas_equalTo(0);

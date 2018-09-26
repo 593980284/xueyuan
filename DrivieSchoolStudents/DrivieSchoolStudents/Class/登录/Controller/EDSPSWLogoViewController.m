@@ -43,8 +43,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.codePhoneTextF.text = @"18297982132";
-    self.pswPhoneTextF.text = @"18297982132";
+//    self.codePhoneTextF.text = @"18297982132";
+//    self.pswPhoneTextF.text = @"18297982132";
     
     self.pswBtn.selected = YES;
     self.pswLoginBgView.hidden = NO;

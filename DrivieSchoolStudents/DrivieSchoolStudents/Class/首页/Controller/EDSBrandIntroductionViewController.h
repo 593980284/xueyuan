@@ -2,12 +2,14 @@
 //  EDSBrandIntroductionViewController.h
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/9/5.
-//  Copyright © 2018年 班文政. All rights reserved.
+//  Created by 班文政 on 2018/9/26.
+//  Copyright © 2018 班文政. All rights reserved.
 //
 
-#import "BHYWebViewViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface EDSBrandIntroductionViewController : BHYWebViewViewController
+
+@interface EDSBrandIntroductionViewController : UIViewController
 
 @end
+

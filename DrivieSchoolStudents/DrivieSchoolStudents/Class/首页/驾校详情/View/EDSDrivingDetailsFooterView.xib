@@ -24,10 +24,9 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-Mt-3av">
-                    <rect key="frame" x="187" y="12" width="173" height="45"/>
+                    <rect key="frame" x="190" y="12" width="170" height="45"/>
                     <color key="backgroundColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="173" id="Ex2-lO-t9e"/>
                         <constraint firstAttribute="height" constant="45" id="KNt-Ce-aTI"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -54,12 +53,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw6-uH-hoz" customClass="EDSUpDownButton">
-                    <rect key="frame" x="82" y="1" width="105" height="68"/>
+                    <rect key="frame" x="80" y="1" width="105" height="68"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="105" id="8oh-uH-hCT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="价格公式" image="price_content_icon_default">
+                    <state key="normal" title="价格公示" image="price_content_icon_default">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -72,14 +71,15 @@
                 <constraint firstItem="9vm-hF-Cwk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Exm-2n-P0x"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EXS-nV-Xww" secondAttribute="bottom" id="GZb-Zo-rB4"/>
                 <constraint firstItem="BNR-Mt-3av" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MJj-N9-5AO"/>
-                <constraint firstItem="BNR-Mt-3av" firstAttribute="leading" secondItem="hw6-uH-hoz" secondAttribute="trailing" id="Pu8-u4-Nz3"/>
                 <constraint firstItem="EXS-nV-Xww" firstAttribute="top" secondItem="9vm-hF-Cwk" secondAttribute="bottom" id="QNd-Q4-YPc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BNR-Mt-3av" secondAttribute="trailing" constant="15" id="RBN-lL-vKa"/>
                 <constraint firstItem="hw6-uH-hoz" firstAttribute="top" secondItem="9vm-hF-Cwk" secondAttribute="bottom" id="b7Y-cM-U6e"/>
                 <constraint firstItem="EXS-nV-Xww" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="chS-0d-CnD"/>
                 <constraint firstItem="9vm-hF-Cwk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eHS-Ap-vIn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hw6-uH-hoz" secondAttribute="bottom" id="i24-Uz-IVq"/>
+                <constraint firstItem="hw6-uH-hoz" firstAttribute="leading" secondItem="EXS-nV-Xww" secondAttribute="trailing" id="s3p-RR-lK1"/>
                 <constraint firstItem="9vm-hF-Cwk" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="uW1-xv-jtY"/>
+                <constraint firstItem="BNR-Mt-3av" firstAttribute="leading" secondItem="hw6-uH-hoz" secondAttribute="trailing" constant="5" id="zfF-ay-WOW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -181,7 +181,7 @@
 
 
 #define kNavigationH (kScreenHeight >= 812 ? 88 : 64)
-#define SafeAreaBottomHeight (kScreenWidth >= 812.0 ? 34 : 0) //适配iphoneX底部
+#define SafeAreaBottomHeight (kScreenHeight >= 812.0 ? 34 : 0) //适配iphoneX底部
 #define SafeAreaTopHeight (kScreenHeight >= 812.0 ? 88 : 64) //适配iPhoneX顶部
 
 ///------ iOS Device Type ------

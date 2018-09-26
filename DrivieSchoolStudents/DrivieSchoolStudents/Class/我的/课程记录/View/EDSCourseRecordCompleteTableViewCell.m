@@ -64,8 +64,16 @@
         self.statusLbl.hidden = NO;
     }
     self.coachNameLbl.text = courseRecordModel.coachName;
+    self.coachNameLbl.font = kFont(16);
+    
     [self.ageLbl setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
-    self.ageLbl.wz_size = CGSizeMake([NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(12) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5, 15);
+    self.ageLbl.titleLabel.font = kFont(11);
+    
+    CGFloat agebtnW = kScreenWidth - CGRectGetMaxX(self.coachNameLbl.frame) - 45 - [NSString sizeWithText:courseRecordModel.schoolName font:kFont(13) maxSize:CGSizeMake(MAXFLOAT, 15)].width;
+    CGFloat showSubjectAgeW = [NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5;
+    [self.ageLbl mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
+    }];
     self.schoolNameLbl.text = courseRecordModel.schoolName;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
     

@@ -21,6 +21,10 @@
 #import "EDSOnlineClassListByDateRequest.h"
 
 @interface EDSOnlineAboutClassViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSString *_dateStr;//日期
+    NSString *_type;//选择什么类型的课程
+}
 
 @property (nonatomic , strong) NSArray <EDSOnlineClassDateListModel *> *dataArr;
 @property (nonatomic , strong) EDSOnlineAboutClassTableViewHeaderView *headerView;
@@ -42,6 +46,7 @@
     self.navigationItem.title = @"在线约课";
     
     self.dataArr = [[NSArray alloc] init];
+    self->_type = @"1";
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -53,6 +58,15 @@
     }];
     
     [self requesDateListData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (_dateStr.length > 0) {
+        
+        [self requestListByDateDataWithDate:_dateStr];
+    }
 }
 
 
@@ -87,7 +101,16 @@
             self.list2Arr = modelArr[1];
             self.list3Arr = modelArr[2];
             
-            self.tableViewListArr = self.list1Arr;
+            if ([self->_type isEqualToString:@"1"]) {
+                
+                self.tableViewListArr = self.list1Arr;
+            }else if ([self->_type isEqualToString:@"2"]){
+                
+                self.tableViewListArr = self.list2Arr;
+            }else{
+                
+                self.tableViewListArr = self.list3Arr;
+            }
             
             [self.tableView reloadData];
         }
@@ -150,7 +173,8 @@
         @weakify(self);
         _headerView.onlineAboutClassTableViewHeaderViewDidBackData = ^(NSString *datastr) {
             @strongify(self);
-            [self requestListByDateDataWithDate:datastr];
+            self->_dateStr = datastr;
+            [self requestListByDateDataWithDate:self->_dateStr];
         };
         
         EDSHeaderPageButtonView *pageButtonView = [[EDSHeaderPageButtonView alloc] init];
@@ -159,12 +183,15 @@
             @strongify(self);
             if ([titleStr isEqualToString:@"科一/文明驾驶"]) {
                 
+                self->_type = @"1";
                 self.tableViewListArr = self.list1Arr;
             }else if ([titleStr isEqualToString:@"科二/三"]){
                 
+                self->_type = @"2";
                 self.tableViewListArr = self.list2Arr;
             }else if ([titleStr isEqualToString:@"其他"]){
                 
+                self->_type = @"3";
                 self.tableViewListArr = self.list3Arr;
             }
             

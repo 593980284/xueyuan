@@ -43,14 +43,24 @@
     _courseRecordModel = courseRecordModel;
     
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    
     self.coachNameLbl.text = courseRecordModel.coachName;
-    [self.agebtn setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
-    [self.agebtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake([NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5, 15));
-    }];
+    self.coachNameLbl.font = kFont(16);
+    
     self.schoolNameLbl.text = courseRecordModel.schoolName;
+    
+    [self.agebtn setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
+    CGFloat agebtnW = kScreenWidth - CGRectGetMaxX(self.coachNameLbl.frame) - 45 - [NSString sizeWithText:courseRecordModel.schoolName font:kFont(13) maxSize:CGSizeMake(MAXFLOAT, 15)].width;
+    CGFloat showSubjectAgeW = [NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5;
+    [self.agebtn mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
+    }];
+    self.agebtn.titleLabel.font = kFont(11);
+    
     self.periodTimeLbl.text = courseRecordModel.periodTime;
     self.subjecthourLbl.text = courseRecordModel.showSubjecthour;
+    
+    [self layoutIfNeeded];
 }
 
 @end

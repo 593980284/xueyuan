@@ -96,9 +96,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"在线约课"]){//
         
-        if ([EDSSave account].userID.length > 0) {
+        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
             
-            if ([EDSSave account].schoolId.length > 0) {
+            if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
                 
                 EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -112,7 +112,7 @@
             [self presentViewController:vc animated:YES completion:nil];
         }
     }else if ([titleStr isEqualToString:@"理论学习"]){//
-        if ([EDSSave account].userID.length > 0) {
+        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
             
             EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
@@ -126,7 +126,7 @@
         EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"在线约考"]){//
-        if ([EDSSave account].schoolId.length > 0) {
+        if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
             
             EDSOnlineAboutTestViewController *vc = [[EDSOnlineAboutTestViewController alloc] initWithNibName:@"EDSOnlineAboutTestViewController" bundle:[NSBundle mainBundle]];
             [self.navigationController pushViewController:vc animated:YES];
@@ -165,6 +165,7 @@
     } failureBlock:^(NSError *error) {
         
     }];
+    
     if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
         
         request2.schoolId = @"0";

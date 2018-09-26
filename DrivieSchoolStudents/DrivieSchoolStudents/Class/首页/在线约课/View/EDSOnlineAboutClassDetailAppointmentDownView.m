@@ -13,9 +13,10 @@
 
 @interface EDSOnlineAboutClassDetailAppointmentDownView ()
 
-@property (nonatomic , strong) UIButton *determineBtn;//确认预约
-@property (nonatomic , strong) UIButton *signinBtn;//课程签到
-@property (nonatomic , strong) UIButton *canleBtn;//取消预约
+@property (nonatomic , strong) UIButton *determineBtn;      //确认预约
+@property (nonatomic , strong) UIButton *signinBtn;         //课程签到
+@property (nonatomic , strong) UIButton *canleBtn;          //取消预约
+@property (nonatomic , strong) UIButton *alreadySignIn;     //已签到
 
 @end
 
@@ -38,38 +39,38 @@
 - (void)setModel:(EDSOnlineClassListByDateModel *)model
 {
     _model = model;
-    
-    //    是否预约 -1未预约 0已预约 1已签到
+    //是否预约 -1未预约 0已预约 1已签到
     if ([model.isAppointment isEqualToString:@"-1"]) {
         
         self.determineBtn.hidden = NO;
         self.signinBtn.hidden = YES;
         self.canleBtn.hidden = YES;
+        self.alreadySignIn.hidden = YES;
         
+    }else if([model.isAppointment isEqualToString:@"1"]){
+        
+        self.determineBtn.hidden = YES;
+        self.signinBtn.hidden = YES;
+        self.canleBtn.hidden = YES;
+        self.alreadySignIn.hidden = NO;
     }else{
         self.determineBtn.hidden = YES;
         self.signinBtn.hidden = NO;
         self.canleBtn.hidden = NO;
+        self.alreadySignIn.hidden = YES;
         
-        if ([model.isAppointment isEqualToString:@"1"]) {
+        if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
             
-            self.signinBtn.enabled = NO;
-            _signinBtn.backgroundColor = ThirdColor;
-            [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
+            self.signinBtn.enabled = YES;
+            self.signinBtn.backgroundColor = ThemeColor;
         }else{
             
-            if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
-                
-                self.signinBtn.enabled = YES;
-                self.signinBtn.backgroundColor = ThemeColor;
-            }else{
-                
-                self.signinBtn.enabled = NO;
-                self.signinBtn.backgroundColor = ThirdColor;
-            }
+            self.signinBtn.enabled = NO;
+            self.signinBtn.backgroundColor = ThirdColor;
         }
         
     }
+    //确认预约
     @weakify(self);
     [self.determineBtn bk_whenTapped:^{
         
@@ -79,9 +80,10 @@
             
             if (errCode == 1) {
                 
-                self.determineBtn.hidden = YES;
                 self.signinBtn.hidden = NO;
                 self.canleBtn.hidden = NO;
+                self.determineBtn.hidden = YES;
+                self.alreadySignIn.hidden = YES;
                 
                 if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
                     
@@ -102,7 +104,7 @@
         request.status = @"0";
         [request  startRequest];
     }];
-    
+    //课程签到
     [self.signinBtn bk_whenTapped:^{
         
         @strongify(self);
@@ -110,8 +112,10 @@
             
             if (errCode == 1) {
                 
-                [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
-                self.signinBtn.enabled = NO;
+                self.determineBtn.hidden = YES;
+                self.signinBtn.hidden = YES;
+                self.canleBtn.hidden = YES;
+                self.alreadySignIn.hidden = NO;
             }
         } failureBlock:^(NSError *error) {
             
@@ -122,7 +126,7 @@
         request.status = @"1";
         [request  startRequest];
     }];
-    
+    //取消预约
     [self.canleBtn bk_whenTapped:^{
         @strongify(self);
         // 手机当前时间
@@ -140,6 +144,7 @@
                         self.determineBtn.hidden = NO;
                         self.signinBtn.hidden = YES;
                         self.canleBtn.hidden = YES;
+                        self.alreadySignIn.hidden = YES;
                     }
                 } failureBlock:^(NSError *error) {
                     
@@ -198,6 +203,29 @@
     return _determineBtn;
 }
 
+- (UIButton *)alreadySignIn
+{
+    if (!_alreadySignIn) {
+        
+        _alreadySignIn = [[UIButton alloc] init];
+        [_alreadySignIn setTitle:@"已签到" forState:UIControlStateNormal];
+        _alreadySignIn.enabled = NO;
+        [_alreadySignIn setTitleColor:WhiteColor forState:UIControlStateNormal];
+        _alreadySignIn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+        _alreadySignIn.backgroundColor = ThirdColor;
+        _alreadySignIn.layer.cornerRadius = 5;
+        _alreadySignIn.layer.masksToBounds = YES;
+        [self addSubview:_alreadySignIn];
+        [_alreadySignIn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.right.mas_equalTo(-15);
+            make.height.mas_equalTo(45);
+            make.bottom.mas_equalTo(-18);
+        }];
+    }
+    return _alreadySignIn;
+}
+
 - (UIButton *)signinBtn
 {
     if (!_signinBtn) {
@@ -213,7 +241,7 @@
         [_signinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(15);
             make.height.mas_equalTo(45);
-            make.width.mas_equalTo(165);
+            make.width.mas_equalTo((kScreenWidth - 15*3)*0.5);
             make.bottom.mas_equalTo(-15);
         }];
     }
@@ -235,12 +263,14 @@
         [_canleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
             make.height.mas_equalTo(45);
-            make.width.mas_equalTo(165);
+            make.width.mas_equalTo((kScreenWidth - 15*3)*0.5);
             make.bottom.mas_equalTo(-15);
         }];
     }
     return _canleBtn;
 }
+
+
 
 - (UIViewController*)getCurrentVC
 {

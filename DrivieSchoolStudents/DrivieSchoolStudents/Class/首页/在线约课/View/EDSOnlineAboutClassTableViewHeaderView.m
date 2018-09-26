@@ -48,7 +48,8 @@
 
 - (void)setup{
     
-    _dataLbl = [UILabel labelWithText:@"2018-07" font:[UIFont boldSystemFontOfSize:16] textColor:FirstColor backGroundColor:ClearColor superView:self];
+    
+    _dataLbl = [UILabel labelWithText:self.dataArr[0].date font:[UIFont boldSystemFontOfSize:16] textColor:FirstColor backGroundColor:ClearColor superView:self];
     [_dataLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(15);
         make.centerX.mas_equalTo(0);
@@ -69,6 +70,8 @@
     @weakify(self);
     scrollView.topScrollViewDidBackData = ^(NSString *datastr) {
         @strongify(self);
+        
+        self->_dataLbl.text = datastr;
         if (self.onlineAboutClassTableViewHeaderViewDidBackData) {
             
             self.onlineAboutClassTableViewHeaderViewDidBackData(datastr);

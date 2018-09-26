@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,15 +20,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小白驾校" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzG-JH-ygu">
-                        <rect key="frame" x="125" y="14" width="140" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="140" id="uJl-vn-BKw"/>
-                        </constraints>
+                        <rect key="frame" x="125" y="14.5" width="136.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-DX-EF9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-DX-EF9">
                         <rect key="frame" x="276.5" y="14.5" width="83.5" height="21"/>
                         <attributedString key="attributedText">
                             <fragment content="￥">
@@ -47,17 +43,14 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZI-op-95S">
-                        <rect key="frame" x="330" y="70.5" width="30" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="15km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZI-op-95S">
+                        <rect key="frame" x="330" y="70" width="30" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京市长江路1234号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRN-xC-2VD">
-                        <rect key="frame" x="142" y="68" width="150" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="Jze-9K-1ab"/>
-                        </constraints>
+                        <rect key="frame" x="142" y="67.5" width="173" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -71,6 +64,10 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="d6O-Mk-0YW">
                         <rect key="frame" x="125" y="69" width="10" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="WpA-yX-7U8"/>
+                            <constraint firstAttribute="height" constant="14" id="cM7-cX-9qM"/>
+                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flj-L7-fJW" customClass="EDSDriveStarView">
                         <rect key="frame" x="125" y="42.5" width="100" height="15"/>
@@ -94,7 +91,9 @@
                     <constraint firstItem="flj-L7-fJW" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="VeZ-5c-dUe"/>
                     <constraint firstItem="XRN-xC-2VD" firstAttribute="leading" secondItem="d6O-Mk-0YW" secondAttribute="trailing" constant="7" id="Vyf-xJ-g7x"/>
                     <constraint firstAttribute="trailing" secondItem="aZO-DX-EF9" secondAttribute="trailing" constant="15" id="aYL-ie-tih"/>
+                    <constraint firstItem="mZI-op-95S" firstAttribute="leading" secondItem="XRN-xC-2VD" secondAttribute="trailing" constant="15" id="cif-fF-TXx"/>
                     <constraint firstItem="Smr-YO-X4S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mVv-ku-EfM"/>
+                    <constraint firstItem="aZO-DX-EF9" firstAttribute="leading" secondItem="hzG-JH-ygu" secondAttribute="trailing" constant="15" id="rbh-Dm-X3q"/>
                     <constraint firstItem="Smr-YO-X4S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xPd-tG-fdo"/>
                 </constraints>
             </tableViewCellContentView>

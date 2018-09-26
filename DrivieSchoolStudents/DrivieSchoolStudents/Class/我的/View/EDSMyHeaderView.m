@@ -47,8 +47,11 @@
     [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
     
     self.carTypeLbl.text = [EDSSave account].applyDriveCar.length > 0 ? [EDSSave account].applyDriveCar : @"";
+    self.calssLbl.font = kFont(18);
     self.learnProgressLbl.text = [EDSSave account].learnProgress.length > 0 ?  [NSString stringWithFormat:@"%@",[EDSSave  account].learnProgress] : @"";
+    self.learnProgressLbl.font = kFont(18);
     self.schoolNameLbl.text = [EDSSave account].schoolName.length > 0 ? [EDSSave account].schoolName : @"";
+    self.schoolNameLbl.font = kFont(18);
     
     self.phoneLbl.text = [EDSSave account].phone.length > 0 ? [EDSSave account].phone : @"";
     self.calssLbl.text = [EDSSave account].learnProgress.length > 0 ? [NSString stringWithFormat:@"班级：%@",[EDSSave account].learnProgress]  : @"";

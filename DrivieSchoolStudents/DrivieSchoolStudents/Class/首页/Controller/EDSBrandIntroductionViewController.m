@@ -2,13 +2,14 @@
 //  EDSBrandIntroductionViewController.m
 //  DrivieSchoolStudents
 //
-//  Created by 卓森 on 2018/9/5.
-//  Copyright © 2018年 班文政. All rights reserved.
+//  Created by 班文政 on 2018/9/26.
+//  Copyright © 2018 班文政. All rights reserved.
 //
 
 #import "EDSBrandIntroductionViewController.h"
 
 @interface EDSBrandIntroductionViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -16,21 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"品牌介绍" ofType:@"docx"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     
-    self.webView.scrollView.scrollEnabled = YES;
-
-//    self.webView load
+    self.navigationItem.title = @"品牌介绍";
+    self.webView.scalesPageToFit = YES;
+    self.view.backgroundColor = WhiteColor;
+    
+    [self loadDocument:@"ppjs" inView:self.webView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)loadDocument:(NSString*)documentName inView:(UIWebView*)webView{
+    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:@"docx"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
-
-
 
 @end

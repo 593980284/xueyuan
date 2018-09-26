@@ -169,7 +169,7 @@
     if (!_uncertainBtn) {
         
         _uncertainBtn = [[UIButton alloc] init];
-        [_uncertainBtn setTitle:@"未确定" forState:UIControlStateNormal];
+        [_uncertainBtn setTitle:@"未确认" forState:UIControlStateNormal];
         [_uncertainBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
         _uncertainBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         _uncertainBtn.backgroundColor = SecondColor;

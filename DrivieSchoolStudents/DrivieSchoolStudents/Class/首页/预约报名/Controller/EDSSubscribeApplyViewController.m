@@ -222,14 +222,13 @@
             
             self.carTypeArr = model;
             
-            dispatch_apply(self.carTypeArr.count, dispatch_get_global_queue(0, 0), ^(size_t i) {
+            for (int i = 0; i < self.carTypeArr.count; i ++) {
                 
                 EDSChooseBoxModel *boxModel = [[EDSChooseBoxModel alloc] init];
                 boxModel.name = self.carTypeArr[i].name;
                 boxModel.code = self.carTypeArr[i].code;
                 [self.chooseBoxModelArr addObject:boxModel];
-                
-            });
+            }
         }else
         {
             [self getcoachCarTypeRequest];
