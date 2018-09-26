@@ -54,10 +54,15 @@
     }else if ([_status isEqual:@"0"] || [_status isEqual:@"1"] || [_status isEqual:@"4"])
     {
         return @"未确认";
-    }else{
+    }else if ([_status isEqual:@"5"]){
+        
+        return @"教练补签";
+    }
+    else{
         
         return @"未确认";
     }
     return @"";
 }
+
 @end
