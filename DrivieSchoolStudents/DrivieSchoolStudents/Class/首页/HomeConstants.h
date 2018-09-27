@@ -17,7 +17,7 @@
 #define EDSDrivingDetailsHeaderViewH                                193
 
 #define EDSTeachingStyleCollectionViewCellH                         178
-#define EDSTeachingStyleCollectionViewCellW                         164
+#define EDSTeachingStyleCollectionViewCellW                         (kScreenWidth - 3*KLineY(15))*0.5
 
 #define EDSCheckSiteCollectionViewCellH                             70
 #define EDSCheckSiteCollectionViewCellW                             345

@@ -121,8 +121,7 @@
 //设置每个item的尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    return CGSizeMake(EDSCheckSiteCollectionViewCellW, 80);
-    //    return CGSizeMake(EDSCheckSiteCollectionViewCellW, EDSCheckSiteCollectionViewCellH);
+    
         return CGSizeMake(EDSTeachingStyleCollectionViewCellW, EDSTeachingStyleCollectionViewCellH);
 }
 
