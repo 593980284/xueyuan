@@ -11,7 +11,9 @@
 
 #import "EDSSaveMailInfoRequest.h"
 
-@interface EDSSchoolMessageViewController ()
+static const NSInteger MAX_LIMIT_NUMS = 500;
+
+@interface EDSSchoolMessageViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
 @property (weak, nonatomic) IBOutlet UILabel *chooseLbl;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -19,6 +21,7 @@
 @end
 
 @implementation EDSSchoolMessageViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +35,7 @@
     self.textView.placeholder = @"请留下您的宝贵意见,我们努力改进。(请不少于五个字)";
     self.textView.layer.borderWidth = 1;
     self.textView.layer.borderColor = [EDSToolClass getColorWithHexString:@"#ECE9E9"].CGColor;
+    self.textView.delegate = self;
     
     @weakify(self);
     [self.chooseView bk_whenTapped:^{
@@ -54,6 +58,54 @@
     
     
 }
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    NSInteger caninputlen = MAX_LIMIT_NUMS - comcatstr.length;
+    
+    if (caninputlen >= 0)
+    {
+        return YES;
+    }
+    else
+    {
+        NSInteger len = text.length + caninputlen;
+        //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+        NSRange rg = {0,MAX(len,0)};
+        
+        if (rg.length > 0)
+        {
+            NSString *s = [text substringWithRange:rg];
+            
+            [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+        }
+        return NO;
+    }
+    
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSString  *nsTextContent = textView.text;
+    NSInteger existTextNum = nsTextContent.length;
+    
+    if (existTextNum > MAX_LIMIT_NUMS)
+    {
+        //截取到最大位置的字符
+        NSString *s = [nsTextContent substringToIndex:MAX_LIMIT_NUMS];
+        
+        [textView setText:s];
+    }
+    
+    //不让显示负数
+//    self.lbNums.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
+}
+
+
 
 
 - (IBAction)commitClick:(id)sender {

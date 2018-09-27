@@ -83,6 +83,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="sigeupBtn" destination="BNR-Mt-3av" id="cM2-dy-oPX"/>
+            </connections>
             <point key="canvasLocation" x="-55.200000000000003" y="14.842578710644679"/>
         </view>
     </objects>

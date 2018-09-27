@@ -72,7 +72,7 @@
 
 - (void)homeRightBarButtonItemClick
 {
-    if ([EDSSave account].userID.length > 0) {
+    if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         self.tabBarController.selectedIndex = 3;
     }else{
@@ -143,7 +143,7 @@
         
     }else if ([titleStr isEqualToString:@"报名流程"]){
         
-        EDSRegistrationProcessViewController *vc = [[EDSRegistrationProcessViewController alloc] initWithNibName:@"EDSRegistrationProcessViewController" bundle:[NSBundle mainBundle]];
+        EDSRegistrationProcessViewController *vc = [[EDSRegistrationProcessViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"我的驾校"]){
         

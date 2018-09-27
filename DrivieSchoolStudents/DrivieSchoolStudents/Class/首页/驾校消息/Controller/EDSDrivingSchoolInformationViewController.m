@@ -54,7 +54,7 @@
 - (void)addHeaderView
 {
     
-    EDSDriveSchollInfomationSearchView *searchView = [[EDSDriveSchollInfomationSearchView alloc] initWithFrame:CGRectMake(45, 27, 300, 30)];
+    EDSDriveSchollInfomationSearchView *searchView = [[EDSDriveSchollInfomationSearchView alloc] initWithFrame:CGRectMake(45, 27, kScreenWidth - 45 - 15, 30)];
     searchView.layer.masksToBounds = YES;
     searchView.layer.cornerRadius = 5;
     searchView.layer.borderColor = SeparatorCOLOR.CGColor;
@@ -65,6 +65,7 @@
         self->_schoolName = textField.text;
         [self schoollistRequest];
     }];
+    searchView.searchTextFWidth.constant = kScreenWidth - 100;
     
     [searchView.searchTextF setBk_shouldReturnBlock:^BOOL(UITextField *textField) {
         

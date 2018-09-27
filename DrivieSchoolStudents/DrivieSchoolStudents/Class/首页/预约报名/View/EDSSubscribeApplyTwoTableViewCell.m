@@ -13,6 +13,12 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIView *timeBgView;
 
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
+@property (weak, nonatomic) IBOutlet UILabel *label5;
+
 @end
 
 @implementation EDSSubscribeApplyTwoTableViewCell
@@ -55,6 +61,67 @@
             self.subscribeApplyTwoTableDidSelectStringback(@"选择时间");
         }
     }];
+    
+    [self.nameTextF setBk_shouldChangeCharactersInRangeWithReplacementStringBlock:^BOOL(UITextField *textF, NSRange range, NSString *string) {
+        
+        NSString *comcatstr = [textF.text stringByReplacingCharactersInRange:range withString:string];
+        
+        NSInteger caninputlen = 50 - comcatstr.length;
+        
+        if (caninputlen >= 0)
+        {
+            return YES;
+        }
+        else
+        {
+            NSInteger len = string.length + caninputlen;
+            //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+            NSRange rg = {0,MAX(len,0)};
+            
+            if (rg.length > 0)
+            {
+                NSString *s = [string substringWithRange:rg];
+                
+                [textF setText:[textF.text stringByReplacingCharactersInRange:range withString:s]];
+            }
+            return NO;
+        }
+    }];
+    
+    @weakify(self);
+    [self.codeTextF setBk_didEndEditingBlock:^(UITextField *textF) {
+        @strongify(self);
+        if (textF.text.length == 15 || textF.text.length == 18) {
+            
+            self.codeTextF.text = textF.text;
+        }else{
+            self.codeTextF.text = @"";
+            [SVProgressHUD showErrorWithStatus:@"请输入正确的身份证号"];
+            [SVProgressHUD dismissWithDelay:1];
+        }
+    }];
+    
+    [self.phoneTextF setBk_didEndEditingBlock:^(UITextField *textF) {
+        @strongify(self);
+        if (textF.text.length == 11) {
+            self.phoneTextF.text = textF.text;
+        }else{
+            
+            self.phoneTextF.text = @"";
+            [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+            [SVProgressHUD dismissWithDelay:1];
+        }
+    }];
+    
+    self.nameTextF.font = kFont(16);
+    self.codeTextF.font = kFont(16);
+    self.phoneTextF.font = kFont(16);
+    self.timeLbl.font = kFont(16);
+    self.label1.font = kFont(16);
+    self.label2.font = kFont(16);
+    self.label3.font = kFont(16);
+    self.label4.font = kFont(16);
+    self.label5.font = kFont(16);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

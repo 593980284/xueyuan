@@ -20,6 +20,8 @@
 {
     BOOL _isCodeLogin;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBtnBottonHeight;
+
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @property (weak, nonatomic) IBOutlet UIButton *pswBtn;
@@ -43,6 +45,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.view.backgroundColor = WhiteColor;
+    self.loginBtnBottonHeight.constant = KLineY(100);
+    
     self.codePhoneTextF.text = @"18297982132";
     self.pswPhoneTextF.text = @"18297982132";
     
@@ -54,7 +59,7 @@
     self.indicatorView = [UIView viewWithBackgroundColor:ThemeColor superView:self.view];
     [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(50, 2));
-        make.left.mas_equalTo(KLineX(81));
+        make.left.mas_equalTo(self.pswBtn.wz_centerX - 50);
         make.bottom.mas_equalTo(self.lineView.mas_top);
     }];
     @weakify(self);
@@ -68,7 +73,7 @@
         self->_isCodeLogin = NO;
         
         [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(KLineX(81));
+            make.left.mas_equalTo(self.pswBtn.wz_centerX - 25);
         }];
     }];
     [self.codeBtn bk_whenTapped:^{
@@ -81,7 +86,7 @@
         self->_isCodeLogin = YES;
         
         [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(kScreenWidth - KLineX(85-50));
+            make.left.mas_equalTo(self.codeBtn.wz_centerX - 25);
         }];
     }];
     

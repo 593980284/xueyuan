@@ -56,6 +56,8 @@
 {
     [super viewWillAppear:animated];
     
+    self.tableViewArr = @[];
+    
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
@@ -84,12 +86,12 @@
         if (errCode == 1) {
             
             self.tableViewArr = model;
-            [self.tableView reloadData];
         }else if (errCode == -2){
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];
         }
+        [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
     
         [self.tableView.mj_header endRefreshing];

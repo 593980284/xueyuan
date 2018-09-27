@@ -10,7 +10,9 @@
 #import "EDSChangePasswordViewController.h"//修改密码
 #import "EDSChangePhoneOneViewController.h"//跟换手机号
 #import "XGPush.h"
-
+#import "EDSPSWLogoViewController.h"
+#import "LZActionSheet.h"
+#import "UIImage+Ext.h"
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "STPhotoKitController.h"
@@ -21,7 +23,10 @@
 #import "EDSFourDataBase.h"
 #import "EDSDataBase.h"
 
-@interface EDSPersonalSettingsViewController ()<UIImagePickerControllerDelegate, UIActionSheetDelegate, STPhotoKitDelegate,UINavigationControllerDelegate>
+@interface EDSPersonalSettingsViewController ()<LZActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
+    NSInteger _photoType;
+    UIImage *_img;
+}
 @property (weak, nonatomic) IBOutlet UIView *changePasswordBgview;
 @property (weak, nonatomic) IBOutlet UIView *changephoneBgView;
 @property (weak, nonatomic) IBOutlet UIView *avarimgView;
@@ -63,71 +68,119 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
+        
+        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
 
 
 - (void)changeAvarImgView
 {
-    //修改头像
-    UIAlertController *alertController = [[UIAlertController alloc]init];
-    
-    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *controller = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
-        
-        if ([controller isAvailableCamera] && [controller isSupportTakingPhotos]) {
-            [controller setDelegate:self];
-            [self presentViewController:controller animated:YES completion:nil];
-        }else {
-            [SVProgressHUD showErrorWithStatus:@"相机权限受限"];
-            [SVProgressHUD dismissWithDelay:1.5];
-        }
-    }];
-    
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"从相册获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *controller = [UIImagePickerController imagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-        [controller setDelegate:self];
-        if ([controller isAvailablePhotoLibrary]) {
-            [self presentViewController:controller animated:YES completion:nil];
-        }    }];
-    
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    
-    [alertController addAction:action0];
-    [alertController addAction:action1];
-    [alertController addAction:action2];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    LZActionSheet *actionSheet = [[LZActionSheet alloc]initWithDelegate:self cancelButtonTitle:@"取消" otherButtonTitles:@[@"拍照",@"从相册选择"]]; //@[@"从相册选择",@"拍照"]
+    [actionSheet show];
+}
+#pragma mark   - <LZActionSheetDelegate>
+- (void)LZActionSheet:(LZActionSheet *)actionSheet didClickedButtonAtIndex:(NSInteger)index{
+    if(index == 0){
+        //相机
+        _photoType = 1;
+        [self openPicOrVideoWithSign:_photoType];
+    }
+    if (index == 1) {
+        //相册
+        _photoType = 0;
+        [self openPicOrVideoWithSign:_photoType];
+    }
 }
 
+#pragma mark - privateMethod
+- (void)openPicOrVideoWithSign:(NSInteger)photoType {
+    if (photoType == 0) {
+        //本地相簿
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.allowsEditing = YES;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.mediaTypes =  [[NSArray alloc] initWithObjects: @"public.image", nil];
+        imagePicker.delegate = self;
+        [self presentImagepickView:imagePicker];
+    }else if(photoType == 1) {
+        //相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.allowsEditing = YES;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.mediaTypes =  [[NSArray alloc] initWithObjects: @"public.image", nil];
+            imagePicker.delegate = self;
+            [self presentImagepickView:imagePicker];
+        }
+    }
+}
+- (void)presentImagepickView:(UIImagePickerController *)imagePicker {
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+}
 
-#pragma mark - 1.STPhotoKitDelegate的委托
-- (void)photoKitController:(STPhotoKitController *)photoKitController resultImage:(UIImage *)resultImage
-{
-    NSData *imgdata = UIImageJPEGRepresentation(resultImage, 0.8f);
-    
-    NSString *imageBase64Str = [imgdata base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+/// 上传头像操作
+- (void)uploadHeaderImage:(UIImage *)headerImage {
+    NSData *imageData = UIImageJPEGRepresentation(headerImage, 0);
+    NSString *encodedImageStr = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
     @weakify(self);
-    
     EDSUploadStudentImgRequest *request = [EDSUploadStudentImgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         @strongify(self);
         if (errCode == 1) {
             
-            self.avaimg.image = resultImage;
+            self.avaimg.image = headerImage;
         }
         
     } failureBlock:^(NSError *error) {
-    
+        
     }];
     
     request.phone = [EDSSave account].phone;
-    request.imageCode = imageBase64Str;
+    request.imageCode = encodedImageStr;
     request.showHUD = YES;
     [request startRequest];
-    
-//    [self editInfomationWithNiceName:@"" sex:@"" birthday:@"" images:@[resultImage]];
 }
 
+//相机操作
+-  (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    // 这就是我们想要的image 头像
+    if ([[info objectForKey:UIImagePickerControllerMediaType] isEqualToString:@"public.image"])
+    {
+        _img = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        if (_photoType == 1)
+        {
+            UIImageWriteToSavedPhotosAlbum(_img,self, nil, nil);
+        }
+        //缩减图片
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = _img;
+        CGSize imgSize = [imageView image].size;
+        
+        if (imgSize.width > 256 )
+        {
+            _img = [UIImage imageWithImage:_img scaledToSize:CGSizeMake(256, 256)];
+        }
+        [self uploadHeaderImage:_img];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 #pragma mark - 退出登录
 
@@ -147,25 +200,6 @@
         self.navigationController.tabBarController.selectedIndex = 0;
         [self.navigationController popToRootViewControllerAnimated:YES];
     });
-}
-
-#pragma mark - 2.UIImagePickerController的委托
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:^{
-        UIImage *imageOriginal = [info objectForKey:UIImagePickerControllerOriginalImage];
-        STPhotoKitController *photoVC = [STPhotoKitController new];
-        [photoVC setDelegate:self];
-        [photoVC setImageOriginal:imageOriginal];
-        [photoVC setSizeClip:CGSizeMake((kScreenWidth - 6*10), (kScreenWidth - 6*10))];
-        [self presentViewController:photoVC animated:YES completion:nil];
-    }];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:^(){
-        
-    }];
 }
 
 

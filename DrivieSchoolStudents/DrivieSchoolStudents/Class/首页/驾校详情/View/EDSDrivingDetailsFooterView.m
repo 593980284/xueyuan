@@ -9,6 +9,7 @@
 #import "EDSDrivingDetailsFooterView.h"
 
 @interface EDSDrivingDetailsFooterView ()
+@property (weak, nonatomic) IBOutlet UIButton *sigeupBtn;
 
 @end
 
@@ -38,6 +39,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
+        
+        self.sigeupBtn.hidden = YES;
+    }else
+    {
+        self.sigeupBtn.hidden = NO;
+    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

@@ -14,6 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         return [[[NSBundle mainBundle] loadNibNamed:@"EDSDriveSchollInfomationSearchView" owner:self options:nil] lastObject];
     }
     return self;

@@ -41,7 +41,6 @@
     self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, MyTableViewSeparatorLeft, 0, 0);
     
-    
     @weakify(self);
     self.headerView.headerImgViewDidClick = ^{
         @strongify(self);

@@ -10,5 +10,6 @@
 
 @interface EDSDriveSchollInfomationSearchView : UIView
 @property (weak, nonatomic) IBOutlet UITextField *searchTextF;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextFWidth;
 
 @end

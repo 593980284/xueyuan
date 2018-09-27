@@ -19,8 +19,9 @@
 #import "EDSCourseRecordModel.h"
 #import "EDSCommentDetailModel.h"
 
+static const NSInteger MAX_LIMIT_NUMS = 500;
 
-@interface EDSCourseRecordCommentViewController ()
+@interface EDSCourseRecordCommentViewController ()<UITextViewDelegate>
 {
     NSString *_coachAbilityScore;   //教练教学能力评分
     NSString *_coachAttitudeScore;  //教练服务态度评分
@@ -167,6 +168,7 @@
     self.textView.layer.borderColor = [EDSToolClass getColorWithHexString:@"#CDCCCC"].CGColor;
     self.textView.layer.borderWidth = 1;
     self.textView.placeholder = @"请输入您对本节课的评价和想法";
+    self.textView.delegate = self;
     
     
     
@@ -285,5 +287,49 @@
         self.submitBtn.enabled = NO;
         self.submitBtn.backgroundColor = [EDSToolClass getColorWithHexString:@"#BBBBBB"];
     }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    NSInteger caninputlen = MAX_LIMIT_NUMS - comcatstr.length;
+    
+    if (caninputlen >= 0)
+    {
+        return YES;
+    }
+    else
+    {
+        NSInteger len = text.length + caninputlen;
+        //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+        NSRange rg = {0,MAX(len,0)};
+        
+        if (rg.length > 0)
+        {
+            NSString *s = [text substringWithRange:rg];
+            
+            [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+        }
+        return NO;
+    }
+    
+}
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSString  *nsTextContent = textView.text;
+    NSInteger existTextNum = nsTextContent.length;
+    
+    if (existTextNum > MAX_LIMIT_NUMS)
+    {
+        //截取到最大位置的字符
+        NSString *s = [nsTextContent substringToIndex:MAX_LIMIT_NUMS];
+        
+        [textView setText:s];
+    }
+    
+    //不让显示负数
+    //    self.lbNums.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
 }
 @end

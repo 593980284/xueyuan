@@ -11,6 +11,9 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIView *drivingSchoolBgView;
 @property (weak, nonatomic) IBOutlet UIView *carTypeBgView;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
 
 
 @end
@@ -53,6 +56,13 @@
             self.subscribeApplyOneTableDidSelectStringback(@"选择车型");
         }
     }];
+    
+    
+    self.drivingSchoolLbl.font = kFont(16);
+    self.carTypeLbl.font = kFont(16);
+    self.label1.font = kFont(16);
+    self.label2.font = kFont(16);
+    self.label3.font = kFont(16);
 }
 
 

@@ -46,6 +46,9 @@
             
             if (errCode == 1) {
                 
+                EDSAccount *account = [EDSSave account];
+                account.userID = @"";
+                [EDSSave save:account];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         } failureBlock:^(NSError *error) {
