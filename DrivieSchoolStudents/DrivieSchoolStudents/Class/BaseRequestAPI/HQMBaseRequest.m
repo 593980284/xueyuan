@@ -205,6 +205,19 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     } else {
         DLog(@"POST-->url:%@", dataTask.currentRequest.URL.absoluteString);
     }
+    
+//    //获取cookie
+//    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookiesForURL:[NSURL URLWithString:@"http://111.39.245.156:8087/app/lexiang/homePage/homeSchoolInformation"]];
+//    for (NSHTTPCookie *tempCookie in cookies)
+//    {
+//        //打印cookies
+//        NSLog(@"getCookie:%@",tempCookie);
+//    }
+//    NSDictionary *Request = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+//
+//    NSUserDefaults *userCookies = [NSUserDefaults standardUserDefaults];
+//    [userCookies setObject:[Request objectForKey:@"Cookie"] forKey:@"mUserDefaultsCookie"];
+//    [userCookies synchronize];
 
     return dataTask;
 }
@@ -258,7 +271,18 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         [SVProgressHUD dismissWithDelay:3];
     #endif
 #endif
-
+    
+//    NSArray*cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+//
+//    NSLog(@"%@",responseObject);
+//    NSHTTPURLResponse * res = (NSHTTPURLResponse *)response;
+//    NSLog(@"%@",res.allHeaderFields);                //获取到请求头文件 里面包含着session的信息
+//    NSDictionary * resposeDic = res.allHeaderFields;
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];        //具体字典里面的key命名是什么 还是得按照你们伟大的服务器人员来
+//    [defaults setObject:resposeDic[@"JSESSIONID"] forKey:@"JSESSIONID"];
+//    [defaults synchronize];
+    
+    
     DLog(@"---------------%ld",(long)error.code);
     if (error) {
         NSString *errString = error.localizedFailureReason;

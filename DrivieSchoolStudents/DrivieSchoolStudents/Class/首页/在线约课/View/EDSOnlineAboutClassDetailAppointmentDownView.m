@@ -53,7 +53,7 @@
         self.signinBtn.hidden = YES;
         self.canleBtn.hidden = YES;
         self.alreadySignIn.hidden = NO;
-    }else{
+    }else if([model.isAppointment isEqualToString:@"0"]){
         self.determineBtn.hidden = YES;
         self.signinBtn.hidden = NO;
         self.canleBtn.hidden = NO;
@@ -68,7 +68,12 @@
             self.signinBtn.enabled = NO;
             self.signinBtn.backgroundColor = ThirdColor;
         }
+    }else{
         
+        self.determineBtn.hidden = YES;
+        self.signinBtn.hidden = YES;
+        self.canleBtn.hidden = YES;
+        self.alreadySignIn.hidden = YES;
     }
     //确认预约
     @weakify(self);

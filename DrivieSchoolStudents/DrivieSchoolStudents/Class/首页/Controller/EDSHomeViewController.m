@@ -139,6 +139,7 @@
     }else if ([titleStr isEqualToString:@"价格公示"]){
         
         EDSPricePublicViewController *vc = [[EDSPricePublicViewController alloc] initWithNibName:@"EDSPricePublicViewController" bundle:[NSBundle mainBundle]];
+        vc.schoolID = [EDSToolClass isBlankString:[EDSSave account].schoolId] ? @"" : [NSString stringWithFormat:@"%@",[EDSSave account].schoolId];
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if ([titleStr isEqualToString:@"报名流程"]){

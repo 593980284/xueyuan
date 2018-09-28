@@ -22,9 +22,11 @@
     
     if (self.schoolID.length > 0) {
         
+        DLog(@"%@",[NSString stringWithFormat:@"%@?id=%@",JGGS,self.schoolID]);
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?id=%@",JGGS,self.schoolID]]]];
     }else{
         
+        DLog(@"%@",[NSURL URLWithString:JGGS]);
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:JGGS]]];
     }
 }

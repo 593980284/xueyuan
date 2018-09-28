@@ -22,8 +22,11 @@
     NSString *_appointmentId;
     NSString *_studentId;
 }
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
 
 @property (nonatomic , copy) NSString *courseRecordId;
+@property (nonatomic , copy) NSString *status;//课程对应的状态，5：学员未签到教练补签，6：学员确认补签， 7：学员否认补签
 @property (weak, nonatomic) IBOutlet UILabel *contentLbl;
 @property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
 
@@ -43,8 +46,11 @@
             self.contentLbl.text = responseDict[@"content"];
             self->_appointmentId = responseDict[@"appointmentId"];
             self->_studentId = responseDict[@"studentId"];
+            self.status = [NSString stringWithFormat:@"%@",responseDict[@"status"]];
             
             [self onlineClassListDetailRequest];
+            
+            [self setup];
         }
         
     } failureBlock:^(NSError *error) {
@@ -54,6 +60,38 @@
     request.msgId = self.msgModel.msgId;
     
     [request startRequest];
+}
+
+
+- (void)setup{
+    
+    if ([self.status isEqualToString:@"6"]) {
+        //学员确认补签
+        
+        [self.button1 mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.bottom.mas_equalTo(-15);
+            make.height.mas_equalTo(44);
+        }];
+        self.button2.hidden = YES;
+        [self.button1 setBackgroundColor:ThirdColor];
+        self.button1.userInteractionEnabled = NO;
+    }else if([self.status isEqualToString:@"7"]){
+        //学员否认补签
+        
+        [self.button2 mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.bottom.mas_equalTo(-15);
+            make.height.mas_equalTo(44);
+        }];
+        self.button1.hidden = YES;
+        [self.button2 setBackgroundColor:ThirdColor];
+        self.button2.userInteractionEnabled = NO;
+    }else{
+        
+    }
 }
 
 - (void)onlineClassListDetailRequest

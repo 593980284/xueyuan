@@ -58,6 +58,8 @@
     EDSTopScrollView * scrollView = [[EDSTopScrollView alloc] initWithFrame:CGRectMake(0, 45, kScreenWidth, 76)];
     [scrollView setUserInteractionEnabled:YES];
     [scrollView setScrollEnabled:YES];
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
     
     //NO - 设置scrollView不能取消传递touch事件，此时就算手指若在subView上滑动，scrollView不滚动; YES - 设置scrollView可取消传递touch事件
     [scrollView setCanCancelContentTouches:YES];

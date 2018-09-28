@@ -48,13 +48,14 @@
         [self.navigationController pushViewController:vc animated:YES];
     };
     self.tableView.tableHeaderView = self.headerView;
+    
+    
+    self.cellArr = @[];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    DLog(@"%@",[EDSSave account].userID);
     
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
@@ -71,24 +72,26 @@
                 
             }else if (errCode == 1){
                 
-                DLog(@"%@",[EDSSave account].schoolId);
-                NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ?  @"我的报名" : @"我的驾校";
-                self.cellArr = @[
-                                 @[
-                                     @[string,@"wdbm_content_icon_default"],
-                                     @[@"课程记录",@"kcjl_content_icon_default"],
-                                     @[@"学习查询",@"xxcx_content_icon_default"],
-                                     @[@"学校信箱",@"xxxx_content_icon_default"],
-                                     ],
-                                 @[
-                                     @[@"刷新缓存",@"sxhc_content_icon_default" , [NSString stringWithFormat:@"%d",[self clearTmpPics]]],
-                                     @[@"检查更新",@"jcgx_content_icon_default"],
-                                     @[@"关于我们",@"gywm_content_icon_default"],
-                                     ],
-                                 ];
-                
-                self.headerView.headerArr = @[];
-                [self.tableView reloadData];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    
+//                    NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ?  @"我的报名" : @"我的驾校";
+//                    self.cellArr = @[
+//                                     @[
+//                                         @[string,@"wdbm_content_icon_default"],
+//                                         @[@"课程记录",@"kcjl_content_icon_default"],
+//                                         @[@"学习查询",@"xxcx_content_icon_default"],
+//                                         @[@"学校信箱",@"xxxx_content_icon_default"],
+//                                         ],
+//                                     @[
+//                                         @[@"刷新缓存",@"sxhc_content_icon_default" , [NSString stringWithFormat:@"%d",[self clearTmpPics]]],
+//                                         @[@"检查更新",@"jcgx_content_icon_default"],
+//                                         @[@"关于我们",@"gywm_content_icon_default"],
+//                                         ],
+//                                     ];
+//
+//                    self.headerView.headerArr = @[];
+//                    [self.tableView reloadData];
+//                });
             }
             
         } failureBlock:^(NSError *error) {
@@ -98,7 +101,7 @@
         [request startRequest];
     }
     
-    NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ? @"我的驾校" : @"我的报名";
+    NSString *string = [EDSToolClass isBlankString:[EDSSave account].schoolId]  ? @"我的报名" : @"我的驾校";
     self.cellArr = @[
                      @[
                          @[string,@"wdbm_content_icon_default"],

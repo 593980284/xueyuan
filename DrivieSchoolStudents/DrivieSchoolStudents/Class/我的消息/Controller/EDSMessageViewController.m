@@ -56,8 +56,6 @@
 {
     [super viewWillAppear:animated];
     
-    self.tableViewArr = @[];
-    
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
@@ -79,8 +77,9 @@
 
 - (void)requestDataWithType:(NSString *)type
 {
+    @weakify(self);
     EDSStudentMsgRequest *request = [EDSStudentMsgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        
+        @strongify(self);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if (errCode == 1) {
@@ -90,6 +89,9 @@
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];
+        }else{
+            
+            self.tableViewArr = @[];
         }
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
@@ -194,7 +196,7 @@
         @strongify(self);
         if (errCode == 1) {
             
-            NSString *courseRecordId = responseDict[@"courseRecordId"];
+//            NSString *courseRecordId = responseDict[@"courseRecordId"];
             NSString *appointmentId = responseDict[@"appointmentId"];
             NSString *studentId = responseDict[@"studentId"];
             

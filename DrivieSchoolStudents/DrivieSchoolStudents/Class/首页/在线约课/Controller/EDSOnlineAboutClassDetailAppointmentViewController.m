@@ -31,10 +31,19 @@
     EDSOnlineAboutClassDetailAppointmentDownView *downView = [[EDSOnlineAboutClassDetailAppointmentDownView alloc] init];
     downView.model = self.model;
     [self.view addSubview:downView];
-    [downView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(70);
-    }];
+    if ([self.model.isAppointment isEqualToString:@"2"]) {
+
+        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+    }else{
+
+        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(70);
+        }];
+    }
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -46,10 +55,16 @@
     
     
     EDSOnlineAboutClassDetailAppointmentHeaderView *headerView = [[EDSOnlineAboutClassDetailAppointmentHeaderView alloc] init];
-    headerView.wz_size = CGSizeMake(kScreenWidth, 425);
     headerView.model = self.model;
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
+    if ([self.model.isAppointment isEqualToString:@"2"]) {
+        
+        self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425 - 70);
+    }else{
+        
+        self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425);
+    }
 }
 
 - (void)setModel:(EDSOnlineClassListByDateModel *)model
