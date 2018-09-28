@@ -30,7 +30,8 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    EDSCoachListModel *model = [EDSCoachListModel mj_objectWithKeyValues:data];
+    EDSCoachListModel *model = [EDSCoachListModel mj_objectWithKeyValues:[data valueForKey:@"list"][0]];
+    
     if (self.successBlock) {
      
         self.successBlock(resCode, data, model);

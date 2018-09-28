@@ -106,6 +106,7 @@
         make.width.mas_equalTo(KLineX(255));
         make.bottom.mas_equalTo(-20);
     }];
+    _descriptionLbl.textAlignment = NSTextAlignmentRight;
 }
 
 - (void)addTagLblView

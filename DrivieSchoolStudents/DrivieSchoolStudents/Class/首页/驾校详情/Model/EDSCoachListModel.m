@@ -22,7 +22,7 @@
 
 - (NSArray *)showTagArr
 {
-    return [_coachLabel componentsSeparatedByString:@","];
+    return _coachLabel.length > 0 ? [_coachLabel componentsSeparatedByString:@","] : @[];
 }
 
 - (NSString *)showCoachDescrp
