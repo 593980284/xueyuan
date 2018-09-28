@@ -35,6 +35,10 @@
             
             if (errCode == 1) {
                 
+                EDSAccount *accout = [EDSSave account];
+                accout.userID = @"";
+                [EDSSave save:accout];
+                
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
         } failureBlock:^(NSError *error) {
