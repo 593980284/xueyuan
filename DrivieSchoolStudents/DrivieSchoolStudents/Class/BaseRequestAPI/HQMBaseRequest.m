@@ -75,8 +75,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     if (kOpenHttpsAuth) {
         [_manager setSecurityPolicy:[self customSecurityPolicy]];
     }
-
-    //_manager.completionGroup = _processingQueue;
+    [_manager.requestSerializer setHTTPShouldHandleCookies:YES];
 }
 
 - (instancetype)initWithSuccessBlock:(HQMRequestSuccessBlock)successBlock
@@ -188,6 +187,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
 {
     NSMutableURLRequest *request = nil;
 
+    
     if (block) {
         request = [requestSerializer multipartFormRequestWithMethod:method URLString:URLString parameters:param constructingBodyWithBlock:block error:error];
     } else {
@@ -196,6 +196,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
 
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [_manager dataTaskWithRequest:request uploadProgress:uploadProgress downloadProgress:downloadProgress completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
         //AFN 返回的数据responseObject已经是字典了，不必再用NSJSONSerialization解析了
         [self handleRequestResult:dataTask response:response responseObject:responseObject error:error];
     }];
@@ -206,18 +207,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         DLog(@"POST-->url:%@", dataTask.currentRequest.URL.absoluteString);
     }
     
-//    //获取cookie
-//    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookiesForURL:[NSURL URLWithString:@"http://111.39.245.156:8087/app/lexiang/homePage/homeSchoolInformation"]];
-//    for (NSHTTPCookie *tempCookie in cookies)
-//    {
-//        //打印cookies
-//        NSLog(@"getCookie:%@",tempCookie);
-//    }
-//    NSDictionary *Request = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
-//
-//    NSUserDefaults *userCookies = [NSUserDefaults standardUserDefaults];
-//    [userCookies setObject:[Request objectForKey:@"Cookie"] forKey:@"mUserDefaultsCookie"];
-//    [userCookies synchronize];
 
     return dataTask;
 }
@@ -236,14 +225,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     requestSerializer.timeoutInterval = [self requestTimeoutInterval];
     requestSerializer.allowsCellularAccess = [self allowsCellularAccess];
 
-    //api needs to add custom value to HTTPHeaderField
-    NSDictionary<NSString *, NSString *> *headerFieldValueDict = [self requestHeaderFieldValueDictionary];
-    if (headerFieldValueDict != nil) {
-        for (NSString *key in headerFieldValueDict.allKeys) {
-            NSString *value = headerFieldValueDict[key];
-            [requestSerializer setValue:value forHTTPHeaderField:key];
-        }
-    }
 
     return requestSerializer;
 }
@@ -272,16 +253,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     #endif
 #endif
     
-//    NSArray*cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-//
-//    NSLog(@"%@",responseObject);
-//    NSHTTPURLResponse * res = (NSHTTPURLResponse *)response;
-//    NSLog(@"%@",res.allHeaderFields);                //获取到请求头文件 里面包含着session的信息
-//    NSDictionary * resposeDic = res.allHeaderFields;
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];        //具体字典里面的key命名是什么 还是得按照你们伟大的服务器人员来
-//    [defaults setObject:resposeDic[@"JSESSIONID"] forKey:@"JSESSIONID"];
-//    [defaults synchronize];
-    
+    [self saveCookies];
     
     DLog(@"---------------%ld",(long)error.code);
     if (error) {
@@ -362,6 +334,18 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     });
 }
 
+//
+
+//保存Cookie
+- (void)saveCookies
+{
+    NSData*cookiesData = [NSKeyedArchiver archivedDataWithRootObject:[[NSHTTPCookieStorage sharedHTTPCookieStorage]cookies]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:cookiesData forKey:@"org.skyfox.cookie"];
+    [defaults synchronize];
+}
+
 ///< nil out to break the retain cycle.
 - (void)clearCompletionBlock {
     self.successBlock = nil;
@@ -380,8 +364,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
 - (NSDictionary<NSString *, NSString *> *)requestHeaderFieldValueDictionary {
     NSString *token = @"";//;[BHYSave account].token;
     token = token.length > 0 ? token : @"";
-//    return @{@"token":token};
-     return nil;
+    return @{@"JSESSIONID":@"22A870EF293FE2C8A49E6A734AF935F6"};
+//     return nil;
 }
 
 - (HQMRequestMethod)requestMethod {

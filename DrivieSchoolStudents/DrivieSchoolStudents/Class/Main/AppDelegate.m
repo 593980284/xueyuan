@@ -102,7 +102,22 @@
     self.window.rootViewController = [[EDSTabBarViewController alloc] init];
     [self.window makeKeyAndVisible];
     
+    [self loadCookies];
     return YES;
+}
+
+//
+
+//加载Cookie 一般都是app刚刚启动的时候
+- (void)loadCookies
+{
+    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"org.skyfox.cookie"]];
+    
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    
+    for (NSHTTPCookie *cookie  in cookies) {
+        [cookieStorage setCookie:cookie];
+    }
 }
 
 
