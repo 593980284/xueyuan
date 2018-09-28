@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *subjectLbl;
 @property (weak, nonatomic) IBOutlet UILabel *resultLbl;
 @property (weak, nonatomic) IBOutlet UILabel *souceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *examTypeLbl;
 
 @end
 
@@ -32,9 +33,11 @@
 - (void)setExamModel:(EDSStudentExamResultInfoModel *)examModel
 {
     _examModel = examModel;
+    
     self.subjectLbl.text = examModel.subType;
     self.resultLbl.text = examModel.examResult;
     self.souceLbl.text = examModel.examMarks;
+    self.examTypeLbl.text = examModel.examType;
 }
 
 @end

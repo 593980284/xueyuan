@@ -45,4 +45,22 @@
     return @"";
 }
 
+
+- (NSString *)examType
+{
+    if ([_subType isEqual:@"1"]) {
+        
+        return @"理论考试";
+    }else if ([_subType isEqual:@"2"])
+    {
+        return @"实操考试";
+    }else if ([_subType isEqual:@"3"])
+    {
+        return @"实操考试";
+    }else if ([_subType isEqual:@"4"])
+    {
+        return @"理论考试";
+    }
+    return @"";
+}
 @end

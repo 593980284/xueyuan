@@ -14,4 +14,6 @@
 @property (nonatomic , copy) NSString              * examMarks;
 @property (nonatomic , copy) NSString              * examResult;
 
+
+@property (nonatomic , copy) NSString              * examType;
 @end

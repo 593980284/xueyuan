@@ -45,6 +45,8 @@
     NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
 
     [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
+    self.avarterImgView.contentMode = UIViewContentModeScaleAspectFill;
+    self.avarterImgView.layer.masksToBounds = YES;
     
     self.carTypeLbl.text = [EDSSave account].applyDriveCar.length > 0 ? [EDSSave account].applyDriveCar : @"";
     self.calssLbl.font = kFont(14);
