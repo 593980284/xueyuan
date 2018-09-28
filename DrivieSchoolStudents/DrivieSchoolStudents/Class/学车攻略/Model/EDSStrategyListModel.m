@@ -10,8 +10,8 @@
 
 @implementation EDSStrategyListModel
 
-- (NSString *)strategyPhoto
+- (NSString *)titleCover
 {
-    return [LINEURL stringByAppendingPathComponent:_strategyPhoto];
+    return [LINEURL stringByAppendingPathComponent:_titleCover];
 }
 @end

@@ -138,6 +138,11 @@
 
 +(UIColor *)getColorWithHexString: (NSString *) stringToConvert;
 
+
+
+//从颜色获得图片
++(UIImage*) createImageWithColor:(UIColor*) color;
+
 /**
  *  可定义透明度
  *
@@ -146,10 +151,6 @@
  *
  *  @return RGB颜色
  */
-
-//从颜色获得图片
-+(UIImage*) createImageWithColor:(UIColor*) color;
-
 +(UIColor *)getColorWithHexString:(NSString *)stringToConvert alpha:(CGFloat)alpha;
 
 /**

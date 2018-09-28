@@ -16,7 +16,7 @@
 @property (nonatomic , copy) NSString              * strategyName;//攻略名称
 @property (nonatomic , copy) NSString              * creatTime;//创建时间
 @property (nonatomic , copy) NSString              * likeCount;//点赞量
-@property (nonatomic , copy) NSString              * strategyPhoto;//图片
+//@property (nonatomic , copy) NSString              * strategyPhoto;//图片
 @property (nonatomic , copy) NSString              * clickCount;//点击量
 @property (nonatomic , copy) NSString              * studyStrategyId;//攻略id
 
