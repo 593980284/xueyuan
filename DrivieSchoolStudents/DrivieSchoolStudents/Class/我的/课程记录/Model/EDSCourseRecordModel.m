@@ -32,7 +32,7 @@
 
 - (NSString *)coachScore
 {
-    return [NSString stringWithFormat:@"%@",_coachScore];
+    return [NSString stringWithFormat:@"%.1f",[_coachScore floatValue]];
 }
 
 - (NSString *)status
@@ -64,5 +64,6 @@
     }
     return @"";
 }
+
 
 @end
