@@ -85,6 +85,7 @@
                     <constraint firstItem="2j4-y7-bZU" firstAttribute="leading" secondItem="pfh-g6-kaZ" secondAttribute="trailing" constant="10" id="ShO-8v-0Z7"/>
                     <constraint firstItem="VQf-wa-D3p" firstAttribute="centerY" secondItem="2j4-y7-bZU" secondAttribute="centerY" id="Wyl-fI-fvX"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Q5O-B1-bcL" secondAttribute="bottom" constant="12" id="Zbx-9G-I8a"/>
+                    <constraint firstItem="bWA-1P-7ga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="95" id="Zfb-rt-q7P"/>
                     <constraint firstAttribute="bottomMargin" secondItem="46W-uY-hCU" secondAttribute="bottom" constant="12" id="oOv-hZ-zLu"/>
                     <constraint firstItem="46W-uY-hCU" firstAttribute="leading" secondItem="pfh-g6-kaZ" secondAttribute="trailing" constant="10" id="pXA-o9-b4a"/>
                     <constraint firstAttribute="trailing" secondItem="VQf-wa-D3p" secondAttribute="trailing" constant="16" id="sb9-Yw-IAt"/>
@@ -99,6 +100,7 @@
                 <outlet property="imgView" destination="pfh-g6-kaZ" id="Yhc-tV-rzQ"/>
                 <outlet property="schoolNameLbl" destination="VQf-wa-D3p" id="8Sq-hY-3c1"/>
                 <outlet property="statusLbl" destination="Q5O-B1-bcL" id="gVp-0V-wdK"/>
+                <outlet property="timeLbl" destination="bWA-1P-7ga" id="vAp-K8-iev"/>
             </connections>
             <point key="canvasLocation" x="-151.5" y="4"/>
         </tableViewCell>

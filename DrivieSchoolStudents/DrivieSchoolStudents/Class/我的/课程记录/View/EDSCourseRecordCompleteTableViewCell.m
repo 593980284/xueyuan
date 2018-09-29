@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *coachNameLbl;
 @property (weak, nonatomic) IBOutlet UIButton *ageLbl;
 @property (weak, nonatomic) IBOutlet UILabel *schoolNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+
 
 @end
 
@@ -77,6 +79,7 @@
     self.schoolNameLbl.text = courseRecordModel.schoolName;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
     
+    self.timeLbl.text = courseRecordModel.periodTime;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
