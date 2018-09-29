@@ -29,4 +29,10 @@
 {
     return [NSString stringWithFormat:@"%@年教练 · %@",_teachAge,_teachType];
 }
+
+- (NSString *)coachStar
+{
+    return [NSString stringWithFormat:@"%.1f",[_coachStar floatValue]];
+}
+
 @end
