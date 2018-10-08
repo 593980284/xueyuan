@@ -191,6 +191,7 @@
     EDSAccount *account = [EDSSave account];
     account.userID = @"";
     account.schoolId = @"";
+    account.phone = @"";
     [EDSSave save:account];
     [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     

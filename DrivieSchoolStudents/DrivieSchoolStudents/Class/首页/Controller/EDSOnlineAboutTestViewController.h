@@ -11,5 +11,7 @@
 
 @interface EDSOnlineAboutTestViewController : UIViewController
 
+@property (nonatomic , copy) NSString *webViewUrl;
+
 @end
 

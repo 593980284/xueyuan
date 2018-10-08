@@ -18,6 +18,9 @@
 @property (nonatomic, strong) SDCycleScrollView  *cycleScrollView;
 /** 按钮 */
 @property (nonatomic, strong) EDSHomeFunctionBgView  *homeFunctionBgView;
+
+@property (nonatomic , strong) NSArray *homeRollPictureArr;
+
 @end
 
 @implementation EDSHomeTableViewHeaderView
@@ -38,6 +41,14 @@
     return [self initWithFrame:self.frame];
 }
 
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    if ([self.delegate respondsToSelector:@selector(homeHeaderViewCycleScrollViewBackDict:)]) {
+        
+        [self.delegate homeHeaderViewCycleScrollViewBackDict:self.homeRollPictureArr[index]];
+    }
+}
+
 - (void)setHeaderArr:(NSArray *)headerArr
 {
     _headerArr = headerArr;
@@ -45,8 +56,6 @@
     [self requestData];
     
     self.cycleScrollView.imageURLStringsGroup = @[
-                                                  @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
-                                                  @"http://pic35.photophoto.cn/20150516/0005018639255973_b.jpg",
                                                   ];
     
     self.homeFunctionBgView.backgroundColor = WhiteColor;
@@ -77,9 +86,12 @@
 
 - (void)requestData
 {
+    @weakify(self);
     EDSHomeRollPictureRequest *request = [EDSHomeRollPictureRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        @strongify(self);
+        self.cycleScrollView.imageURLStringsGroup = [model valueForKey:@"homeRollPicture"];
         
-        self.cycleScrollView.imageURLStringsGroup = model;
+        self.homeRollPictureArr = model;
         
     } failureBlock:^(NSError *error) {
         

@@ -35,9 +35,14 @@
 {
     NSArray *arr = [data valueForKey:@"list"];
     NSMutableArray *mulArr = [[NSMutableArray alloc] init];
-    for (NSString *string in arr) {
+    for (int i = 0 ; i < arr.count ; i++ ) {
         
-        [mulArr addObject:[LINEURL stringByAppendingPathComponent:string]];
+        NSDictionary *dict = @{
+                               @"homeRollPicture":[LINEURL stringByAppendingPathComponent:arr[i][@"homeRollPicture"]],
+                               @"interactiveContent":arr[i][@"interactiveContent"],
+                               @"isInteractive":arr[i][@"isInteractive"],
+                               };
+        [mulArr addObject:dict];
     }
     
     if (self.successBlock) {

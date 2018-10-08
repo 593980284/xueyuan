@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol EDSHomeTableViewHeaderViewDelegate <NSObject>
+
+@optional
+
+- (void)homeHeaderViewCycleScrollViewBackDict:(NSDictionary *)dict;
+
+@end
+
 @interface EDSHomeTableViewHeaderView : UIView
 
 @property (nonatomic , strong) NSArray *headerArr;
 
+@property (nonatomic , weak) id<EDSHomeTableViewHeaderViewDelegate>delegate;
 @end

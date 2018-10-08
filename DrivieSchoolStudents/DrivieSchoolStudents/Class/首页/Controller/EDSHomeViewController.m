@@ -27,7 +27,7 @@
 
 #import "HomeConstants.h"
 
-@interface EDSHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDSHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EDSHomeTableViewHeaderViewDelegate>
 
 /** 驾校消息 */
 @property (nonatomic, strong) NSArray<EDSDrivingSchoolModel *>  *tableViewListArr;
@@ -48,6 +48,7 @@
     self.tableView.dataSource = self;
     
     _headerView = [[EDSHomeTableViewHeaderView alloc] init];
+    _headerView.delegate = self;
     _headerView.wz_size = CGSizeMake(kScreenWidth, EDSHomeTableViewHeaderSlideH+EDSHomeTableViewHeaderButtonBgH + 16);
     _headerView.headerArr = @[];
     self.tableView.tableHeaderView = _headerView;
@@ -69,6 +70,16 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(homeRightBarButtonItemClick) image:@"dl_content_icon_defaut" highImage:@"dl_content_icon_defaut"];
 }
 
+- (void)homeHeaderViewCycleScrollViewBackDict:(NSDictionary *)dict
+{
+    if ([[NSString stringWithFormat:@"%@",dict[@"isInteractive"]] isEqualToString:@"1"]) {
+        
+        EDSOnlineAboutTestViewController *vc = [[EDSOnlineAboutTestViewController alloc] initWithNibName:@"EDSOnlineAboutTestViewController" bundle:[NSBundle mainBundle]];
+        vc.webViewUrl = dict[@"interactiveContent"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
 
 - (void)homeRightBarButtonItemClick
 {
@@ -129,6 +140,7 @@
         if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
             
             EDSOnlineAboutTestViewController *vc = [[EDSOnlineAboutTestViewController alloc] initWithNibName:@"EDSOnlineAboutTestViewController" bundle:[NSBundle mainBundle]];
+            vc.webViewUrl = [EDSSave account].bookingExamUrl;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             

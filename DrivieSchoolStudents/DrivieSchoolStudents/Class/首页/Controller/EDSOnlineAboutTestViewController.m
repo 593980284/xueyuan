@@ -19,15 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"在线约考";
     
-    if ([[EDSSave account].bookingExamUrl rangeOfString:@"http"].location != NSNotFound) {
+    if ([self.webViewUrl isEqualToString:[EDSSave account].bookingExamUrl]) {
         
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[EDSSave account].bookingExamUrl]]];
+        self.navigationItem.title = @"在线约考";
+    }
+    
+    if ([self.webViewUrl rangeOfString:@"http"].location != NSNotFound) {
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webViewUrl]]];
     }else{
         
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@",[EDSSave account].bookingExamUrl]]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@",self.webViewUrl]]]];
     }
+}
+
+- (void)setWebViewUrl:(NSString *)webViewUrl
+{
+    _webViewUrl = webViewUrl;
 }
 
 @end
