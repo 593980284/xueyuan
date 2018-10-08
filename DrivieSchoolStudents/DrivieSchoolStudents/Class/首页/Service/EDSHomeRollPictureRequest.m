@@ -22,7 +22,13 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{};
+    if ([EDSToolClass isBlankString:[EDSSave account].phone]) {
+        
+        return @{};
+    }else{
+        
+        return @{@"phone":[EDSSave account].phone};
+    }
 }
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
