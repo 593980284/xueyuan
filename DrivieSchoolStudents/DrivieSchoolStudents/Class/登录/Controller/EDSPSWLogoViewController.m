@@ -47,9 +47,11 @@
     
     self.view.backgroundColor = WhiteColor;
     self.loginBtnBottonHeight.constant = KLineY(100);
-    
+#ifdef DEBUG
     self.codePhoneTextF.text = @"18297982132";
     self.pswPhoneTextF.text = @"18297982132";
+#else
+#endif
     
     self.pswBtn.selected = YES;
     self.pswLoginBgView.hidden = NO;

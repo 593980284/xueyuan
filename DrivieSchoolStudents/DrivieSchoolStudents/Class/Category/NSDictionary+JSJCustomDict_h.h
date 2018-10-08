@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary (JSJCustomDict_h)
+
 +(id)changeType:(id)myObj;
+
 @end
