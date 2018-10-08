@@ -23,6 +23,7 @@
                 <outlet property="pswCodeTextF" destination="eH9-kO-bVg" id="Mhc-hf-GZG"/>
                 <outlet property="pswLoginBgView" destination="KqH-NK-YEl" id="I63-9v-uyC"/>
                 <outlet property="pswPhoneTextF" destination="KRA-HJ-eGN" id="BSU-sc-jtp"/>
+                <outlet property="userAgreementBtn" destination="nyN-Gp-vIv" id="S7j-ld-rFR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -264,18 +265,51 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="xUz-ql-ALu"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-Gp-vIv">
+                    <rect key="frame" x="22" y="450" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="bNc-jX-8TX"/>
+                        <constraint firstAttribute="height" constant="35" id="fto-Wd-0md"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" image="login_unyhxy">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="login_yhxy"/>
+                    <connections>
+                        <action selector="userAgreementClick:" destination="-1" eventType="touchUpInside" id="Sqi-zh-nwp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qs-lY-wN9">
+                    <rect key="frame" x="57" y="453" width="58" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="HJM-ow-iU7"/>
+                        <constraint firstAttribute="width" constant="58" id="L9V-Jd-sNs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="用户协议">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="jumpUserAgreementClick:" destination="-1" eventType="touchUpInside" id="a3Y-vh-FFA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E0C-FW-R5u" firstAttribute="centerY" secondItem="AAp-Wq-jPQ" secondAttribute="centerY" id="13E-7B-sf6"/>
+                <constraint firstItem="nyN-Gp-vIv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="22" id="3CV-xC-VbE"/>
                 <constraint firstItem="KqH-NK-YEl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="5yN-qj-Mpz"/>
+                <constraint firstItem="nyN-Gp-vIv" firstAttribute="top" secondItem="KqH-NK-YEl" secondAttribute="bottom" constant="7" id="CAy-G7-fAd"/>
                 <constraint firstItem="6lF-2H-a6L" firstAttribute="top" secondItem="KqH-NK-YEl" secondAttribute="top" id="CMO-zV-mD7"/>
                 <constraint firstItem="E0C-FW-R5u" firstAttribute="leading" secondItem="AAp-Wq-jPQ" secondAttribute="trailing" constant="28" id="HxC-Yv-lEL"/>
                 <constraint firstItem="S8P-eW-cnp" firstAttribute="top" secondItem="He8-Q3-CU6" secondAttribute="bottom" constant="14" id="JlV-Oa-SnG"/>
                 <constraint firstItem="AAp-Wq-jPQ" firstAttribute="top" secondItem="nWA-zq-oBe" secondAttribute="bottom" constant="30" id="NUT-Eh-b0r"/>
                 <constraint firstItem="KqH-NK-YEl" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ODv-ul-yRs"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="6xs-NJ-oMA" secondAttribute="bottom" constant="134" id="RMJ-lz-Q5n"/>
+                <constraint firstItem="4Qs-lY-wN9" firstAttribute="leading" secondItem="nyN-Gp-vIv" secondAttribute="trailing" id="SIM-Mj-KvP"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="6xs-NJ-oMA" secondAttribute="trailing" constant="15" id="SUI-1O-Yam"/>
+                <constraint firstItem="4Qs-lY-wN9" firstAttribute="centerY" secondItem="nyN-Gp-vIv" secondAttribute="centerY" id="SyH-3z-eqS"/>
                 <constraint firstItem="nWA-zq-oBe" firstAttribute="top" secondItem="rk5-Lt-niN" secondAttribute="bottom" constant="23" id="Vdv-Ns-3cd"/>
                 <constraint firstItem="6xs-NJ-oMA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="Ycg-v6-how"/>
                 <constraint firstItem="E0C-FW-R5u" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="akp-sK-kbh"/>
@@ -294,10 +328,12 @@
                 <constraint firstItem="6lF-2H-a6L" firstAttribute="height" secondItem="KqH-NK-YEl" secondAttribute="height" id="x8f-Ez-QFZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-367.19999999999999" y="46.326836581709152"/>
         </view>
     </objects>
     <resources>
+        <image name="login_unyhxy" width="16" height="16"/>
+        <image name="login_yhxy" width="16" height="16"/>
         <image name="logo_content_icon_default" width="96" height="93.5"/>
         <image name="mobile_content_icon_default" width="17.5" height="24.5"/>
         <image name="sct_content_icon_default" width="18.5" height="23.5"/>

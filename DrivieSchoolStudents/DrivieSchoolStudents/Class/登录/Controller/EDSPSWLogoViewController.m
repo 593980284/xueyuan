@@ -9,6 +9,7 @@
 #import "EDSPSWLogoViewController.h"
 #import "EDSLoginSettingsPasswordViewController.h"
 #import <IQKeyboardManager.h>
+#import "EDSYHXYViewController.h"
 
 #import "EDSMsgCodeLoginRequest.h"
 #import "EDSStudentLoginRequest.h"
@@ -36,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pswPhoneTextF;
 @property (weak, nonatomic) IBOutlet UITextField *pswCodeTextF;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *userAgreementBtn;
 
 @end
 
@@ -125,6 +128,13 @@
 
 - (IBAction)loginClick:(id)sender {
     
+    if (!self.userAgreementBtn.selected) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请先同意用户协议"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    
     if (_isCodeLogin) {
         //验证码登录
         BOOL isPhone = self.codePhoneTextF.text.length > 10;
@@ -204,6 +214,17 @@
     request.phone = [EDSSave account].phone;
     request.operatingSystem = @"iOS";
     [request startRequest];
+}
+
+- (IBAction)userAgreementClick:(id)sender {
+    
+    self.userAgreementBtn.selected = !self.userAgreementBtn.selected;
+}
+
+- (IBAction)jumpUserAgreementClick:(id)sender {
+    
+    EDSYHXYViewController *vc = [[EDSYHXYViewController alloc] initWithNibName:@"EDSYHXYViewController" bundle:[NSBundle mainBundle]];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
