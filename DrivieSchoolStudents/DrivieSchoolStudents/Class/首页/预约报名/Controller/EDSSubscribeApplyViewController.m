@@ -9,6 +9,7 @@
 #import "EDSSubscribeApplyViewController.h"
 #import "EDSDrivingSchoolInformationViewController.h"
 #import "EDSChooseBoxViewController.h"
+#import "EDSPSWLogoViewController.h"
 #import "PopAnimator.h"
 #import "EDSDataPickerView.h"
 
@@ -229,7 +230,12 @@
                 boxModel.code = self.carTypeArr[i].code;
                 [self.chooseBoxModelArr addObject:boxModel];
             }
-        }else
+        }else if (errCode == -2){
+            
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+        else
         {
             [self getcoachCarTypeRequest];
         }
