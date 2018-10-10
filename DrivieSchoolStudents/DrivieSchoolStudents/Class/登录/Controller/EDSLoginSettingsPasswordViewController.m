@@ -9,6 +9,7 @@
 #import "EDSLoginSettingsPasswordViewController.h"
 #import "EDSAppTouristRegistRequest.h"
 #import "EDSPSWLogoViewController.h"
+#import <SVProgressHUD.h>
 
 
 @interface EDSLoginSettingsPasswordViewController ()
@@ -42,8 +43,9 @@
         return ;
     }
 
+    [SVProgressHUD showWithStatus:@"正在登陆"];
     EDSAppTouristRegistRequest *request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-
+        [SVProgressHUD dismiss];
         if (errCode == 1) {
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
@@ -51,7 +53,7 @@
         }
         
     } failureBlock:^(NSError *error) {
-
+        [SVProgressHUD dismiss];
     }];
     request.phone = self.phone;
     request.password = self.pswTextF.text;

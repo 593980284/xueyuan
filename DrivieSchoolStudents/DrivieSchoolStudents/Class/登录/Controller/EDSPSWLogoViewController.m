@@ -10,6 +10,7 @@
 #import "EDSLoginSettingsPasswordViewController.h"
 #import <IQKeyboardManager.h>
 #import "EDSYHXYViewController.h"
+#import <SVProgressHUD.h>
 
 #import "EDSMsgCodeLoginRequest.h"
 #import "EDSStudentLoginRequest.h"
@@ -132,8 +133,6 @@
     
     if (!self.userAgreementBtn.selected) {
         
-//        [SVProgressHUD showErrorWithStatus:@"请先同意用户协议"];
-//        [SVProgressHUD dismissWithDelay:1.5];
         [self.view makeToast:@"请先同意用户协议"];
         return;
     }
@@ -144,9 +143,12 @@
         BOOL isPSW = self.codeVerificationTextF.text.length > 0;
         
         if (isPSW && isPhone) {
+            
+            [SVProgressHUD showWithStatus:@""];
             EDSMsgCodeLoginRequest *request = [EDSMsgCodeLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
                 [self appStudentOperatingSystem];
+                [SVProgressHUD dismiss];
                 
                 if (errCode == 1) {
                     
@@ -163,7 +165,7 @@
                 }
                 
             } failureBlock:^(NSError *error) {
-                
+                [SVProgressHUD dismiss];
             }];
             request.phone = self.codePhoneTextF.text;
             request.msgCode = self.codeVerificationTextF.text;
@@ -179,19 +181,21 @@
     }else{
         //密码登录
         BOOL isPhone = self.pswPhoneTextF.text.length > 10;
-        BOOL isPWS = self.pswCodeTextF.text.length > 0;
+        BOOL isPWS  = self.pswCodeTextF.text.length > 0;
         
         if (isPWS && isPhone) {
             
+            [SVProgressHUD showWithStatus:@""];
             EDSStudentLoginRequest *request = [EDSStudentLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                 
+                [SVProgressHUD dismiss];
                 if (errCode == 1) {
                     [self appStudentOperatingSystem];
                     [self dismissToRootViewController];
                 }
                 
             } failureBlock:^(NSError *error) {
-                
+                [SVProgressHUD dismiss];
             }];
             request.phone = self.pswPhoneTextF.text;
             request.password = self.pswCodeTextF.text;
@@ -199,8 +203,6 @@
             [request startRequest];
         }else
         {
-//            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"请输入完整信息"];
             return;
             

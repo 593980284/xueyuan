@@ -80,7 +80,7 @@
                                      @[@"学校信箱",@"xxxx_content_icon_default"],
                                      ],
                                  @[
-                                     @[@"刷新缓存",@"sxhc_content_icon_default" , [LXCacheManager readCacheSize]],
+                                     @[@"刷新缓存",@"sxhc_content_icon_default" , @""],
                                      @[@"检查更新",@"jcgx_content_icon_default"],
                                      @[@"关于我们",@"gywm_content_icon_default"],
                                      ],

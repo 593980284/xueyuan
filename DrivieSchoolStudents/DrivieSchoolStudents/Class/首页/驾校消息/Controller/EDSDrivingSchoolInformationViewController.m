@@ -113,7 +113,6 @@
     request.schoolName = _schoolName;
     request.lng = [NSString stringWithFormat:@"%f",localLng];
     request.lat = [NSString stringWithFormat:@"%f",localLat];
-    request.showHUD = YES;
     [request startRequest];
 }
 

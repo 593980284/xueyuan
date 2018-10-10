@@ -14,5 +14,7 @@ target 'DrivieSchoolStudents' do
     pod 'TZImagePickerController', '~> 2.1.4'
     pod 'FMDB'
     pod 'YYCache', '~> 1.0.4'
+    pod 'SVProgressHUD'
+    
 end
 

@@ -240,7 +240,6 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.showHUD = YES;
     [request startRequest];
 }
 
