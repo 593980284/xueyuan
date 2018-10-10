@@ -300,18 +300,15 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         _showHUD = NO;
     }
     else {
-//        id json = [self preHandleData:responseObject error:error];
-//        NSDictionary *jsonDict = (NSDictionary *)json;
-//        NSInteger errorCode = [[responseObject objectForKey:@"error_code"] integerValue];
+        
         NSInteger code = [[responseObject objectForKey:@"flg"] integerValue];
         if (code == 1) {
             
             id resultData = [responseObject objectForKey:@"data"];
-//            [SVProgressHUD showSuccessWithStatus:[responseObject valueForKey:@"msg"]];
-//            [SVProgressHUD dismissWithDelay:0.5];
 //            [[self currentViewController].view makeToast:[responseObject valueForKey:@"msg"]];
             DLog(@"resultData:%@",resultData);
             [self handleData:resultData errCode:1];
+            
         }else if (code == -2){
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
@@ -322,8 +319,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             
             id resultData = @{};
             DLog(@"resultData:%@",resultData);
-//            [SVProgressHUD showErrorWithStatus:[responseObject valueForKey:@"msg"]];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [[self currentViewController].view makeToast:[responseObject valueForKey:@"msg"]];
             [self handleData:resultData errCode:0];
         }

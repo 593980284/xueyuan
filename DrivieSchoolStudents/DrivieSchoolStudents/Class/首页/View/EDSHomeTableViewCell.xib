@@ -77,6 +77,12 @@
                             <constraint firstAttribute="height" constant="15" id="bbO-e3-yvy"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnN-S5-eQm">
+                        <rect key="frame" x="231" y="50" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aZO-DX-EF9" firstAttribute="top" secondItem="Smr-YO-X4S" secondAttribute="top" id="0cP-r1-Ldr"/>
@@ -86,7 +92,9 @@
                     <constraint firstItem="hzG-JH-ygu" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="8PB-Lz-8XB"/>
                     <constraint firstItem="d6O-Mk-0YW" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="Asc-8Y-uhy"/>
                     <constraint firstItem="flj-L7-fJW" firstAttribute="top" secondItem="aZO-DX-EF9" secondAttribute="bottom" constant="7" id="GDP-8j-4YX"/>
+                    <constraint firstItem="cnN-S5-eQm" firstAttribute="centerY" secondItem="flj-L7-fJW" secondAttribute="centerY" id="KkY-2G-lMD"/>
                     <constraint firstItem="hzG-JH-ygu" firstAttribute="top" secondItem="Smr-YO-X4S" secondAttribute="top" id="L7Z-45-SeS"/>
+                    <constraint firstItem="cnN-S5-eQm" firstAttribute="leading" secondItem="flj-L7-fJW" secondAttribute="trailing" constant="6" id="OYA-It-UAg"/>
                     <constraint firstAttribute="trailing" secondItem="mZI-op-95S" secondAttribute="trailing" constant="15" id="Ueg-Oz-gEq"/>
                     <constraint firstItem="flj-L7-fJW" firstAttribute="leading" secondItem="Smr-YO-X4S" secondAttribute="trailing" constant="10" id="VeZ-5c-dUe"/>
                     <constraint firstItem="XRN-xC-2VD" firstAttribute="leading" secondItem="d6O-Mk-0YW" secondAttribute="trailing" constant="7" id="Vyf-xJ-g7x"/>
@@ -104,6 +112,7 @@
                 <outlet property="driveImgView" destination="Smr-YO-X4S" id="Dm8-5f-DrR"/>
                 <outlet property="driveNameLbl" destination="hzG-JH-ygu" id="9hO-Sh-biK"/>
                 <outlet property="drivePriceLbl" destination="aZO-DX-EF9" id="0WZ-7j-WJK"/>
+                <outlet property="driveScoreLbl" destination="cnN-S5-eQm" id="Trz-RA-k4P"/>
                 <outlet property="driveStarView" destination="flj-L7-fJW" id="FyM-ta-FKy"/>
             </connections>
             <point key="canvasLocation" x="77.5" y="-46.5"/>

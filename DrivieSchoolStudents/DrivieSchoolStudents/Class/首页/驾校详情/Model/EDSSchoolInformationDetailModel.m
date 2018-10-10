@@ -22,7 +22,7 @@
 
 - (NSString  *)showStarScore
 {
-    return [NSString stringWithFormat:@"%@分",_starScore];
+    return [NSString stringWithFormat:@"%.1f分",[_starScore floatValue]];
 }
 
 - (NSInteger)showStarScoreInterger

@@ -27,7 +27,7 @@
 
 - (NSString *)showCoachDescrp
 {
-    return [NSString stringWithFormat:@"%@年教练 · %@",_teachAge,_teachType];
+    return [NSString stringWithFormat:@"%@年教龄 · %@",_teachAge,_teachType];
 }
 
 - (NSString *)coachStar

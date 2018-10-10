@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *coachDescrpLbl;
 @property (weak, nonatomic) IBOutlet UILabel *coachSexLbl;
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *coachstarView;
+@property (weak, nonatomic) IBOutlet UILabel *remainLbl;
 
 @end
 
@@ -42,6 +43,7 @@
     self.coachDescrpLbl.text = coachModel.showCoachDescrp;
     self.coachSexLbl.text = coachModel.coachSex;
     self.coachstarView.selectNumber = coachModel.showCoachStarInterger;
+    self.remainLbl.text  = [NSString stringWithFormat:@"%@分",coachModel.coachStar];
 }
 
 @end

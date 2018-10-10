@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *drivePriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *driveAddress;
 
+@property (weak, nonatomic) IBOutlet UILabel *driveScoreLbl;
+
 @end
 
 @implementation EDSHomeTableViewCell
@@ -47,6 +49,7 @@
     self.distanceLbl.text = schoolListModel.showDistance;
     self.drivePriceLbl.attributedText = schoolListModel.showCartyoePrice;
     self.driveAddress.text = schoolListModel.address;
+    self.driveScoreLbl.text = [NSString stringWithFormat:@"%.1f分",[schoolListModel.starScore floatValue]];
 }
 
 - (void)setModel:(EDSDrivingSchoolModel *)model

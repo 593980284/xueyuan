@@ -12,7 +12,7 @@
 
 - (NSString *)showStylePhoto
 {
-    return [LINEURL stringByAppendingPathComponent:_stylePhoto];
+    return [LINEURL stringByAppendingPathComponent:_titleCover];
 }
 
 @end
