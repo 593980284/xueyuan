@@ -105,7 +105,6 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.showHUD = YES;
     request.appointmentId = _appointmentId;
     request.studentId = _studentId;
     [request startRequest];
@@ -129,6 +128,7 @@
     }];
     request.courseRecordId = self.courseRecordId;
     request.status = @"6";
+    request.showHUD = YES;
     [request  startRequest];
 }
 
@@ -151,6 +151,7 @@
     }];
     request.courseRecordId = self.courseRecordId;
     request.status = @"7";
+    request.showHUD = YES;
     [request  startRequest];
     
 }

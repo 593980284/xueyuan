@@ -224,7 +224,6 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.showHUD = YES;
     request.appointmentId = appointmentId;
     request.studentId = studentId;
     [request startRequest];
