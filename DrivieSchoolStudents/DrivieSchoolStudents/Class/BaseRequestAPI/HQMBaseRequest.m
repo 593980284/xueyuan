@@ -126,7 +126,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     [self constructSessionTask];
 
     if (self.showHUD) {
-//        [SVProgressHUD show];
         
     }
 }

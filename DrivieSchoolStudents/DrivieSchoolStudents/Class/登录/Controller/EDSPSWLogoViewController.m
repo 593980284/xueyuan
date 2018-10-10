@@ -224,6 +224,7 @@
     
     request.phone = [EDSSave account].phone;
     request.operatingSystem = @"iOS";
+    request.showHUD = YES;
     [request startRequest];
 }
 

@@ -44,7 +44,7 @@
     
     NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
 
-    [self.avarterImgView sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.avarterImgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avar"]];
     self.avarterImgView.contentMode = UIViewContentModeScaleAspectFill;
     self.avarterImgView.layer.masksToBounds = YES;
     

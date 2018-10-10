@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"跟换登录手机号";
+    self.navigationItem.title = @"更换登录手机号";
 }
 
 //确认
