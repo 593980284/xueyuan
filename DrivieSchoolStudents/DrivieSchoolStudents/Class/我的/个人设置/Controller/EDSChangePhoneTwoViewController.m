@@ -46,6 +46,7 @@
         }];
         request.phone = self.phoneTextF.text;
         request.msgCode = self.codeTextF.text;
+        request.showHUD = YES;
         [request startRequest];
         
     }else{
@@ -84,7 +85,7 @@
     }];
     
     request.phone = self.phoneTextF.text;
-    
+    request.showHUD = YES;
     [request startRequest];
 }
 

@@ -199,13 +199,7 @@
         
         if (errCode == 1) {
             
-//            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
-//            [SVProgressHUD dismissWithDelay:1.5];
-            [self.view makeToast:@"报名成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-                [self.navigationController popToRootViewControllerAnimated:YES];
-            });
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failureBlock:^(NSError *error) {
         
@@ -218,6 +212,7 @@
     request.applyDriveCar = _carId;
     request.appointmentTime = _time;
     request.signupSource = @"1";
+    request.showHUD = YES;
     [request startRequest];
 }
 
@@ -237,10 +232,6 @@
                 boxModel.code = self.carTypeArr[i].code;
                 [self.chooseBoxModelArr addObject:boxModel];
             }
-        }else if (errCode == -2){
-            
-//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-//            [self presentViewController:vc animated:YES completion:nil];
         }
         else
         {

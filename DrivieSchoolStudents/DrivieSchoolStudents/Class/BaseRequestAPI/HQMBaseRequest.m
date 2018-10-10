@@ -124,10 +124,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
 
     //AFN 已经很强大了，不用手动拼接 URL 参数，AFN 可以帮你处理好 url 入参
     [self constructSessionTask];
-
-    if (self.showHUD) {
-        
-    }
 }
 
 - (void)constructURL {
@@ -207,8 +203,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     } else {
         DLog(@"POST-->url:%@", dataTask.currentRequest.URL.absoluteString);
     }
-    
-
     return dataTask;
 }
 
@@ -293,8 +287,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             }
             [[self currentViewController].view makeToast:errorStr];
 //            [SVProgressHUD showErrorWithStatus:errorStr];
-        } else {
-//            [SVProgressHUD dismiss];
         }
         _showHUD = NO;
     }
@@ -304,13 +296,17 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         if (code == 1) {
             
             id resultData = [responseObject objectForKey:@"data"];
-//            [[self currentViewController].view makeToast:[responseObject valueForKey:@"msg"]];
+            if (_showHUD) {
+                
+                [[UIApplication sharedApplication].keyWindow makeToast:[responseObject valueForKey:@"msg"]];
+            }
             DLog(@"resultData:%@",resultData);
             [self handleData:resultData errCode:1];
             
         }else if (code == -2){
             
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
+            
             [[self currentViewController] presentViewController:vc animated:YES completion:nil];
             [self handleData:@{} errCode:-2];
         }
@@ -322,12 +318,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             [self handleData:resultData errCode:0];
         }
         
-        if (_showHUD) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [SVProgressHUD dismiss];
-            });
-            _showHUD = NO;
-        }
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{

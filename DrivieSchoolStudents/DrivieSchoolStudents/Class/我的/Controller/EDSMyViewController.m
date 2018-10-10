@@ -19,16 +19,20 @@
 #import "EDSMyTableViewCell.h"
 #import "EDSMyHeaderView.h"
 #import "MyConstants.h"
+#import "LXAlterPromptView.h"
 
 #import "EDSGetStudentInfoRequest.h"
 #import "EDSVersionUpdateRequest.h"
 
-@interface EDSMyViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface EDSMyViewController ()<UITableViewDelegate,UITableViewDataSource,LXAlterPromptViewDelegate>
 
 /** 数据 */
 @property (nonatomic, strong) NSArray  *cellArr;
 /** 头部试图 */
 @property (nonatomic, strong)  EDSMyHeaderView *headerView;
+/// 背景图
+@property (nonatomic, strong) UIView *alterBgView;
+@property (nonatomic, strong) LXAlterPromptView *promptView;
 
 @end
 
@@ -233,8 +237,6 @@
             else
             {
                 message = @"清除缓存成功";
-//                [SVProgressHUD showSuccessWithStatus:@"清除缓存成功"];
-//                [SVProgressHUD dismissWithDelay:0.2];
                 [self.view makeToast:@"清除缓存成功"];
             }
         }
@@ -245,8 +247,6 @@
         EDSVersionUpdateRequest *request = [EDSVersionUpdateRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             @strongify(self);
             
-//            [SVProgressHUD showSuccessWithStatus:@"您已经是最新版本不需要更新"];
-//            [SVProgressHUD dismissWithDelay:1];
             [self.view makeToast:@"您已经是最新版本不需要更新"];
         } failureBlock:^(NSError *error) {
         
@@ -255,14 +255,11 @@
         [request startRequest];
     }else if ([string isEqualToString:@"我的报名"]){
         
-//        [SVProgressHUD showErrorWithStatus:@"您还没有报名"];
-//        [SVProgressHUD dismissWithDelay:1.5];
         [self.view makeToast:@"您还没有报名"];
     }
 }
 
 #pragma 清理缓存图片
-
 - (int)clearTmpPics
 {
     //计算结果
@@ -324,5 +321,36 @@
         _headerView.wz_size = CGSizeMake(kScreenWidth, MyTableViewHeaderViewH);
     }
     return _headerView;
+}
+
+#pragma mark - LXAlterPromptViewDelegate
+/// 取消按钮
+- (void)lx_cancelClickButton {
+    [self.alterBgView removeFromSuperview];
+}
+
+/// 确认按钮
+- (void)lx_enterClickButton {
+//    [LXCacheManager cleanCacheSize];
+    [self.alterBgView removeFromSuperview];
+    [self.view makeToast:@"清除成功"];
+}
+
+- (UIView *)alterBgView {
+    if (!_alterBgView) {
+        _alterBgView = [[UIView alloc] init];
+        _alterBgView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _alterBgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.5];
+    }
+    return _alterBgView;
+}
+
+- (LXAlterPromptView *)promptView {
+    if (!_promptView) {
+        _promptView = [[LXAlterPromptView alloc] init];
+        _promptView.frame = CGRectMake(73, 100, 230, 140);
+        _promptView.delegate = self;
+    }
+    return _promptView;
 }
 @end

@@ -13,5 +13,6 @@ target 'DrivieSchoolStudents' do
     pod 'UITextView+Placeholder'
     pod 'TZImagePickerController', '~> 2.1.4'
     pod 'FMDB'
+    pod 'YYCache', '~> 1.0.4'
 end
 

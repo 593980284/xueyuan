@@ -57,7 +57,7 @@
     }];
     
     request.phone = self.phoneTextF.text;
-    
+    request.showHUD = YES;
     [request startRequest];
 }
 

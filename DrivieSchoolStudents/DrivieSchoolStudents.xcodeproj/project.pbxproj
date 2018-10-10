@@ -71,6 +71,8 @@
 		10E5BC35216DA46C004E6650 /* NSObject+EDSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */; };
 		10E5BC39216DA78E004E6650 /* UIView+LXToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC38216DA78E004E6650 /* UIView+LXToast.m */; };
 		10E5BC3D216DAA4A004E6650 /* UIColor+LXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC3B216DAA4A004E6650 /* UIColor+LXColor.m */; };
+		10E5BC40216E02BE004E6650 /* LXAlterPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC3F216E02BE004E6650 /* LXAlterPromptView.m */; };
+		10E5BC44216E041B004E6650 /* LXCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC42216E041B004E6650 /* LXCacheManager.m */; };
 		10E6EF6E214A9A7800088875 /* EDSStudentAttendanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */; };
 		10E6EF72214A9D7900088875 /* EDSStudentCourseRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF71214A9D7900088875 /* EDSStudentCourseRecordRequest.m */; };
 		10E6EF76214A9E7F00088875 /* EDSCourseRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF75214A9E7F00088875 /* EDSCourseRecordModel.m */; };
@@ -2288,6 +2290,10 @@
 		10E5BC38216DA78E004E6650 /* UIView+LXToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LXToast.m"; sourceTree = "<group>"; };
 		10E5BC3B216DAA4A004E6650 /* UIColor+LXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXColor.m"; sourceTree = "<group>"; };
 		10E5BC3C216DAA4A004E6650 /* UIColor+LXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXColor.h"; sourceTree = "<group>"; };
+		10E5BC3E216E02BE004E6650 /* LXAlterPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXAlterPromptView.h; sourceTree = "<group>"; };
+		10E5BC3F216E02BE004E6650 /* LXAlterPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXAlterPromptView.m; sourceTree = "<group>"; };
+		10E5BC42216E041B004E6650 /* LXCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXCacheManager.m; sourceTree = "<group>"; };
+		10E5BC43216E041B004E6650 /* LXCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCacheManager.h; sourceTree = "<group>"; };
 		10E6EF6C214A9A7800088875 /* EDSStudentAttendanceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentAttendanceRequest.h; sourceTree = "<group>"; };
 		10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentAttendanceRequest.m; sourceTree = "<group>"; };
 		10E6EF70214A9D7900088875 /* EDSStudentCourseRecordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCourseRecordRequest.h; sourceTree = "<group>"; };
@@ -4782,6 +4788,15 @@
 			path = LXColor;
 			sourceTree = "<group>";
 		};
+		10E5BC41216E041B004E6650 /* LXCacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				10E5BC43216E041B004E6650 /* LXCacheManager.h */,
+				10E5BC42216E041B004E6650 /* LXCacheManager.m */,
+			);
+			path = LXCacheManager;
+			sourceTree = "<group>";
+		};
 		10E6EF6F214A9D6200088875 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -7005,6 +7020,8 @@
 		E9A619A52133D232006E5C2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10E5BC3E216E02BE004E6650 /* LXAlterPromptView.h */,
+				10E5BC3F216E02BE004E6650 /* LXAlterPromptView.m */,
 				E9A619A72133D232006E5C2B /* MyConstants.h */,
 				E9A619A82133D232006E5C2B /* EDSMyViewController.h */,
 				E9A619A62133D232006E5C2B /* EDSMyViewController.m */,
@@ -7597,6 +7614,7 @@
 		E9BC047121315182003A624F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				10E5BC41216E041B004E6650 /* LXCacheManager */,
 				10A104F9215CDC65003601EC /* LZActionSheet */,
 				10C3F25F2148DE2B00AA091A /* 刷新 */,
 				E9FCD04321467ACF00A8AAC4 /* 倒计时 */,
@@ -9948,6 +9966,7 @@
 				E9A61ABE2137E9E4006E5C2B /* EDSPracticeTableViewCell.m in Sources */,
 				E9A61A912136AC52006E5C2B /* EDSCourseRecordTableViewCell.m in Sources */,
 				10A48A992134376400FA2A38 /* EDSSubscribeApplyViewController.m in Sources */,
+				10E5BC44216E041B004E6650 /* LXCacheManager.m in Sources */,
 				E9A61A4C21366865006E5C2B /* EDSOnlineAboutClassTableViewHeaderView.m in Sources */,
 				E9A61A3A21364939006E5C2B /* EDSOnlineAboutClassViewController.m in Sources */,
 				E9BC049421315283003A624F /* AppDelegate+JSJCategory.m in Sources */,
@@ -10018,6 +10037,7 @@
 				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,
 				E90F8FEB213D146F0061F448 /* EDSFirstView.m in Sources */,
 				10C2FCB7214BB7DF00498C52 /* EDSStudentExamResultInfoRequest.m in Sources */,
+				10E5BC40216E02BE004E6650 /* LXAlterPromptView.m in Sources */,
 				E9BC04A421315626003A624F /* BHYBaseViewController.m in Sources */,
 				E9A61AAB21379FF2006E5C2B /* EDSTheoryLearningViewController.m in Sources */,
 				E9A619D6213415B6006E5C2B /* EDSLogoInputView.m in Sources */,

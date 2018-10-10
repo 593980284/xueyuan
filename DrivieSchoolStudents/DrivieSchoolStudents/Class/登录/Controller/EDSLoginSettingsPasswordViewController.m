@@ -46,13 +46,8 @@
 
         if (errCode == 1) {
             
-            [self.view makeToast:@"注册成功,欢迎进入学员端"];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-                EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
-                [self presentViewController:vc animated:YES completion:nil];
-            });
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
+            [self presentViewController:vc animated:YES completion:nil];
         }
         
     } failureBlock:^(NSError *error) {
@@ -60,6 +55,7 @@
     }];
     request.phone = self.phone;
     request.password = self.pswTextF.text;
+    request.showHUD = YES;
     [request startRequest];
 }
 

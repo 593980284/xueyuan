@@ -101,7 +101,6 @@
     }];
     request.phone = [EDSSave account].phone;
     request.type = type;
-    request.showHUD = YES;
     [request  startRequest];
 }
 

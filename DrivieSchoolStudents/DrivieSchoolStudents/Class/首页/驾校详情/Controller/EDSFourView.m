@@ -75,7 +75,6 @@
     }];
     
     request.schoolId = self.schoolId;
-    request.showHUD = YES;
     [request  startRequest];
 }
 

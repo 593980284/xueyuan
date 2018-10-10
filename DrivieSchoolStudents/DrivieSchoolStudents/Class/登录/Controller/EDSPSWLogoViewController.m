@@ -123,6 +123,7 @@
         buttone.userInteractionEnabled = YES;
     }];
     request.phone = self.codePhoneTextF.text;
+    request.showHUD = YES;
     [request startRequest];
 }
 
@@ -166,6 +167,7 @@
             }];
             request.phone = self.codePhoneTextF.text;
             request.msgCode = self.codeVerificationTextF.text;
+            request.showHUD = YES;
             [request startRequest];
         }else{
 //            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
@@ -193,6 +195,7 @@
             }];
             request.phone = self.pswPhoneTextF.text;
             request.password = self.pswCodeTextF.text;
+            request.showHUD = YES;
             [request startRequest];
         }else
         {
@@ -224,7 +227,6 @@
     
     request.phone = [EDSSave account].phone;
     request.operatingSystem = @"iOS";
-    request.showHUD = YES;
     [request startRequest];
 }
 

@@ -57,6 +57,7 @@
         }];
         request.password = self.passwordTextF.text;
         request.oldPassword = self.oldPasswordTextF.text;
+        request.showHUD = YES;
         [request startRequest];
     }else{
         

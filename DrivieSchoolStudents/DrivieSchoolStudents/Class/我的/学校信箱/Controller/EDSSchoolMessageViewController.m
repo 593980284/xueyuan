@@ -127,6 +127,7 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
         request.phone = [EDSSave account].phone;
         request.type = [self.chooseLbl.text isEqualToString:@"投诉信息"] ? @"0" : @"1";
         request.pubContent = self.textView.text;
+        request.showHUD = YES;
         [request  startRequest];
     }else
     {

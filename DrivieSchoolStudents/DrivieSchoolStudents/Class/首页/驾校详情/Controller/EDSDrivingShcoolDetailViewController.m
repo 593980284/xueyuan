@@ -63,7 +63,6 @@
     } failureBlock:^(NSError *error) {
         
     }];
-    request.showHUD = YES;
     request.schoolId = self.schoolId;
     [request startRequest];
 }
