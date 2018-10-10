@@ -9,7 +9,7 @@
 #import "EDSSubscribeApplyViewController.h"
 #import "EDSDrivingSchoolInformationViewController.h"
 #import "EDSChooseBoxViewController.h"
-#import "EDSPSWLogoViewController.h"
+//#import "EDSPSWLogoViewController.h"
 #import "PopAnimator.h"
 #import "EDSDataPickerView.h"
 
@@ -232,8 +232,8 @@
             }
         }else if (errCode == -2){
             
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//            [self presentViewController:vc animated:YES completion:nil];
         }
         else
         {

@@ -67,8 +67,8 @@
             
             if (errCode == -2) {
                 
-                EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-                [self presentViewController:vc animated:YES completion:nil];
+//                EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//                [self presentViewController:vc animated:YES completion:nil];
                 
             }else if (errCode == 1){
                 

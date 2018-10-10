@@ -9,6 +9,7 @@
 #import "HQMBaseRequest.h"
 #import "Reachability.h"
 #import "SVProgressHUD.h"
+#import "EDSPSWLogoViewController.h"
 
 //#import "BHYLoginWindow.h"
 
@@ -310,6 +311,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             [self handleData:resultData errCode:1];
         }else if (code == -2){
             
+            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
+            [[self currentViewController] presentViewController:vc animated:YES completion:nil];
             [self handleData:@{} errCode:-2];
         }
         else{

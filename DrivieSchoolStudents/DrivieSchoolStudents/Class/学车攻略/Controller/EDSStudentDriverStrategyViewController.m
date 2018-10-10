@@ -106,8 +106,8 @@
             [self.tableView reloadData];
         }else if (errCode == -2){
             
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//            [self presentViewController:vc animated:YES completion:nil];
         }
         
     } failureBlock:^(NSError *error) {

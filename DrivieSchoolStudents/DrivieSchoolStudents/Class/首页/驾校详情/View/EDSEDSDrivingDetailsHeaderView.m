@@ -263,9 +263,11 @@
         }];
         
         _driveAddressLbl = [UILabel labelWithText:@"南京市长江路南京市长江路1234号" font:kFont(16) textColor:SecondColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
+        _driveAddressLbl.numberOfLines = 1;
         [_driveAddressLbl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(addressImgView.mas_centerY);
             make.left.mas_equalTo(addressImgView.mas_right).mas_equalTo(8);
+            make.right.mas_equalTo(-15);
         }];
         
         

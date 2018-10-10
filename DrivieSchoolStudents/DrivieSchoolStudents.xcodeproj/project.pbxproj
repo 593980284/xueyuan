@@ -68,6 +68,7 @@
 		10D0E9C32153958C00BADD59 /* EDSBeingPushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C22153958C00BADD59 /* EDSBeingPushedViewController.m */; };
 		10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */; };
 		10D0E9CA2153B0A900BADD59 /* EDSVersionUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C92153B0A900BADD59 /* EDSVersionUpdateRequest.m */; };
+		10E5BC35216DA46C004E6650 /* NSObject+EDSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */; };
 		10E6EF6E214A9A7800088875 /* EDSStudentAttendanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */; };
 		10E6EF72214A9D7900088875 /* EDSStudentCourseRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF71214A9D7900088875 /* EDSStudentCourseRecordRequest.m */; };
 		10E6EF76214A9E7F00088875 /* EDSCourseRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF75214A9E7F00088875 /* EDSCourseRecordModel.m */; };
@@ -2279,6 +2280,8 @@
 		10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSClearCacheCell.m; sourceTree = "<group>"; };
 		10D0E9C82153B0A900BADD59 /* EDSVersionUpdateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSVersionUpdateRequest.h; sourceTree = "<group>"; };
 		10D0E9C92153B0A900BADD59 /* EDSVersionUpdateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSVersionUpdateRequest.m; sourceTree = "<group>"; };
+		10E5BC33216DA46C004E6650 /* NSObject+EDSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EDSTool.h"; sourceTree = "<group>"; };
+		10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EDSTool.m"; sourceTree = "<group>"; };
 		10E6EF6C214A9A7800088875 /* EDSStudentAttendanceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentAttendanceRequest.h; sourceTree = "<group>"; };
 		10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentAttendanceRequest.m; sourceTree = "<group>"; };
 		10E6EF70214A9D7900088875 /* EDSStudentCourseRecordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCourseRecordRequest.h; sourceTree = "<group>"; };
@@ -4744,6 +4747,15 @@
 				10C3F27821492D4700AA091A /* EDSOnlineClassListByDateModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		10E5BC32216DA46C004E6650 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				10E5BC33216DA46C004E6650 /* NSObject+EDSTool.h */,
+				10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */,
+			);
+			path = NSObject;
 			sourceTree = "<group>";
 		};
 		10E6EF6F214A9D6200088875 /* Service */ = {
@@ -7591,6 +7603,7 @@
 		E9BC047521315283003A624F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				10E5BC32216DA46C004E6650 /* NSObject */,
 				10A104FD215CDD9D003601EC /* LXImage */,
 				10661121215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.h */,
 				10661120215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.m */,
@@ -9975,6 +9988,7 @@
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
 				10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */,
+				10E5BC35216DA46C004E6650 /* NSObject+EDSTool.m in Sources */,
 				10F74D81214D0AA500FA3ECC /* EDSSubjectThreeView.m in Sources */,
 				E9A619F2213517B8006E5C2B /* EDSDrivingDetailsFooterView.m in Sources */,
 				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,
@@ -10288,7 +10302,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
@@ -10303,7 +10317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = AnHuiStudentDev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -10316,7 +10330,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
@@ -10331,7 +10345,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = AnHuiStudentDev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
