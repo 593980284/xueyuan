@@ -77,7 +77,7 @@
         make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
     }];
     self.schoolNameLbl.text = courseRecordModel.schoolName;
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     
     self.timeLbl.text = courseRecordModel.periodTime;
 }

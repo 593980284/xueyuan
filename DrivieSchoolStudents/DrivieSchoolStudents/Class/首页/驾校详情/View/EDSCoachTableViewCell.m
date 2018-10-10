@@ -37,7 +37,7 @@
 {
     _coachModel = coachModel;
     
-    [self.coachPhotoImgView sd_setImageWithURL:[NSURL URLWithString:coachModel.showCoachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.coachPhotoImgView sd_setImageWithURL:[NSURL URLWithString:coachModel.showCoachPhoto] placeholderImage:AvatarPlaceholderImage];
     
     self.coachNameLbl.text = coachModel.coachName;
     self.coachDescrpLbl.text = coachModel.showCoachDescrp;

@@ -60,7 +60,7 @@
         self.scoreLbl.hidden = YES;
     }
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     self.coursNameLbl.text = courseRecordModel.coachName;
     self.coursSexLbl.text = courseRecordModel.coachSex;
     self.ageSubjectLbl.text = [NSString stringWithFormat:@"%@年执教 %@",courseRecordModel.teachAge,courseRecordModel.subjectName];

@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="HWb-Qv-liC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avar" translatesAutoresizingMaskIntoConstraints="NO" id="HWb-Qv-liC">
                         <rect key="frame" x="15" y="15" width="100" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="GJ8-KT-k4G"/>
@@ -87,6 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="placeholderimg.png" width="200" height="160"/>
+        <image name="avar" width="100" height="80"/>
     </resources>
 </document>

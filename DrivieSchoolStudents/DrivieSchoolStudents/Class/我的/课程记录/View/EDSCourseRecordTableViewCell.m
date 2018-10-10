@@ -42,7 +42,7 @@
 {
     _courseRecordModel = courseRecordModel;
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     
     self.coachNameLbl.text = courseRecordModel.coachName;
     self.coachNameLbl.font = kFont(16);
