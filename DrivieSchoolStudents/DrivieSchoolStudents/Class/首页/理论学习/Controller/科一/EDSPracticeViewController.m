@@ -117,6 +117,20 @@
     };
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (_isChooes) {
+        
+        NSString *ID = [EDSSave account].firstSubjectID;
+        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1;
+        EDSAccount *account = [EDSSave account];
+        account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+        [EDSSave save:account];
+    }
+}
+
 - (void)clearRecordQuestion
 {
     CGFloat width = 300;
@@ -196,7 +210,6 @@
 //        [SVProgressHUD dismissWithDelay:1.5];
         [self.view makeToast:@"已是最后一题"];
     }
-    
 }
 
 #pragma mark ------------------------ 获取底部数据 --------------------------------

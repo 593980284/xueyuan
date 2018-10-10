@@ -146,6 +146,20 @@
     }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (_isChooes) {
+        
+        NSString *ID = [EDSSave account].fourSubjectID;
+        NSInteger iD = ID.length > 0 ? [ID integerValue] + 1 : 1326;
+        EDSAccount *account = [EDSSave account];
+        account.fourSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
+        [EDSSave save:account];
+    }
+}
+
 - (void)clearRecordQuestion
 {
     CGFloat width = 300;

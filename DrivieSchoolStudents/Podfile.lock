@@ -45,6 +45,7 @@ PODS:
   - SDWebImage/Core (4.3.3)
   - TZImagePickerController (2.1.4)
   - "UITextView+Placeholder (1.2.1)"
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - SDWebImage
   - TZImagePickerController (~> 2.1.4)
   - "UITextView+Placeholder"
+  - YYCache (~> 1.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -76,6 +78,7 @@ SPEC REPOS:
     - SDWebImage
     - TZImagePickerController
     - "UITextView+Placeholder"
+    - YYCache
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -91,7 +94,8 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   TZImagePickerController: 2a8f41ba058e215bc9b699ade241fdbcc910c2bd
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 64ec5e1957df67d74be88a98ac3bddb1bf3b75e1
+PODFILE CHECKSUM: 85e6afa0be771d7372f5c58b41417bec050d5911
 
 COCOAPODS: 1.6.0.beta.1
