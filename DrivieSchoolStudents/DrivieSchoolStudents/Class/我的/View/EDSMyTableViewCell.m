@@ -37,7 +37,7 @@
     
     if ([cellArr[0] isEqualToString:@"刷新缓存"]) {
         
-        self.descripLbl.text = [NSString stringWithFormat:@"%@MB",cellArr[2]];
+        self.descripLbl.text = [NSString stringWithFormat:@"%@",cellArr[2]];
     }
 }
 @end

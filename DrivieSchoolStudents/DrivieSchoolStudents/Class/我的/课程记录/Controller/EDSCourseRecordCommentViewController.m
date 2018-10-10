@@ -117,7 +117,6 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
     
     }];
     request.courseRecordId = self.courseRecordModel.courseRecordId;
-    request.showHUD = YES;
     [request  startRequest];
 }
 

@@ -40,21 +40,27 @@
     return [NSString stringWithFormat:@"%@",_status];
 }
 
+- (BOOL)isComment
+{
+    return _coachScore.length > 0 ? YES : NO;
+}
+
 - (NSString *)showStatus
 {
-    if ([_status isEqual:@"2"] || [_status isEqual:@"6"]) {
+    NSString *string = [NSString stringWithFormat:@"%@",_status];
+    if ([string isEqualToString:@"2"] || [string isEqualToString:@"6"]) {
         
         if (_coachScore.length == 0) {
             
             return @"待评价";
         }
-    }else if ([_status isEqual:@"3"] || [_status isEqual:@"7"])
+    }else if ([string isEqualToString:@"3"] || [string isEqualToString:@"7"])
     {
         return @"缺勤";
-    }else if ([_status isEqual:@"0"] || [_status isEqual:@"1"] || [_status isEqual:@"4"])
+    }else if ([string isEqualToString:@"0"] || [string isEqualToString:@"1"] || [string isEqualToString:@"4"])
     {
         return @"未确认";
-    }else if ([_status isEqual:@"5"]){
+    }else if ([string isEqualToString:@"5"]){
         
         return @"教练补签";
     }

@@ -57,12 +57,13 @@
         make.top.mas_equalTo(185);
     }];
     
-    [self requesDateListData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self requesDateListData];
     if (_dateStr.length > 0) {
         
         [self requestListByDateDataWithDate:_dateStr];

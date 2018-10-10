@@ -47,7 +47,7 @@
 {
     _model = model;
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.showListImg] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.showListImg] placeholderImage:AvatarPlaceholderImage];
     self.nameLbl.text = model.coachName;
     self.ageSubjectLbl.text = model.showSubjectAge;
     self.sexLbl.text = model.coachSex;

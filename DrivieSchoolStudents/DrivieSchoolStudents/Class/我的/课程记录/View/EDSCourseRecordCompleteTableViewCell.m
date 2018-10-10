@@ -50,7 +50,7 @@
     
     if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
         
-        if (courseRecordModel.coachScore.length > 0) {
+        if (courseRecordModel.isComment) {
             
             self.driveStarView.hidden = NO;
             self.statusLbl.hidden = YES;

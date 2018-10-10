@@ -107,6 +107,7 @@
         request.appointmentId = model.appointmentId;
         request.studentId = model.studentId;
         request.status = @"0";
+        request.showHUD = YES;
         [request  startRequest];
     }];
     //课程签到
@@ -129,6 +130,7 @@
         request.appointmentId = model.appointmentId;
         request.studentId = model.studentId;
         request.status = @"1";
+        request.showHUD = YES;
         [request  startRequest];
     }];
     //取消预约
@@ -158,6 +160,7 @@
                 request.appointmentId = model.appointmentId;
                 request.studentId = model.studentId;
                 request.status = @"10";
+                request.showHUD = YES;
                 [request startRequest];
                 
             }];
@@ -167,8 +170,6 @@
             [alerController addAction:cancelAction];
             [[self getCurrentVC] presentViewController:alerController animated:YES completion:nil];
         }else{
-//            [SVProgressHUD showErrorWithStatus:@"可取消时间已过"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [[self currentViewController].view makeToast:@"可取消时间已过"];
         }
     }];

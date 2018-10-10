@@ -57,7 +57,7 @@
     
     if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
      //已到 有分数显示分数，没分数显示待评价
-        if (courseRecordModel.coachScore.length > 0) {
+        if (courseRecordModel.isComment) {
             
             self.haveEvaluation.hidden = NO;
             

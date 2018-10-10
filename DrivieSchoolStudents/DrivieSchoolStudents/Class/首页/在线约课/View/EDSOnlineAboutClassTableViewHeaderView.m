@@ -17,6 +17,8 @@
 //@property (nonatomic , strong)monthCalenbarview * monthCalenbar;
 @property (nonatomic , copy)NSString * daydatestr;
 
+@property (nonatomic , strong) EDSTopScrollView * scrollView;
+
 @property (nonatomic , strong)UILabel * dataLbl;
 
 @end
@@ -43,57 +45,62 @@
 {
     _dataArr = dataArr;
     
-    [self setup];
+    self.dataLbl.text = self.dataArr[0].date;
+    
+    self.scrollView.dataArr = self.dataArr;
 }
 
-- (void)setup{
-    
-    
-    _dataLbl = [UILabel labelWithText:self.dataArr[0].date font:[UIFont boldSystemFontOfSize:16] textColor:FirstColor backGroundColor:ClearColor superView:self];
-    [_dataLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(15);
-        make.centerX.mas_equalTo(0);
-    }];
-    
-    EDSTopScrollView * scrollView = [[EDSTopScrollView alloc] initWithFrame:CGRectMake(0, 45, kScreenWidth, 76)];
-    [scrollView setUserInteractionEnabled:YES];
-    [scrollView setScrollEnabled:YES];
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    
-    //NO - 设置scrollView不能取消传递touch事件，此时就算手指若在subView上滑动，scrollView不滚动; YES - 设置scrollView可取消传递touch事件
-    [scrollView setCanCancelContentTouches:YES];
-    [scrollView setBounces:NO];
-    
-    //NO - 立即通知touchesShouldBegin:withEvent:inContentView
-    [scrollView setDelaysContentTouches:NO];
-    CGFloat viewW = kScreenWidth / 7 ;
-    [scrollView setContentSize:CGSizeMake(viewW*self.dataArr.count, 76)];
-    @weakify(self);
-    scrollView.topScrollViewDidBackData = ^(NSString *datastr) {
-        @strongify(self);
-        
-        self->_dataLbl.text = datastr;
-        if (self.onlineAboutClassTableViewHeaderViewDidBackData) {
-            
-            self.onlineAboutClassTableViewHeaderViewDidBackData(datastr);
-        }
-    };
-    
-    [self addSubview:scrollView];
-//    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.mas_equalTo(0);
-//        make.bottom.mas_equalTo(-10);
-//        make.top.mas_equalTo(self->_dataLbl.mas_bottom).mas_equalTo(15);
-//    }];
-    
-    scrollView.dataArr = self.dataArr;
 
-    UIView *line = [UIView viewWithBackgroundColor:TableColor superView:self];
-    [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(10);
-    }];
+- (EDSTopScrollView *)scrollView
+{
+    if (!_scrollView) {
+        
+        _scrollView = [[EDSTopScrollView alloc] initWithFrame:CGRectMake(0, 45, kScreenWidth, 76)];
+        [_scrollView setUserInteractionEnabled:YES];
+        [_scrollView setScrollEnabled:YES];
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        
+        //NO - 设置scrollView不能取消传递touch事件，此时就算手指若在subView上滑动，scrollView不滚动; YES - 设置scrollView可取消传递touch事件
+        [_scrollView setCanCancelContentTouches:YES];
+        [_scrollView setBounces:NO];
+        
+        //NO - 立即通知touchesShouldBegin:withEvent:inContentView
+        [_scrollView setDelaysContentTouches:NO];
+        CGFloat viewW = kScreenWidth / 7 ;
+        [_scrollView setContentSize:CGSizeMake(viewW*self.dataArr.count, 76)];
+        @weakify(self);
+        _scrollView.topScrollViewDidBackData = ^(NSString *datastr) {
+            @strongify(self);
+            
+            self->_dataLbl.text = datastr;
+            if (self.onlineAboutClassTableViewHeaderViewDidBackData) {
+                
+                self.onlineAboutClassTableViewHeaderViewDidBackData(datastr);
+            }
+        };
+        
+        [self addSubview:_scrollView];
+        UIView *line = [UIView viewWithBackgroundColor:TableColor superView:self];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(10);
+        }];
+    }
+    return _scrollView;
+}
+
+- (UILabel *)dataLbl
+{
+    if (!_dataLbl) {
+        
+        _dataLbl = [UILabel labelWithText:@"" font:[UIFont boldSystemFontOfSize:16] textColor:FirstColor backGroundColor:ClearColor superView:self];
+        [_dataLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(15);
+            make.centerX.mas_equalTo(0);
+        }];
+    }
+    return _dataLbl;
 }
 
 @end
