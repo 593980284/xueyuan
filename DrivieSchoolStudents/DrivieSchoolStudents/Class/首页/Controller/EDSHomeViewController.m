@@ -114,8 +114,9 @@
                 EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }else{
-                [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-                [SVProgressHUD dismissWithDelay:1.5];
+//                [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+//                [SVProgressHUD dismissWithDelay:1.5];
+                [self.view makeToast:@"您还没有报名^_^!"];
             }
         }else{
             
@@ -144,8 +145,9 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             
-            [SVProgressHUD showErrorWithStatus:@"您还没有报名奥^_^!"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"您还没有报名奥^_^!"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"您还没有报名奥^_^!"];
         }
         
     }else if ([titleStr isEqualToString:@"价格公示"]){

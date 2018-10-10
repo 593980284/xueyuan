@@ -167,8 +167,9 @@
             [alerController addAction:cancelAction];
             [[self getCurrentVC] presentViewController:alerController animated:YES completion:nil];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"可取消时间已过"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"可取消时间已过"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [[self currentViewController].view makeToast:@"可取消时间已过"];
         }
     }];
 }

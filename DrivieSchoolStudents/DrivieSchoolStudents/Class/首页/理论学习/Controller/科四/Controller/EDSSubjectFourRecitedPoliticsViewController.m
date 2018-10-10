@@ -109,8 +109,9 @@
         [self.tableView reloadData];
     }else
     {
-        [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"已是最后一题"];
     }
     
 }

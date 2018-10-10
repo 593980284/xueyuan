@@ -51,8 +51,8 @@
     self.view.backgroundColor = WhiteColor;
     self.loginBtnBottonHeight.constant = KLineY(100);
 #ifdef DEBUG
-    self.codePhoneTextF.text = @"18297982132";
-    self.pswPhoneTextF.text = @"18297982132";
+    self.codePhoneTextF.text = @"17706524763";
+    self.pswPhoneTextF.text =  @"17706524763";
 #else
 #endif
     
@@ -99,8 +99,9 @@
 - (IBAction)getCodeClick:(id)sender {
     
     if (self.codePhoneTextF.text.length < 11) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请输入正确的手机号码"];
         return;
     }
     
@@ -130,8 +131,9 @@
     
     if (!self.userAgreementBtn.selected) {
         
-        [SVProgressHUD showErrorWithStatus:@"请先同意用户协议"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请先同意用户协议"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请先同意用户协议"];
         return;
     }
     
@@ -147,16 +149,15 @@
                 
                 if (errCode == 1) {
                     
-                    if ([[EDSSave account].state isEqual:@"1"] && [[EDSSave account].touristState isEqual:@"0"]) {
+                    if ([[NSString stringWithFormat:@"%@",[EDSSave account].state] isEqualToString:@"1"] && [[NSString stringWithFormat:@"%@",[EDSSave account].touristState] isEqualToString:@"0"]) {
                         
                         EDSLoginSettingsPasswordViewController *vc = [[EDSLoginSettingsPasswordViewController alloc] initWithNibName:@"EDSLoginSettingsPasswordViewController" bundle:[NSBundle mainBundle]];
-                        [self.navigationController presentViewController:vc animated:YES completion:^{
-                            
-                            [self dismissViewControllerAnimated:YES completion:nil];
-                        }];
+                        vc.phone = self.pswPhoneTextF.text;
+                        [self presentViewController:vc animated:YES completion:nil];
+                        
                     }else{
                         
-                        [self  dismissViewControllerAnimated:YES completion:nil];
+                        [self dismissToRootViewController];
                     }
                 }
                 
@@ -167,8 +168,9 @@
             request.msgCode = self.codeVerificationTextF.text;
             [request startRequest];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"请输入完整信息"];
             return;
         }
         
@@ -183,7 +185,7 @@
                 
                 if (errCode == 1) {
                     [self appStudentOperatingSystem];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissToRootViewController];
                 }
                 
             } failureBlock:^(NSError *error) {
@@ -194,12 +196,21 @@
             [request startRequest];
         }else
         {
-            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"请输入完整信息"];
             return;
             
         }
     }
+}
+
+-(void)dismissToRootViewController  {
+    UIViewController *vc = self;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 

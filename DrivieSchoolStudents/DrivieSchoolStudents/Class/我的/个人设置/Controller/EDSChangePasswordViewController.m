@@ -35,8 +35,9 @@
     BOOL isAPSW = self.againPasswordTextF.text.length > 0 ;
     
     if (![self.passwordTextF.text isEqualToString:self.againPasswordTextF.text]) {
-        [SVProgressHUD showErrorWithStatus:@"俩次密码不一致"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"俩次密码不一致"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"俩次密码不一致"];
         return;
     }
     
@@ -59,8 +60,9 @@
         [request startRequest];
     }else{
         
-        [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请输入完整信息"];
         return;
     }
 }

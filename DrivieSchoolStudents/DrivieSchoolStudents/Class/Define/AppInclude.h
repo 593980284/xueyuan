@@ -21,7 +21,7 @@
 #import "BlocksKit+MessageUI.h"
 #import "BlocksKit+UIKit.h"
 #import "Masonry.h"
-#import "SVProgressHUD.h"
+#import "UIView+LXToast.h"
 #import "UIImageView+WebCache.h"
 #import "SDCycleScrollView.h"
 #import "MJExtension.h"

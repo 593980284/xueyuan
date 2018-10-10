@@ -206,8 +206,9 @@
     
     if ([navigationAction.request.URL.absoluteString isEqualToString:@"http://zhugujie.mxapp.cc./success"]) {
         
-        [SVProgressHUD showSuccessWithStatus:@"添加地址成功"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showSuccessWithStatus:@"添加地址成功"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"添加地址成功"];
         sleep(1);
         [self.navigationController popViewControllerAnimated:YES];
         

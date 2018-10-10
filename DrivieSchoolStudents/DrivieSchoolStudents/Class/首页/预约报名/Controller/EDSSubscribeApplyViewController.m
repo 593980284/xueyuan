@@ -154,38 +154,44 @@
 {
     if (_schoolID.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请选择驾校"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请选择驾校"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请选择驾校"];
         return;
     }
     if (_nameTextF.text.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请输入姓名"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请输入姓名"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请输入姓名"];
         return;
     }
     if (_codeTextF.text.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请输入身份证号"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请输入身份证号"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请输入身份证号"];
         return;
     }
     if (_phoneTextF.text.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请输入联系方式"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请输入联系方式"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请输入联系方式"];
         return;
     }
     if (_carId.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请选择车型"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请选择车型"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请选择车型"];
         return;
     }
     if (_time.length == 0) {
         
-        [SVProgressHUD showErrorWithStatus:@"请选择时间"];
-        [SVProgressHUD dismissWithDelay:1];
+//        [SVProgressHUD showErrorWithStatus:@"请选择时间"];
+//        [SVProgressHUD dismissWithDelay:1];
+        [self.view makeToast:@"请选择时间"];
         return;
     }
     
@@ -193,8 +199,9 @@
         
         if (errCode == 1) {
             
-            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"报名成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 [self.navigationController popToRootViewControllerAnimated:YES];

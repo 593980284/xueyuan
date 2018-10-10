@@ -175,8 +175,9 @@
             EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"您还没有报名^_^!"];
         }
     }else if ([string isEqualToString:@"学习查询"]){
         
@@ -185,8 +186,9 @@
             EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"您还没有报名^_^!"];
         }
     }else if ([string isEqualToString:@"关于我们"]){
         
@@ -199,7 +201,8 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([string isEqualToString:@"刷新缓存"]){
         
-        [SVProgressHUD showWithStatus:@"正在清除缓存..."];
+//        [SVProgressHUD showWithStatus:@"正在清除缓存..."];
+        [self.view makeToast:@"正在清除缓存..."];
         //清理结果的信息
         NSString *message = nil;//提示文字
         BOOL clearSuccess = YES;//是否删除成功
@@ -230,8 +233,9 @@
             else
             {
                 message = @"清除缓存成功";
-                [SVProgressHUD showSuccessWithStatus:@"清除缓存成功"];
-                [SVProgressHUD dismissWithDelay:0.2];
+//                [SVProgressHUD showSuccessWithStatus:@"清除缓存成功"];
+//                [SVProgressHUD dismissWithDelay:0.2];
+                [self.view makeToast:@"清除缓存成功"];
             }
         }
         
@@ -241,8 +245,9 @@
         EDSVersionUpdateRequest *request = [EDSVersionUpdateRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             @strongify(self);
             
-            [SVProgressHUD showSuccessWithStatus:@"您已经是最新版本不需要更新"];
-            [SVProgressHUD dismissWithDelay:1];
+//            [SVProgressHUD showSuccessWithStatus:@"您已经是最新版本不需要更新"];
+//            [SVProgressHUD dismissWithDelay:1];
+            [self.view makeToast:@"您已经是最新版本不需要更新"];
         } failureBlock:^(NSError *error) {
         
         }];
@@ -250,8 +255,9 @@
         [request startRequest];
     }else if ([string isEqualToString:@"我的报名"]){
         
-        [SVProgressHUD showErrorWithStatus:@"您还没有报名"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"您还没有报名"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"您还没有报名"];
     }
 }
 

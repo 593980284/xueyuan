@@ -96,8 +96,9 @@
             self.codeTextF.text = textF.text;
         }else{
             self.codeTextF.text = @"";
-            [SVProgressHUD showErrorWithStatus:@"请输入正确的身份证号"];
-            [SVProgressHUD dismissWithDelay:1];
+//            [SVProgressHUD showErrorWithStatus:@"请输入正确的身份证号"];
+//            [SVProgressHUD dismissWithDelay:1];
+            [[self currentViewController].view makeToast:@"请输入正确的身份证号"];
         }
     }];
     
@@ -108,8 +109,9 @@
         }else{
             
             self.phoneTextF.text = @"";
-            [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-            [SVProgressHUD dismissWithDelay:1];
+//            [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+//            [SVProgressHUD dismissWithDelay:1];
+            [[self currentViewController].view makeToast:@"请输入正确的手机号码"];
         }
     }];
     

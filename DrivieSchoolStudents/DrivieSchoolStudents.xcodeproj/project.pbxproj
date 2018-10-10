@@ -69,6 +69,8 @@
 		10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C62153A92700BADD59 /* EDSClearCacheCell.m */; };
 		10D0E9CA2153B0A900BADD59 /* EDSVersionUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0E9C92153B0A900BADD59 /* EDSVersionUpdateRequest.m */; };
 		10E5BC35216DA46C004E6650 /* NSObject+EDSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */; };
+		10E5BC39216DA78E004E6650 /* UIView+LXToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC38216DA78E004E6650 /* UIView+LXToast.m */; };
+		10E5BC3D216DAA4A004E6650 /* UIColor+LXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E5BC3B216DAA4A004E6650 /* UIColor+LXColor.m */; };
 		10E6EF6E214A9A7800088875 /* EDSStudentAttendanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */; };
 		10E6EF72214A9D7900088875 /* EDSStudentCourseRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF71214A9D7900088875 /* EDSStudentCourseRecordRequest.m */; };
 		10E6EF76214A9E7F00088875 /* EDSCourseRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EF75214A9E7F00088875 /* EDSCourseRecordModel.m */; };
@@ -2282,6 +2284,10 @@
 		10D0E9C92153B0A900BADD59 /* EDSVersionUpdateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSVersionUpdateRequest.m; sourceTree = "<group>"; };
 		10E5BC33216DA46C004E6650 /* NSObject+EDSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EDSTool.h"; sourceTree = "<group>"; };
 		10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EDSTool.m"; sourceTree = "<group>"; };
+		10E5BC37216DA78E004E6650 /* UIView+LXToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LXToast.h"; sourceTree = "<group>"; };
+		10E5BC38216DA78E004E6650 /* UIView+LXToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LXToast.m"; sourceTree = "<group>"; };
+		10E5BC3B216DAA4A004E6650 /* UIColor+LXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXColor.m"; sourceTree = "<group>"; };
+		10E5BC3C216DAA4A004E6650 /* UIColor+LXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXColor.h"; sourceTree = "<group>"; };
 		10E6EF6C214A9A7800088875 /* EDSStudentAttendanceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentAttendanceRequest.h; sourceTree = "<group>"; };
 		10E6EF6D214A9A7800088875 /* EDSStudentAttendanceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentAttendanceRequest.m; sourceTree = "<group>"; };
 		10E6EF70214A9D7900088875 /* EDSStudentCourseRecordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentCourseRecordRequest.h; sourceTree = "<group>"; };
@@ -4756,6 +4762,24 @@
 				10E5BC34216DA46C004E6650 /* NSObject+EDSTool.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		10E5BC36216DA78E004E6650 /* LXToast */ = {
+			isa = PBXGroup;
+			children = (
+				10E5BC37216DA78E004E6650 /* UIView+LXToast.h */,
+				10E5BC38216DA78E004E6650 /* UIView+LXToast.m */,
+			);
+			path = LXToast;
+			sourceTree = "<group>";
+		};
+		10E5BC3A216DAA4A004E6650 /* LXColor */ = {
+			isa = PBXGroup;
+			children = (
+				10E5BC3B216DAA4A004E6650 /* UIColor+LXColor.m */,
+				10E5BC3C216DAA4A004E6650 /* UIColor+LXColor.h */,
+			);
+			path = LXColor;
 			sourceTree = "<group>";
 		};
 		10E6EF6F214A9D6200088875 /* Service */ = {
@@ -7603,6 +7627,8 @@
 		E9BC047521315283003A624F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				10E5BC3A216DAA4A004E6650 /* LXColor */,
+				10E5BC36216DA78E004E6650 /* LXToast */,
 				10E5BC32216DA46C004E6650 /* NSObject */,
 				10A104FD215CDD9D003601EC /* LXImage */,
 				10661121215A2A51001C69C1 /* NSDictionary+JSJCustomDict_h.h */,
@@ -9869,11 +9895,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -9881,12 +9906,11 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/province_data.xml",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B1408B9E8F6F48E8106ED106 /* [CP] Check Pods Manifest.lock */ = {
@@ -10035,6 +10059,8 @@
 				10D0E9C32153958C00BADD59 /* EDSBeingPushedViewController.m in Sources */,
 				E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */,
 				E9A61A5621366FB5006E5C2B /* cyhCalenbarview.m in Sources */,
+				10E5BC3D216DAA4A004E6650 /* UIColor+LXColor.m in Sources */,
+				10E5BC39216DA78E004E6650 /* UIView+LXToast.m in Sources */,
 				E9A6197E2133A671006E5C2B /* EDSStudentDriverStrategSubTableViewCell.m in Sources */,
 				E9A61A59213680ED006E5C2B /* EDSOnlineAboutClassDetailAppointmentViewController.m in Sources */,
 				10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */,

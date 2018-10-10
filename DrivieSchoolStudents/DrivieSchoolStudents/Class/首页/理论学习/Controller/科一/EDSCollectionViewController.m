@@ -86,8 +86,9 @@
                 }
             }
             
-            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"请做完本题"];
         }else if ([titleStr isEqualToString:@"收藏"]){
             
             [[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.tableViewModel.ID];
@@ -118,8 +119,9 @@
     {
         self.tableView.allowsSelection = NO;
         
-        [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"已是最后一题"];
     }
     
 }

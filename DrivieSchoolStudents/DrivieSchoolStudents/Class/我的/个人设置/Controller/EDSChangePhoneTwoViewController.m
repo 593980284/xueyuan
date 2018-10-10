@@ -50,15 +50,17 @@
         
     }else{
         
-        [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请输入完整信息"];
     }
 }
 //获取验证码
 - (IBAction)codeBtnClick:(id)sender {
     if (self.phoneTextF.text.length < 11) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请输入正确的手机号码"];
         return;
     }
     

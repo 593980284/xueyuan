@@ -8,7 +8,6 @@
 
 #import "HQMBaseRequest.h"
 #import "Reachability.h"
-#import "SVProgressHUD.h"
 #import "EDSPSWLogoViewController.h"
 
 //#import "BHYLoginWindow.h"
@@ -114,7 +113,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     _networkIsError = [[Reachability reachabilityWithHostName:HQMNetworkDomain] currentReachabilityStatus] == NotReachable ? YES : NO;
     if (_networkIsError) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"网络连接暂时不可用", @"")];
+//            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"网络连接暂时不可用", @"")];
+            [[self currentViewController].view makeToast:@"网络连接暂时不可用"];
         });
         return;
     }
@@ -126,7 +126,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     [self constructSessionTask];
 
     if (self.showHUD) {
-        [SVProgressHUD show];
+//        [SVProgressHUD show];
+        
     }
 }
 
@@ -249,8 +250,8 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         NSInteger statusCode = res.statusCode;
         NSString *status_str = [NSHTTPURLResponse localizedStringForStatusCode:res.statusCode];
-        [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"HTTP状态码:%ld-->状态码描述：%@", statusCode, status_str]];
-        [SVProgressHUD dismissWithDelay:3];
+//        [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"HTTP状态码:%ld-->状态码描述：%@", statusCode, status_str]];
+//        [SVProgressHUD dismissWithDelay:3];
     #endif
 #endif
     
@@ -291,9 +292,10 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             }else{
                 errorStr = @"网络连接失败";
             }
-            [SVProgressHUD showErrorWithStatus:errorStr];
+            [[self currentViewController].view makeToast:errorStr];
+//            [SVProgressHUD showErrorWithStatus:errorStr];
         } else {
-            [SVProgressHUD dismiss];
+//            [SVProgressHUD dismiss];
         }
         _showHUD = NO;
     }
@@ -307,6 +309,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             id resultData = [responseObject objectForKey:@"data"];
 //            [SVProgressHUD showSuccessWithStatus:[responseObject valueForKey:@"msg"]];
 //            [SVProgressHUD dismissWithDelay:0.5];
+//            [[self currentViewController].view makeToast:[responseObject valueForKey:@"msg"]];
             DLog(@"resultData:%@",resultData);
             [self handleData:resultData errCode:1];
         }else if (code == -2){
@@ -319,14 +322,15 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             
             id resultData = @{};
             DLog(@"resultData:%@",resultData);
-            [SVProgressHUD showErrorWithStatus:[responseObject valueForKey:@"msg"]];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:[responseObject valueForKey:@"msg"]];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [[self currentViewController].view makeToast:[responseObject valueForKey:@"msg"]];
             [self handleData:resultData errCode:0];
         }
         
         if (_showHUD) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
             });
             _showHUD = NO;
         }

@@ -101,8 +101,9 @@
             
         }else
         {
-            [SVProgressHUD showErrorWithStatus:@"请先做完本题"];
-            [SVProgressHUD dismissWithDelay:1.5];
+//            [SVProgressHUD showErrorWithStatus:@"请先做完本题"];
+//            [SVProgressHUD dismissWithDelay:1.5];
+            [self.view makeToast:@"请先做完本题"];
             return;
         }
     }];

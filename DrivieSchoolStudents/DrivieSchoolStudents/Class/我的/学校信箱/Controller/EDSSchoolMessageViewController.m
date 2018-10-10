@@ -130,8 +130,9 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
         [request  startRequest];
     }else
     {
-        [SVProgressHUD showErrorWithStatus:@"请输入您的意见"];
-        [SVProgressHUD dismissWithDelay:1.5];
+//        [SVProgressHUD showErrorWithStatus:@"请输入您的意见"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+        [self.view makeToast:@"请输入您的意见"];
     }
     
 }

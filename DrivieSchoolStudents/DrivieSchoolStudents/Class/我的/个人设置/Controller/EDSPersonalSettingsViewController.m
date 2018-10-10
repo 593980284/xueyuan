@@ -186,8 +186,9 @@
 
 - (IBAction)gooutClick:(id)sender {
     
-    [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
-    [SVProgressHUD dismissWithDelay:1.5];
+//    [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
+//    [SVProgressHUD dismissWithDelay:1.5];
+    [self.view makeToast:@"退出登录成功"];
     EDSAccount *account = [EDSSave account];
     account.userID = @"";
     account.schoolId = @"";
