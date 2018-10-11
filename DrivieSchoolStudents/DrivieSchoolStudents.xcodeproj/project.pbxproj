@@ -87,6 +87,7 @@
 		10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA15F214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m */; };
 		10EDA163214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */; };
 		10EDA166214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */; };
+		10F071F6216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F071F5216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m */; };
 		10F74D58214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */; };
 		10F74D59214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */; };
 		10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D5B214CB50900FA3ECC /* EDSCommentStarsView.m */; };
@@ -2321,6 +2322,8 @@
 		10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourErrorsViewController.m; sourceTree = "<group>"; };
 		10EDA164214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubjectFourRecitedPoliticsViewController.h; sourceTree = "<group>"; };
 		10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourRecitedPoliticsViewController.m; sourceTree = "<group>"; };
+		10F071F4216EE8DA00F2A0AA /* EDSStudentLogoutRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentLogoutRequest.h; sourceTree = "<group>"; };
+		10F071F5216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentLogoutRequest.m; sourceTree = "<group>"; };
 		10F74D55214CA2A100FA3ECC /* EDSUnCourseRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUnCourseRecordViewController.h; sourceTree = "<group>"; };
 		10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUnCourseRecordViewController.m; sourceTree = "<group>"; };
 		10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSUnCourseRecordViewController.xib; sourceTree = "<group>"; };
@@ -5083,6 +5086,8 @@
 				10C3F2522148B66E00AA091A /* EDSStudentCheckOldPhoneRequest.m */,
 				10C3F2542148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.h */,
 				10C3F2552148B7C000AA091A /* EDSStudentCheckNewPhoneRequest.m */,
+				10F071F4216EE8DA00F2A0AA /* EDSStudentLogoutRequest.h */,
+				10F071F5216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -9986,6 +9991,7 @@
 				E9A61A272135726B006E5C2B /* EDSCoachInformationViewController.m in Sources */,
 				E90F8FF5213D2A2C0061F448 /* EDSCoachTableViewCell.m in Sources */,
 				E9A619E8213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.m in Sources */,
+				10F071F6216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m in Sources */,
 				10E6EF76214A9E7F00088875 /* EDSCourseRecordModel.m in Sources */,
 				E9A61A1B21356CF7006E5C2B /* EDSCheckSiteCollectionViewCell.m in Sources */,
 				E9A61A8D2136AB68006E5C2B /* EDSCourseRecordViewController.m in Sources */,

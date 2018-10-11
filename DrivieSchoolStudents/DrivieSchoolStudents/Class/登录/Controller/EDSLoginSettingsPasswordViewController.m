@@ -43,7 +43,7 @@
         return ;
     }
 
-    [SVProgressHUD showWithStatus:@"正在登陆"];
+    [SVProgressHUD showWithStatus:@""];
     EDSAppTouristRegistRequest *request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         [SVProgressHUD dismiss];
         if (errCode == 1) {

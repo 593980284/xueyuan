@@ -9,6 +9,7 @@
 #import "HQMBaseRequest.h"
 #import "Reachability.h"
 #import "EDSPSWLogoViewController.h"
+#import "XGPush.h"
 
 //#import "BHYLoginWindow.h"
 
@@ -305,6 +306,7 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
             
         }else if (code == -2){
             
+            [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
             
             [[self currentViewController] presentViewController:vc animated:YES completion:nil];

@@ -13,6 +13,7 @@
 #import "EDSPSWLogoViewController.h"
 #import "LZActionSheet.h"
 #import "UIImage+Ext.h"
+#import "EDSStudentLogoutRequest.h"
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "STPhotoKitController.h"
@@ -186,22 +187,28 @@
 
 - (IBAction)gooutClick:(id)sender {
     
-//    [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
-//    [SVProgressHUD dismissWithDelay:1.5];
-    [self.view makeToast:@"退出登录成功"];
-    EDSAccount *account = [EDSSave account];
-    account.userID = @"";
-    account.schoolId = @"";
-    account.phone = @"";
-    [EDSSave save:account];
-    [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     
     @weakify(self);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self);
-        self.navigationController.tabBarController.selectedIndex = 0;
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    });
+    EDSStudentLogoutRequest *request = [EDSStudentLogoutRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        if (errCode == 1) {
+            
+            @strongify(self);
+            EDSAccount *account = [EDSSave account];
+            account.userID = @"";
+            account.schoolId = @"";
+            account.phone = @"";
+            [EDSSave save:account];
+            [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
+            self.navigationController.tabBarController.selectedIndex = 0;
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    request.showHUD = YES;
+    [request  startRequest];
 }
 
 

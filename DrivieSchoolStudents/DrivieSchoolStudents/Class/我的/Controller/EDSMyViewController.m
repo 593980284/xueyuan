@@ -54,7 +54,6 @@
     };
     self.tableView.tableHeaderView = self.headerView;
     
-    
     self.cellArr = @[];
 }
 
@@ -96,7 +95,6 @@
         request.phone = [EDSSave account].phone;
         [request startRequest];
     }
-    
 }
 
 
@@ -154,8 +152,6 @@
             EDSCourseRecordViewController *vc = [[EDSCourseRecordViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-//            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"您还没有报名^_^!"];
         }
     }else if ([string isEqualToString:@"学习查询"]){
@@ -165,8 +161,6 @@
             EDSLearningSituationViewController *vc = [[EDSLearningSituationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-//            [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"您还没有报名^_^!"];
         }
     }else if ([string isEqualToString:@"关于我们"]){
@@ -251,4 +245,5 @@
     }
     return _promptView;
 }
+
 @end
