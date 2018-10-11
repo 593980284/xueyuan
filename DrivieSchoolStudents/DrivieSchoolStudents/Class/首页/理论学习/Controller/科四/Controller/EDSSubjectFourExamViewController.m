@@ -28,6 +28,7 @@
     
     NSIndexPath *_indexPath;
     BOOL _isChooes;
+    BOOL _outPrompt;
 }
 
 @property (nonatomic, strong) PopAnimator *popAnimator;
@@ -59,6 +60,7 @@
     self.view.backgroundColor = WhiteColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(backClick) image:@"goback" highImage:@"goback"];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -101,8 +103,6 @@
             
         }else
         {
-//            [SVProgressHUD showErrorWithStatus:@"请先做完本题"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"请先做完本题"];
             return;
         }
@@ -112,6 +112,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _outPrompt = YES;
+    [self.nextBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    
     self.countDownView.countDownTimeInterval = 1800;
     [self.countDownView startCountDown];
     self.errorsMulIDArr = [[NSMutableArray alloc] init];
@@ -130,6 +133,11 @@
     [self.tableView setTableHeaderView:self.headerView];
     [self setFooterViewModel];
     [self.tableView reloadData];
+}
+
+- (void)backClick
+{
+    [self putTheirPapers];
 }
 
 #pragma mark ------------------------ 设置底部数据 --------------------------------
@@ -397,7 +405,11 @@
     
     if (self.errorsMulIDArr.count > 5) {
         
-        [self jupmViewPage];
+        if (_outPrompt) {
+            
+            [self jupmViewPage];
+            _outPrompt = NO;
+        }
     }
     
     [self.tableView reloadData];

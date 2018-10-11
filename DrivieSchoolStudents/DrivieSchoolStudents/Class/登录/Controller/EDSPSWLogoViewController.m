@@ -53,8 +53,8 @@
     self.loginBtnBottonHeight.constant = KLineY(100);
     
 #ifdef DEBUG
-    self.codePhoneTextF.text = @"18658813121";
-    self.pswPhoneTextF.text =  @"18658813121";
+    self.codePhoneTextF.text = @"15848500805";
+    self.pswPhoneTextF.text =  @"15848500805";
 #else
 #endif
     

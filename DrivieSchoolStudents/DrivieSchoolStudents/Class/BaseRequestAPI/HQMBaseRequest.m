@@ -114,12 +114,12 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
     _networkIsError = [[Reachability reachabilityWithHostName:HQMNetworkDomain] currentReachabilityStatus] == NotReachable ? YES : NO;
     if (_networkIsError) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"网络连接暂时不可用", @"")];
+            
+            //处理
             [[self currentViewController].view makeToast:@"网络连接暂时不可用"];
         });
         return;
     }
-
     //拼接请求路径
     [self constructURL];
 
@@ -287,7 +287,6 @@ NSString * const HQMNetworkDomain = @"http://111.39.245.156:8087";
                 errorStr = @"网络连接失败";
             }
             [[self currentViewController].view makeToast:errorStr];
-//            [SVProgressHUD showErrorWithStatus:errorStr];
         }
         _showHUD = NO;
     }

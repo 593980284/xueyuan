@@ -72,8 +72,6 @@
                 }
             }
             
-//            [SVProgressHUD showErrorWithStatus:@"请做完本题"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"请做完本题"];
         }else if ([titleStr isEqualToString:@"收藏"]){
             
@@ -82,13 +80,9 @@
                 if ([[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.tableViewModel.ID]) {
                     
                     self.tableViewModel.isCollection = NO;
-//                    [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
-//                    [SVProgressHUD dismissWithDelay:1.5];
                     [self.view makeToast:@"取消收藏成功"];
                 }else{
                     
-//                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
-//                    [SVProgressHUD dismissWithDelay:1.5];
                     [self.view makeToast:@"请重试"];
                 }
             }else{
@@ -96,13 +90,9 @@
                 if ([[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.tableViewModel.ID]) {
                     
                     self.tableViewModel.isCollection = YES;
-//                    [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-//                    [SVProgressHUD dismissWithDelay:1.5];
                     [self.view makeToast:@"收藏成功"];
                 }else{
                     
-//                    [SVProgressHUD showSuccessWithStatus:@"请重试"];
-//                    [SVProgressHUD dismissWithDelay:1.5];
                     [self.view makeToast:@"请重试"];
                 }
             }

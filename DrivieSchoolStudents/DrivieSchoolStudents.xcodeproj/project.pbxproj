@@ -88,6 +88,7 @@
 		10EDA163214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA162214FB38500C43EB4 /* EDSSubjectFourErrorsViewController.m */; };
 		10EDA166214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */; };
 		10F071F6216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F071F5216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m */; };
+		10F07202216F5CC300F2A0AA /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F07201216F5CC300F2A0AA /* banner.png */; };
 		10F74D58214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */; };
 		10F74D59214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */; };
 		10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74D5B214CB50900FA3ECC /* EDSCommentStarsView.m */; };
@@ -2324,6 +2325,7 @@
 		10EDA165214FB7F900C43EB4 /* EDSSubjectFourRecitedPoliticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubjectFourRecitedPoliticsViewController.m; sourceTree = "<group>"; };
 		10F071F4216EE8DA00F2A0AA /* EDSStudentLogoutRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSStudentLogoutRequest.h; sourceTree = "<group>"; };
 		10F071F5216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSStudentLogoutRequest.m; sourceTree = "<group>"; };
+		10F07201216F5CC300F2A0AA /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner.png; sourceTree = "<group>"; };
 		10F74D55214CA2A100FA3ECC /* EDSUnCourseRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSUnCourseRecordViewController.h; sourceTree = "<group>"; };
 		10F74D56214CA2A100FA3ECC /* EDSUnCourseRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSUnCourseRecordViewController.m; sourceTree = "<group>"; };
 		10F74D57214CA2A100FA3ECC /* EDSUnCourseRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSUnCourseRecordViewController.xib; sourceTree = "<group>"; };
@@ -4906,9 +4908,6 @@
 				10F74D85214D0E2300FA3ECC /* EDSPracticeViewController.m */,
 				10F74D8B214D0E2300FA3ECC /* EDSCollectionViewController.h */,
 				10F74D8F214D0E2300FA3ECC /* EDSCollectionViewController.m */,
-				10F74D86214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.h */,
-				10F74D8E214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m */,
-				10F74D87214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.xib */,
 				10F74D8A214D0E2300FA3ECC /* EDSEorrorsViewController.h */,
 				10F74D91214D0E2300FA3ECC /* EDSEorrorsViewController.m */,
 				10F74D92214D0E2300FA3ECC /* EDSRecitedPoliticsViewController.h */,
@@ -4917,6 +4916,9 @@
 				10F74D8C214D0E2300FA3ECC /* EDSFirsExamErrorsViewController.m */,
 				10F74D90214D0E2300FA3ECC /* EDSFirstSubjectExamViewController.h */,
 				10F74D89214D0E2300FA3ECC /* EDSFirstSubjectExamViewController.m */,
+				10F74D86214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.h */,
+				10F74D8E214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m */,
+				10F74D87214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.xib */,
 			);
 			path = "科一";
 			sourceTree = "<group>";
@@ -6989,6 +6991,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A619B12133D2D7006E5C2B /* avar.png */,
+				10F07201216F5CC300F2A0AA /* banner.png */,
 				E9A619B02133D2D7006E5C2B /* placeholderimg.png */,
 			);
 			path = Imge;
@@ -9862,6 +9865,7 @@
 				E952D45A214268FF00EA3A0A /* jtbz_zl30.jpg in Resources */,
 				E952D3E7214268FF00EA3A0A /* 802.jpg in Resources */,
 				E952D418214268FF00EA3A0A /* jtbz_zlu115.jpg in Resources */,
+				10F07202216F5CC300F2A0AA /* banner.png in Resources */,
 				E952D2B4214268FF00EA3A0A /* 1879.jpg in Resources */,
 				E952D2E0214268FF00EA3A0A /* 240.jpg in Resources */,
 				E952D421214268FF00EA3A0A /* 786.jpg in Resources */,

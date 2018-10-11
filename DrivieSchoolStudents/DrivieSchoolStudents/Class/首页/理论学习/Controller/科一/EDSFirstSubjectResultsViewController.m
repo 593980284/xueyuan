@@ -8,8 +8,10 @@
 
 #import "EDSFirstSubjectResultsViewController.h"
 
-#import "EDSFirsExamErrorsViewController.h"
-#import "EDSSubjectFourExamErrorsViewController.h"
+//#import "EDSFirsExamErrorsViewController.h"
+//#import "EDSSubjectFourExamErrorsViewController.h"
+#import "EDSEorrorsViewController.h"
+#import "EDSSubjectFourErrorsViewController.h"
 
 #import "EDSFirstSubjectExamFooterView.h"
 
@@ -27,7 +29,7 @@
     
     NSInteger fen = second / 60;
     
-    return [NSString stringWithFormat:@"用时%ld分%ld秒",(long)fen , second - fen];
+    return [NSString stringWithFormat:@"用时%ld分%ld秒",(long)fen , second - fen*60];
 }
 
 @end
@@ -55,6 +57,8 @@
     
     [self setFooterViewModel];
     
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(backClick) image:@"goback" highImage:@"goback"];
+    
     self.timeLbl.text = self.resultModel.time;
     
     if (self.resultModel.isFour) {
@@ -76,13 +80,13 @@
         @strongify(self);
         if (self.resultModel.isFour) {
             
-            EDSSubjectFourExamErrorsViewController *vc = [[EDSSubjectFourExamErrorsViewController alloc] init];
-            vc.errorsArr = self.errorsArr;
+            EDSSubjectFourErrorsViewController *vc = [[EDSSubjectFourErrorsViewController alloc] init];
+//            vc.errorsArr = self.errorsArr;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             
-            EDSFirsExamErrorsViewController *vc = [[EDSFirsExamErrorsViewController alloc] init];
-            vc.errorsArr = self.errorsArr;
+            EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+//            vc.errorsArr = self.errorsArr;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }];
@@ -94,6 +98,12 @@
         
         self.resultLbl.text = [self.resultModel.right integerValue] >= 90 ? @"合格" : @"不合格";
     }
+}
+
+- (void)backClick
+{
+    UIViewController * viewVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 3];
+    [self.navigationController popToViewController:viewVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

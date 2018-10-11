@@ -8,6 +8,8 @@
 
 #import "EDSNavigationViewController.h"
 #import "EDSAnmationController.h"
+#import "EDSFirstSubjectExamViewController.h"
+#import "EDSSubjectFourExamViewController.h"
 
 #define ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define ScreenWidth     [UIScreen mainScreen].bounds.size.width
@@ -194,7 +196,12 @@
 // 监听手势的方法,只要是有手势就会执行
 - (void)panGestureRec:(UIScreenEdgePanGestureRecognizer *)panGestureRec
 {
-    
+    for (UIViewController *vc in self.viewControllers) {
+        
+        if ([vc isKindOfClass:[EDSFirstSubjectExamViewController class]] || [vc isKindOfClass:[EDSSubjectFourExamViewController class]]) {
+            return;
+        }
+    }
     // 如果当前显示的控制器已经是根控制器了，不需要做任何切换动画,直接返回
     if(self.visibleViewController == self.viewControllers[0]) return;
     

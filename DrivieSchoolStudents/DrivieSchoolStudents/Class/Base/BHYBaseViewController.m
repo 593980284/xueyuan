@@ -31,9 +31,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init]
                                                   forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    
 }
-
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

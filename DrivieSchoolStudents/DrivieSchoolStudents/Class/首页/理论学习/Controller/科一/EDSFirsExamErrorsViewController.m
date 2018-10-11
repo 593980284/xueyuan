@@ -95,7 +95,28 @@
             [self.view makeToast:@"请做完本题"];
         }else if ([titleStr isEqualToString:@"收藏"]){
             
-            [[EDSDataBase sharedDataBase] getFirstSubjectErrorWithID:self.tableViewModel.ID];
+            if (self.tableViewModel.isCollection) {
+                
+                if ([[EDSDataBase sharedDataBase] upDataFirstSubjectunCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = NO;
+                    [self.view makeToast:@"取消收藏成功"];
+                }else{
+                    
+                    [self.view makeToast:@"请重试"];
+                }
+            }else{
+                
+                if ([[EDSDataBase sharedDataBase] upDataFirstSubjectCollectionWithID:self.tableViewModel.ID]) {
+                    
+                    self.tableViewModel.isCollection = YES;
+                    [self.view makeToast:@"收藏成功"];
+                }else{
+                    
+                    [self.view makeToast:@"请重试"];
+                }
+            }
+            [self getFooterViewModel];
         }
     };
     self.footerView.clearBtn.hidden = YES;

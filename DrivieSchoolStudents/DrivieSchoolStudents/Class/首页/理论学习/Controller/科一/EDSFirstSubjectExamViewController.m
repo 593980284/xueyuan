@@ -28,6 +28,7 @@
     
     NSIndexPath *_indexPath;
     BOOL _isChooes;
+    BOOL _outPrompt;
 }
 
 @property (nonatomic, strong) PopAnimator *popAnimator;
@@ -59,6 +60,7 @@
     self.view.backgroundColor = WhiteColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(backClick) image:@"goback" highImage:@"goback"];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
@@ -87,8 +89,6 @@
                 
                 EDSFirstSubjectExamResultModel *model = [[EDSFirstSubjectExamResultModel alloc] init];
                 model.time = [NSString stringWithFormat:@"%f",self.countDownView.countDownTimeInterval];
-                //            model.errors = @"0";
-                //            model.right = @"100";
                 model.errors = [NSString stringWithFormat:@"%lu",(unsigned long)self.errorsMulIDArr.count];
                 model.right = [NSString stringWithFormat:@"%lu",self->_isChooes ? self->_currentCount - self.errorsMulIDArr.count : self->_currentCount - self.errorsMulIDArr.count -1];
                 model.isFour = NO;
@@ -103,17 +103,25 @@
             
         }else
         {
-//            [SVProgressHUD showErrorWithStatus:@"请先做完本题"];
-//            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"请先做完本题"];
             return;
         }
     }];
 }
 
+
+
+- (void)backClick
+{
+    [self putTheirPapers];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.nextBtn setTitle:@"下一题" forState:UIControlStateNormal];
+    _outPrompt = YES;
     
     self.countDownView.countDownTimeInterval = 2700;
     [self.countDownView startCountDown];
@@ -376,9 +384,14 @@
                 }
             }
         }
+        
         if (self.errorsMulIDArr.count > 10) {
             
-            [self  jupmViewPage];
+            if (_outPrompt) {
+                
+                [self  jupmViewPage];
+                _outPrompt = NO;
+            }
         }
     }
 }
