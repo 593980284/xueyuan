@@ -46,7 +46,7 @@
     self.navigationItem.title = @"个人设置";
     
     NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
-    [self.avaimg sd_setImageWithURL:url placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [self.avaimg sd_setImageWithURL:url placeholderImage:AvatarPlaceholderImage];
     
     @weakify(self);
     [self.changePasswordBgview bk_whenTapped:^{

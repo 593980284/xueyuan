@@ -57,7 +57,6 @@
     self.pswPhoneTextF.text =  @"15848500805";
 #else
 #endif
-    
     self.pswBtn.selected = YES;
     self.pswLoginBgView.hidden = NO;
     self.codeLoginBgView.hidden = YES;
