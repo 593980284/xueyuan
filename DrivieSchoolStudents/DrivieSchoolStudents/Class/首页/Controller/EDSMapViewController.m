@@ -16,6 +16,9 @@
 
 @interface EDSMapViewController ()<MKMapViewDelegate>
 
+@property (nonatomic, strong) NSString *urlScheme;
+@property (nonatomic, strong) NSString *appName;
+
 
 @end
 
@@ -32,6 +35,10 @@
     
     self.view.backgroundColor = WhiteColor;
     self.title = @"驾校地址";
+    
+    self.urlScheme = @"demoURI://";
+    self.appName = @"demoURI";
+    
 }
 
 - (void)initWithName:(NSString *)name latitude:(NSString *)lat longitude:(NSString *)lon
@@ -110,20 +117,93 @@
 }
 
 -(void)doAppleNavigation{
-    NSDictionary *options=@{MKLaunchOptionsMapTypeKey:@(MKMapTypeStandard),MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
+    
+    NSDictionary *options = @{MKLaunchOptionsMapTypeKey:@(MKMapTypeStandard),
+                              MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving
+                              };
     CLLocationCoordinate2D fromCoordinate   = maMapView.userLocation.location.coordinate;
     CLLocationCoordinate2D toCoordinate   = CLLocationCoordinate2DMake(destinationMode.destinationLatitude.floatValue, destinationMode.destinationLongitude.floatValue);
     MKPlacemark *fromPlacemark = [[MKPlacemark alloc] initWithCoordinate:fromCoordinate
                                                        addressDictionary:nil];
-    
+
     MKPlacemark *toPlacemark   = [[MKPlacemark alloc] initWithCoordinate:toCoordinate
                                                        addressDictionary:nil];
-    
+
     MKMapItem *fromItem = [[MKMapItem alloc] initWithPlacemark:fromPlacemark];
-    fromItem.name =@"当前位置";
+    fromItem.name = @"当前位置";
     MKMapItem *toItem=[[MKMapItem alloc]initWithPlacemark:toPlacemark];
     toItem.name = destinationMode.destinationName;
-    [MKMapItem openMapsWithItems:@[fromItem,toItem] launchOptions:options];
+    
+    
+    __block NSString *urlScheme = self.urlScheme;
+    __block NSString *appName = self.appName;
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择地图" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    //这个判断其实是不需要的
+    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://maps.apple.com/"]])
+    {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"苹果地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [MKMapItem openMapsWithItems:@[fromItem,toItem] launchOptions:options];
+        }];
+        
+        [alert addAction:action];
+    }
+    
+    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]])
+    {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"百度地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=%@&mode=driving&coord_type=gcj02",[self->destinationMode.destinationLatitude floatValue],[self->destinationMode.destinationLongitude floatValue],@"1111"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",urlString);
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+            
+        }];
+        
+        [alert addAction:action];
+    }
+    
+    
+    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]])
+    {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"高德地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",appName,urlScheme,[self->destinationMode.destinationLatitude floatValue], [self->destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",urlString);
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+            
+        }];
+        
+        [alert addAction:action];
+    }
+    
+    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]])
+    {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"谷歌地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            NSString *urlString = [[NSString stringWithFormat:@"comgooglemaps://?x-source=%@&x-success=%@&saddr=&daddr=%f,%f&directionsmode=driving",appName,urlScheme,[self->destinationMode.destinationLatitude floatValue], [destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",urlString);
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+            
+        }];
+        
+        [alert addAction:action];
+    }
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:action];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
