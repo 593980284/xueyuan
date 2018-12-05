@@ -57,30 +57,35 @@
     
     self.cycleScrollView.imageURLStringsGroup = @[
                                                   ];
-    
+    if (self.is) {
+        return;
+    }
     self.homeFunctionBgView.backgroundColor = WhiteColor;
+    NSLog(@"schoolId: %@",[EDSSave account].userID);
     if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
         
         self.homeFunctionBgView.functionBtnArr = @[
-                                                   @[@"品牌介绍",@"ppjj_content_icon_default"],
-                                                   @[@"预约报名",@"yybml_content_icon_default"],
-                                                   @[@"报名流程",@"bmlc_content_icon_default"],
+                                                   @[@"品牌驾校",@"ppjj_content_icon_default"],
                                                    @[@"驾校信息",@"jxxx_content_icon_default"],
+                                                   @[@"预约报名",@"yybml_content_icon_default"],
+                                                   @[@"我要报名",@"bmlc_content_icon_default"],
+                                                   
                                                    @[@"在线约课",@"zxyk_content_icon_default"],
                                                    @[@"在线约考",@"zxyk_content_icon_default-1"],
                                                    @[@"理论学习",@"llxx_content_icon_default"],
-                                                   @[@"价格公示",@"jggs_content_icon_default"],             ];
+                                                   @[@"我要投诉",@"suggest_content_icon_default22"],             ];
     }else{
         
         self.homeFunctionBgView.functionBtnArr = @[
-                                                   @[@"品牌介绍",@"ppjj_content_icon_default"],
-                                                   @[@"我的驾校",@"yybml_content_icon_default"],
-                                                   @[@"报名流程",@"bmlc_content_icon_default"],
+                                                   @[@"品牌驾校",@"ppjj_content_icon_default"],
                                                    @[@"驾校信息",@"jxxx_content_icon_default"],
+                                                   @[@"我的报名",@"yybml_content_icon_default"],
+                                                   @[@"我要报名",@"bmlc_content_icon_default"],
+                                                   
                                                    @[@"在线约课",@"zxyk_content_icon_default"],
                                                    @[@"在线约考",@"zxyk_content_icon_default-1"],
                                                    @[@"理论学习",@"llxx_content_icon_default"],
-                                                   @[@"价格公示",@"jggs_content_icon_default"],             ];
+                                                   @[@"我要投诉",@"suggest_content_icon_default22"],             ];
     }
 }
 
@@ -96,6 +101,7 @@
     } failureBlock:^(NSError *error) {
         
     }];
+    request.is= _is;
     [request  startRequest];
     
 }

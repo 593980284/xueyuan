@@ -13,6 +13,7 @@
 @property (nonatomic , copy) NSString              * teachAge;      //教龄
 @property (nonatomic , copy) NSString              * reachStuNum;   //到达学员
 @property (nonatomic , copy) NSString              * periodTime;    //约课时间段("2018-09-05 17:00-19:00")
+@property (nonatomic , copy) NSString              * coachPhone;
 @property (nonatomic , copy) NSString              * schoolId;      //驾校id
 @property (nonatomic , copy) NSString              * teachType;     //教练科目
 @property (nonatomic , copy) NSString              * hours;         //课程时长
@@ -33,5 +34,8 @@
 
 @property (nonatomic , copy) NSString              * showSubjectAge;
 @property (nonatomic , copy) NSString              * showSubjecthour;
-@property (nonatomic , copy) NSString              * showStatus;
+@property (nonatomic , copy) NSAttributedString              * showStatus;
+@property (nonatomic , assign) NSInteger  maxNum;
+@property (nonatomic , assign) NSInteger  appointmentNum;
+@property (nonatomic , assign) NSInteger  noAppointmentNum;
 @end

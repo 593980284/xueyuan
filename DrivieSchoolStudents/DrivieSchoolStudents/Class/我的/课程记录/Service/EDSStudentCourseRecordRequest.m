@@ -19,7 +19,10 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{@"phone":[EDSSave account].phone};
+    return @{@"phone":[EDSSave account].phone,
+             @"page": [NSString stringWithFormat:@"%ld", _myPage],
+             @"rows": @"10"
+             };
 }
 
 - (HQMRequestMethod)requestMethod

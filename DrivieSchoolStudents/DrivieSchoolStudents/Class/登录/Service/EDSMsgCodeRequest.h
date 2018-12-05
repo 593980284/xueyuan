@@ -7,7 +7,7 @@
 //获得短信验证码接口
 
 #import "HQMBaseRequest.h"
-
 @interface EDSMsgCodeRequest : HQMBaseRequest
 @property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *type;
 @end

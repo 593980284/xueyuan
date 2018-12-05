@@ -11,5 +11,8 @@
 @interface EDSSchoolRegionRequest : HQMBaseRequest
 
 @property (nonatomic, copy) NSString *schoolId;//驾校id
+@property (nonatomic, assign)NSInteger page;
+@property (nonatomic, assign)BOOL findSchoolPoint;
+
 
 @end

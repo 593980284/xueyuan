@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.page = 1;
     _type = @"1";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -48,7 +48,11 @@
         make.top.mas_equalTo(self.headerView.mas_bottom);
         make.bottom.mas_equalTo(0);
     }];
-    
+
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        self.page++;
+        [self requestDataWithType:self->_type];
+    }];
     [self tableViewPullUp];
 }
 
@@ -71,6 +75,7 @@
     @weakify(self);
     self.tableView.mj_header = [EDSRefreshHeader headerWithRefreshingBlock:^{
         @strongify(self);
+        self.page = 1;
         [self requestDataWithType:self->_type];
     }];
 }
@@ -78,20 +83,27 @@
 - (void)requestDataWithType:(NSString *)type
 {
     @weakify(self);
-    EDSStudentMsgRequest *request = [EDSStudentMsgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+    EDSStudentMsgRequest *request = [EDSStudentMsgRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, NSArray* model) {
         @strongify(self);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_footer resetNoMoreData];
         if (errCode == 1) {
-            
-            self.tableViewArr = model;
+            if (model.count == 0) {
+                 [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            NSMutableArray *data = [NSMutableArray new];
+            if (self.page > 1) {
+                [data addObjectsFromArray:self.tableViewArr];
+                [data addObjectsFromArray:model];
+            }else{
+                data = [model copy];
+            }
+            self.tableViewArr = data;
         }else if (errCode == -2){
             
 //            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
 //            [self presentViewController:vc animated:YES completion:nil];
-        }else{
-            
-            self.tableViewArr = @[];
         }
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
@@ -101,6 +113,7 @@
     }];
     request.phone = [EDSSave account].phone;
     request.type = type;
+    request.page = self.page;
     [request  startRequest];
 }
 
@@ -251,7 +264,7 @@
             {
                 self->_type = @"2";
             }
-            
+            self.page = 1;
             [self requestDataWithType:self->_type];
         };
     }

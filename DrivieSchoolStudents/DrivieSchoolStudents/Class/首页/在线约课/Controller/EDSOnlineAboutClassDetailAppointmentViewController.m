@@ -28,42 +28,45 @@
     
     self.navigationItem.title = @"在线约课";
     
-    EDSOnlineAboutClassDetailAppointmentDownView *downView = [[EDSOnlineAboutClassDetailAppointmentDownView alloc] init];
-    downView.model = self.model;
-    [self.view addSubview:downView];
-    if ([self.model.isAppointment isEqualToString:@"2"]) {
-
-        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(0);
-        }];
-    }else{
-
-        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(70);
-        }];
-    }
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorColor = ClearColor;
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
     [self.tableView  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(downView.mas_top);
+        make.bottom.mas_equalTo(0);
     }];
     
     
     EDSOnlineAboutClassDetailAppointmentHeaderView *headerView = [[EDSOnlineAboutClassDetailAppointmentHeaderView alloc] init];
     headerView.model = self.model;
+    headerView.frame = CGRectMake(0, 0, kScreenWidth, 380);
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
+//    if ([self.model.isAppointment isEqualToString:@"2"]) {
+//
+//        self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425+50);
+//    }else{
+//
+//      self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425+50);
+//    }
+    
+    EDSOnlineAboutClassDetailAppointmentDownView *downView = [[EDSOnlineAboutClassDetailAppointmentDownView alloc] init];
+    downView.model = self.model;
+    [self.view addSubview:downView];
     if ([self.model.isAppointment isEqualToString:@"2"]) {
         
-        self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425 - 70);
+        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
     }else{
         
-        self.tableView.tableHeaderView.wz_size = CGSizeMake(kScreenWidth, 425);
+        [downView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(70);
+        }];
     }
 }
 
@@ -86,7 +89,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UITableViewAutomaticDimension;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

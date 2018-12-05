@@ -155,7 +155,7 @@
     {
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"百度地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=%@&mode=driving&coord_type=gcj02",[self->destinationMode.destinationLatitude floatValue],[self->destinationMode.destinationLongitude floatValue],@"1111"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=name:%@|latlng:%f,%f&mode=driving&coord_type=gcj02&src=ios.aero.DrivieSchoolStudents",self->destinationMode.destinationName,[self->destinationMode.destinationLatitude floatValue],[self->destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             NSLog(@"%@",urlString);
             
@@ -170,26 +170,10 @@
     if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]])
     {
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"高德地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=applicationName&sid=BGVIS1&sname=%@&did=BGVIS2&dname=%@&lat=%f&lon=%f&dev=0&t=0",@"我的位置",self->destinationMode.destinationName,[self->destinationMode.destinationLatitude floatValue],[self->destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
-            NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",appName,urlScheme,[self->destinationMode.destinationLatitude floatValue], [self->destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            
-            NSLog(@"%@",urlString);
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-            
-        }];
-        
-        [alert addAction:action];
-    }
-    
-    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]])
-    {
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"谷歌地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            NSString *urlString = [[NSString stringWithFormat:@"comgooglemaps://?x-source=%@&x-success=%@&saddr=&daddr=%f,%f&directionsmode=driving",appName,urlScheme,[self->destinationMode.destinationLatitude floatValue], [destinationMode.destinationLongitude floatValue]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             NSLog(@"%@",urlString);
-            
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
             
         }];

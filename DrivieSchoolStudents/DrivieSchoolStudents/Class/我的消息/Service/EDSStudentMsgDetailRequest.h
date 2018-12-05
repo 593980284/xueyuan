@@ -11,5 +11,6 @@
 @interface EDSStudentMsgDetailRequest : HQMBaseRequest
 
 @property (nonatomic , copy) NSString *msgId;
+//@property (nonatomic, assign) NSInteger page;
 
 @end

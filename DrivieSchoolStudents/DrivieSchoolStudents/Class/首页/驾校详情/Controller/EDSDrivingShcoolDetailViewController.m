@@ -17,13 +17,14 @@
 #import "EDSSecondView.h"
 #import "EDSThirdView.h"
 #import "EDSFourView.h"
+#import "BaoMingView.h"
 
 #import "EDSFindSchoolInformationRequest.h"
 
 #import "EDSSchoolInformationDetailModel.h"
 
-#define kTopView_Height 193
-#define kItemheight 100
+#define kTopView_Height         160
+#define kItemheight             100
 
 @interface EDSDrivingShcoolDetailViewController ()
 
@@ -33,6 +34,8 @@
 @property (nonatomic, strong) EDSSecondView     *secondView;
 @property (nonatomic, strong) EDSThirdView      *thirdView;
 @property (nonatomic, strong) EDSFourView       *fourView;
+@property (nonatomic, strong) BaoMingView      *baoMingView;
+
 
 /** 详情数据 */
 @property (nonatomic, strong) EDSSchoolInformationDetailModel  *detailModel;
@@ -85,24 +88,34 @@
             self.secondView.hidden = YES;
             self.thirdView.hidden = YES;
             self.fourView.hidden = YES;
-        }else if ([titleStr isEqualToString:@"教学风采"]){
+            self.baoMingView.hidden = YES;
+        }else if ([titleStr isEqualToString:@"风采展示"]){
             
             self.firstView.hidden = YES;
             self.secondView.hidden = NO;
             self.thirdView.hidden = YES;
             self.fourView.hidden = YES;
+              self.baoMingView.hidden = YES;
         }else if ([titleStr isEqualToString:@"教练员"]){
             
             self.firstView.hidden = YES;
             self.secondView.hidden = YES;
             self.thirdView.hidden = NO;
             self.fourView.hidden = YES;
-        }else if ([titleStr isEqualToString:@"查看场地"]){
+              self.baoMingView.hidden = YES;
+        }else if ([titleStr isEqualToString:@"报名点"]){
+            self.firstView.hidden = YES;
+            self.secondView.hidden = YES;
+            self.thirdView.hidden = YES;
+            self.fourView.hidden = YES;
+            self.baoMingView.hidden = NO;
             
+        }else if([titleStr isEqualToString:@"训练场地"]){
             self.firstView.hidden = YES;
             self.secondView.hidden = YES;
             self.thirdView.hidden = YES;
             self.fourView.hidden = NO;
+            self.baoMingView.hidden = YES;
         }
     };
     [self.topView.driveAddressLbl bk_whenTapped:^{
@@ -245,6 +258,23 @@
         }];
     }
     return _fourView;
+}
+
+- (BaoMingView *)baoMingView
+{
+    if (!_baoMingView) {
+        
+        _baoMingView = [[BaoMingView alloc] init];
+        _baoMingView.topView = self.topView;
+        _baoMingView.schoolId = self.schoolId;
+        [self.view addSubview:_baoMingView];
+        [_baoMingView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
+            make.top.mas_equalTo(self.topView.mas_bottom);
+        }];
+    }
+    return _baoMingView;
 }
 
 @end

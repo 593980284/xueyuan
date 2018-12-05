@@ -40,6 +40,7 @@
  *  @param action 按钮执行方法
  */
 -(void)addNavigationBarLeftButtonItemWithInfo:(UIImage*)image target:(id)target action:(SEL)action;
+-(void)addNavigationBarRightButtonItemWithInfo:(UIImage *)image target:(id)target action:(SEL)action;
 
 - (void)userLogonFailureWithParentControl:(UIViewController *)parentControl;
 

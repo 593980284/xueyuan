@@ -11,13 +11,20 @@
 #ifndef AppDefine_h
 #define AppDefine_h
 
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h> //下面要是用到 Foundation 库就要包括
+//#ifdef __OBJC__
+//    #import <Foundation/Foundation.h> //下面要是用到 Foundation 库就要包括
+//#endif
+
+//域名           //域名
+#ifdef DEBUG //处于开发测试阶段
+
+#define LINEURL @"http://111.39.245.156:8087"
+
+#else //处于发布正式阶段
+
+#define LINEURL @"http://112.2.0.75:9001"
+
 #endif
-
-
-//域名
-#define LINEURL @"http://111.39.245.156:8087"              //域名
 
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
 #define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置

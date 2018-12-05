@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BHYBaseViewController.h"
 
 
-@interface EDSLoginSettingsPasswordViewController : UIViewController
+@interface EDSLoginSettingsPasswordViewController : BHYBaseViewController
 
 @property (nonatomic , copy) NSString *phone;
+@property (nonatomic , assign) BOOL isRegister;
 
 @end
 

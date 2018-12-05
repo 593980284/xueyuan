@@ -9,13 +9,16 @@
 #import "EDSSchoolRegionRequest.h"
 
 #import "EDSSchoolRegionModel.h"
-
+//训练场地查询接口
 
 @implementation EDSSchoolRegionRequest
 
 
 - (NSString *)requestURLPath
 {
+    if (self.findSchoolPoint) {
+        return @"/app/lexiang/school/findSchoolPoint";
+    }
     return @"/app/lexiang/school/findSchoolRegion";
 }
 
@@ -23,6 +26,8 @@
 {
     return @{
              @"schoolId":_schoolId,
+             @"page": [NSString stringWithFormat:@"%ld", _page],
+             @"rows": @"10"
              };
 }
 

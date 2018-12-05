@@ -20,5 +20,7 @@
 
 @property (nonatomic , strong) NSArray *headerArr;
 
+@property(nonatomic , assign) BOOL is;
+
 @property (nonatomic , weak) id<EDSHomeTableViewHeaderViewDelegate>delegate;
 @end

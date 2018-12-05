@@ -11,5 +11,6 @@
 @interface EDSHomeSchoolInformationRequest : HQMBaseRequest
 
 @property (nonatomic, copy) NSString *schoolId;
+@property (nonatomic, assign) NSInteger page;
 
 @end

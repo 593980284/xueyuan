@@ -16,12 +16,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *statusLbl;
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
+@property (weak, nonatomic) IBOutlet UILabel *ageLbl;
 
 @property (weak, nonatomic) IBOutlet UILabel *coachNameLbl;
-@property (weak, nonatomic) IBOutlet UIButton *ageLbl;
+//@property (weak, nonatomic) IBOutlet UIButton *ageLbl;
 @property (weak, nonatomic) IBOutlet UILabel *schoolNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
+@property (weak, nonatomic) IBOutlet UILabel *lastNUm;
 
 @end
 
@@ -41,12 +43,17 @@
 //    self.driveStarView.hidden = NO;
 //    self.statusLbl.hidden = YES;
 }
+- (IBAction)phonebtnTap:(id)sender {
+    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",_courseRecordModel.coachPhone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
 
 - (void)setCourseRecordModel:(EDSCourseRecordModel *)courseRecordModel
 {
     _courseRecordModel = courseRecordModel;
  
-    self.statusLbl.text = courseRecordModel.showStatus;
+    self.statusLbl.attributedText = courseRecordModel.showStatus;
+    self.lastNUm.text = [NSString stringWithFormat:@"总名额：%ld",courseRecordModel.maxNum];
     
     if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
         
@@ -68,15 +75,15 @@
     self.coachNameLbl.text = courseRecordModel.coachName;
     self.coachNameLbl.font = kFont(16);
     
-    [self.ageLbl setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
-    self.ageLbl.titleLabel.font = kFont(11);
+    self.ageLbl.text = [NSString stringWithFormat:@" %@ ",courseRecordModel.teachType];
+//    self.ageLbl.titleLabel.font = kFont(11);
     
     CGFloat agebtnW = kScreenWidth - CGRectGetMaxX(self.coachNameLbl.frame) - 45 - [NSString sizeWithText:courseRecordModel.schoolName font:kFont(13) maxSize:CGSizeMake(MAXFLOAT, 15)].width;
     CGFloat showSubjectAgeW = [NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5;
-    [self.ageLbl mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
-    }];
-    self.schoolNameLbl.text = courseRecordModel.schoolName;
+//    [self.ageLbl mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
+//    }];
+    self.schoolNameLbl.text = courseRecordModel.coachSex;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     
     self.timeLbl.text = courseRecordModel.periodTime;

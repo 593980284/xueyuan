@@ -42,4 +42,8 @@
 /** 纬度 */
 @property (nonatomic, assign) double lat;
 
+@property (nonatomic, assign) NSInteger reputationLevel;
+
+@property (nonatomic, copy) NSString *distance;
+
 @end

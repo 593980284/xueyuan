@@ -13,10 +13,14 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *coachNameLbl;
-@property (weak, nonatomic) IBOutlet UIButton *agebtn;
+//@property (weak, nonatomic) IBOutlet UIButton *agebtn;
 @property (weak, nonatomic) IBOutlet UILabel *schoolNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *periodTimeLbl;
-@property (weak, nonatomic) IBOutlet UILabel *subjecthourLbl;
+//@property (weak, nonatomic) IBOutlet UILabel *subjecthourLbl;
+@property (weak, nonatomic) IBOutlet UILabel *lb1;
+@property (weak, nonatomic) IBOutlet UILabel *lb2;
+@property (weak, nonatomic) IBOutlet UILabel *lb3;
+@property (weak, nonatomic) IBOutlet UILabel *ageBtn;
 
 @end
 
@@ -26,10 +30,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.agebtn.layer.cornerRadius = 3;
-    self.agebtn.layer.masksToBounds = YES;
-    self.agebtn.layer.borderColor = SecondColor.CGColor;
-    self.agebtn.layer.borderWidth = 1;
+    self.ageBtn.layer.cornerRadius = 3;
+    self.ageBtn.layer.masksToBounds = YES;
+    self.ageBtn.layer.borderColor = SecondColor.CGColor;
+    self.ageBtn.layer.borderWidth = 1;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -47,20 +51,23 @@
     self.coachNameLbl.text = courseRecordModel.coachName;
     self.coachNameLbl.font = kFont(16);
     
-    self.schoolNameLbl.text = courseRecordModel.schoolName;
+    self.schoolNameLbl.text = courseRecordModel.coachSex;
     
-    [self.agebtn setTitle:courseRecordModel.showSubjectAge forState:UIControlStateNormal];
-    CGFloat agebtnW = kScreenWidth - CGRectGetMaxX(self.coachNameLbl.frame) - 45 - [NSString sizeWithText:courseRecordModel.schoolName font:kFont(13) maxSize:CGSizeMake(MAXFLOAT, 15)].width;
-    CGFloat showSubjectAgeW = [NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5;
-    [self.agebtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
-    }];
-    self.agebtn.titleLabel.font = kFont(11);
+    self.ageBtn.text = [NSString stringWithFormat:@"  %@  ", courseRecordModel.teachType];
+    self.lb1.text = [NSString stringWithFormat:@"总名额：%ld",courseRecordModel.maxNum];
+     self.lb2.text = [NSString stringWithFormat:@"已预约：%ld",courseRecordModel.appointmentNum];
+     self.lb3.text = [NSString stringWithFormat:@"剩余：%ld",courseRecordModel.noAppointmentNum];
+//    CGFloat agebtnW = kScreenWidth - CGRectGetMaxX(self.coachNameLbl.frame) - 45 - [NSString sizeWithText:courseRecordModel.schoolName font:kFont(13) maxSize:CGSizeMake(MAXFLOAT, 15)].width;
+//    CGFloat showSubjectAgeW = [NSString sizeWithText:courseRecordModel.showSubjectAge font:kFont(15) maxSize:CGSizeMake(MAXFLOAT, 15)].width + 5;
+//    [self.agebtn mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(MIN(agebtnW, showSubjectAgeW), 15));
+//    }];
+//    self.agebtn.titleLabel.font = kFont(11);
     
     self.periodTimeLbl.text = courseRecordModel.periodTime;
-    self.subjecthourLbl.text = courseRecordModel.showSubjecthour;
+//    self.subjecthourLbl.text = courseRecordModel.showSubjecthour;
     
-    [self layoutIfNeeded];
+//    [self layoutIfNeeded];
 }
 
 @end

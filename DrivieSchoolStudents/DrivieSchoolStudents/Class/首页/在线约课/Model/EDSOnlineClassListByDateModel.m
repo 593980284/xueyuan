@@ -47,10 +47,11 @@
     fmt.dateFormat = @"yyyy-MM-dd HH:mm";
     if (_periodTime.length > 0) {
         
-        NSString *datestr = [_periodTime substringToIndex:16];
+        NSString *datestr = [_periodTime substringToIndex:10];
+        NSString *datestr2 = [_periodTime substringFromIndex:17];
+        datestr = [NSString stringWithFormat:@"%@ %@",datestr, datestr2];
         date = [fmt dateFromString:datestr];
     }
-    date = [date dateByAddingTimeInterval:[_hours intValue]*60*60];
     DLog(@"%@",[fmt stringFromDate:date]);
     return date;
 }

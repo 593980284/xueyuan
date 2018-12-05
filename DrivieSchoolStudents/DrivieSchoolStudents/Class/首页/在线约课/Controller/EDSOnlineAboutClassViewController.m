@@ -19,6 +19,7 @@
 
 #import "EDSOnlineClassDateListRequest.h"
 #import "EDSOnlineClassListByDateRequest.h"
+#import "MyCoachViewController.h"
 
 @interface EDSOnlineAboutClassViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -44,9 +45,10 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"在线约课";
+    self.
     
     self.dataArr = [[NSArray alloc] init];
-    self->_type = @"1";
+    self->_type = @"2";
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -56,7 +58,12 @@
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(185);
     }];
+    [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"多人"] target:self action:@selector(gotoMyCoachVC)];
     
+}
+
+- (void)gotoMyCoachVC{
+    [self.navigationController pushViewController:[MyCoachViewController new] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -182,14 +189,14 @@
         [self.view addSubview:pageButtonView];
         pageButtonView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
             @strongify(self);
-            if ([titleStr isEqualToString:@"科一/文明驾驶"]) {
-                
-                self->_type = @"1";
-                self.tableViewListArr = self.list1Arr;
-            }else if ([titleStr isEqualToString:@"科二/三"]){
+            if ([titleStr isEqualToString:@"实操"]) {
                 
                 self->_type = @"2";
                 self.tableViewListArr = self.list2Arr;
+            }else if ([titleStr isEqualToString:@"理论"]){
+                
+                self->_type = @"1";
+                self.tableViewListArr = self.list1Arr;
             }else if ([titleStr isEqualToString:@"其他"]){
                 
                 self->_type = @"3";
@@ -198,7 +205,7 @@
             
             [self.tableView reloadData];
         };
-        pageButtonView.btnArr = @[@"科一/文明驾驶",@"科二/三",@"其他"];
+        pageButtonView.btnArr = @[@"实操",@"理论",@"其他"];
         [pageButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);
             make.top.mas_equalTo(self->_headerView.mas_bottom);

@@ -11,5 +11,6 @@
 @interface EDSStudentEvaluationCoachRequest : HQMBaseRequest
 
 @property (nonatomic , copy) NSString *courseRecordId;
+@property (nonatomic , assign) NSInteger page;
 
 @end

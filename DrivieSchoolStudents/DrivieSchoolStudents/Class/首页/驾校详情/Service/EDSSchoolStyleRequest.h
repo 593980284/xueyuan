@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *schoolId;//驾校id
 @property (nonatomic, copy) NSString *phone;//手机号
+@property (nonatomic, assign) NSInteger page;
 
 
 @end

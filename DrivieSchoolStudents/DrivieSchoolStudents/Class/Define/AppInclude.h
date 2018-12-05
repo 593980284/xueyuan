@@ -46,20 +46,20 @@
 #import "NSObject+EDSTool.h"
 
 /**
- #查询风采# http://111.39.245.156:8087/lexiang/dist/index.html?id=4000001 需要ID字段
- #学习#http://111.39.245.156:8087/lexiang/dist/index.html#/study
- #学习流程#http://111.39.245.156:8087/lexiang/dist/index.html#/studyFlow
- #报名流程#http://111.39.245.156:8087/lexiang/dist/index.html#/signUp
+ #查询风采#/lexiang/dist/index.html?id=4000001 需要ID字段
+ #学习#/lexiang/dist/index.html#/study
+ #学习流程#/lexiang/dist/index.html#/studyFlow
+ #报名流程/lexiang/dist/index.html#/signUp
  #价格公示#http://h5.k-ku.com/game/lexiang/#/priceShow?id=4000001&className&carType  需要ID className(可为空) carTpye（可为空）
- #科目二 科目三 http://111.39.245.156:8087/lexiang/dist/index.html#/theoryStudy subType2 => 科目二 3 => 科目三
+ #科目二 科目三 /lexiang/dist/index.html#/theoryStudy subType2 => 科目二 3 => 科目三
  http://h5.k-ku.com/game/lexiang/#/strategyPage?studyStrategyId=1&phone=18297982132
  字段id可以为（1,2,3），phone
  */
 
-#define JGGS  @"http://111.39.245.156:8087/lexiang/dist/index.html#/priceShow"            //价格公示   ?id=4000001&className&carType
-#define JXFC  @"http://111.39.245.156:8087/lexiang/dist/index.html"                       //教学风采
-#define KMLB  @"http://111.39.245.156:8087/lexiang/dist/index.html#/theoryStudy"          //科二科三
-#define XCGL  @"http://111.39.245.156:8087/lexiang/dist/index.html#/strategyPage"         //科二科三
+#define JGGS    [NSString stringWithFormat:@"%@/lexiang/dist/index.html#/priceShow",LINEURL]           //价格公示   ?id=4000001&className&carType
+#define JXFC    [NSString stringWithFormat:@"%@/lexiang/dist/index.html",LINEURL]                     //教学风采
+#define KMLB   [NSString stringWithFormat:@"%@/lexiang/dist/index.html#/theoryStudy",LINEURL]         //科二科三
+#define XCGL    [NSString stringWithFormat:@"%@/lexiang/dist/index.html#/strategyPage",LINEURL]        //科二科三
 
 #endif
 

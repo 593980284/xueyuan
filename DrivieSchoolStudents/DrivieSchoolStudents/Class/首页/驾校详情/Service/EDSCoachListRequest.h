@@ -11,5 +11,6 @@
 @interface EDSCoachListRequest : HQMBaseRequest
 
 @property (nonatomic, copy) NSString *schoolId;//驾校id
+@property (nonatomic, assign) NSInteger page;
 
 @end

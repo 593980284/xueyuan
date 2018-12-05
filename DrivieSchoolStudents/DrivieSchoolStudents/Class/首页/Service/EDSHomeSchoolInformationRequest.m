@@ -18,7 +18,10 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{@"schoolId":_schoolId};
+    return @{@"schoolId":_schoolId,
+             @"page": [NSString stringWithFormat:@"%ld", _page],
+             @"rows": @"8",
+             };
 }
 
 - (HQMRequestMethod)requestMethod
@@ -28,7 +31,10 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    NSArray<EDSDrivingSchoolModel *> *arr = [EDSDrivingSchoolModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"list"]];
+    NSArray<EDSDrivingSchoolModel *> *arr = @[];
+    if([[data valueForKey:@"list"] isKindOfClass:[NSArray class]]){
+        arr = [EDSDrivingSchoolModel mj_objectArrayWithKeyValuesArray:[data valueForKey:@"list"]];
+    }
     if (self.successBlock) {
         self.successBlock(resCode, data, arr);
     }

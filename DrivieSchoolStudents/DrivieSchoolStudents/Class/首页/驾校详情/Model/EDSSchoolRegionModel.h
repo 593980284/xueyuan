@@ -13,4 +13,11 @@
 @property (nonatomic, copy) NSString *schoolId;     //驾校id
 @property (nonatomic, copy) NSString *name;         //场地名称
 @property (nonatomic, copy) NSString *address;      //地址
+@property (nonatomic, copy) NSString *lngLat;
+@property (nonatomic, copy) NSString *distance;
+
+@property (nonatomic, copy) NSString *pointName;      //地址
+@property (nonatomic, copy) NSString *pointAddress;
+@property (nonatomic, copy) NSString *pointPhone;
+
 @end

@@ -19,10 +19,15 @@
 - (NSDictionary *)requestArguments
 {
     return @{
-             @"order":_order,
+            // @"order":_order,
              @"schoolName":_schoolName,
-             @"lng":_lng,
-             @"lat":_lat,
+             @"longitude":_longitude,
+             @"latitude":_latitude,
+             @"rows": @"10",
+             @"page": [NSString stringWithFormat:@"%ld", _page],
+             @"orderType": _orderType,
+             @"regionCode": _regionCode,
+             @"schoolType": _schoolType
              };
 }
 
@@ -33,7 +38,7 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    NSArray <EDSSchoolListModel *> *lists = [EDSSchoolListModel mj_objectArrayWithKeyValuesArray:data];
+    NSArray <EDSSchoolListModel *> *lists = [EDSSchoolListModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
     if (self.successBlock) {
         
         self.successBlock(resCode, data, lists);

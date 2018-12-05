@@ -37,7 +37,7 @@
     self.tableView.tableHeaderView = headerView;
     
     EDSCourseRecordDetailFooterView *footerView = [[EDSCourseRecordDetailFooterView alloc] init];
-    footerView.wz_size = CGSizeMake(kScreenWidth, 321);
+    footerView.wz_size = CGSizeMake(kScreenWidth, 321+120);
     footerView.courseRecordModel = self.courseRecordModel;
     self.tableView.tableFooterView = footerView;
     
@@ -53,7 +53,7 @@
     }];
     downView.courseRecordDetailDownViewDidButtonBackTitle = ^(NSString *title) {
         
-        if ([title isEqualToString:@"评价"]) {
+        if ([title isEqualToString:@"立即评价"]) {
             
             EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
             vc.courseRecordModel = self.courseRecordModel;

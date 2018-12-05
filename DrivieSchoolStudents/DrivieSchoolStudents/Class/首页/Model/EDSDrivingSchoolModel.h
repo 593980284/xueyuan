@@ -21,7 +21,7 @@
 /** 驾校图片 */
 @property (nonatomic, copy) NSString *schoolPhoto;
 /** 是否为联盟内驾校 */
-@property (nonatomic, copy) NSString *isUnion;
+@property (nonatomic, assign) NSInteger isUnion;
 /** 分数 */
 @property (nonatomic, copy) NSString *starScore;
 /** 价格 */
@@ -40,4 +40,5 @@
 /** 展示分数 */
 @property (nonatomic, assign) NSInteger showScore;
 
+@property (nonatomic, assign) NSInteger  reputationLevel;
 @end

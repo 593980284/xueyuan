@@ -30,6 +30,7 @@
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init]
                                                   forBarMetrics:UIBarMetricsDefault];
+ //   [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"多人"] target:self action:nil];
 //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
 }
 
@@ -129,6 +130,16 @@
     [_leftBarButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:_leftBarButton];
     self.navigationItem.leftBarButtonItem = item;
+}
+
+-(void)addNavigationBarRightButtonItemWithInfo:(UIImage *)image target:(id)target action:(SEL)action
+{
+   UIButton *barButton = [UIButton new];
+    barButton.frame = CGRectMake(0, 0, 44, 44);
+    [barButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [barButton setImage:image forState:UIControlStateNormal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:barButton];
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)userLogonFailureWithParentControl:(UIViewController *)parentControl

@@ -12,6 +12,7 @@
 @interface EDSTopScrollView ()
 {
     UIButton *_selectBtn;
+    UIView *pointView;
 }
 
 @end
@@ -23,6 +24,13 @@
     if (self) {
         // Initialization code
         [self setBackgroundColor:WhiteColor];
+        
+        pointView = [UIView new];
+        pointView.backgroundColor = [UIColor colorWithRed:245/255.0 green:174/255.0 blue:75/255.0 alpha:1];
+        pointView.center = CGPointMake(kScreenWidth / 7.0 / 2.0, 76-5);
+        pointView.bounds = CGRectMake(0, 0, 8, 8);
+        pointView.layer.cornerRadius = 4;
+        pointView.clipsToBounds = YES;
         
     }
     return self;
@@ -55,6 +63,7 @@
             _selectBtn = aView.dayBtn;
         }
     }
+     [self addSubview:pointView];
 }
 
 - (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view {

@@ -14,7 +14,7 @@
 
 @interface EDSCourseRecordDetailDownView ()
 
-@property (nonatomic , strong) UIButton *evaluationBtn;             //评价
+@property (nonatomic , strong) UIButton *evaluationBtn;             //立即评价
 @property (nonatomic , strong) UIButton *uncertainBtn;              //未确定
 @property (nonatomic , strong) UIButton *absenteeismBtn;            //缺勤
 @property (nonatomic , strong) UIButton *confirmClassBtn;           //确认到课
@@ -56,7 +56,7 @@
     self.haveEvaluation.hidden = YES;
     
     if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
-     //已到 有分数显示分数，没分数显示待评价
+     //已到 有分数显示分数，没分数显示待立即评价
         if (courseRecordModel.isComment) {
             
             self.haveEvaluation.hidden = NO;
@@ -84,15 +84,15 @@
         DLog(@"已评价");
         if (self.courseRecordDetailDownViewDidButtonBackTitle) {
             
-            self.courseRecordDetailDownViewDidButtonBackTitle(@"查看评价");
+            self.courseRecordDetailDownViewDidButtonBackTitle(@"查看立即评价");
         }
     }];
     
     [self.evaluationBtn bk_whenTapped:^{
-        DLog(@"评价");
+        DLog(@"立即评价");
         if (self.courseRecordDetailDownViewDidButtonBackTitle) {
             
-            self.courseRecordDetailDownViewDidButtonBackTitle(@"评价");
+            self.courseRecordDetailDownViewDidButtonBackTitle(@"立即评价");
         }
     }];
     
@@ -147,7 +147,7 @@
     if (!_evaluationBtn) {
         
         _evaluationBtn = [[UIButton alloc] init];
-        [_evaluationBtn setTitle:@"评价" forState:UIControlStateNormal];
+        [_evaluationBtn setTitle:@"立即评价" forState:UIControlStateNormal];
         [_evaluationBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
         _evaluationBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         _evaluationBtn.backgroundColor = ThemeColor;
@@ -191,7 +191,7 @@
     if (!_haveEvaluation) {
         
         _haveEvaluation = [[UIButton alloc] init];
-        [_haveEvaluation setTitle:@"查看评价" forState:UIControlStateNormal];
+        [_haveEvaluation setTitle:@"查看立即评价" forState:UIControlStateNormal];
         [_haveEvaluation setTitleColor:WhiteColor forState:UIControlStateNormal];
         _haveEvaluation.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         _haveEvaluation.backgroundColor = ThemeColor;

@@ -9,5 +9,5 @@
 #import "HQMBaseRequest.h"
 
 @interface EDSHomeRollPictureRequest : HQMBaseRequest
-
+@property(nonatomic, assign)BOOL is;
 @end

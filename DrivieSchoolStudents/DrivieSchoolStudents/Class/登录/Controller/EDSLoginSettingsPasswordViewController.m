@@ -10,6 +10,7 @@
 #import "EDSAppTouristRegistRequest.h"
 #import "EDSPSWLogoViewController.h"
 #import <SVProgressHUD.h>
+#import "RegisterRequest.h"
 
 
 @interface EDSLoginSettingsPasswordViewController ()
@@ -25,6 +26,11 @@
     // Do any additional setup after loading the view from its nib.
     
     self.view.backgroundColor = WhiteColor;
+    self.title = @"设置密码";
+    [self addNavigationBarLeftButtonItemWithInfo:[UIImage imageNamed:@"goback"] target:self action:@selector(goback)];
+}
+- (void)goback{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)commitClik:(id)sender {
@@ -42,6 +48,11 @@
 
         return ;
     }
+    
+    if (_isRegister) {
+        [self nextBtnTap:nil];
+        return;
+    }
 
     [SVProgressHUD showWithStatus:@""];
     EDSAppTouristRegistRequest *request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
@@ -57,6 +68,27 @@
     }];
     request.phone = self.phone;
     request.password = self.pswTextF.text;
+    request.showHUD = YES;
+    [request startRequest];
+}
+
+- (void)nextBtnTap:(id)sender {
+    __weak typeof(self) weakSelf = self;
+    [SVProgressHUD showWithStatus:@""];
+    RegisterRequest * request = [RegisterRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        [SVProgressHUD dismiss];
+        if (errCode == 1) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            [weakSelf.view makeToast:@"注册失败,请将密码设置为6位数以上字母或数字组合" delay:2];
+        }
+    } failureBlock:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        
+    }];
+    request.phone = _phone;
+    request.password = _pswTextF.text;
+    request.step = 1;
     request.showHUD = YES;
     [request startRequest];
 }

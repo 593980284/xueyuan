@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *hoursLbl;
 @property (weak, nonatomic) IBOutlet UILabel *reachStuNumLbl;
 @property (weak, nonatomic) IBOutlet UILabel *noReachStuNumLbl;
+@property (weak, nonatomic) IBOutlet UILabel *lb3;
+@property (weak, nonatomic) IBOutlet UILabel *lb4;
 
 @end
 
@@ -45,8 +47,12 @@
     self.subjectNameLbl.text = courseRecordModel.subjectName;
     self.periodTimeLbl.text = courseRecordModel.periodTime;
     self.hoursLbl.text = [NSString stringWithFormat:@"%@小时",courseRecordModel.hours];
-    self.reachStuNumLbl.text = courseRecordModel.reachStuNum;
-    self.noReachStuNumLbl.text = courseRecordModel.noReachStuNum;
+    self.reachStuNumLbl.text = [NSString stringWithFormat:@"%ld",courseRecordModel.maxNum];
+    self.noReachStuNumLbl.text = [NSString stringWithFormat:@"%ld",courseRecordModel.appointmentNum];
+    self.lb3.text = [NSString stringWithFormat:@"%ld",courseRecordModel.noAppointmentNum];
+    NSMutableAttributedString * str = [courseRecordModel.showStatus mutableCopy];
+    [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, courseRecordModel.showStatus.length)];
+    self.lb4.attributedText = str;
 }
 
 @end

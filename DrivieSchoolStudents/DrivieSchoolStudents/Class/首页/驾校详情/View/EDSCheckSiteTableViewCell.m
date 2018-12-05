@@ -12,8 +12,10 @@
 
 @interface EDSCheckSiteTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *checkSiteAddress;
-@property (weak, nonatomic) IBOutlet UILabel *checkSiteName;
+@property (weak, nonatomic) IBOutlet UILabel *nameLb;
+@property (weak, nonatomic) IBOutlet UILabel *addressLb;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLb;
+
 
 
 @end
@@ -35,8 +37,9 @@
 {
     _regionModel = regionModel;
     
-    self.checkSiteAddress.text = regionModel.address;
-    self.checkSiteName.text = regionModel.name;
+    self.addressLb.text = [NSString stringWithFormat:@"%@",regionModel.address];
+    self.nameLb.text = [NSString stringWithFormat:@"%@",regionModel.name];
+    self.distanceLb.text = regionModel.distance;
 }
 
 @end

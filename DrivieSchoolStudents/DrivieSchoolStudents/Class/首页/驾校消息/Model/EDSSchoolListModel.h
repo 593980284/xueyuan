@@ -33,4 +33,6 @@
 @property (nonatomic, copy) NSString  *showDistance;
 /** 展示分数 */
 @property (nonatomic, assign) NSInteger showScore;
+@property (nonatomic, assign) NSInteger  reputationLevel;
+
 @end

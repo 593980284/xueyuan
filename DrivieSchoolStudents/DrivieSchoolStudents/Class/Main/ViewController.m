@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "CRequest.h"
 @interface ViewController ()
-
+@property(nonatomic ,strong)NSArray *dataArr;
 @end
 
 @implementation ViewController
@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = WhiteColor;
+//    CRequest *request = [CRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+//        
+//    } failureBlock:^(NSError *error) {
+//        
+//    }];
+//    [request startRequest];
+    
 }
 
 

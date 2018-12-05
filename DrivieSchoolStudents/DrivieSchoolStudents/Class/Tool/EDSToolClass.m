@@ -547,7 +547,7 @@ static EDSToolClass *_instance;
 //    [JPUSHService setTags:nil alias:@"" fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
 //            NSLog(@"%zd,%@,%@",iResCode,iTags,iAlias);
 //     }];
-//    NSString *tip = @"您的账号已在异地登陆。如果这不是你的操作，你的账号密码已经泄露。请尽快登陆账号修改密码，或拨打客服电话400-828-9522";
+//    NSString *tip = @"您的账号已在异地登录。如果这不是你的操作，你的账号密码已经泄露。请尽快登录账号修改密码，或拨打客服电话400-828-9522";
 //    LBMAlertView *accountAl = [[LBMAlertView alloc]initWithMessage:nil buttonTitle1:@"取消" buttonTitle2:@"重新登录"];
 //    accountAl.titleLabel.attributedText = [XKToolClass getAttributeStr:tip andRange:NSMakeRange(tip.length -12, 12) andColor:FONT_COLOR_GREEN andFont:15];
 //    [accountAl showWithCompletion:^(LBMAlertView *alertView, NSInteger selectIndex) {

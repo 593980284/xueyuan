@@ -9,5 +9,5 @@
 #import "HQMBaseRequest.h"
 
 @interface EDSStudentCourseRecordRequest : HQMBaseRequest
-
+@property (nonatomic , assign) NSUInteger myPage;//类型
 @end

@@ -22,6 +22,8 @@
     return @{
              @"schoolId":_schoolId,
              @"phone":_phone,
+             @"rows": @"10",
+             @"page": [NSString stringWithFormat:@"%ld", _page]
              };
 }
 

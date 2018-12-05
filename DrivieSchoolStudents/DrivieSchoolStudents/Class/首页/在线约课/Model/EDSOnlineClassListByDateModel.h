@@ -41,6 +41,8 @@
 @property (nonatomic , strong) NSDate              * endSiginDate;//结束签到时间
 @property (nonatomic , strong) NSDate              * cancleAppDate;//取消预约时间
 @property (nonatomic , assign) NSInteger             showCoachStar;//列表展示星级
+@property (nonatomic , copy) NSString             *maxNum;//列表展示星级
+
 
 
 @end

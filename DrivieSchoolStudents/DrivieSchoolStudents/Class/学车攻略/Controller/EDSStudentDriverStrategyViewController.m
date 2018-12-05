@@ -25,6 +25,8 @@
 }
 
 @property (nonatomic , strong) NSArray<EDSStrategyListModel *> *tableArr;
+@property (nonatomic , strong) NSArray<EDSStrategyListModel *> *tableArr2;
+@property (nonatomic , strong) NSArray<EDSStrategyListModel *> *tableArr3;
 
 @end
 
@@ -33,7 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableArr = [[NSArray alloc] init];
+     self.tableArr = [[NSArray alloc] init];
+     self.tableArr2 = [[NSArray alloc] init];
+     self.tableArr3 = [[NSArray alloc] init];
     _type = @"0";
     self.page = 1;
     
@@ -48,7 +52,7 @@
         DLog(@"%@",backBlock);
         @strongify(self);
         self->_type = backBlock;
-        
+        self.page = 1;
         [self requestDataWithType:self->_type];
     };
     
@@ -84,7 +88,7 @@
     
     self.tableView.mj_footer = [EDSRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
-        self.page = self.page + 1 ;
+        self.page ++;
         [self requestDataWithType:self->_type];
     }];
     self.tableView.mj_footer.hidden = NO;
@@ -97,12 +101,21 @@
         @strongify(self);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+         [self.tableView.mj_footer resetNoMoreData];
         
         if (errCode == 1) {
             
-            NSArray<EDSStrategyListModel *> *arr = model;
-            self.tableView.mj_footer.hidden = arr.count == [NumPerPage intValue] ? NO : YES;
-            self.tableArr = model;
+            NSMutableArray<EDSStrategyListModel *> *arr = [self.getArray mutableCopy];
+           
+            if (self.page > 1) {
+                [arr addObjectsFromArray:model];
+            }else{
+                arr = model;
+            }
+            if ([model count] == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self setArrray:arr];
             [self.tableView reloadData];
         }else if (errCode == -2){
             
@@ -118,13 +131,42 @@
     }];
     request.page = [NSString stringWithFormat:@"%ld",(long)self.page];
     request.strategyType = type;
+    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
+        
+        request.schoolId = @"-1";
+    }else
+    {
+        request.schoolId = [EDSSave account].schoolId;
+    }
     [request  startRequest];
+}
+
+
+- (NSArray *)getArray{
+    if ([_type isEqualToString:@"0"]) {
+        return self.tableArr;
+    }else if ([_type isEqualToString:@"1"]){
+       return self.tableArr2;
+    }else if ([_type isEqualToString:@"2"]){
+        return self.tableArr3;
+    }
+    return nil;
+}
+
+- (void)setArrray:(NSArray *)arr{
+    if ([_type isEqualToString:@"0"]) {
+        self.tableArr = arr;
+    }else if ([_type isEqualToString:@"1"]){
+         self.tableArr2 = arr;
+    }else if ([_type isEqualToString:@"2"]){
+        self.tableArr3 = arr;
+    }
 }
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tableArr.count;
+    return self.getArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -141,7 +183,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.strategyListModel = self.tableArr[indexPath.row];
+    cell.strategyListModel = self.getArray[indexPath.row];
     
     return cell;
 }
@@ -154,7 +196,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDSStudentDriverStrategyDetailViewController *vc = [[EDSStudentDriverStrategyDetailViewController alloc] initWithNibName:@"EDSStudentDriverStrategyDetailViewController" bundle:[NSBundle mainBundle]];
-    vc.studyStrategyId = self.tableArr[indexPath.row].studyStrategyId;
+    vc.studyStrategyId = [self.getArray[indexPath.row] studyStrategyId];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

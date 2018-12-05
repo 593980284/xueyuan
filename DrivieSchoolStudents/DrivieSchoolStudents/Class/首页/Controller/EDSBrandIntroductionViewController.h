@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BHYBaseViewController.h"
 
 
-@interface EDSBrandIntroductionViewController : UIViewController
+@interface EDSBrandIntroductionViewController : BHYBaseViewController
 
 @end
 

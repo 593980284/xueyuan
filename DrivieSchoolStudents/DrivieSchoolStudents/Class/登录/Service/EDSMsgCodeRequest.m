@@ -17,6 +17,9 @@
 
 - (NSString *)requestURLPath
 {
+    if ([_type isEqualToString:@"register"]) {
+        return @"/app/lexiang/login/appRegisterMsgCode";
+    }
     return @"/app/lexiang/login/appMsgCode";
 }
 

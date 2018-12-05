@@ -12,5 +12,6 @@
 
 @property (nonatomic , copy) NSString *strategyType;//必填，0考规，1技巧，2趣事
 @property (nonatomic , copy) NSString *page;//类型
+@property (nonatomic , copy) NSString *schoolId;
 
 @end

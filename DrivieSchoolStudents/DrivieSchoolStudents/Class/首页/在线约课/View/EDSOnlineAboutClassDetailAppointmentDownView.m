@@ -17,6 +17,7 @@
 @property (nonatomic , strong) UIButton *signinBtn;         //课程签到
 @property (nonatomic , strong) UIButton *canleBtn;          //取消预约
 @property (nonatomic , strong) UIButton *alreadySignIn;     //已签到
+@property (nonatomic , strong) NSTimer * timer;
 
 @end
 
@@ -30,7 +31,6 @@
     }
     return self;
 }
-
 - (instancetype)init
 {
     return [self initWithFrame:self.frame];
@@ -38,6 +38,9 @@
 
 - (void)setModel:(EDSOnlineClassListByDateModel *)model
 {
+//      model.isAppointment = @"0";
+//      model.periodTime = @"2018-11-26 21:15-23:15";
+//      model.shortPeriodTime = @"21:15-22:15";
     _model = model;
     //是否预约 -1未预约 0已预约 1已签到
     if ([model.isAppointment isEqualToString:@"-1"]) {
@@ -58,16 +61,7 @@
         self.signinBtn.hidden = NO;
         self.canleBtn.hidden = NO;
         self.alreadySignIn.hidden = YES;
-        
-        if ([self judgeTimeByStartAndEnd:model.startSiginDate withExpireTime:model.endSiginDate]) {
-            
-            self.signinBtn.enabled = YES;
-            self.signinBtn.backgroundColor = ThemeColor;
-        }else{
-            
-            self.signinBtn.enabled = NO;
-            self.signinBtn.backgroundColor = ThirdColor;
-        }
+        [self beginTimer];// 开启定时器
     }else{
         
         self.determineBtn.hidden = YES;
@@ -315,5 +309,40 @@
         result = window.rootViewController;
     
     return result;
+}
+
+/** 定时器相关*/
+
+- (void)stopTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)beginTimer{
+    [self stopTimer];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handletimer) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer: self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    if (!newSuperview) {
+        [self stopTimer];
+    }
+}
+
+- (void)handletimer{
+    
+    if ([self judgeTimeByStartAndEnd:_model.startSiginDate withExpireTime:_model.endSiginDate]) {
+        
+        self.signinBtn.enabled = YES;
+        self.signinBtn.backgroundColor = ThemeColor;
+    }else{
+        self.signinBtn.enabled = NO;
+        self.signinBtn.backgroundColor = ThirdColor;
+        if ([[NSDate new] compare:_model.endSiginDate] == NSOrderedDescending) {
+            [self stopTimer];
+        }
+    }
+    
 }
 @end

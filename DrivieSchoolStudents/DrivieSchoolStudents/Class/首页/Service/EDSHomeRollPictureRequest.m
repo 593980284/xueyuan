@@ -17,6 +17,9 @@
 
 - (NSString *)requestURLPath
 {
+    if (self.is) {
+         return @"/app/lexiang/homePage/brandSchoolRollPicture";
+    }
     return @"/app/lexiang/homePage/homeRollPicture";
 }
 
@@ -36,13 +39,25 @@
     NSArray *arr = [data valueForKey:@"list"];
     NSMutableArray *mulArr = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < arr.count ; i++ ) {
-        
-        NSDictionary *dict = @{
-                               @"homeRollPicture":[LINEURL stringByAppendingPathComponent:arr[i][@"homeRollPicture"]],
-                               @"interactiveContent":arr[i][@"interactiveContent"],
-                               @"isInteractive":arr[i][@"isInteractive"],
-                               };
-        [mulArr addObject:dict];
+
+        if (_is) {
+            
+            NSDictionary *dict = @{
+                                   @"homeRollPicture":[LINEURL stringByAppendingPathComponent:arr[i][@"brandSchoolRollPicture"]],
+                                   //                               @"interactiveContent":arr[i][@"interactiveContent"],
+                                   //                               @"isInteractive":arr[i][@"isInteractive"],
+                                   };
+            [mulArr addObject:dict];
+            
+        }else{
+            NSString * interactiveContent = arr[i][@"interactiveContent"] ? arr[i][@"interactiveContent"] : @"";
+            NSDictionary *dict = @{
+                                   @"homeRollPicture":[LINEURL stringByAppendingPathComponent:arr[i][@"homeRollPicture"]],
+                                                                  @"interactiveContent":interactiveContent,
+                                                                  @"isInteractive":arr[i][@"isInteractive"],
+                                   };
+            [mulArr addObject:dict];
+        }
     }
     
     if (self.successBlock) {

@@ -17,6 +17,8 @@
 #import "EDSMsgCodeRequest.h"
 #import "EDSStudentLoginRequest.h"
 #import "EDSAppStudentOperatingSystemRequest.h"
+#import "RegisterViewController.h"
+
 
 @interface EDSPSWLogoViewController ()
 {
@@ -39,11 +41,26 @@
 @property (weak, nonatomic) IBOutlet UITextField *pswCodeTextF;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
 
-@property (weak, nonatomic) IBOutlet UIButton *userAgreementBtn;
+
 
 @end
 
 @implementation EDSPSWLogoViewController
+- (IBAction)gotoRegister:(id)sender {
+    RegisterViewController* vc = [RegisterViewController new];
+    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:vc];
+      [self presentViewController:navi animated:YES completion:nil];
+}
+- (IBAction)goback:(id)sender {
+    AppDelegate* d= (AppDelegate*)[UIApplication sharedApplication].delegate;
+    UITabBarController * vc = (UITabBarController *)d.window.rootViewController;
+    vc.selectedIndex = 0;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)seeDelegate:(id)sender {
+    EDSYHXYViewController *vc = [[EDSYHXYViewController alloc] initWithNibName:@"EDSYHXYViewController" bundle:[NSBundle mainBundle]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,29 +68,32 @@
     
     self.view.backgroundColor = WhiteColor;
     self.loginBtnBottonHeight.constant = KLineY(100);
+    self.lineView.hidden = YES;
+    self.pswBtn.hidden = YES;
+    self.pswBtn.selected = NO;
+    self.indicatorView.hidden = YES;
     
 #ifdef DEBUG
     self.codePhoneTextF.text = @"15848500805";
     self.pswPhoneTextF.text =  @"15848500805";
 #else
 #endif
-    self.pswBtn.selected = YES;
     self.pswLoginBgView.hidden = NO;
     self.codeLoginBgView.hidden = YES;
     _isCodeLogin = NO;
     
-    self.indicatorView = [UIView viewWithBackgroundColor:ThemeColor superView:self.view];
-    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(50, 2));
-        make.left.mas_equalTo(self.pswBtn.wz_centerX - 50);
-        make.bottom.mas_equalTo(self.lineView.mas_top);
-    }];
+//    self.indicatorView = [UIView viewWithBackgroundColor:ThemeColor superView:self.view];
+//    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(50, 2));
+//        make.left.mas_equalTo(self.pswBtn.wz_centerX - 50);
+//        make.bottom.mas_equalTo(self.lineView.mas_top);
+//    }];
     @weakify(self);
     [self.pswBtn bk_whenTapped:^{
         @strongify(self);
         
-        self.pswBtn.selected = YES;
-        self.codeBtn.selected = NO;
+        self.pswBtn.hidden = YES;
+        self.codeBtn.hidden = NO;
         self.pswLoginBgView.hidden = NO;
         self.codeLoginBgView.hidden = YES;
         self->_isCodeLogin = NO;
@@ -85,8 +105,8 @@
     [self.codeBtn bk_whenTapped:^{
         @strongify(self); 
         
-        self.pswBtn.selected = NO;
-        self.codeBtn.selected = YES;
+        self.pswBtn.hidden = NO;
+        self.codeBtn.hidden = YES;
         self.pswLoginBgView.hidden = YES;
         self.codeLoginBgView.hidden = NO;
         self->_isCodeLogin = YES;
@@ -130,12 +150,12 @@
 
 
 - (IBAction)loginClick:(id)sender {
-    
-    if (!self.userAgreementBtn.selected) {
-        
-        [self.view makeToast:@"请先同意用户协议"];
-        return;
-    }
+//
+//    if (!self.userAgreementBtn.selected) {
+//
+//        [self.view makeToast:@"请先同意用户协议"];
+//        return;
+//    }
     
     if (_isCodeLogin) {
         //验证码登录
@@ -232,16 +252,7 @@
     [request startRequest];
 }
 
-- (IBAction)userAgreementClick:(id)sender {
-    
-    self.userAgreementBtn.selected = !self.userAgreementBtn.selected;
-}
 
-- (IBAction)jumpUserAgreementClick:(id)sender {
-    
-    EDSYHXYViewController *vc = [[EDSYHXYViewController alloc] initWithNibName:@"EDSYHXYViewController" bundle:[NSBundle mainBundle]];
-    [self presentViewController:vc animated:YES completion:nil];
-}
 
 
 // 开启倒计时效果

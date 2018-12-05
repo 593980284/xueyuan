@@ -25,6 +25,8 @@
 /** 数据 */
 @property (nonatomic, strong) NSArray<EDSSchoolStyleModel *> *modelArr;
 
+@property (nonatomic, assign) NSInteger page;
+
 @end
 
 @implementation EDSSecondView
@@ -53,16 +55,20 @@
     
     self.backgroundColor = WhiteColor;
     self.modelArr = [[NSArray alloc] init];
-    
     self.collectionView.delegate = self;
-    self.collectionView.bounces = NO;
     self.collectionView.dataSource = self;
+    self.collectionView.scrollEnabled = YES;
+    self.collectionView.bounces = YES;
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.collectionView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestData2)];
+    
     
 }
 
 #pragma mark ------------------------ 网络请求 --------------------------------
 - (void)requestData
 {
+    self.page = 1;
     @weakify(self);
     EDSSchoolStyleRequest *request = [EDSSchoolStyleRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         @strongify(self);
@@ -70,12 +76,45 @@
             
             self.modelArr = model;
             [self.collectionView reloadData];
+            
         }
-        
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer resetNoMoreData];
     } failureBlock:^(NSError *error) {
+         [self.collectionView.mj_header endRefreshing];
         
     }];
     request.schoolId = self.schoolId;
+    request.page = self.page;
+    request.phone = [EDSToolClass isBlankString:[EDSSave account].phone] ? @"" : [EDSSave account].phone;
+    [request  startRequest];
+}
+
+- (void)requestData2
+{
+    self.page++;
+    @weakify(self);
+    EDSSchoolStyleRequest *request = [EDSSchoolStyleRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, NSArray* model) {
+        @strongify(self);
+        NSMutableArray *data = [self.modelArr mutableCopy];
+        if (errCode == 1) {
+            if (model.count > 0) {
+                [data addObjectsFromArray:model];
+                [self.collectionView.mj_footer endRefreshing];
+            }else{
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+            }
+            self.modelArr = data;
+            [self.collectionView reloadData];
+        }else{
+           [self.collectionView.mj_footer endRefreshing];
+        }
+    } failureBlock:^(NSError *error) {
+        [self.collectionView.mj_footer endRefreshing];
+        
+    }];
+    request.schoolId = self.schoolId;
+    request.page = self.page;
     request.phone = [EDSToolClass isBlankString:[EDSSave account].phone] ? @"" : [EDSSave account].phone;
     [request  startRequest];
 }
@@ -121,7 +160,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-        return CGSizeMake(EDSTeachingStyleCollectionViewCellW, EDSTeachingStyleCollectionViewCellH);
+        return CGSizeMake(EDSTeachingStyleCollectionViewCellW-1, EDSTeachingStyleCollectionViewCellH);
 }
 
 
@@ -162,28 +201,28 @@
     return _collectionView ;
 }
 
-#pragma mark - firstTableView的代理方法scrollViewDidScroll
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat placeHolderHeight = self.topView.wz_height - self.topView.itemHeight;
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    
-    if (offsetY >= 0 && offsetY <= placeHolderHeight) {
-        
-        self.topView.wz_y = -offsetY;
-        self.topView.commentBgView.alpha = offsetY/placeHolderHeight;
-        self.topView.driveSchoolBgView.alpha = 1 - offsetY/placeHolderHeight;
-    }
-    else if (offsetY > placeHolderHeight) {
-        self.topView.wz_y = - placeHolderHeight;
-        self.topView.commentBgView.alpha = 1.0;
-        self.topView.driveSchoolBgView.alpha = 0.0;
-    }
-    else if (offsetY <0) {
-        self.topView.wz_y =  - offsetY;
-        self.topView.commentBgView.alpha = 0.0;
-        self.topView.driveSchoolBgView.alpha = 1.0;
-    }
-}
+//#pragma mark - firstTableView的代理方法scrollViewDidScroll
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat placeHolderHeight = self.topView.wz_height - self.topView.itemHeight;
+//
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//
+//    if (offsetY >= 0 && offsetY <= placeHolderHeight) {
+//
+//        self.topView.wz_y = -offsetY;
+//        self.topView.commentBgView.alpha = offsetY/placeHolderHeight;
+//        self.topView.driveSchoolBgView.alpha = 1 - offsetY/placeHolderHeight;
+//    }
+//    else if (offsetY > placeHolderHeight) {
+//        self.topView.wz_y = - placeHolderHeight;
+//        self.topView.commentBgView.alpha = 1.0;
+//        self.topView.driveSchoolBgView.alpha = 0.0;
+//    }
+//    else if (offsetY <0) {
+//        self.topView.wz_y =  - offsetY;
+//        self.topView.commentBgView.alpha = 0.0;
+//        self.topView.driveSchoolBgView.alpha = 1.0;
+//    }
+//}
 @end

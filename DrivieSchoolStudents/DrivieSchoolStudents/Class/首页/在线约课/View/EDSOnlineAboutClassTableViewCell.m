@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
 @property (weak, nonatomic) IBOutlet UILabel *numberRemainingLbl;
 @property (weak, nonatomic) IBOutlet UILabel *sexLbl;
+@property (weak, nonatomic) IBOutlet UILabel *totalLb;
+@property (weak, nonatomic) IBOutlet UILabel *useEd;
 
 @end
 
@@ -44,6 +46,9 @@
     self.nameLbl.text = model.coachName;
     self.subjectLbl.text = model.showSubjectTime;
     self.driveStarView.selectNumber = model.showCoachStar;
+    self.driveStarView.hidden = YES;
+    self.totalLb.text = [NSString stringWithFormat:@"总名额：%@",model.maxNum];
+    self.useEd.text = [NSString stringWithFormat:@"已预约：%@",model.appointmentNum];
     self.sexLbl.text = model.coachSex;
     self.numberRemainingLbl.text = model.showNoAppointmentNum;
 }

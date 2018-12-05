@@ -90,29 +90,29 @@
     return UITableViewAutomaticDimension;
 }
 
-#pragma mark - firstTableView的代理方法scrollViewDidScroll
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat placeHolderHeight = self.topView.wz_height - self.topView.itemHeight;
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    
-    if (offsetY >= 0 && offsetY <= placeHolderHeight) {
-        
-        self.topView.wz_y = -offsetY;
-        self.topView.commentBgView.alpha = offsetY/placeHolderHeight;
-        self.topView.driveSchoolBgView.alpha = 1 - offsetY/placeHolderHeight;
-    }
-    else if (offsetY > placeHolderHeight) {
-        self.topView.wz_y = - placeHolderHeight;
-        self.topView.commentBgView.alpha = 1.0;
-        self.topView.driveSchoolBgView.alpha = 0.0;
-    }
-    else if (offsetY <0) {
-        self.topView.wz_y =  - offsetY;
-        self.topView.commentBgView.alpha = 0.0;
-        self.topView.driveSchoolBgView.alpha = 1.0;
-    }
-}
+//#pragma mark - firstTableView的代理方法scrollViewDidScroll
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat placeHolderHeight = self.topView.wz_height - self.topView.itemHeight;
+//    
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//    
+//    if (offsetY >= 0 && offsetY <= placeHolderHeight) {
+//        
+//        self.topView.wz_y = -offsetY;
+//        self.topView.commentBgView.alpha = offsetY/placeHolderHeight;
+//        self.topView.driveSchoolBgView.alpha = 1 - offsetY/placeHolderHeight;
+//    }
+//    else if (offsetY > placeHolderHeight) {
+//        self.topView.wz_y = - placeHolderHeight;
+//        self.topView.commentBgView.alpha = 1.0;
+//        self.topView.driveSchoolBgView.alpha = 0.0;
+//    }
+//    else if (offsetY <0) {
+//        self.topView.wz_y =  - offsetY;
+//        self.topView.commentBgView.alpha = 0.0;
+//        self.topView.driveSchoolBgView.alpha = 1.0;
+//    }
+//}
 
 @end

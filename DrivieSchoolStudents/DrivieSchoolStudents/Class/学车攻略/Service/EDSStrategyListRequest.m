@@ -23,6 +23,7 @@
              @"rows":NumPerPage,
              @"page":_page,
              @"strategyType":_strategyType,
+             @"schoolId": _schoolId,
              };
 }
 

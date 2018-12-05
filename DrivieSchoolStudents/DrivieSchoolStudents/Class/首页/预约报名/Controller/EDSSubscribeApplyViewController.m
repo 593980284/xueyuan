@@ -23,6 +23,7 @@
 
 #import "EDSGetcoachCarTypeModel.h"
 #import "EDSChooseBoxViewController.h"
+#import "EDSPSWLogoViewController.h"
 
 @interface EDSSubscribeApplyViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 {
@@ -49,12 +50,12 @@
     self.navigationItem.title = @"预约报名";
     self.carTypeArr = [[NSArray alloc] init];
     self.chooseBoxModelArr = [[NSMutableArray alloc] init];
-    
+
     _schoolID = @"";
     _carId = @"";
     _time = @"";
-    
-    
+
+
     UIButton *backBtn = [[UIButton alloc] init];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
@@ -62,7 +63,7 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     backBtn.wz_size = CGSizeMake(25, 40);
     self.navigationItem.leftBarButtonItem = item;
-    
+
     [self setup];
     [self getcoachCarTypeRequest];
 }
@@ -232,13 +233,11 @@
                 boxModel.code = self.carTypeArr[i].code;
                 [self.chooseBoxModelArr addObject:boxModel];
             }
-        }
-        else
-        {
-            [self getcoachCarTypeRequest];
+        }else if (errCode == -2){
+            [self presentViewController:[EDSPSWLogoViewController new] animated:YES completion:nil];
         }
     } failureBlock:^(NSError *error) {
-        
+    
     }];
     [request startRequest];
 }

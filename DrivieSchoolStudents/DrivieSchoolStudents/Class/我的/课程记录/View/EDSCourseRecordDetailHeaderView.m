@@ -59,11 +59,13 @@
         self.coachScoreView.hidden = YES;
         self.scoreLbl.hidden = YES;
     }
-    
+    self.coachScoreView.hidden = YES;
+    self.scoreLbl.hidden = YES;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     self.coursNameLbl.text = courseRecordModel.coachName;
     self.coursSexLbl.text = courseRecordModel.coachSex;
-    self.ageSubjectLbl.text = [NSString stringWithFormat:@"%@年执教 %@",courseRecordModel.teachAge,courseRecordModel.subjectName];
+     self.ageSubjectLbl.text = courseRecordModel.teachType;
+//    self.ageSubjectLbl.text = [NSString stringWithFormat:@"%@年执教 %@",courseRecordModel.teachAge,courseRecordModel.subjectName];
     self.coachScoreView.selectNumber = ceil([courseRecordModel.coachScore doubleValue]/2);
     self.scoreLbl.text = [NSString stringWithFormat:@"%@分",courseRecordModel.coachScore];
 }
