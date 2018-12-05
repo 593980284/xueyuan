@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSMessageSiginBoxViewController">
+            <connections>
+                <outlet property="button1" destination="NV0-nJ-oXr" id="4Np-iR-gOy"/>
+                <outlet property="button2" destination="B3N-gk-lRZ" id="163-Iu-h7P"/>
+                <outlet property="contentLbl" destination="QD4-dt-f8k" id="6Qx-Oa-jHj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-d1-zfa">
+                    <rect key="frame" x="35" y="250.5" width="305" height="166"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QD4-dt-f8k">
+                            <rect key="frame" x="25" y="24" width="255" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV0-nJ-oXr">
+                            <rect key="frame" x="20" y="107" width="125" height="44"/>
+                            <color key="backgroundColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ayN-rk-ayR"/>
+                            </constraints>
+                            <state key="normal" title="确认上课"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmClick:" destination="-1" eventType="touchUpInside" id="YTf-qP-0mb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-gk-lRZ">
+                            <rect key="frame" x="160" y="107" width="125" height="44"/>
+                            <color key="backgroundColor" red="1" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="bMU-BM-heW"/>
+                            </constraints>
+                            <state key="normal" title="我没有去"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="noGoClick:" destination="-1" eventType="touchUpInside" id="VVE-KX-cFr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="B3N-gk-lRZ" secondAttribute="trailing" constant="20" id="1Nj-Rt-J8d"/>
+                        <constraint firstAttribute="height" constant="166" id="2jm-Sj-vCn"/>
+                        <constraint firstItem="NV0-nJ-oXr" firstAttribute="leading" secondItem="XRf-d1-zfa" secondAttribute="leading" constant="20" id="6u7-o2-7IL"/>
+                        <constraint firstItem="B3N-gk-lRZ" firstAttribute="leading" secondItem="NV0-nJ-oXr" secondAttribute="trailing" constant="15" id="ID1-YO-Pu2"/>
+                        <constraint firstAttribute="bottom" secondItem="B3N-gk-lRZ" secondAttribute="bottom" constant="15" id="NVT-Ei-Fnk"/>
+                        <constraint firstItem="QD4-dt-f8k" firstAttribute="top" secondItem="XRf-d1-zfa" secondAttribute="top" constant="24" id="PNb-0n-ggT"/>
+                        <constraint firstAttribute="bottom" secondItem="NV0-nJ-oXr" secondAttribute="bottom" constant="15" id="Qzr-a4-NCp"/>
+                        <constraint firstItem="NV0-nJ-oXr" firstAttribute="width" secondItem="B3N-gk-lRZ" secondAttribute="width" id="c8E-HX-EIH"/>
+                        <constraint firstAttribute="trailing" secondItem="QD4-dt-f8k" secondAttribute="trailing" constant="25" id="nSA-fb-sQI"/>
+                        <constraint firstItem="QD4-dt-f8k" firstAttribute="leading" secondItem="XRf-d1-zfa" secondAttribute="leading" constant="25" id="osa-iU-oGS"/>
+                        <constraint firstAttribute="width" constant="305" id="pEF-YH-JPE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XRf-d1-zfa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JSX-Oo-pqG"/>
+                <constraint firstItem="XRf-d1-zfa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="t0e-9w-pCV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

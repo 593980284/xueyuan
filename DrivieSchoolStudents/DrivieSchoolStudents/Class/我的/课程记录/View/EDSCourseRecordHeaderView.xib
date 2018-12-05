@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSCourseRecordHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkV-Cr-2n0">
+                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="iS9-lZ-w29"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-Du-7zf">
+                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="42"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="已完成课程">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="已完成课程">
+                        <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fML-B6-ogj">
+                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="42"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="未完成课程">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="未完成课程">
+                        <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9G-u0-NNH">
+                    <rect key="frame" x="69" y="43" width="50" height="2"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="MZV-iG-1hF"/>
+                        <constraint firstAttribute="height" constant="2" id="b4v-Na-niX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fML-B6-ogj" firstAttribute="leading" secondItem="7AJ-Du-7zf" secondAttribute="trailing" id="5QY-e6-4b7"/>
+                <constraint firstItem="tkV-Cr-2n0" firstAttribute="top" secondItem="7AJ-Du-7zf" secondAttribute="bottom" constant="2" id="8vA-kL-RiL"/>
+                <constraint firstItem="tkV-Cr-2n0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AW7-0T-upF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fML-B6-ogj" secondAttribute="trailing" id="HBo-fI-a4Q"/>
+                <constraint firstItem="7AJ-Du-7zf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="LLN-Mr-5p9"/>
+                <constraint firstItem="g9G-u0-NNH" firstAttribute="centerX" secondItem="7AJ-Du-7zf" secondAttribute="centerX" id="Lxg-mz-Uh7"/>
+                <constraint firstAttribute="trailing" secondItem="tkV-Cr-2n0" secondAttribute="trailing" id="S49-ik-5o4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="tkV-Cr-2n0" secondAttribute="bottom" id="V7M-2M-U7P"/>
+                <constraint firstItem="7AJ-Du-7zf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Wu6-5P-Jfy"/>
+                <constraint firstItem="tkV-Cr-2n0" firstAttribute="top" secondItem="fML-B6-ogj" secondAttribute="bottom" constant="2" id="YFF-SA-yam"/>
+                <constraint firstItem="fML-B6-ogj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Yoi-mb-lEr"/>
+                <constraint firstItem="fML-B6-ogj" firstAttribute="width" secondItem="7AJ-Du-7zf" secondAttribute="width" id="ijo-q4-Po7"/>
+                <constraint firstItem="g9G-u0-NNH" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="k7r-fP-sC9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="finishBtn" destination="7AJ-Du-7zf" id="Z5d-nL-DS0"/>
+                <outlet property="indicatorView" destination="g9G-u0-NNH" id="qmX-6S-WNC"/>
+                <outlet property="unfinishBtn" destination="fML-B6-ogj" id="PX6-ZV-gzR"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="-239.5"/>
+        </view>
+    </objects>
+</document>

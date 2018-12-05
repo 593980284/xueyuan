@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDSRecitedPoliticsFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Df1-Bm-lYm">
+                    <rect key="frame" x="0.0" y="71" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdU-qr-ngC">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="V1q-e4-EhZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="3" maxY="0.0"/>
+                            <state key="normal" title="收藏" image="lx_content_icon_collection_default">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="bt_content_icon_collection_selected"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="NdU-qr-ngC" secondAttribute="bottom" id="bHe-kV-CqF"/>
+                        <constraint firstAttribute="height" constant="50" id="bMj-Da-EOM"/>
+                        <constraint firstItem="NdU-qr-ngC" firstAttribute="leading" secondItem="Df1-Bm-lYm" secondAttribute="leading" id="r10-Jx-bXd"/>
+                        <constraint firstItem="NdU-qr-ngC" firstAttribute="top" secondItem="Df1-Bm-lYm" secondAttribute="top" id="var-0x-ddN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Viy-xp-cic">
+                    <rect key="frame" x="0.0" y="70" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ltw-Nk-u6s"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ba-ex-3FV">
+                    <rect key="frame" x="105" y="10" width="165" height="45"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="WVn-Y6-utf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="下一题"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Df1-Bm-lYm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="5To-Jd-yAC"/>
+                <constraint firstItem="Df1-Bm-lYm" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8yX-Kh-QZH"/>
+                <constraint firstItem="Viy-xp-cic" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ezs-74-M1g"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Viy-xp-cic" secondAttribute="trailing" id="KHq-dS-tWP"/>
+                <constraint firstAttribute="bottom" secondItem="Df1-Bm-lYm" secondAttribute="bottom" id="Wgg-dK-UmH"/>
+                <constraint firstItem="Viy-xp-cic" firstAttribute="top" secondItem="1Ba-ex-3FV" secondAttribute="bottom" constant="15" id="dRq-cd-FcN"/>
+                <constraint firstItem="Df1-Bm-lYm" firstAttribute="top" secondItem="Viy-xp-cic" secondAttribute="bottom" id="mtI-cM-Xmz"/>
+                <constraint firstItem="1Ba-ex-3FV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="105" id="saI-T1-xZe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Ba-ex-3FV" secondAttribute="trailing" constant="105" id="xoU-sD-fSI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="collectionBrn" destination="NdU-qr-ngC" id="ykn-39-nno"/>
+                <outlet property="nextBtn" destination="1Ba-ex-3FV" id="GnE-rc-8bB"/>
+            </connections>
+            <point key="canvasLocation" x="-296.5" y="304.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bt_content_icon_collection_selected" width="15" height="14"/>
+        <image name="lx_content_icon_collection_default" width="15" height="14"/>
+    </resources>
+</document>

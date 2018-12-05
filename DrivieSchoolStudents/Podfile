@@ -1,0 +1,20 @@
+platform :ios,’8.0'
+target 'DrivieSchoolStudents' do
+    pod 'AFNetworking'   
+    pod 'SDWebImage'
+    pod 'SDCycleScrollView'
+    pod 'IQKeyboardManager'
+    pod 'MJExtension'
+    pod 'Masonry'
+    pod 'MJRefresh'
+    pod 'BlocksKit'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'MOFSPickerManager'
+    pod 'UITextView+Placeholder'
+    pod 'TZImagePickerController', '~> 2.1.4'
+    pod 'FMDB'
+    pod 'YYCache', '~> 1.0.4'
+    pod 'SVProgressHUD'
+    
+end
+
