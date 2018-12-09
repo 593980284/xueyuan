@@ -23,6 +23,7 @@
 #import "EDSStudentMsgModel.h"
 
 #import "EDSDriverNavHeaderView.h"
+#import "EDSMsgCell.h"
 
 @interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -47,6 +48,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
@@ -136,22 +138,26 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 76;
+//    return 76;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    EDSMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMessageTableViewCell"];
+//    EDSMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMessageTableViewCell"];
+    EDSMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMsgCell"];
+
     
     if (!cell) {
         
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"EDSMessageTableViewCell" owner:self options:nil] lastObject];
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"EDSMessageTableViewCell" owner:self options:nil] lastObject];
+        cell = [[EDSMsgCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"EDSMsgCell"];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.mesModel = self.tableViewArr[indexPath.row];
+//    cell.mesModel = self.tableViewArr[indexPath.row];
     
     return cell;
     

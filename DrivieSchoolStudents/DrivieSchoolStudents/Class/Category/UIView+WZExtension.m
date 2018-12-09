@@ -118,7 +118,9 @@
 {
     return self.frame.size;
 }
-
+-(CGFloat)wz_right{
+    return self.wz_x + self.wz_width;
+}
 - (void)setWz_origin:(CGPoint)wz_origin
 {
     CGRect frame = self.frame;
