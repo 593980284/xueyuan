@@ -11,6 +11,8 @@
 
 
 @interface EDSDriverNavHeaderView : UIView
+@property (nonatomic,copy) void (^headItemClickBlock)(NSInteger index);
+
 -(id)init;
 -(instancetype)initWithTitleArr:(NSArray *)titleArr;
 @end

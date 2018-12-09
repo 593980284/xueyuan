@@ -114,7 +114,8 @@
 		10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
-		C42EDBAE21BD004A006A688D /* EDSDriverNavHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBAC21BCFF70006A688D /* EDSDriverNavHeaderView.m */; };
+		C42EDBB121BD1035006A688D /* EDSDriverNavHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */; };
+		C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB321BD17F4006A688D /* EDSMsgCell.m */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
@@ -2394,8 +2395,10 @@
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C42EDBAB21BCFF70006A688D /* EDSDriverNavHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDriverNavHeaderView.h; sourceTree = "<group>"; };
-		C42EDBAC21BCFF70006A688D /* EDSDriverNavHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSDriverNavHeaderView.m; sourceTree = "<group>"; };
+		C42EDBAF21BD1034006A688D /* EDSDriverNavHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSDriverNavHeaderView.h; sourceTree = "<group>"; };
+		C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSDriverNavHeaderView.m; sourceTree = "<group>"; };
+		C42EDBB221BD17F4006A688D /* EDSMsgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSMsgCell.h; sourceTree = "<group>"; };
+		C42EDBB321BD17F4006A688D /* EDSMsgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSMsgCell.m; sourceTree = "<group>"; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
 		CD53CE47219059C30009F8F1 /* RegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
 		CD760C03218D8236002ED128 /* UITextView+placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeholder.h"; sourceTree = "<group>"; };
@@ -7094,8 +7097,6 @@
 				E9A6199F2133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.h */,
 				E9A619A02133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.m */,
 				E9A619A22133C353006E5C2B /* EDSStudentDriverStrategyHeaderView.xib */,
-				C42EDBAB21BCFF70006A688D /* EDSDriverNavHeaderView.h */,
-				C42EDBAC21BCFF70006A688D /* EDSDriverNavHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7936,11 +7937,15 @@
 		E9D1C154213E8FE80042F9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C42EDBAF21BD1034006A688D /* EDSDriverNavHeaderView.h */,
+				C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */,
 				E9D1C15C213E90550042F9C3 /* EDSMessageTableViewCell.h */,
 				E9D1C15D213E90550042F9C3 /* EDSMessageTableViewCell.m */,
 				E9D1C15E213E90550042F9C3 /* EDSMessageTableViewCell.xib */,
 				E9D1C164213E969E0042F9C3 /* EDSMessageDetailTableViewCell.h */,
 				E9D1C165213E969E0042F9C3 /* EDSMessageDetailTableViewCell.m */,
+				C42EDBB221BD17F4006A688D /* EDSMsgCell.h */,
+				C42EDBB321BD17F4006A688D /* EDSMsgCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -10158,7 +10163,7 @@
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
 				CD9A2E02218C3A2600AFCE1F /* MyCoachViewController.m in Sources */,
 				10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */,
-				C42EDBAE21BD004A006A688D /* EDSDriverNavHeaderView.m in Sources */,
+				C42EDBB121BD1035006A688D /* EDSDriverNavHeaderView.m in Sources */,
 				10ED4E4D214A243C00DF50F7 /* EDSStudentMsgDetailModel.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
 				10661122215A2A52001C69C1 /* NSDictionary+JSJCustomDict_h.m in Sources */,
@@ -10319,6 +10324,7 @@
 				E9BC049121315283003A624F /* UIView+BHYCore.m in Sources */,
 				1066111E215A1C5B001C69C1 /* EDSLoginSettingsPasswordViewController.m in Sources */,
 				10F74D5F214CD25B00FA3ECC /* EDSCommentDetailModel.m in Sources */,
+				C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */,
 				E9A61A162135666E006E5C2B /* EDSTeachingStyleCollectionViewCell.m in Sources */,
 				CDCB5C2821986F01006B5F4E /* MyViewOne.m in Sources */,
 				E9A619C42133F711006E5C2B /* EDSDriveSchollInfomationSearchView.m in Sources */,

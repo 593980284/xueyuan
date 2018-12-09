@@ -22,6 +22,8 @@
 
 #import "EDSStudentMsgModel.h"
 
+#import "EDSDriverNavHeaderView.h"
+
 @interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSString *_type;
@@ -30,6 +32,7 @@
 @property (nonatomic, strong) PopAnimator *popAnimator;
 @property (nonatomic , strong) EDSHeaderPageButtonView *headerView;
 @property (nonatomic , strong) NSArray <EDSStudentMsgModel *> *tableViewArr;
+@property (nonatomic,strong) EDSDriverNavHeaderView *headerV;
 
 @end
 
@@ -39,13 +42,16 @@
     [super viewDidLoad];
     self.page = 1;
     _type = @"1";
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.headerView.mas_bottom);
+//        make.top.mas_equalTo(self.headerView.mas_bottom);
+        make.top.mas_equalTo(self.headerV.mas_bottom);
         make.bottom.mas_equalTo(0);
     }];
 
@@ -242,6 +248,13 @@
     [request startRequest];
 }
 
+-(EDSDriverNavHeaderView *)headerV{
+    if (!_headerV) {
+        _headerV = [[EDSDriverNavHeaderView alloc]initWithTitleArr:@[@"系统",@"驾校"]];
+        [self.view addSubview:_headerV];
+    }
+    return _headerV;
+}
 - (EDSHeaderPageButtonView *)headerView
 {
     if (!_headerView) {
