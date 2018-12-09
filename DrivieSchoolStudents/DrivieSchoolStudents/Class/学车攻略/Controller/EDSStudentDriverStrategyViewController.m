@@ -19,6 +19,8 @@
 
 #import "StudentDriverStrategConstants.h"
 
+#import "EDSDriverNavHeaderView.h"
+
 @interface EDSStudentDriverStrategyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSString *_type;
@@ -43,12 +45,24 @@
     _type = @"0";
     self.page = 1;
     
+    
     EDSStudentDriverStrategyHeaderView *headerView = [[EDSStudentDriverStrategyHeaderView alloc] init];
-    [self.view addSubview:headerView];
-    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(0);
-        make.height.mas_equalTo(StudentDriverStrategHeaderViewH);
-    }];
+//    [self.view addSubview:headerView];
+//    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.top.mas_equalTo(0);
+//        make.height.mas_equalTo(StudentDriverStrategHeaderViewH);
+//    }];
+    
+    NSArray * titleArr = @[
+                           @"头条",
+                           @"考规",
+                           @"技巧",
+                           @"趣事"
+                           ];
+    EDSDriverNavHeaderView * header = [[EDSDriverNavHeaderView alloc]initWithTitleArr:titleArr];
+    [self.view addSubview:header];
+
+    
     @weakify(self);
     headerView.viewDidSelectBtnBlock = ^(NSString *backBlock) {
         DLog(@"%@",backBlock);
@@ -168,7 +182,8 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.getArray.count;
+//    return self.getArray.count;
+    return 10;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -185,7 +200,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.strategyListModel = self.getArray[indexPath.row];
+//    cell.strategyListModel = self.getArray[indexPath.row];
     
     return cell;
 }
