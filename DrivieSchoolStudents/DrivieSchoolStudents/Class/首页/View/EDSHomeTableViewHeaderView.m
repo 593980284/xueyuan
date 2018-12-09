@@ -65,27 +65,36 @@
     if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
         
         self.homeFunctionBgView.functionBtnArr = @[
-                                                   @[@"品牌驾校",@"ppjj_content_icon_default"],
-                                                   @[@"驾校信息",@"jxxx_content_icon_default"],
-                                                   @[@"预约报名",@"yybml_content_icon_default"],
-                                                   @[@"我要报名",@"bmlc_content_icon_default"],
+                                                   @[@"品牌驾校",@"1品牌驾校"],
+                                                   @[@"驾校信息",@"2驾校信息"],
+                                                   @[@"我要报名",@"3我要报名"],
+                                                   @[@"报名流程",@"4报名流程"],
                                                    
-                                                   @[@"在线约课",@"zxyk_content_icon_default"],
-                                                   @[@"在线约考",@"zxyk_content_icon_default-1"],
-                                                   @[@"理论学习",@"llxx_content_icon_default"],
-                                                   @[@"我要投诉",@"suggest_content_icon_default22"],             ];
+                                                   @[@"乐享论坛",@"5我要约课"],
+                                                   @[@"我要约考",@"6我要约考"],
+                                                   @[@"理论学习",@"7理论学习"],
+                                                   @[@"我要投诉",@"8我要投诉"],             ];
     }else{
-        
         self.homeFunctionBgView.functionBtnArr = @[
-                                                   @[@"品牌驾校",@"ppjj_content_icon_default"],
-                                                   @[@"驾校信息",@"jxxx_content_icon_default"],
-                                                   @[@"我的报名",@"yybml_content_icon_default"],
-                                                   @[@"我要报名",@"bmlc_content_icon_default"],
+                                                   @[@"品牌驾校",@"1品牌驾校"],
+                                                   @[@"驾校信息",@"2驾校信息"],
+                                                   @[@"我要报名",@"3我要报名"],
+                                                   @[@"报名流程",@"4报名流程"],
                                                    
-                                                   @[@"在线约课",@"zxyk_content_icon_default"],
-                                                   @[@"在线约考",@"zxyk_content_icon_default-1"],
-                                                   @[@"理论学习",@"llxx_content_icon_default"],
-                                                   @[@"我要投诉",@"suggest_content_icon_default22"],             ];
+                                                   @[@"乐享论坛",@"5我要约课"],
+                                                   @[@"我要约考",@"6我要约考"],
+                                                   @[@"理论学习",@"7理论学习"],
+                                                   @[@"我要投诉",@"8我要投诉"],             ];
+//        self.homeFunctionBgView.functionBtnArr = @[
+//                                                   @[@"品牌驾校",@"ppjj_content_icon_default"],
+//                                                   @[@"驾校信息",@"jxxx_content_icon_default"],
+//                                                   @[@"我的报名",@"yybml_content_icon_default"],
+//                                                   @[@"我要报名",@"bmlc_content_icon_default"],
+//
+//                                                   @[@"在线约课",@"zxyk_content_icon_default"],
+//                                                   @[@"在线约考",@"zxyk_content_icon_default-1"],
+//                                                   @[@"理论学习",@"llxx_content_icon_default"],
+//                                                   @[@"我要投诉",@"suggest_content_icon_default22"],             ];
     }
 }
 

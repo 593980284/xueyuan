@@ -29,5 +29,7 @@
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
 #define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置
 #define kXGNotfificationPushVC                        @"kXGNotfificationPushVC"//信鸽推送跳转页面
+#define  HC_windowWidth    [UIScreen mainScreen].bounds.size.width
+#define  HC_750Ratio       HC_windowWidth / 750.0
 
 #endif /* AppDefine_h */

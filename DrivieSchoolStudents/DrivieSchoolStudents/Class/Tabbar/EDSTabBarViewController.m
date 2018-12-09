@@ -13,6 +13,7 @@
 #import "EDSStudentDriverStrategyViewController.h"//学车攻略
 #import "EDSMessageViewController.h"//我的消息
 #import "EDSMyViewController.h"//我的
+#import "EDSOnlineAboutClassViewController.h"
 
 #define TabbarHeight     ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) // 适配iPhone x 底栏高度
 
@@ -28,13 +29,13 @@
     
     self.selectItem = 0; //默认选中第一个
     self.delegate = self;
-    
+    EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
     // Do any additional setup after loading the view.
-    [self addChildVc:[EDSHomeViewController new] title:@"首页" image:@"home_tab_icon_default" selectedImage:@"home_tab_icon_selected"];
-    [self addChildVc:[EDSStudentDriverStrategyViewController new] title:@"学车攻略" image:@"xcgl_tab_icon_default" selectedImage:@"xcgl_tab_icon_selected"];
+    [self addChildVc:[EDSHomeViewController new] title:@"首页" image:@"tab_home_u" selectedImage:@"tab_home_s"];
+    [self addChildVc:vc title:@"我要约课" image:@"tab_strategy_u" selectedImage:@"tab_strategy_s"];
     //中间这个不设置东西，只占位
-    [self addChildVc:[EDSMessageViewController new] title:@"我的消息" image:@"news_tab_icon_default" selectedImage:@"news_tab_icon_selected"];
-    [self addChildVc:[EDSMyViewController new] title:@"我的" image:@"mine_tab_icon_default" selectedImage:@"mine_tab_icon_selected"];
+    [self addChildVc:[EDSMessageViewController new] title:@"我的消息" image:@"tab_msg_u" selectedImage:@"tab_msg_s"];
+    [self addChildVc:[EDSMyViewController new] title:@"我的" image:@"tab_mine_u" selectedImage:@"tab_mine_s"];
 }
 
 
@@ -54,7 +55,7 @@
     
     // 设置子控制器的图片
     childVc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
+    childVc.tabBarItem.imageInsets = UIEdgeInsetsMake(3, 3, 3, 3);
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     // 设置文字的样式

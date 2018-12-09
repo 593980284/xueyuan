@@ -52,6 +52,11 @@
     return [NSString stringWithFormat:@"%@",_touristState];
 }
 
+- (NSString *)userID
+{
+    return [NSString stringWithFormat:@"%@",_userID];
+}
+
 
 + (instancetype)accountWithDict:(NSDictionary *)dict
 {

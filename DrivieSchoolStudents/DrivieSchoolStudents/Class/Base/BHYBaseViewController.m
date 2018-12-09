@@ -41,7 +41,7 @@
 -(UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, kScreenHeight - kNavigationH  - KTabBarHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, kScreenHeight - kNavigationH  - KTabBarHeight) style:UITableViewStyleGrouped];
 //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [UIView new];
         _tableView.backgroundColor = TableColor;

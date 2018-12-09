@@ -114,6 +114,11 @@
 		10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
+		CD1365D821BCF6C900754B0E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1365D721BCF6C900754B0E /* HomeHeaderView.m */; };
+		CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663521BD604300754B0E /* SchoolStyleVIew.m */; };
+		CD13663921BD657500754B0E /* CarRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663821BD657500754B0E /* CarRequest.m */; };
+		CD13663C21BD686900754B0E /* CarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663B21BD686900754B0E /* CarTableViewCell.m */; };
+		CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663E21BD709F00754B0E /* StyleTableViewCell.m */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
@@ -2198,6 +2203,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A996E1D14C360089EB9FBE8 /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
 		1005F781215B3B5400710A9F /* EDSBrandIntroductionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBrandIntroductionViewController.h; sourceTree = "<group>"; };
 		1005F782215B3B5400710A9F /* EDSBrandIntroductionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBrandIntroductionViewController.m; sourceTree = "<group>"; };
 		10092F2B215A07C300E39C3D /* EDSOnlineAboutTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSOnlineAboutTestViewController.h; sourceTree = "<group>"; };
@@ -2391,8 +2397,18 @@
 		10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourDataBase.m; sourceTree = "<group>"; };
 		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
-		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
+		6033AAAAC99388075D6B5E87 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1365D621BCF6C900754B0E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
+		CD1365D721BCF6C900754B0E /* HomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		CD13663421BD604300754B0E /* SchoolStyleVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolStyleVIew.h; sourceTree = "<group>"; };
+		CD13663521BD604300754B0E /* SchoolStyleVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolStyleVIew.m; sourceTree = "<group>"; };
+		CD13663721BD657500754B0E /* CarRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarRequest.h; sourceTree = "<group>"; };
+		CD13663821BD657500754B0E /* CarRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarRequest.m; sourceTree = "<group>"; };
+		CD13663A21BD686900754B0E /* CarTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarTableViewCell.h; sourceTree = "<group>"; };
+		CD13663B21BD686900754B0E /* CarTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarTableViewCell.m; sourceTree = "<group>"; };
+		CD13663D21BD709F00754B0E /* StyleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTableViewCell.h; sourceTree = "<group>"; };
+		CD13663E21BD709F00754B0E /* StyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTableViewCell.m; sourceTree = "<group>"; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
 		CD53CE47219059C30009F8F1 /* RegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
 		CD760C03218D8236002ED128 /* UITextView+placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeholder.h"; sourceTree = "<group>"; };
@@ -4634,7 +4650,6 @@
 		E9FCD03E21466A3700A8AAC4 /* EDSRecitedPoliticsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSRecitedPoliticsFooterView.xib; sourceTree = "<group>"; };
 		E9FCD04421467ACF00A8AAC4 /* ZQCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCountDownView.m; sourceTree = "<group>"; };
 		E9FCD04521467ACF00A8AAC4 /* ZQCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCountDownView.h; sourceTree = "<group>"; };
-		F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5002,6 +5017,15 @@
 			path = "科四";
 			sourceTree = "<group>";
 		};
+		27E7EACDF5E5C7A312650EC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6033AAAAC99388075D6B5E87 /* Pods-DrivieSchoolStudents.debug.xcconfig */,
+				0A996E1D14C360089EB9FBE8 /* Pods-DrivieSchoolStudents.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		885737C458FA0E5F557DFB55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -5013,15 +5037,6 @@
 				9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		97393491D0FECFC443DD7D4F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */,
-				4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		E90F9002213D38410061F448 /* Service */ = {
@@ -7227,6 +7242,8 @@
 				E9A619E32134FEE3006E5C2B /* EDSHomeRollPictureRequest.m */,
 				E9A619FF21352A3B006E5C2B /* EDSHomeSchoolInformationRequest.h */,
 				E9A61A0021352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m */,
+				CD13663721BD657500754B0E /* CarRequest.h */,
+				CD13663821BD657500754B0E /* CarRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -7602,8 +7619,8 @@
 				E9BC0442213146AE003A624F /* DrivieSchoolStudentsTests */,
 				E9BC044D213146AE003A624F /* DrivieSchoolStudentsUITests */,
 				E9BC0428213146AC003A624F /* Products */,
-				97393491D0FECFC443DD7D4F /* Pods */,
 				885737C458FA0E5F557DFB55 /* Frameworks */,
+				27E7EACDF5E5C7A312650EC5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -7915,6 +7932,14 @@
 				E9A6196121338E4C006E5C2B /* EDSHomeTableViewCell.h */,
 				E9A6196221338E4C006E5C2B /* EDSHomeTableViewCell.m */,
 				E9A6196321338E4C006E5C2B /* EDSHomeTableViewCell.xib */,
+				CD1365D621BCF6C900754B0E /* HomeHeaderView.h */,
+				CD1365D721BCF6C900754B0E /* HomeHeaderView.m */,
+				CD13663421BD604300754B0E /* SchoolStyleVIew.h */,
+				CD13663521BD604300754B0E /* SchoolStyleVIew.m */,
+				CD13663A21BD686900754B0E /* CarTableViewCell.h */,
+				CD13663B21BD686900754B0E /* CarTableViewCell.m */,
+				CD13663D21BD709F00754B0E /* StyleTableViewCell.h */,
+				CD13663E21BD709F00754B0E /* StyleTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7984,11 +8009,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9BC0453213146AE003A624F /* Build configuration list for PBXNativeTarget "DrivieSchoolStudents" */;
 			buildPhases = (
-				B1408B9E8F6F48E8106ED106 /* [CP] Check Pods Manifest.lock */,
+				3952A9B2CC7D78BDED89F10B /* [CP] Check Pods Manifest.lock */,
 				E9BC0423213146AC003A624F /* Sources */,
 				E9BC0424213146AC003A624F /* Frameworks */,
 				E9BC0425213146AC003A624F /* Resources */,
-				2B6644D1514584C2935B4F5D /* [CP] Copy Pods Resources */,
+				E8AAD05EF0C2396B1CE6F33C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -10026,13 +10051,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B6644D1514584C2935B4F5D /* [CP] Copy Pods Resources */ = {
+		3952A9B2CC7D78BDED89F10B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrivieSchoolStudents-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AAD05EF0C2396B1CE6F33C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
@@ -10040,6 +10089,8 @@
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
@@ -10049,25 +10100,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B1408B9E8F6F48E8106ED106 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DrivieSchoolStudents-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -10151,12 +10184,15 @@
 				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
 				10BA8D9D216B361E00ABD911 /* EDSYHXYViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
+				CD13663921BD657500754B0E /* CarRequest.m in Sources */,
 				CD9A2E02218C3A2600AFCE1F /* MyCoachViewController.m in Sources */,
 				10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */,
 				10ED4E4D214A243C00DF50F7 /* EDSStudentMsgDetailModel.m in Sources */,
 				E90F9019213D4B6F0061F448 /* EDSCoachListRequest.m in Sources */,
+				CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */,
 				10661122215A2A52001C69C1 /* NSDictionary+JSJCustomDict_h.m in Sources */,
 				E9A61A0121352A3B006E5C2B /* EDSHomeSchoolInformationRequest.m in Sources */,
+				CD1365D821BCF6C900754B0E /* HomeHeaderView.m in Sources */,
 				E9A61A2A21357459006E5C2B /* EDSCoachInformationHeaderView.m in Sources */,
 				E9BC04B92131589F003A624F /* Reachability.m in Sources */,
 				10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */,
@@ -10247,6 +10283,7 @@
 				E9FCD02C21464D0400A8AAC4 /* EDSErrorsFooterView.m in Sources */,
 				10E6EF6E214A9A7800088875 /* EDSStudentAttendanceRequest.m in Sources */,
 				E9A61A9A21378765006E5C2B /* EDSCourseRecordHeaderView.m in Sources */,
+				CD13663C21BD686900754B0E /* CarTableViewCell.m in Sources */,
 				E9BC046221314A06003A624F /* ViewController.m in Sources */,
 				E9BC04742131519B003A624F /* EDSToolClass.m in Sources */,
 				E9A61A0A21354A4F006E5C2B /* EDSEDSDrivingDetailsHeaderView.m in Sources */,
@@ -10282,6 +10319,7 @@
 				E90F9010213D3F430061F448 /* EDSSchoolInformationDetailModel.m in Sources */,
 				CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */,
 				E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */,
+				CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */,
 				E9A619A12133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.m in Sources */,
 				E9A61A0421352CD7006E5C2B /* EDSDrivingSchoolModel.m in Sources */,
 				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,
@@ -10482,7 +10520,7 @@
 		};
 		E9BC0454213146AE003A624F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F646F6C29726651ACE99B072 /* Pods-DrivieSchoolStudents.debug.xcconfig */;
+			baseConfigurationReference = 6033AAAAC99388075D6B5E87 /* Pods-DrivieSchoolStudents.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -10511,7 +10549,7 @@
 		};
 		E9BC0455213146AE003A624F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */;
+			baseConfigurationReference = 0A996E1D14C360089EB9FBE8 /* Pods-DrivieSchoolStudents.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

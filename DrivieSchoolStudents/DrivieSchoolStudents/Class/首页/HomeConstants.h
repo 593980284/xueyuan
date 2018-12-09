@@ -10,7 +10,7 @@
 #define HomeConstants_h
 
 #define EDSHomeTableViewCellH                                       109
-#define EDSHomeTableViewHeaderSlideH                                122
+#define EDSHomeTableViewHeaderSlideH                                122 + [[UIApplication sharedApplication] statusBarFrame].size.height
 #define EDSHomeTableViewHeaderButtonBgH                             188
 #define EDSDrivingSchoolInformationHeaderH                          45
 #define EDSDrivingDetailsFooterViewH                                69

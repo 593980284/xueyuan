@@ -20,7 +20,7 @@
 {
     return @{@"schoolId":_schoolId,
              @"page": [NSString stringWithFormat:@"%ld", _page],
-             @"rows": @"8",
+             @"rows": @"10",
              };
 }
 

@@ -15,14 +15,18 @@
 @interface EDSHomeTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *driveImgView;
 @property (weak, nonatomic) IBOutlet UILabel *driveNameLbl;
-@property (weak, nonatomic) IBOutlet UILabel *levLb;
 
 @property (weak, nonatomic) IBOutlet UILabel *drivePriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *driveAddress;
 
 @property (weak, nonatomic) IBOutlet UILabel *driveScoreLbl;
-@property (weak, nonatomic) IBOutlet UILabel *AALB;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UIView *baView;
+@property (weak, nonatomic) IBOutlet UIImageView *a1;
+@property (weak, nonatomic) IBOutlet UIImageView *a5;
+@property (weak, nonatomic) IBOutlet UIImageView *a4;
+@property (weak, nonatomic) IBOutlet UIImageView *a3;
+@property (weak, nonatomic) IBOutlet UIImageView *a2;
 
 @end
 
@@ -32,6 +36,14 @@
     [super awakeFromNib];
     // Initialization code
     _logoImageView.hidden = YES;
+    _baView.layer.cornerRadius = 4;
+    _baView.layer.borderWidth = 1;
+    _baView.layer.borderColor = ThirdColor.CGColor;
+    _baView.layer.shadowColor =  [EDSToolClass getColorWithHexString:@"aaaaaa"]  .CGColor;
+    _baView.layer.shadowOpacity = 0.5;
+    _baView.layer.shadowOffset = CGSizeMake(-3, 3);
+   
+    
 }
 
 - (void)setCellArr:(NSArray *)cellArr{
@@ -49,15 +61,17 @@
 //    self.driveStarView.selectNumber = schoolListModel.showScore;
     self.driveNameLbl.text = schoolListModel.schoolName;
 //    self.distanceLbl.text = schoolListModel.showDistance;
-    self.drivePriceLbl.text = schoolListModel.showDistance;
-    self.driveAddress.text = schoolListModel.address;
-    self.levLb.text = [NSString stringWithFormat:@"信誉等级："];
-    NSString * a = @"";
-    for(int i =0; i<schoolListModel.reputationLevel; i ++){
-        a = [NSString stringWithFormat:@"%@A", a];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:schoolListModel.showDistance attributes:@{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName: [UIFont boldSystemFontOfSize:12]}];
+    [str setAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]} range:NSMakeRange(str.length-2, 2)];
+    self.drivePriceLbl.attributedText = str;
+    self.driveAddress.text = [NSString stringWithFormat:@"地址：%@ ",schoolListModel.address];
+    NSArray<UIImageView *> *as = @[_a1, _a2,_a3 , _a4,_a5];
+    for (UIImageView *A in as) {
+        A.hidden = YES;
     }
-    self.AALB.text = a;
-//    self.driveScoreLbl.text = [NSString stringWithFormat:@"%.1f分",[schoolListModel.starScore floatValue]];
+    for(int i =0; i<schoolListModel.reputationLevel; i ++){
+        as[i].hidden = NO;
+    }
 }
 
 - (void)setModel:(EDSDrivingSchoolModel *)model
@@ -68,14 +82,18 @@
 ////    self.driveStarView.selectNumber = model.showScore;
    self.driveNameLbl.text = model.schoolName;
 ////    self.distanceLbl.text = model.distance;
-    self.drivePriceLbl.text = model.distance;
-    self.driveAddress.text = model.address;
-    self.levLb.text = [NSString stringWithFormat:@"信誉等级："];
-    NSString * a = @"";
-    for(int i =0; i<model.reputationLevel; i ++){
-        a = [NSString stringWithFormat:@"%@A", a];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:model.distance attributes:@{NSForegroundColorAttributeName: [EDSToolClass getColorWithHexString:@"4498ff"] , NSFontAttributeName: [UIFont boldSystemFontOfSize:14]}];
+    [str setAttributes:@{NSForegroundColorAttributeName: [EDSToolClass getColorWithHexString:@"4498ff"] ,NSFontAttributeName: [UIFont systemFontOfSize:12]} range:NSMakeRange(str.length-2, 2)];
+    self.drivePriceLbl.attributedText = str;
+    self.driveAddress.text = [NSString stringWithFormat:@"地址：%@ ",model.address];
+    NSArray<UIImageView *> *as = @[_a1, _a2,_a3 , _a4,_a5];
+    for (UIImageView *A in as) {
+        A.hidden = YES;
     }
-    self.AALB.text = a;
+    for(int i =0; i<model.reputationLevel; i ++){
+        as[i].hidden = NO;
+    }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

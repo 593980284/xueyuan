@@ -69,7 +69,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+
+        if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
+
+        }else{
+            [self.view makeToast:@"您还没有报名^_^!"];
+        }
+    }else{
+
+    }
     [self requesDateListData];
     if (_dateStr.length > 0) {
         

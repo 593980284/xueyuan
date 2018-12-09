@@ -29,22 +29,22 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - FMDB (2.7.2):
-    - FMDB/standard (= 2.7.2)
-  - FMDB/standard (2.7.2)
-  - IQKeyboardManager (6.0.3)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IQKeyboardManager (6.2.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
-  - MJExtension (3.0.13)
-  - MJRefresh (3.1.15.3)
-  - MOFSPickerManager (2.0.2)
+  - MJExtension (3.0.15.1)
+  - MJRefresh (3.1.15.7)
+  - MOFSPickerManager (2.1.0)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (2.1.4)
+  - TZImagePickerController (2.1.9)
   - "UITextView+Placeholder (1.2.1)"
   - YYCache (1.0.4)
 
@@ -63,7 +63,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - TZImagePickerController (~> 2.1.4)
   - "UITextView+Placeholder"
-  - YYCache (~> 1.0.4)
+  - YYCache
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -86,20 +86,20 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
-  IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJExtension: 5932755f451458eefa24239358817f8d291240c7
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  MOFSPickerManager: d8ab70073d03e9d69d76bc964fed5a9dae2bcafb
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  MOFSPickerManager: 2094d2a8bfb5cbd0495b883c12195c216ff6940f
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: 2a8f41ba058e215bc9b699ade241fdbcc910c2bd
+  TZImagePickerController: 6c9721783063edafc9ad42cd95acc82f1b648485
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: b92eff53e07c37bb97cb10a1606a2fc5507834e2
+PODFILE CHECKSUM: 5f19b099f93f57203de79a9e307b221e2d38cf6d
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3

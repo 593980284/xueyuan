@@ -42,6 +42,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"品牌驾校";
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    [self setupNavigationView];
     self.tableViewListArr = [[NSArray alloc] init];
     
@@ -246,12 +247,12 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+   return self.tableViewListArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.tableViewListArr.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -263,7 +264,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.model = self.tableViewListArr[indexPath.section];
+    cell.model = self.tableViewListArr[indexPath.row];
     
     return cell;
 }
@@ -271,13 +272,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
-    vc.schoolId = self.tableViewListArr[indexPath.section].schoolId;
+    vc.schoolId = self.tableViewListArr[indexPath.row].schoolId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return EDSHomeTableViewCellH;
+   return  109 + 15;
 }
 
 - (void)dealloc
