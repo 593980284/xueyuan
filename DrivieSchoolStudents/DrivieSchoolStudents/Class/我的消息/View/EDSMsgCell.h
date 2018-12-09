@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EDSStudentMsgModel.h"
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface EDSMsgCell : UITableViewCell
 
 @property (nonatomic,strong) UIView *view;
+@property (nonatomic,strong) EDSStudentMsgModel *model;
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end
 
-NS_ASSUME_NONNULL_END
+

@@ -50,6 +50,20 @@
     self.tableView.delegate = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
+    
+//    EDSStudentMsgModel * model = [[EDSStudentMsgModel alloc]init];
+//    model.content = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+//    model.date = @"2018-09-09  9:56";
+//
+//    EDSStudentMsgModel * model2 = [[EDSStudentMsgModel alloc]init];
+//    model2.content = @"测试测试测试";
+//    model2.date = @"2018-09-09  9:56";
+//
+//    NSMutableArray * arr = [NSMutableArray new];
+//    [arr addObject:model];
+//    [arr addObject:model2];
+//    self.tableViewArr = [arr copy];
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
 //        make.top.mas_equalTo(self.headerView.mas_bottom);
@@ -139,7 +153,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    return 76;
-    return 100;
+    EDSStudentMsgModel * model= self.tableViewArr[indexPath.row];
+    
+    return model.cellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +174,8 @@
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 //    cell.mesModel = self.tableViewArr[indexPath.row];
+    
+    cell.model = self.tableViewArr[indexPath.row];
     
     return cell;
     
@@ -258,6 +276,20 @@
     if (!_headerV) {
         _headerV = [[EDSDriverNavHeaderView alloc]initWithTitleArr:@[@"系统",@"驾校"]];
         [self.view addSubview:_headerV];
+        
+        @weakify(self);
+        _headerV.headItemClickBlock = ^(NSInteger index) {
+            @strongify(self);
+            if (index == 0) {
+                
+                self->_type = @"1";
+            }else
+            {
+                self->_type = @"2";
+            }
+            self.page = 1;
+            [self requestDataWithType:self->_type];
+        };
     }
     return _headerV;
 }

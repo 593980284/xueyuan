@@ -23,9 +23,36 @@
     // Initialization code
 }
 
+-(void)setModel:(EDSStudentMsgModel *)model{
+    _model = model;
+    
+    self.contentText.text = model.content;
+    self.timeLable.text = model.date;
+    
+     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.contentText.text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:5];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.contentText.text length])];
+    self.contentText.attributedText = attributedString;
+//    self.contentText.lineBreakMode = NSLineBreakByCharWrapping;
+    CGRect textReact = [self getSizeWithStr:model.content];
+    if (textReact.size.height >= 29) {
+        self.contentText.wz_height = 65;
+    }else{
+        self.contentText.wz_height = 30;
+    }
+    
+    if ([model.msgType isEqualToString:@"0"]||[model.msgType isEqualToString:@"1"]) {
+        self.leftImageV.image = [UIImage imageNamed:@"system_msg_img"];
+    }else{
+        self.leftImageV.image = [UIImage imageNamed:@"driver_msg_img"];
+    }
+    
+//    NSLog(@"消息类型ID---%@",model.msgType);
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -39,41 +66,62 @@
     [self.bgView addSubview:self.leftImageV];
     [self.bgView addSubview:self.contentText];
     [self.bgView addSubview:self.timeLable];
-    
     [self.contentView addSubview:self.bgView];
-    
 }
+
+-(void)layoutSubviews{
+    CGRect textReact = [self getSizeWithStr:self.model.content];
+    if (textReact.size.height >= 29) {
+        self.contentText.wz_height = 65;
+    }else{
+        self.contentText.wz_height = 30;
+    }
+    self.timeLable.wz_y = self.contentText.wz_bottom + 10;
+    self.bgView.wz_height = self.timeLable.wz_bottom + 10;
+}
+
 -(UILabel *)timeLable{
     if (!_timeLable) {
-        _timeLable = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.contentText.wz_bottom + 5, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 20)];
+        
+        _timeLable = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.contentText.wz_bottom, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 20)];
+        _timeLable.textColor = ThirdColor;
         _timeLable.text = @"2018-89-90  84：222";
     }
     return _timeLable;
 }
 -(UILabel *)contentText{
     if (!_contentText) {
-        _contentText = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.leftImageV.wz_y, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 20)];
+        _contentText = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.leftImageV.wz_y, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 30)];
         _contentText.numberOfLines = 2;
+        _contentText.textColor = FirstColor;
         _contentText.font = [UIFont systemFontOfSize:24];
         _contentText.text = @"测试测试测试测试测试测试测试测试测试测试测试测试";
-        
     }
     return _contentText;
 }
-
 -(UIImageView *)leftImageV{
     if (!_leftImageV) {
         _leftImageV = [[UIImageView alloc]initWithFrame:CGRectMake(18, 18, 50, 50)];
-        _leftImageV.backgroundColor = [UIColor redColor];
+        
+        _leftImageV.image = [UIImage imageNamed:@"driver_msg_img"];
     }
     return _leftImageV;
 }
 -(UIView *)bgView{
     if (!_bgView) {
-        _bgView = [[UIView alloc]initWithFrame:CGRectMake(10, 10, kScreenWidth - 20, 80)];
+        _bgView = [[UIView alloc]initWithFrame:CGRectMake(10, 5, kScreenWidth - 20, 80)];
         _bgView.backgroundColor = [UIColor whiteColor];
     }
     return _bgView;
+}
+-(CGRect )getSizeWithStr:(NSString *)str
+{
+    UIFont *font = [UIFont boldSystemFontOfSize:15.0];
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t"];
+    NSString *trimmedString = [str stringByTrimmingCharactersInSet:set];
+//    NSString *newname = [[name componentsSeparatedByCharactersInSet:set] componentsJoinedByString:@""];
+
+    return [trimmedString boundingRectWithSize:CGSizeMake(kScreenWidth - 50+10+18+10+30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil] context:nil];
 }
 
 
