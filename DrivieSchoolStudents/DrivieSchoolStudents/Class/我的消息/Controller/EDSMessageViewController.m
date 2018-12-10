@@ -87,7 +87,7 @@
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }else{
-        [self.tableView.mj_header beginRefreshing];
+//        [self.tableView.mj_header beginRefreshing];
     }
 }
 
@@ -183,6 +183,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if ([self.tableViewArr[indexPath.row].msgType isEqualToString:@"4"]) {
         //签到提醒
         CGFloat width = 305;
@@ -209,16 +210,13 @@
         
         @weakify(self);
         vc.messageSiginBoxViewControllerDidClick = ^(EDSOnlineClassListByDateModel *model) {
-          
             @strongify(self);
-            
             EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
             vc.model = model;
             [self.navigationController pushViewController:vc animated:YES];
         };
         
         [self presentViewController:vc animated:YES completion:nil];
-        
     }else if ([self.tableViewArr[indexPath.row].msgType isEqualToString:@"3"]){
         
         [self jumpPageViewWithMsgId:self.tableViewArr[indexPath.row].msgId];

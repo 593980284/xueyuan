@@ -31,6 +31,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.separatorStyle= UITableViewCellSeparatorStyleNone;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
@@ -82,21 +83,25 @@
         cell = [[EDSMessageDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    cell.contentView.backgroundColor = TableColor;
     if (indexPath.row == 0) {
         
         cell.titleLbl.text = self.detailModel.problemTitle;
         cell.descrpLbl.text = self.detailModel.problemContent;
         cell.timeLbl.text = self.detailModel.problemTime;
         
+        
         if (self.detailModel.answerContent.length == 0) {
-            
             [cell.typeLbl mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(0, 0));
                 make.left.mas_equalTo(0);
             }];
+            cell.isQuestion = YES;
         }else{
-            
+            [cell.typeLbl mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.size.mas_equalTo(CGSizeMake(25, 25));
+                make.left.mas_equalTo(11);
+            }];
             cell.isQuestion = YES;
         }
     }else
@@ -104,7 +109,6 @@
         cell.titleLbl.text = self.detailModel.answerTitle;
         cell.descrpLbl.text = self.detailModel.answerContent;
         cell.timeLbl.text = self.detailModel.answerTime;
-        
         cell.isQuestion = NO;
     }
     return cell;
