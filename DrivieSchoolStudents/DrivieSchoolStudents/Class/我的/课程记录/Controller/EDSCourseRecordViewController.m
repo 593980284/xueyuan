@@ -76,6 +76,10 @@
     _fitst = YES;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {

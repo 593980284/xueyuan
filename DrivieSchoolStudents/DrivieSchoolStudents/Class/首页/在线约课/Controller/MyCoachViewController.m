@@ -31,6 +31,11 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
+}
+
 //- (void)viewWillAppear:(BOOL)animated{
 //    [super viewWillAppear:animated];
 //     [self.tableView.mj_header beginRefreshing];

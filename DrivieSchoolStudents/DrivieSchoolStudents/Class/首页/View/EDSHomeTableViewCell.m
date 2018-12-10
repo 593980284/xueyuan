@@ -37,8 +37,8 @@
     // Initialization code
     _logoImageView.hidden = YES;
     _baView.layer.cornerRadius = 4;
-    _baView.layer.borderWidth = 1;
-    _baView.layer.borderColor = ThirdColor.CGColor;
+    _baView.layer.borderWidth = 0.5;
+    _baView.layer.borderColor = [EDSToolClass getColorWithHexString:@"aaaaaa"].CGColor;
     _baView.layer.shadowColor =  [EDSToolClass getColorWithHexString:@"aaaaaa"]  .CGColor;
     _baView.layer.shadowOpacity = 0.5;
     _baView.layer.shadowOffset = CGSizeMake(-3, 3);

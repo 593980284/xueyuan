@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CarRequest : HQMBaseRequest
 @property(nonatomic, copy)NSString *phone;
-@property(nonatomic, copy)NSString *type;
+@property(nonatomic, assign)NSInteger page;
+@property(nonatomic, assign)NSInteger  rows;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,7 +17,7 @@
 
 - (NSString *)showSubjectTime
 {
-    return [NSString stringWithFormat:@"%@ %@",_subjectName,_shortPeriodTime];
+    return [NSString stringWithFormat:@"%@：%@",_subjectName,_shortPeriodTime];
 }
 
 - (NSString *)showSubjectAge

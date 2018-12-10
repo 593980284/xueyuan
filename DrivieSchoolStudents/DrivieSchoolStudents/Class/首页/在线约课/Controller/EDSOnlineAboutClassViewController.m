@@ -58,7 +58,7 @@
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(185);
     }];
-    [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"多人"] target:self action:@selector(gotoMyCoachVC)];
+    [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"形状11拷贝"] target:self action:@selector(gotoMyCoachVC)];
     
 }
 

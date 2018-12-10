@@ -22,7 +22,7 @@
     return @{
              @"schoolId":_schoolId,
              @"phone":_phone,
-             @"rows": @"10",
+             @"rows": [NSString stringWithFormat:@"%ld",self.rows == 0? 10 : self.rows],
              @"page": [NSString stringWithFormat:@"%ld", _page]
              };
 }

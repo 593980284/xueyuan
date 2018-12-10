@@ -16,10 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *subjectLbl;
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
-@property (weak, nonatomic) IBOutlet UILabel *numberRemainingLbl;
-@property (weak, nonatomic) IBOutlet UILabel *sexLbl;
-@property (weak, nonatomic) IBOutlet UILabel *totalLb;
-@property (weak, nonatomic) IBOutlet UILabel *useEd;
+@property (weak, nonatomic) IBOutlet UIImageView *sexImage;
+@property (weak, nonatomic) IBOutlet UILabel *numLb;
+
 
 @end
 
@@ -47,10 +46,16 @@
     self.subjectLbl.text = model.showSubjectTime;
     self.driveStarView.selectNumber = model.showCoachStar;
     self.driveStarView.hidden = YES;
-    self.totalLb.text = [NSString stringWithFormat:@"总名额：%@",model.maxNum];
-    self.useEd.text = [NSString stringWithFormat:@"已预约：%@",model.appointmentNum];
-    self.sexLbl.text = model.coachSex;
-    self.numberRemainingLbl.text = model.showNoAppointmentNum;
+//    self.totalLb.text = [NSString stringWithFormat:@"总名额：%@",model.maxNum];
+//    self.useEd.text = [NSString stringWithFormat:@"已预约：%@",model.appointmentNum];
+    self.sexImage.image = [UIImage imageNamed:[model.coachSex isEqualToString:@"男"]?@"ic-man":@"ic-woman"];
+//    self.numberRemainingLbl.text = model.showNoAppointmentNum;
+    if ( model.showNoAppointmentNum == 0) {
+        self.numLb.text = @"约满";
+        self.numLb.backgroundColor = [UIColor colorWithRed:100/255.0 green:150/255.0 blue:240/255.0 alpha:1];
+    }else{
+      self.numLb.text = [NSString stringWithFormat:@"约课(%@/%@)",model.appointmentNum, model.maxNum];
+      self.numLb.backgroundColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1];
+    }
 }
-
 @end

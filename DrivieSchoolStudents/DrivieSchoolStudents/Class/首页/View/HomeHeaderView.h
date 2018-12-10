@@ -12,6 +12,7 @@
 @property (nonatomic , strong) UIImageView *bgImgView;
 @property (nonatomic , strong) UILabel *titleLb;
 @property (nonatomic , strong) UILabel *detailLb;
+@property (nonatomic , strong) UILabel *moreLb;
 @end
 
 

@@ -55,7 +55,6 @@
     
     // 设置子控制器的图片
     childVc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    childVc.tabBarItem.imageInsets = UIEdgeInsetsMake(3, 3, 3, 3);
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     // 设置文字的样式

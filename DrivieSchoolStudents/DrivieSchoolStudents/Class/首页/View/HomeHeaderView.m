@@ -27,8 +27,9 @@
         [self.contentView addSubview:_bgImgView];
         [_bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(0);
-            make.left.right.mas_equalTo(30*HC_750Ratio);
+            make.left.mas_equalTo(30*HC_750Ratio);
             make.top.mas_equalTo(20*HC_750Ratio);
+            make.width.mas_equalTo(690*HC_750Ratio);
         }];
         _titleLb = [UILabel new];
         [_titleLb sizeToFit];
@@ -46,6 +47,16 @@
             make.bottom.left.right.mas_equalTo(0);
         }];
         
+        _moreLb = [UILabel new];
+        _moreLb.textColor = ThirdColor;
+        _moreLb.textAlignment = 1;
+        _moreLb.font = [UIFont systemFontOfSize:11];
+        [_bgImgView addSubview:_moreLb];
+        [_moreLb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(self.titleLb.mas_centerY);
+            make.right.mas_equalTo(self.bgImgView.mas_right);
+        }];
+
     }
     return self;
 }

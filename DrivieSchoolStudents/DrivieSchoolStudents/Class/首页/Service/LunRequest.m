@@ -1,26 +1,23 @@
 //
-//  CarRequest.m
+//  LunRequest.m
 //  DrivieSchoolStudents
 //
-//  Created by 胡胡超 on 2018/12/9.
+//  Created by 胡胡超 on 2018/12/10.
 //  Copyright © 2018年 班文政. All rights reserved.
 //
 
-#import "CarRequest.h"
+#import "LunRequest.h"
 
-@implementation CarRequest
+@implementation LunRequest
 
 - (NSString *)requestURLPath
 {
-    return @"/app/lexiang/shuttleBus/getShuttleBusList";
+    return @"/app/lexiang/forum/getStudentForumToken";
 }
 
 - (NSDictionary *)requestArguments
 {
-    return @{@"phone": [NSString stringWithFormat:@"%@",self.phone],
-             @"rows": [NSString stringWithFormat:@"%ld",self.rows],
-             @"page": [NSString stringWithFormat:@"%ld",self.page],
-             };
+    return @{};
 }
 
 - (HQMRequestMethod)requestMethod
@@ -40,14 +37,9 @@
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
-    NSArray * arr = data[@"list"];
-    if (arr == nil) {
-        arr = @[];
-    }
     if (self.successBlock) {
-        self.successBlock(resCode, data, arr);
+        self.successBlock(resCode, data, data);
     }
 }
-
 
 @end
