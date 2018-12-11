@@ -12,6 +12,7 @@
 
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,assign) NSInteger page;
+@property(nonatomic, assign)UITableViewStyle tableViewStyle;
 
 -(void)showPageLoadingProgress;
 /**

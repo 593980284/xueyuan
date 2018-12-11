@@ -56,7 +56,7 @@
     self.navigationItem.title = @"乐享学驾";
     [self setupNavigationView];
     self.tableViewListArr = [[NSArray alloc] init];
-    
+    self.tableViewStyle = UITableViewStyleGrouped;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HomeHeaderView class] forHeaderFooterViewReuseIdentifier:@"HomeHeaderView"];
@@ -221,7 +221,7 @@
             [self.view hideToastActivity];
             HtmlVC *vc = [HtmlVC new];
             vc.headerTitle = @"乐享论坛";
-            vc.url = responseDict[@"token"];
+            vc.url = responseDict[@"forumUrl"];
             [self.navigationController pushViewController:vc animated:YES];
         } failureBlock:^(NSError *error) {
             [self.view hideToastActivity];
