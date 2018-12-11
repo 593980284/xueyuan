@@ -22,6 +22,9 @@
 
 #import "EDSStudentMsgModel.h"
 
+#import "EDSDriverNavHeaderView.h"
+#import "EDSMsgCell.h"
+
 @interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSString *_type;
@@ -30,6 +33,7 @@
 @property (nonatomic, strong) PopAnimator *popAnimator;
 @property (nonatomic , strong) EDSHeaderPageButtonView *headerView;
 @property (nonatomic , strong) NSArray <EDSStudentMsgModel *> *tableViewArr;
+@property (nonatomic,strong) EDSDriverNavHeaderView *headerV;
 
 @end
 
@@ -39,13 +43,31 @@
     [super viewDidLoad];
     self.page = 1;
     _type = @"1";
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
+    
+//    EDSStudentMsgModel * model = [[EDSStudentMsgModel alloc]init];
+//    model.content = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+//    model.date = @"2018-09-09  9:56";
+//
+//    EDSStudentMsgModel * model2 = [[EDSStudentMsgModel alloc]init];
+//    model2.content = @"测试测试测试";
+//    model2.date = @"2018-09-09  9:56";
+//
+//    NSMutableArray * arr = [NSMutableArray new];
+//    [arr addObject:model];
+//    [arr addObject:model2];
+//    self.tableViewArr = [arr copy];
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.headerView.mas_bottom);
+//        make.top.mas_equalTo(self.headerView.mas_bottom);
+        make.top.mas_equalTo(self.headerV.mas_bottom);
         make.bottom.mas_equalTo(0);
     }];
 
@@ -65,7 +87,7 @@
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }else{
-        [self.tableView.mj_header beginRefreshing];
+//        [self.tableView.mj_header beginRefreshing];
     }
 }
 
@@ -130,22 +152,30 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 76;
+//    return 76;
+    EDSStudentMsgModel * model= self.tableViewArr[indexPath.row];
+    
+    return model.cellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    EDSMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMessageTableViewCell"];
+//    EDSMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMessageTableViewCell"];
+    EDSMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EDSMsgCell"];
+
     
     if (!cell) {
         
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"EDSMessageTableViewCell" owner:self options:nil] lastObject];
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"EDSMessageTableViewCell" owner:self options:nil] lastObject];
+        cell = [[EDSMsgCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"EDSMsgCell"];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.mesModel = self.tableViewArr[indexPath.row];
+//    cell.mesModel = self.tableViewArr[indexPath.row];
+    
+    cell.model = self.tableViewArr[indexPath.row];
     
     return cell;
     
@@ -153,6 +183,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if ([self.tableViewArr[indexPath.row].msgType isEqualToString:@"4"]) {
         //签到提醒
         CGFloat width = 305;
@@ -179,16 +210,13 @@
         
         @weakify(self);
         vc.messageSiginBoxViewControllerDidClick = ^(EDSOnlineClassListByDateModel *model) {
-          
             @strongify(self);
-            
             EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
             vc.model = model;
             [self.navigationController pushViewController:vc animated:YES];
         };
         
         [self presentViewController:vc animated:YES completion:nil];
-        
     }else if ([self.tableViewArr[indexPath.row].msgType isEqualToString:@"3"]){
         
         [self jumpPageViewWithMsgId:self.tableViewArr[indexPath.row].msgId];
@@ -242,6 +270,27 @@
     [request startRequest];
 }
 
+-(EDSDriverNavHeaderView *)headerV{
+    if (!_headerV) {
+        _headerV = [[EDSDriverNavHeaderView alloc]initWithTitleArr:@[@"系统",@"驾校"]];
+        [self.view addSubview:_headerV];
+        
+        @weakify(self);
+        _headerV.headItemClickBlock = ^(NSInteger index) {
+            @strongify(self);
+            if (index == 0) {
+                
+                self->_type = @"1";
+            }else
+            {
+                self->_type = @"2";
+            }
+            self.page = 1;
+            [self requestDataWithType:self->_type];
+        };
+    }
+    return _headerV;
+}
 - (EDSHeaderPageButtonView *)headerView
 {
     if (!_headerView) {

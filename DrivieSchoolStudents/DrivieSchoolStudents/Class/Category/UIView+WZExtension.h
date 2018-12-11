@@ -19,6 +19,7 @@
 @property (nonatomic, assign) CGSize    wz_size;
 @property (nonatomic, assign) CGPoint   wz_origin;
 @property (nonatomic, assign) CGFloat   wz_bottom;
+@property (nonatomic,assign) CGFloat    wz_right;
 
 + (instancetype)viewWithBackgroundColor:(UIColor *)color superView:(UIView *)superView;
 

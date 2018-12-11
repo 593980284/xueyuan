@@ -19,6 +19,8 @@
 
 #import "StudentDriverStrategConstants.h"
 
+//#import "EDSDriverNavHeaderView.h"
+
 @interface EDSStudentDriverStrategyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSString *_type;
@@ -35,11 +37,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //增加注释
+    
      self.tableArr = [[NSArray alloc] init];
      self.tableArr2 = [[NSArray alloc] init];
      self.tableArr3 = [[NSArray alloc] init];
     _type = @"0";
     self.page = 1;
+    
     
     EDSStudentDriverStrategyHeaderView *headerView = [[EDSStudentDriverStrategyHeaderView alloc] init];
     [self.view addSubview:headerView];
@@ -47,6 +52,17 @@
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(StudentDriverStrategHeaderViewH);
     }];
+    
+//    NSArray * titleArr = @[
+//                           @"头条",
+//                           @"考规",
+//                           @"技巧",
+//                           @"趣事"
+//                           ];
+//    EDSDriverNavHeaderView * header = [[EDSDriverNavHeaderView alloc]initWithTitleArr:titleArr];
+//    [self.view addSubview:header];
+
+    
     @weakify(self);
     headerView.viewDidSelectBtnBlock = ^(NSString *backBlock) {
         DLog(@"%@",backBlock);
@@ -167,6 +183,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.getArray.count;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
