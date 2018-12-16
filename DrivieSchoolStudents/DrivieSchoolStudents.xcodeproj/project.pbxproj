@@ -118,7 +118,6 @@
 		C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB321BD17F4006A688D /* EDSMsgCell.m */; };
 		CD0FF4E621C6262A007EEC8B /* LEEStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E421C62629007EEC8B /* LEEStarRating.m */; };
 		CD0FF4EA21C63736007EEC8B /* UIView+chainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */; };
-		CD0FF4ED21C664F6007EEC8B /* EDSfsdfadfasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */; };
 		CD1365D821BCF6C900754B0E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1365D721BCF6C900754B0E /* HomeHeaderView.m */; };
 		CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663521BD604300754B0E /* SchoolStyleVIew.m */; };
 		CD13663921BD657500754B0E /* CarRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663821BD657500754B0E /* CarRequest.m */; };
@@ -2417,8 +2416,6 @@
 		CD0FF4E521C62629007EEC8B /* LEEStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEStarRating.h; sourceTree = "<group>"; };
 		CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+chainUI.m"; sourceTree = "<group>"; };
 		CD0FF4E921C63736007EEC8B /* UIView+chainUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+chainUI.h"; sourceTree = "<group>"; };
-		CD0FF4EB21C664F6007EEC8B /* EDSfsdfadfasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSfsdfadfasViewController.h; sourceTree = "<group>"; };
-		CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSfsdfadfasViewController.m; sourceTree = "<group>"; };
 		CD1365D621BCF6C900754B0E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		CD1365D721BCF6C900754B0E /* HomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		CD13663421BD604300754B0E /* SchoolStyleVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolStyleVIew.h; sourceTree = "<group>"; };
@@ -5074,8 +5071,6 @@
 			children = (
 				CD0FF4E421C62629007EEC8B /* LEEStarRating.m */,
 				CD0FF4E521C62629007EEC8B /* LEEStarRating.h */,
-				CD0FF4EB21C664F6007EEC8B /* EDSfsdfadfasViewController.h */,
-				CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */,
 			);
 			path = LEEStarRating;
 			sourceTree = "<group>";
@@ -10244,7 +10239,6 @@
 				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
 				10C3F25A2148BA3F00AA091A /* EDSStrategyListRequest.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
-				CD0FF4ED21C664F6007EEC8B /* EDSfsdfadfasViewController.m in Sources */,
 				CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */,
 				10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */,
 				10ED4E5A214A6CA900DF50F7 /* EDSLearningSituationViewController.m in Sources */,
