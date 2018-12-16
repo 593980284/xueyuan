@@ -46,7 +46,7 @@
     self.navigationItem.title = @"个人设置";
     
     NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
-    [self.avaimg sd_setImageWithURL:url placeholderImage:AvatarPlaceholderImage];
+    [self.avaimg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avar"]];
     
     @weakify(self);
     [self.changePasswordBgview bk_whenTapped:^{
@@ -218,12 +218,12 @@
         
         _avaimg = [UIImageView imageViewWithSuperView:self.avarimgView];
         _avaimg.layer.masksToBounds = YES;
-        _avaimg.layer.cornerRadius = 20;
+        _avaimg.layer.cornerRadius = 30;
         _avaimg.userInteractionEnabled = YES;
         [_avaimg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(15);
-            make.centerY.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(40, 40));
+            make.centerX.mas_equalTo(0);
+            make.centerY.mas_equalTo(-10);
+            make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
     }
     

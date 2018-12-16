@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EDSSchoolMessageViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *adviceImage;
+@property (weak, nonatomic) IBOutlet UIImageView *complaintImage;
+@property (weak, nonatomic) IBOutlet UIButton *adviceBtn;
+@property (weak, nonatomic) IBOutlet UIButton *complaintBtn;
 
 @end

@@ -13,9 +13,10 @@
 
 static const NSInteger MAX_LIMIT_NUMS = 500;
 
-@interface EDSSchoolMessageViewController ()<UITextViewDelegate>
+@interface EDSSchoolMessageViewController ()<UITextViewDelegate>{
+	BOOL isAdvice;
+}
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
-@property (weak, nonatomic) IBOutlet UILabel *chooseLbl;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
@@ -26,7 +27,7 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+	isAdvice = YES;
     self.navigationItem.title = @"学校信箱";
     
     self.chooseView.layer.borderWidth = 1;
@@ -36,25 +37,6 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
     self.textView.layer.borderWidth = 1;
     self.textView.layer.borderColor = [EDSToolClass getColorWithHexString:@"#ECE9E9"].CGColor;
     self.textView.delegate = self;
-    
-    @weakify(self);
-    [self.chooseView bk_whenTapped:^{
-        @strongify(self);
-        
-        UIAlertController *alerController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"投诉信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            self.chooseLbl.text = @"投诉信息";
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"改进意见" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            self.chooseLbl.text = @"改进意见";
-        }];
-        
-        [alerController addAction:okAction];
-        [alerController addAction:cancelAction];
-        [self presentViewController:alerController animated:YES completion:nil];
-    }];
     
     
 }
@@ -107,6 +89,23 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
 
 
 
+- (IBAction)adviceBtnClick:(id)sender {
+	self.complaintBtn.selected = NO;
+	self.complaintImage.image = [UIImage imageNamed:@"ic-wxz"];
+	
+	self.adviceBtn.selected = YES;
+	self.adviceImage.image = [UIImage imageNamed:@"ic-xz"];
+	isAdvice = YES;
+}
+
+- (IBAction)complaint:(id)sender {
+	self.complaintBtn.selected = YES;
+	self.complaintImage.image = [UIImage imageNamed:@"ic-xz"];
+	
+	self.adviceBtn.selected = NO;
+	self.adviceImage.image = [UIImage imageNamed:@"ic-wxz"];
+	isAdvice = NO;
+}
 
 - (IBAction)commitClick:(id)sender {
     
@@ -125,7 +124,7 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
             
         }];
         request.phone = [EDSSave account].phone;
-        request.type = [self.chooseLbl.text isEqualToString:@"投诉信息"] ? @"0" : @"1";
+        request.type = isAdvice ? @"1" : @"0";
         request.pubContent = self.textView.text;
         request.showHUD = YES;
         [request  startRequest];
