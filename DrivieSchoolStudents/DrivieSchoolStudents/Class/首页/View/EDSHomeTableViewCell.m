@@ -61,7 +61,7 @@
 //    self.driveStarView.selectNumber = schoolListModel.showScore;
     self.driveNameLbl.text = schoolListModel.schoolName;
 //    self.distanceLbl.text = schoolListModel.showDistance;
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:schoolListModel.showDistance attributes:@{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName: [UIFont boldSystemFontOfSize:12]}];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:schoolListModel.showDistance attributes:@{NSForegroundColorAttributeName: [EDSToolClass getColorWithHexString:@"4498ff"] , NSFontAttributeName: [UIFont boldSystemFontOfSize:12]}];
     [str setAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[EDSToolClass getColorWithHexString:@"4498ff"]} range:NSMakeRange(str.length-2, 2)];
     self.drivePriceLbl.attributedText = str;
     self.driveAddress.text = [NSString stringWithFormat:@"地址：%@ ",schoolListModel.address];

@@ -118,6 +118,8 @@
 		C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB321BD17F4006A688D /* EDSMsgCell.m */; };
 		CD0FF4E621C6262A007EEC8B /* LEEStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E421C62629007EEC8B /* LEEStarRating.m */; };
 		CD0FF4EA21C63736007EEC8B /* UIView+chainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */; };
+		CD0FF4F021C67D94007EEC8B /* StyleDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4EF21C67D94007EEC8B /* StyleDetailRequest.m */; };
+		CD0FF4F321C68BB9007EEC8B /* ZanRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4F221C68BB9007EEC8B /* ZanRequest.m */; };
 		CD1365D821BCF6C900754B0E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1365D721BCF6C900754B0E /* HomeHeaderView.m */; };
 		CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663521BD604300754B0E /* SchoolStyleVIew.m */; };
 		CD13663921BD657500754B0E /* CarRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663821BD657500754B0E /* CarRequest.m */; };
@@ -2416,6 +2418,10 @@
 		CD0FF4E521C62629007EEC8B /* LEEStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEStarRating.h; sourceTree = "<group>"; };
 		CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+chainUI.m"; sourceTree = "<group>"; };
 		CD0FF4E921C63736007EEC8B /* UIView+chainUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+chainUI.h"; sourceTree = "<group>"; };
+		CD0FF4EE21C67D94007EEC8B /* StyleDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleDetailRequest.h; sourceTree = "<group>"; };
+		CD0FF4EF21C67D94007EEC8B /* StyleDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleDetailRequest.m; sourceTree = "<group>"; };
+		CD0FF4F121C68BB9007EEC8B /* ZanRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanRequest.h; sourceTree = "<group>"; };
+		CD0FF4F221C68BB9007EEC8B /* ZanRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZanRequest.m; sourceTree = "<group>"; };
 		CD1365D621BCF6C900754B0E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		CD1365D721BCF6C900754B0E /* HomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		CD13663421BD604300754B0E /* SchoolStyleVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolStyleVIew.h; sourceTree = "<group>"; };
@@ -7291,6 +7297,10 @@
 				CD13663821BD657500754B0E /* CarRequest.m */,
 				CD1366D021BE7B3700754B0E /* LunRequest.h */,
 				CD1366D121BE7B3700754B0E /* LunRequest.m */,
+				CD0FF4EE21C67D94007EEC8B /* StyleDetailRequest.h */,
+				CD0FF4EF21C67D94007EEC8B /* StyleDetailRequest.m */,
+				CD0FF4F121C68BB9007EEC8B /* ZanRequest.h */,
+				CD0FF4F221C68BB9007EEC8B /* ZanRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -10201,6 +10211,7 @@
 				E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */,
 				10C3F26D2148F20600AA091A /* EDSOnlineClassDateListModel.m in Sources */,
 				E9A61A272135726B006E5C2B /* EDSCoachInformationViewController.m in Sources */,
+				CD0FF4F021C67D94007EEC8B /* StyleDetailRequest.m in Sources */,
 				E90F8FF5213D2A2C0061F448 /* EDSCoachTableViewCell.m in Sources */,
 				E9A619E8213513FA006E5C2B /* EDSDrivingSchoolInformationTableViewCell.m in Sources */,
 				10F071F6216EE8DA00F2A0AA /* EDSStudentLogoutRequest.m in Sources */,
@@ -10263,6 +10274,7 @@
 				10EDA160214FA6CC00C43EB4 /* EDSSubjectFourCollectionViewController.m in Sources */,
 				CDE98F7621BFFC9A00F46B45 /* EDSCatView.m in Sources */,
 				10E5BC35216DA46C004E6650 /* NSObject+EDSTool.m in Sources */,
+				CD0FF4F321C68BB9007EEC8B /* ZanRequest.m in Sources */,
 				10F74D81214D0AA500FA3ECC /* EDSSubjectThreeView.m in Sources */,
 				E9A619F2213517B8006E5C2B /* EDSDrivingDetailsFooterView.m in Sources */,
 				E9BC04C021315AE7003A624F /* EDSHomeViewController.m in Sources */,

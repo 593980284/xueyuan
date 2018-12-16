@@ -18,9 +18,7 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{
-             @"phone":_phone
-             };
+   return [self mj_keyValues];;
 }
 
 - (HQMRequestMethod)requestMethod
