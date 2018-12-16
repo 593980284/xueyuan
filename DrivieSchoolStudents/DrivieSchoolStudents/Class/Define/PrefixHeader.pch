@@ -16,6 +16,7 @@
 #import "AppDefine.h"
 #import "AppInclude.h"
 #import "CommonMacro.h"
+#import "UIView+chainUI.h"
 
 
 #endif /* PrefixHeader_pch */

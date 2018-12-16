@@ -78,9 +78,16 @@
     if (!cell) {
         cell = [[EDSFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    cell.contentView.backgroundColor = [EDSToolClass getColorWithHexString:@"f5f5f5"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.descripLbl.text = self.appContent;
+    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+    style.lineSpacing = 10;
+    if (self.appContent == nil) {
+        
+    }else{
+       cell.descripLbl.attributedText = [[NSAttributedString alloc]initWithString:self.appContent attributes:@{NSParagraphStyleAttributeName: style}];
+    }
     
     return cell;
 }

@@ -46,10 +46,13 @@
                             <constraint firstAttribute="width" constant="100" id="Wmk-QO-1Jj"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="约课(10/10)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-TG-cvp">
-                        <rect key="frame" x="218" y="34" width="86" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="约课(10/10)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-TG-cvp">
+                        <rect key="frame" x="226" y="40" width="86" height="30"/>
                         <color key="backgroundColor" red="0.3411764705882353" green="0.59607843137254901" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="86" id="86K-DH-O9q"/>
+                            <constraint firstAttribute="height" constant="30" id="Kpc-6N-sPt"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -61,24 +64,44 @@
                             <constraint firstAttribute="height" constant="25" id="Stq-nk-pNJ"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="Dg3-RI-ZaV">
+                        <rect key="frame" x="105" y="40" width="40" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="g4j-YK-Bn8"/>
+                            <constraint firstAttribute="height" constant="13" id="zIZ-E3-U7Z"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="3f4-Zq-IyS">
+                        <rect key="frame" x="150" y="40" width="40" height="13"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gDT-jS-IYi" firstAttribute="top" secondItem="iVC-db-0mH" secondAttribute="bottom" constant="8" id="3aH-8x-Ti3"/>
                     <constraint firstItem="GL1-M4-2aZ" firstAttribute="leading" secondItem="oBJ-Bv-cOE" secondAttribute="trailing" constant="10" id="55f-dr-h8Q"/>
                     <constraint firstItem="iVC-db-0mH" firstAttribute="bottom" secondItem="oBJ-Bv-cOE" secondAttribute="bottom" id="BB4-nU-4VJ"/>
+                    <constraint firstItem="jbE-TG-cvp" firstAttribute="centerY" secondItem="oBJ-Bv-cOE" secondAttribute="centerY" id="BqA-RB-hE4"/>
+                    <constraint firstItem="3f4-Zq-IyS" firstAttribute="centerY" secondItem="Dg3-RI-ZaV" secondAttribute="centerY" id="CSO-SV-SSj"/>
                     <constraint firstItem="JJQ-IF-bp3" firstAttribute="bottom" secondItem="oBJ-Bv-cOE" secondAttribute="bottom" id="J3c-wp-Ran"/>
                     <constraint firstItem="GL1-M4-2aZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="TiI-xv-DWt"/>
                     <constraint firstItem="oBJ-Bv-cOE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cSY-wc-OF7"/>
+                    <constraint firstAttribute="trailing" secondItem="jbE-TG-cvp" secondAttribute="trailing" constant="20" id="h6h-NN-gQm"/>
                     <constraint firstItem="gDT-jS-IYi" firstAttribute="leading" secondItem="oBJ-Bv-cOE" secondAttribute="trailing" constant="10" id="hwI-Mw-aNy"/>
+                    <constraint firstItem="3f4-Zq-IyS" firstAttribute="width" secondItem="Dg3-RI-ZaV" secondAttribute="width" id="j99-qf-37m"/>
+                    <constraint firstItem="3f4-Zq-IyS" firstAttribute="leading" secondItem="Dg3-RI-ZaV" secondAttribute="trailing" constant="5" id="jVF-9r-P6M"/>
                     <constraint firstItem="JJQ-IF-bp3" firstAttribute="trailing" secondItem="oBJ-Bv-cOE" secondAttribute="trailing" id="moh-Dq-pOb"/>
+                    <constraint firstItem="Dg3-RI-ZaV" firstAttribute="leading" secondItem="oBJ-Bv-cOE" secondAttribute="trailing" constant="10" id="nbS-ze-U8o"/>
                     <constraint firstItem="oBJ-Bv-cOE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="s5f-Fg-ZRx"/>
                     <constraint firstItem="iVC-db-0mH" firstAttribute="leading" secondItem="oBJ-Bv-cOE" secondAttribute="trailing" constant="10" id="tPY-hD-3Xl"/>
+                    <constraint firstItem="3f4-Zq-IyS" firstAttribute="height" secondItem="Dg3-RI-ZaV" secondAttribute="height" id="v8h-Vm-PQd"/>
+                    <constraint firstItem="Dg3-RI-ZaV" firstAttribute="top" secondItem="GL1-M4-2aZ" secondAttribute="bottom" constant="3" id="w5Z-aL-x1M"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="driveStarView" destination="gDT-jS-IYi" id="enh-Ri-vLr"/>
                 <outlet property="imgView" destination="oBJ-Bv-cOE" id="ylk-Bd-Qap"/>
+                <outlet property="logo1" destination="Dg3-RI-ZaV" id="BQM-YT-zCl"/>
+                <outlet property="logo2" destination="3f4-Zq-IyS" id="ZZy-i4-dPi"/>
                 <outlet property="nameLbl" destination="GL1-M4-2aZ" id="OtV-Wz-Lib"/>
                 <outlet property="numLb" destination="jbE-TG-cvp" id="6uS-HS-pLs"/>
                 <outlet property="sexImage" destination="JJQ-IF-bp3" id="GPS-Hr-a0x"/>
@@ -89,6 +112,7 @@
     </objects>
     <resources>
         <image name="ic-man" width="25" height="25"/>
+        <image name="ic-金牌教练" width="60" height="17"/>
         <image name="placeholderimg.png" width="200" height="160"/>
     </resources>
 </document>

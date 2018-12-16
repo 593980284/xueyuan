@@ -278,7 +278,7 @@
             [self.tableView.mj_header endRefreshing];
         }];
         
-        request2.phone = [EDSSave account].phone;
+        request2.schoolId = [EDSSave account].schoolId;
         request2.page = 1;
         request2.rows = 2;
         [request2 startRequest];

@@ -12,6 +12,7 @@
 #import "EDSHeaderPageButtonView.h"
 
 #import "EDSSchoolInformationDetailModel.h"
+#import "SelectScrollView.h"
 
 @interface EDSEDSDrivingDetailsHeaderView ()
 
@@ -91,11 +92,12 @@
     self.drivingNameLbl.text = informationDetailModel.schoolName;
     
     self.drivingPriceLbl.text = informationDetailModel.distance;
-    NSString * a = @"";
-    for (int i = 0; i<informationDetailModel.reputationLevel; i++) {
-        a = [NSString stringWithFormat:@"%@A", a];
-    }
-    self.driveScoreLbl.text = [NSString stringWithFormat:@"信誉等级：%@", a];
+    self.driveScoreLbl.textColor = [UIColor colorWithRed:100/255.0 green:150/255.0 blue:240/255.0 alpha:1];
+//    NSString * a = @"";
+//    for (int i = 0; i<informationDetailModel.reputationLevel; i++) {
+//        a = [NSString stringWithFormat:@"%@A", a];
+//    }
+//    self.driveScoreLbl.text = [NSString stringWithFormat:@"信誉等级：%@", a];
     
     self.driveAddressLbl.text = informationDetailModel.address;
     
@@ -223,20 +225,22 @@
 {
     if (!_driveAddressLbl) {
         
-        UIImageView *addressImgView = [UIImageView imageViewWithSuperView:self.driveSchoolBgView];
-        addressImgView.image = [UIImage imageNamed:@"map_content_icon_default"];
-        [addressImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(10, 14));
-            make.left.mas_equalTo(self->_drivingImgView.mas_right).mas_offset(10);
-            make.bottom.mas_equalTo(self->_drivingImgView.mas_bottom);
-        }];
+//        UIImageView *addressImgView = [UIImageView imageViewWithSuperView:self.driveSchoolBgView];
+//        addressImgView.image = [UIImage imageNamed:@"map_content_icon_default"];
+//        [addressImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo(CGSizeMake(10, 14));
+//            make.left.mas_equalTo(self->_drivingImgView.mas_right).mas_offset(10);
+//            make.bottom.mas_equalTo(self->_drivingImgView.mas_bottom);
+//        }];
         
         _driveAddressLbl = [UILabel labelWithText:@"南京市长江路南京市长江路1234号" font:kFont(13) textColor:SecondColor backGroundColor:ClearColor superView:self.driveSchoolBgView];
         _driveAddressLbl.numberOfLines = 1;
         [_driveAddressLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(addressImgView.mas_centerY);
-            make.left.mas_equalTo(addressImgView.mas_right).mas_equalTo(8);
+//            make.centerY.mas_equalTo(addressImgView.mas_centerY);
+//            make.left.mas_equalTo(addressImgView.mas_right).mas_equalTo(8);
             make.right.mas_equalTo(-15);
+            make.left.mas_equalTo(self->_drivingImgView.mas_right).mas_offset(10);
+            make.bottom.mas_equalTo(self->_drivingImgView.mas_bottom);
         }];
         
         
@@ -326,19 +330,28 @@
 
 - (void)addFuntionBtnViewWithParentView:(UIView *)parentView
 {
-    EDSHeaderPageButtonView *headerView = [[EDSHeaderPageButtonView alloc] init];
-    headerView.btnArr = @[@"简介",@"风采展示",@"报名点",@"训练场地",@"教练员"];
-    [parentView addSubview:headerView];
-    @weakify(self);
-    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
-        @strongify(self);
-        if (self.drivingDetailsHeaderViewDidSelectStringback) {
-            self.drivingDetailsHeaderViewDidSelectStringback(titleStr);
-        }
-    };
-    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//    EDSHeaderPageButtonView *headerView = [[EDSHeaderPageButtonView alloc] init];
+//    headerView.btnArr = @[@"简介",@"风采展示",@"报名点",@"训练场地",@"教练员"];
+//    [parentView addSubview:headerView];
+//    @weakify(self);
+//    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
+//        @strongify(self);
+//        if (self.drivingDetailsHeaderViewDidSelectStringback) {
+//            self.drivingDetailsHeaderViewDidSelectStringback(titleStr);
+//        }
+//    };
+//    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(0);
+//    }];
+    
+    SelectScrollView * sc  = [[SelectScrollView alloc]initWithTitles:@[@"简介",@"风采展示",@"报名点",@"训练场地",@"教练员",@"班车信息"]];
+    [parentView addSubview:sc];
+    [sc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    sc.block = ^(NSString * _Nonnull titleStr) {
+        self.drivingDetailsHeaderViewDidSelectStringback(titleStr);
+    };
     
     /*
     UIView *line = [UIView viewWithBackgroundColor:TableColor superView:parentView];

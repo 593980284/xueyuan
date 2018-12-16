@@ -37,16 +37,27 @@
 - (UILabel *)descripLbl
 {
     if (!_descripLbl) {
-        
-        _descripLbl = [UILabel labelWithText:@"" font:kFont(16) textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
-        _descripLbl.textAlignment = NSTextAlignmentLeft;
-        _descripLbl.numberOfLines = 0;
-        [_descripLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        UIView *view = [UIView new];
+        view.backgroundColor = WhiteColor;
+        [self.contentView addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(15);
             make.top.mas_equalTo(13);
             make.right.mas_equalTo(-15);
             make.bottom.mas_equalTo(-15);
         }];
+        view.layer.cornerRadius = 5;
+        view.clipsToBounds = YES;
+        _descripLbl = [UILabel labelWithText:@"" font:kFont(13) textColor:FirstColor backGroundColor:ClearColor superView:self.contentView];
+        _descripLbl.textAlignment = NSTextAlignmentLeft;
+        _descripLbl.numberOfLines = 0;
+        [_descripLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(27);
+            make.top.mas_equalTo(13+5);
+            make.right.mas_equalTo(-15-7);
+            make.bottom.mas_equalTo(-15-5);
+        }];
+    
     }
     return  _descripLbl;
 }

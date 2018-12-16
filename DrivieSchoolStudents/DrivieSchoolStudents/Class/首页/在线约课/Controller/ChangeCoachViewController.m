@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *coachNameLb;
 @property (weak, nonatomic) IBOutlet UILabel *subjectName;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end
 
@@ -25,13 +26,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"申请更换教练";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [EDSToolClass getColorWithHexString:@"f5f5f5"];
     _textView.placeHolder = @"请输入申请原因，不得超过500汉字";
     _subjectName.text = _model.name;
     _coachNameLb.text = _model.CoachName;
     _studentNameLb.text = _model.studentName;
-    _textViewBg.layer.borderColor = [UIColor grayColor].CGColor;
-    _textViewBg.layer.borderWidth = 0.5;
+    
+    UIView *bgView = [UIView new];
+    bgView.hcCornerRadiusBlock(5, YES);
+    bgView.backgroundColor = [UIColor whiteColor];
+    [self.view insertSubview:bgView atIndex:0];
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.bottom.mas_equalTo(self.btn.mas_top).offset(-30);
+    }];
 }
 - (IBAction)submitBtnTap:(id)sender {
     NSString * applyReason = _textView.text;

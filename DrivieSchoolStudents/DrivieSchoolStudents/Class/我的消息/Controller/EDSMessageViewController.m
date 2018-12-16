@@ -87,7 +87,7 @@
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }else{
-//        [self.tableView.mj_header beginRefreshing];
+        [self.tableView.mj_header beginRefreshing];
     }
 }
 

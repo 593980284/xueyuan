@@ -88,7 +88,7 @@
         make.bottom.mas_equalTo(-100);
     }];
     
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:PLACEHOLDERGOODSIMAGE];
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:bannerPlaceholderImage];
     cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
     cycleScrollView.showPageControl = YES;
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;

@@ -7,6 +7,7 @@
 //
 
 #import "EDSStudentMsgModel.h"
+#define fontSize 14
 
 @implementation EDSStudentMsgModel
 
@@ -19,7 +20,7 @@
 }
 -(CGRect )getSizeWithStr:(NSString *)str
 {
-    UIFont *font = [UIFont boldSystemFontOfSize:15.0];
+    UIFont *font = [UIFont boldSystemFontOfSize:fontSize];
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t"];
     NSString *trimmedString = [str stringByTrimmingCharactersInSet:set];
     //    NSString *newname = [[name componentsSeparatedByCharactersInSet:set] componentsJoinedByString:@""];

@@ -32,8 +32,9 @@
 
 
 /*----------------占位图------------------------------------------------*/
-#define AvatarPlaceholderImage                  [UIImage imageNamed:@"avar"]//头像占位图
+#define AvatarPlaceholderImage                  [UIImage imageNamed:@"placeholder_header"]//头像占位图
 #define PLACEHOLDERGOODSIMAGE                   [UIImage imageNamed:@"placeholderimg"]
+#define bannerPlaceholderImage                  [UIImage imageNamed:@"placehodler_banner"]
 
 
 #define NumPerPage @"10" //分页数据，每页的数量

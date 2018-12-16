@@ -30,7 +30,7 @@
 @property (nonatomic , copy) NSString              * subjectName;//科目名称
 @property (nonatomic , copy) NSString              * advanceSignInTime;//开课前多少时间可以课程签到(分钟)
 @property (nonatomic , copy) NSString              * advanceCancelHours;//提前取消预课小时数
-
+@property (nonatomic , copy) NSString              * identity;//提前取消预课小时数
 
 
 @property (nonatomic , copy) NSString              * showListImg;//列表展示图片

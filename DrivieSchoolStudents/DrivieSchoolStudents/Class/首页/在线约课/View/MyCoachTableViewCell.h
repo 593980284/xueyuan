@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EDSDriveStarView.h"
+#import "LEEStarRating.h"
 #import "CoachModel.h"
 
 @interface MyCoachTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headerImgView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
-@property (weak, nonatomic) IBOutlet UIImageView *image1;
-@property (weak, nonatomic) IBOutlet UIImageView *image2;
-@property (weak, nonatomic) IBOutlet UILabel *sexLb;
 @property (weak, nonatomic) IBOutlet UILabel *detailLb;
-@property (weak, nonatomic) IBOutlet EDSDriveStarView *starView;
+@property (strong, nonatomic) LEEStarRating *starView;
 @property (nonatomic, copy) void(^changeApplyBlock)(CoachModel * model);
 @property (nonatomic, copy) void(^callBlock)(CoachModel * model);
 @property (nonatomic, strong) CoachModel *model;
 @property (weak, nonatomic) IBOutlet UIButton *applyBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *sexImage;
+@property (weak, nonatomic) IBOutlet UIImageView *Image1;
+@property (weak, nonatomic) IBOutlet UIImageView *image2;
 
 @end

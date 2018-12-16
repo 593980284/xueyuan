@@ -7,6 +7,7 @@
 //
 
 #import "EDSMsgCell.h"
+#define fontSize 14
 @interface EDSMsgCell()
 @property (nonatomic,strong) UIView *bgView;
 
@@ -86,6 +87,7 @@
         _timeLable = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.contentText.wz_bottom, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 20)];
         _timeLable.textColor = ThirdColor;
         _timeLable.text = @"2018-89-90  84：222";
+        _timeLable.font = [UIFont systemFontOfSize:13];
     }
     return _timeLable;
 }
@@ -94,7 +96,7 @@
         _contentText = [[UILabel alloc]initWithFrame:CGRectMake(self.leftImageV.wz_right + 10, self.leftImageV.wz_y, kScreenWidth - self.leftImageV.wz_right - 10 - 20, 30)];
         _contentText.numberOfLines = 2;
         _contentText.textColor = FirstColor;
-        _contentText.font = [UIFont systemFontOfSize:24];
+        _contentText.font = [UIFont systemFontOfSize:fontSize];
         _contentText.text = @"测试测试测试测试测试测试测试测试测试测试测试测试";
     }
     return _contentText;
@@ -116,7 +118,7 @@
 }
 -(CGRect )getSizeWithStr:(NSString *)str
 {
-    UIFont *font = [UIFont boldSystemFontOfSize:15.0];
+    UIFont *font = [UIFont boldSystemFontOfSize:fontSize];
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t"];
     NSString *trimmedString = [str stringByTrimmingCharactersInSet:set];
 //    NSString *newname = [[name componentsSeparatedByCharactersInSet:set] componentsJoinedByString:@""];

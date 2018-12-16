@@ -25,6 +25,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         UIView *bgView = [UIView new];
+        bgView.backgroundColor = WhiteColor;
         bgView.layer.borderWidth = 0.5;
         bgView.layer.borderColor =  [EDSToolClass getColorWithHexString:@"aaaaaa"].CGColor;
         bgView.layer.cornerRadius = 5;

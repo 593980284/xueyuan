@@ -18,6 +18,7 @@
 #import "EDSThirdView.h"
 #import "EDSFourView.h"
 #import "BaoMingView.h"
+#import "EDSCatView.h"
 
 #import "EDSFindSchoolInformationRequest.h"
 
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) EDSSecondView     *secondView;
 @property (nonatomic, strong) EDSThirdView      *thirdView;
 @property (nonatomic, strong) EDSFourView       *fourView;
+@property (nonatomic, strong) EDSCatView       *carView;
 @property (nonatomic, strong) BaoMingView      *baoMingView;
 
 
@@ -89,6 +91,7 @@
             self.thirdView.hidden = YES;
             self.fourView.hidden = YES;
             self.baoMingView.hidden = YES;
+            self.carView.hidden = YES;
         }else if ([titleStr isEqualToString:@"风采展示"]){
             
             self.firstView.hidden = YES;
@@ -96,6 +99,7 @@
             self.thirdView.hidden = YES;
             self.fourView.hidden = YES;
               self.baoMingView.hidden = YES;
+              self.carView.hidden = YES;
         }else if ([titleStr isEqualToString:@"教练员"]){
             
             self.firstView.hidden = YES;
@@ -103,12 +107,14 @@
             self.thirdView.hidden = NO;
             self.fourView.hidden = YES;
               self.baoMingView.hidden = YES;
+              self.carView.hidden = YES;
         }else if ([titleStr isEqualToString:@"报名点"]){
             self.firstView.hidden = YES;
             self.secondView.hidden = YES;
             self.thirdView.hidden = YES;
             self.fourView.hidden = YES;
             self.baoMingView.hidden = NO;
+              self.carView.hidden = YES;
             
         }else if([titleStr isEqualToString:@"训练场地"]){
             self.firstView.hidden = YES;
@@ -116,6 +122,14 @@
             self.thirdView.hidden = YES;
             self.fourView.hidden = NO;
             self.baoMingView.hidden = YES;
+              self.carView.hidden = YES;
+        }else if ([titleStr isEqualToString:@"班车信息"]){
+            self.firstView.hidden = YES;
+            self.secondView.hidden = YES;
+            self.thirdView.hidden = YES;
+            self.fourView.hidden = YES;
+            self.baoMingView.hidden = YES;
+            self.carView.hidden = NO;
         }
     };
     [self.topView.driveAddressLbl bk_whenTapped:^{
@@ -167,7 +181,7 @@
 {
     if (!_topView) {
         _topView = [[EDSEDSDrivingDetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kTopView_Height)];
-        _topView.itemHeight = kItemheight;
+        _topView.itemHeight = 0;
         [self.view addSubview:_topView];
     }
     return _topView;
@@ -276,5 +290,23 @@
     }
     return _baoMingView;
 }
+
+- (EDSCatView *)carView
+{
+    if (!_carView) {
+        
+        _carView = [[EDSCatView alloc] init];
+        _carView.topView = self.topView;
+        _carView.schoolId = self.schoolId;
+        [self.view addSubview:_carView];
+        [_carView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.footerView.mas_top);
+            make.top.mas_equalTo(self.topView.mas_bottom);
+        }];
+    }
+    return _carView;
+}
+
 
 @end

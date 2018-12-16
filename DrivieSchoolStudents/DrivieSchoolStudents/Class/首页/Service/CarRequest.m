@@ -17,7 +17,7 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{@"phone": [NSString stringWithFormat:@"%@",self.phone],
+    return @{@"schoolId": [NSString stringWithFormat:@"%@",self.schoolId],
              @"rows": [NSString stringWithFormat:@"%ld",self.rows],
              @"page": [NSString stringWithFormat:@"%ld",self.page],
              };
