@@ -118,6 +118,7 @@
 		C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB321BD17F4006A688D /* EDSMsgCell.m */; };
 		CD0FF4E621C6262A007EEC8B /* LEEStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E421C62629007EEC8B /* LEEStarRating.m */; };
 		CD0FF4EA21C63736007EEC8B /* UIView+chainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */; };
+		CD0FF4ED21C664F6007EEC8B /* EDSfsdfadfasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */; };
 		CD1365D821BCF6C900754B0E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1365D721BCF6C900754B0E /* HomeHeaderView.m */; };
 		CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663521BD604300754B0E /* SchoolStyleVIew.m */; };
 		CD13663921BD657500754B0E /* CarRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663821BD657500754B0E /* CarRequest.m */; };
@@ -125,8 +126,6 @@
 		CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663E21BD709F00754B0E /* StyleTableViewCell.m */; };
 		CD1366D221BE7B3700754B0E /* LunRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D121BE7B3700754B0E /* LunRequest.m */; };
 		CD1366D521BE7D6100754B0E /* HtmlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D421BE7D6100754B0E /* HtmlVC.m */; };
-		7DFD322D21C6529B00FC474B /* MineTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD322C21C6529B00FC474B /* MineTopBarView.m */; };
-		7DFD323121C652BC00FC474B /* MineTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFD323021C652BC00FC474B /* MineTopBarView.xib */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
@@ -2407,15 +2406,8 @@
 		10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSFourDataBase.m; sourceTree = "<group>"; };
 		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		59ED99861D93D18EDAA5FDF3 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 		6B0F742E0CDDE2B0713CA5B7 /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
-=======
-		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
-		7DFD322B21C6529B00FC474B /* MineTopBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTopBarView.h; sourceTree = "<group>"; };
-		7DFD322C21C6529B00FC474B /* MineTopBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTopBarView.m; sourceTree = "<group>"; };
-		7DFD323021C652BC00FC474B /* MineTopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTopBarView.xib; sourceTree = "<group>"; };
->>>>>>> origin/master
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42EDBAF21BD1034006A688D /* EDSDriverNavHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSDriverNavHeaderView.h; sourceTree = "<group>"; };
 		C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSDriverNavHeaderView.m; sourceTree = "<group>"; };
@@ -2425,6 +2417,8 @@
 		CD0FF4E521C62629007EEC8B /* LEEStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEStarRating.h; sourceTree = "<group>"; };
 		CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+chainUI.m"; sourceTree = "<group>"; };
 		CD0FF4E921C63736007EEC8B /* UIView+chainUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+chainUI.h"; sourceTree = "<group>"; };
+		CD0FF4EB21C664F6007EEC8B /* EDSfsdfadfasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSfsdfadfasViewController.h; sourceTree = "<group>"; };
+		CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSfsdfadfasViewController.m; sourceTree = "<group>"; };
 		CD1365D621BCF6C900754B0E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		CD1365D721BCF6C900754B0E /* HomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		CD13663421BD604300754B0E /* SchoolStyleVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolStyleVIew.h; sourceTree = "<group>"; };
@@ -5080,6 +5074,8 @@
 			children = (
 				CD0FF4E421C62629007EEC8B /* LEEStarRating.m */,
 				CD0FF4E521C62629007EEC8B /* LEEStarRating.h */,
+				CD0FF4EB21C664F6007EEC8B /* EDSfsdfadfasViewController.h */,
+				CD0FF4EC21C664F6007EEC8B /* EDSfsdfadfasViewController.m */,
 			);
 			path = LEEStarRating;
 			sourceTree = "<group>";
@@ -7175,9 +7171,6 @@
 				1096BC9F21509EBE00CBB0DF /* EDSAboutUsViewController.h */,
 				1096BCA021509EBE00CBB0DF /* EDSAboutUsViewController.m */,
 				1096BCA121509EBE00CBB0DF /* EDSAboutUsViewController.xib */,
-				7DFD322B21C6529B00FC474B /* MineTopBarView.h */,
-				7DFD322C21C6529B00FC474B /* MineTopBarView.m */,
-				7DFD323021C652BC00FC474B /* MineTopBarView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -9516,7 +9509,6 @@
 				E952D2E5214268FF00EA3A0A /* 446.jpg in Resources */,
 				E952D052214268FE00EA3A0A /* 614.jpg in Resources */,
 				E952D076214268FE00EA3A0A /* 1898.jpg in Resources */,
-				7DFD323121C652BC00FC474B /* MineTopBarView.xib in Resources */,
 				E952CF77214268FE00EA3A0A /* 174.jpg in Resources */,
 				E952CECF214268FD00EA3A0A /* jtbz_dlsg10.jpg in Resources */,
 				E952D019214268FE00EA3A0A /* 211.jpg in Resources */,
@@ -10133,31 +10125,18 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-=======
-				"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
->>>>>>> origin/master
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-DrivieSchoolStudents-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-<<<<<<< HEAD
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-=======
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
->>>>>>> origin/master
 			showEnvVarsInLog = 0;
 		};
 		B4A01B1E8C58CF7D9681A717 /* [CP] Copy Pods Resources */ = {
@@ -10265,6 +10244,7 @@
 				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
 				10C3F25A2148BA3F00AA091A /* EDSStrategyListRequest.m in Sources */,
 				E9653874213E2C3200EDC3B8 /* EDSGetcoachCarTypeModel.m in Sources */,
+				CD0FF4ED21C664F6007EEC8B /* EDSfsdfadfasViewController.m in Sources */,
 				CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */,
 				10D0E9C72153A92700BADD59 /* EDSClearCacheCell.m in Sources */,
 				10ED4E5A214A6CA900DF50F7 /* EDSLearningSituationViewController.m in Sources */,
@@ -10417,7 +10397,6 @@
 				CD13663621BD604300754B0E /* SchoolStyleVIew.m in Sources */,
 				E9A619A12133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.m in Sources */,
 				E9A61A0421352CD7006E5C2B /* EDSDrivingSchoolModel.m in Sources */,
-				7DFD322D21C6529B00FC474B /* MineTopBarView.m in Sources */,
 				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,
 				10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */,
 				105A8BCA2152511F00B3E092 /* EDSCoachDetailRequest.m in Sources */,
