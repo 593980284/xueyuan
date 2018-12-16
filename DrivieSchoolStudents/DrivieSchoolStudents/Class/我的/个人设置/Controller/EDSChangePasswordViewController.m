@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"修改密码";
+    self.navigationItem.title = @"密码修改";
 }
 
 
