@@ -114,6 +114,8 @@
 		10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
+		7DFD322D21C6529B00FC474B /* MineTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD322C21C6529B00FC474B /* MineTopBarView.m */; };
+		7DFD323121C652BC00FC474B /* MineTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFD323021C652BC00FC474B /* MineTopBarView.xib */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
@@ -2392,6 +2394,9 @@
 		10FDF89521359153003AE1BE /* EDSCoachInformationFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSCoachInformationFooterView.h; sourceTree = "<group>"; };
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		4080561199C425B300F336EA /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
+		7DFD322B21C6529B00FC474B /* MineTopBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTopBarView.h; sourceTree = "<group>"; };
+		7DFD322C21C6529B00FC474B /* MineTopBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTopBarView.m; sourceTree = "<group>"; };
+		7DFD323021C652BC00FC474B /* MineTopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTopBarView.xib; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
 		CD53CE47219059C30009F8F1 /* RegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
@@ -7106,6 +7111,9 @@
 				1096BC9F21509EBE00CBB0DF /* EDSAboutUsViewController.h */,
 				1096BCA021509EBE00CBB0DF /* EDSAboutUsViewController.m */,
 				1096BCA121509EBE00CBB0DF /* EDSAboutUsViewController.xib */,
+				7DFD322B21C6529B00FC474B /* MineTopBarView.h */,
+				7DFD322C21C6529B00FC474B /* MineTopBarView.m */,
+				7DFD323021C652BC00FC474B /* MineTopBarView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -9418,6 +9426,7 @@
 				E952D2E5214268FF00EA3A0A /* 446.jpg in Resources */,
 				E952D052214268FE00EA3A0A /* 614.jpg in Resources */,
 				E952D076214268FE00EA3A0A /* 1898.jpg in Resources */,
+				7DFD323121C652BC00FC474B /* MineTopBarView.xib in Resources */,
 				E952CF77214268FE00EA3A0A /* 174.jpg in Resources */,
 				E952CECF214268FD00EA3A0A /* jtbz_dlsg10.jpg in Resources */,
 				E952D019214268FE00EA3A0A /* 211.jpg in Resources */,
@@ -10284,6 +10293,7 @@
 				E9BC049221315283003A624F /* UIView+BHYAbovePictureBelowText.m in Sources */,
 				E9A619A12133C337006E5C2B /* EDSStudentDriverStrategyHeaderView.m in Sources */,
 				E9A61A0421352CD7006E5C2B /* EDSDrivingSchoolModel.m in Sources */,
+				7DFD322D21C6529B00FC474B /* MineTopBarView.m in Sources */,
 				E9BC049621315283003A624F /* NSString+JSJTextSize.m in Sources */,
 				10F74D5C214CB50900FA3ECC /* EDSCommentStarsView.m in Sources */,
 				105A8BCA2152511F00B3E092 /* EDSCoachDetailRequest.m in Sources */,

@@ -11,6 +11,6 @@
 
 #define MyTableViewSeparatorLeft                     55
 #define MyTableViewCellH                             50
-#define MyTableViewHeaderViewH                       258
+#define MyTableViewHeaderViewH                       290
 
 #endif /* MyConstants_h */

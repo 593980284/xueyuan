@@ -22,6 +22,7 @@
 #import "LXAlterPromptView.h"
 #import "LXCacheManager.h"
 
+#import "MineTopBarView.h"
 #import "EDSGetStudentInfoRequest.h"
 #import "EDSVersionUpdateRequest.h"
 
@@ -52,15 +53,30 @@
         EDSPersonalSettingsViewController *vc = [[EDSPersonalSettingsViewController alloc] initWithNibName:@"EDSPersonalSettingsViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:vc animated:YES];
     };
+	
     self.tableView.tableHeaderView = self.headerView;
     
     self.cellArr = @[];
+	if (@available(iOS 11.0, *)) {
+		self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+	}else{
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+	if (self.navigationController.childViewControllers.count > 1) {
+		[self.navigationController setNavigationBarHidden:NO animated:YES];
+	}
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+	[self.navigationController setNavigationBarHidden:YES animated:YES];
+	
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
@@ -130,12 +146,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [UIView viewWithBackgroundColor:TableColor superView:nil];
+    return [UIView viewWithBackgroundColor:[UIColor whiteColor] superView:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
