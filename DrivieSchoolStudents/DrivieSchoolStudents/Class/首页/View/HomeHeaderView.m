@@ -56,8 +56,17 @@
             make.centerY.mas_equalTo(self.titleLb.mas_centerY);
             make.right.mas_equalTo(self.bgImgView.mas_right);
         }];
+        
+        UITapGestureRecognizer  * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickAction:)];
+        [self addGestureRecognizer:tap];
 
     }
     return self;
+}
+
+-(void)clickAction:(UITapGestureRecognizer *)tap{
+    if (self.clickActionBlock) {
+        self.clickActionBlock();
+    }
 }
 @end

@@ -13,6 +13,9 @@
 @property (nonatomic , strong) UILabel *titleLb;
 @property (nonatomic , strong) UILabel *detailLb;
 @property (nonatomic , strong) UILabel *moreLb;
+
+@property (nonatomic,copy)void(^clickActionBlock) (void);
+
 @end
 
 

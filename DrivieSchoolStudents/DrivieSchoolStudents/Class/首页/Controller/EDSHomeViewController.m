@@ -37,6 +37,8 @@
 #import "HomeConstants.h"
 #import "HomeHeaderView.h"
 
+#import "EDSBusInfoVC.h"
+
 @interface EDSHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EDSHomeTableViewHeaderViewDelegate>
 
 /** 驾校消息 */
@@ -413,6 +415,11 @@
     headerView.titleLb.text = title;
     headerView.detailLb.text = detail;
     headerView.moreLb.text = more;
+    
+    headerView.clickActionBlock = ^{
+        EDSBusInfoVC *vc = [EDSBusInfoVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     
     return headerView;
 }

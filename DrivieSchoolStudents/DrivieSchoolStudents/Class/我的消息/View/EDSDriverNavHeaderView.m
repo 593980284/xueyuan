@@ -15,7 +15,6 @@
 @property (nonatomic,weak) UIButton *selectBtn;
 @property (nonatomic,strong) UIView *indexView;
 
-
 @end
 
 @implementation EDSDriverNavHeaderView
