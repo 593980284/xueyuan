@@ -31,7 +31,6 @@
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
     if (self.successBlock) {
-        
         self.successBlock(resCode, data, nil);
     }
 }
