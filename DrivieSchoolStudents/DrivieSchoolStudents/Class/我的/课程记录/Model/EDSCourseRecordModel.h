@@ -29,6 +29,7 @@
 @property (nonatomic , copy) NSString              * status;        //状态 2，6：已到（有分数显示分数，没分数显示待评价） 3，7：缺勤（显示缺勤） 0，1，4：未确认（显示未确认） 5：未确认（显示教练补签，在详情页面显示确认到课、我没有来按钮）
 @property (nonatomic , copy) NSString              * studentId;     //学员id
 @property (nonatomic , assign) BOOL                 isComment;    //判断是否评价
+@property (nonatomic , copy)NSString *identity;
 
 
 
@@ -38,4 +39,5 @@
 @property (nonatomic , assign) NSInteger  maxNum;
 @property (nonatomic , assign) NSInteger  appointmentNum;
 @property (nonatomic , assign) NSInteger  noAppointmentNum;
+- (NSInteger)gethcStatus;//返回我处理好的status
 @end

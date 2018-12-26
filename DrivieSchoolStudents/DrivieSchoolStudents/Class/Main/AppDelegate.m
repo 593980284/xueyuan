@@ -50,7 +50,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
     //只获取一次
     __block  BOOL isOnece = YES;
     [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){

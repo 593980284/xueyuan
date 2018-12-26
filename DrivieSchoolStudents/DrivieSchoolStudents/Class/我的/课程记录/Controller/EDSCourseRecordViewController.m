@@ -18,6 +18,7 @@
 #import "EDSStudentCourseRecordRequest.h"
 
 #import "EDSCourseRecordModel.h"
+#import "SelectView.h"
 
 @interface EDSCourseRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -56,21 +57,19 @@
         make.top.mas_equalTo(45);
     }];
     
-    EDSHeaderPageButtonView *headerView = [[EDSHeaderPageButtonView alloc] init];
+    SelectView *headerView = [[SelectView alloc]initWithData:@[@"已完成课程",@"未完成课程"]];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(45);
     }];
-    headerView.btnArr = @[@"已完成课程",@"未完成课程"];
-    headerView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
-        [self.tableView.mj_header beginRefreshing];
-        if ([titleStr isEqualToString:@"已完成课程"]) {
-            
+    headerView.block = ^(NSInteger index) {
+        if (index == 0) {
             self->_isFinish = YES;
         }else{
             self->_isFinish = NO;
         }
+        [self.tableView.mj_header beginRefreshing];
     };
     [self.tableView.mj_header beginRefreshing];
     _fitst = YES;
@@ -137,8 +136,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_isFinish) {
-        
+//    if (_isFinish) {
+    
         EDSCourseRecordCompleteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordCompleteTableViewCell"];
         
         if (!cell) {
@@ -149,19 +148,19 @@
         cell.courseRecordModel = self.arr[indexPath.row];
         
         return cell;
-    }else{
-        EDSCourseRecordTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordTableViewCell"];
-        
-        if (!cell) {
-            cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSCourseRecordTableViewCell" owner:self options:nil].firstObject;
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        cell.courseRecordModel = self.arr[indexPath.row];
-        
-        return cell;
-
-    }
+//    }else{
+//        EDSCourseRecordTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSCourseRecordTableViewCell"];
+//
+//        if (!cell) {
+//            cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSCourseRecordTableViewCell" owner:self options:nil].firstObject;
+//        }
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//        cell.courseRecordModel = self.arr[indexPath.row];
+//
+//        return cell;
+//
+//    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

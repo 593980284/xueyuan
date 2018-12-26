@@ -37,9 +37,15 @@
     self.tableView.tableHeaderView = headerView;
     
     EDSCourseRecordDetailFooterView *footerView = [[EDSCourseRecordDetailFooterView alloc] init];
-    footerView.wz_size = CGSizeMake(kScreenWidth, 321+120);
+//    footerView.wz_size = CGSizeMake(kScreenWidth-40, 321+120);
+    footerView.frame = CGRectMake(15, 0, kScreenWidth-30, 321+50);
+    footerView.layer.cornerRadius = 5;
+    footerView.clipsToBounds = YES;
     footerView.courseRecordModel = self.courseRecordModel;
-    self.tableView.tableFooterView = footerView;
+    UIView *view = [UIView new];
+    view.frame = CGRectMake(0, 0, kScreenWidth , 321+50);
+    [view addSubview:footerView];
+    self.tableView.tableFooterView = view;
     
     
     EDSCourseRecordDetailDownView *downView = [[EDSCourseRecordDetailDownView alloc] init];
@@ -71,7 +77,7 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -56,9 +56,16 @@ PODS:
   - UMCShare/Social/ReducedQQ (6.9.5):
     - UMCCommon
     - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
   - UMCShare/Social/ReducedWeChat (6.9.5):
     - UMCCommon
     - UMCShare/Core
+  - UMCShare/Social/Sina (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedSina
   - UMCShare/Social/WeChat (6.9.5):
     - UMCCommon
     - UMCShare/Core
@@ -82,6 +89,7 @@ DEPENDENCIES:
   - "UITextView+Placeholder"
   - UMCCommon
   - UMCShare/Social/QQ
+  - UMCShare/Social/Sina
   - UMCShare/Social/WeChat
   - YYCache
 
@@ -124,6 +132,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 9479b76eb472afa23d99340d864b1173eea2a38d
+PODFILE CHECKSUM: 758bb40d79130f893aef79a4221b7f38ae485f55
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3
