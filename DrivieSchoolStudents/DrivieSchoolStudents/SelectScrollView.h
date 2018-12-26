@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SelectScrollView : UIScrollView
 - (instancetype)initWithTitles:(NSArray *)titles;
+- (instancetype)initWithTitles:(NSArray *)titles
+                     itemWidth:(CGFloat)itemWidth;
 @property (nonatomic, copy) void (^block)(NSString *titleStr);
 @end
 

@@ -46,6 +46,29 @@
     return self;
 }
 
+- (instancetype)initWithTitles:(NSArray *)titles
+                     itemWidth:(CGFloat)itemWidth{
+    if (self = [super init]) {
+        _btns = [NSMutableArray new];
+        for (int i = 0; i<titles.count; i++) {
+            SelectBtn *btn = [SelectBtn new];
+            btn.tag = 100+i;
+            [btn setTitle:titles[i] forState:0];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            [_btns addObject:btn];
+            [btn addTarget:self action:@selector(btnTap:) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:btn];
+            btn.selected = i==0;
+            btn.frame = CGRectMake(i*itemWidth, 0, itemWidth, 40);
+            
+        }
+        self.contentSize = CGSizeMake(itemWidth * titles.count, 30);
+        self.showsHorizontalScrollIndicator = NO;
+        NSLog(@"%lf",self.contentSize.width);
+    }
+    return self;
+}
+
 - (void)btnTap:(UIButton *)sender
 {
     for (SelectBtn* btn in self.btns) {

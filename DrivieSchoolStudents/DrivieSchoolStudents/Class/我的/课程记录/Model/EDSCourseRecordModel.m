@@ -49,7 +49,7 @@
 {
     NSString *string = [NSString stringWithFormat:@"%@",_status];
     NSInteger status = [_status integerValue];
-    if ((status == 2 || status == 6) && _coachScore > 0) {
+    if ((status == 2 || status == 6) && self.isComment == NO) {
         status = 8;
     }
     NSString * statusText = @[@"已预约",@"学员签到",@"已完成",@"缺勤",@"未签到",@"等待确认",@"已完成",@"缺勤", @"已完成 - 未评价"][status];
@@ -66,5 +66,15 @@
                                                                              }];
 }
 
+
+- (NSInteger)gethcStatus
+{
+    NSInteger status = [_status integerValue];
+    if ((status == 2 || status == 6) && self.isComment == NO) {
+        status = 8;
+    }
+    
+    return status;
+}
 
 @end

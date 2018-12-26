@@ -13,7 +13,6 @@
 #import "EDSNavigationViewController.h"
 #import "NSObject+EDSTool.h"
 #import "EDSBeingPushedViewController.h"
-
 #import "XGPush.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -48,7 +47,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     
     //只获取一次
     __block  BOOL isOnece = YES;
