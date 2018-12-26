@@ -153,7 +153,12 @@
 }
 
 - (IBAction)qqBtnClick:(id)sender {
-	[self getUserInfoForPlatform:UMSocialPlatformType_QQ];
+
+	if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]){
+		[self getUserInfoForPlatform:UMSocialPlatformType_QQ];
+	}else{
+		[self.view makeToast:@"请先安装QQ"];
+	}
 }
 
 - (IBAction)wxBtnClick:(id)sender {
