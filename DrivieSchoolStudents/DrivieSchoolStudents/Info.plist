@@ -34,6 +34,26 @@
 				<string>dStudents</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>QQ</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ060D572E</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tencent</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent101537582</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -42,6 +62,52 @@
 		<string>baidumap</string>
 		<string>iosamap</string>
 		<string>comgooglemaps</string>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>sinaweibohd</string>
+		<string>sinaweibo</string>
+		<string>sinaweibosso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<string>mqqapi</string>
+		<string>mqq</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqconnect</string>
+		<string>mqqopensdkdataline</string>
+		<string>mqqopensdkgrouptribeshare</string>
+		<string>mqqopensdkfriend</string>
+		<string>mqqopensdkapi</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV4</string>
+		<string>mqzoneopensdk</string>
+		<string>wtloginmqq</string>
+		<string>wtloginmqq2</string>
+		<string>mqqwpa</string>
+		<string>mqzone</string>
+		<string>mqzonev2</string>
+		<string>mqzoneshare</string>
+		<string>wtloginqzone</string>
+		<string>mqzonewx</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqqbrowser</string>
+		<string>mttbrowser</string>
+		<string>tim</string>
+		<string>timapi</string>
+		<string>timopensdkfriend</string>
+		<string>timwpa</string>
+		<string>timgamebindinggroup</string>
+		<string>timapiwallet</string>
+		<string>timOpensdkSSoLogin</string>
+		<string>wtlogintim</string>
+		<string>timopensdkgrouptribeshare</string>
+		<string>timopensdkapiV4</string>
+		<string>timgamebindinggroup</string>
+		<string>timopensdkdataline</string>
+		<string>wtlogintimV1</string>
+		<string>timapiV1</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -51,17 +117,17 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>"乐享学驾"在上传个人头像时申请相机使用权限进行拍照上传</string>
+	<string>&quot;乐享学驾&quot;在上传个人头像时申请相机使用权限进行拍照上传</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>"乐享学驾"根据自身位置筛选临近驾校</string>
+	<string>&quot;乐享学驾&quot;根据自身位置筛选临近驾校</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>"乐享学驾"根据自身位置筛选临近驾校</string>
+	<string>&quot;乐享学驾&quot;根据自身位置筛选临近驾校</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>"乐享学驾"根据自身位置筛选临近驾校</string>
+	<string>&quot;乐享学驾&quot;根据自身位置筛选临近驾校</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>"乐享学驾"为您添加照片</string>
+	<string>&quot;乐享学驾&quot;为您添加照片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>"乐享学驾"在上传个人头像时需要申请相册权限</string>
+	<string>&quot;乐享学驾&quot;在上传个人头像时需要申请相册权限</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

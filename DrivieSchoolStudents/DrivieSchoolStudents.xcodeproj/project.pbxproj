@@ -10243,6 +10243,7 @@
 				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -10253,6 +10254,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/province_data.xml",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -10701,9 +10703,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VTKB7X6455;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925LV5269Z;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -10718,7 +10720,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bb999640-ecfa-480e-9a15-c75d1ce79f32";
-				PROVISIONING_PROFILE_SPECIFIER = EnjoyLearning_students_adHoc;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -10730,9 +10732,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VTKB7X6455;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925LV5269Z;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = DrivieSchoolStudents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -10747,7 +10749,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bb999640-ecfa-480e-9a15-c75d1ce79f32";
-				PROVISIONING_PROFILE_SPECIFIER = EnjoyLearning_students_dis;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
