@@ -114,6 +114,7 @@
 		10F74DA2214D0FD800FA3ECC /* EDSFourDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */; };
 		10FDF89721359153003AE1BE /* EDSCoachInformationFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */; };
 		63B49CC136059B7B4F7307E6 /* libPods-DrivieSchoolStudents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */; };
+		7D30502F21D358AD00A5B2EC /* EDSSsoLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D30502E21D358AD00A5B2EC /* EDSSsoLoginRequest.m */; };
 		C42EDBB121BD1035006A688D /* EDSDriverNavHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */; };
 		C42EDBB421BD17F4006A688D /* EDSMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EDBB321BD17F4006A688D /* EDSMsgCell.m */; };
 		C493A11E21CE4F2300C658C2 /* EDSBusInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C493A11D21CE4F2300C658C2 /* EDSBusInfoVC.m */; };
@@ -136,6 +137,7 @@
 		CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663E21BD709F00754B0E /* StyleTableViewCell.m */; };
 		CD1366D221BE7B3700754B0E /* LunRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D121BE7B3700754B0E /* LunRequest.m */; };
 		CD1366D521BE7D6100754B0E /* HtmlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D421BE7D6100754B0E /* HtmlVC.m */; };
+		CD1E540821D2271E007103A1 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E540721D2271E007103A1 /* SelectView.m */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
@@ -2418,6 +2420,8 @@
 		10FDF89621359153003AE1BE /* EDSCoachInformationFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSCoachInformationFooterView.m; sourceTree = "<group>"; };
 		59ED99861D93D18EDAA5FDF3 /* Pods-DrivieSchoolStudents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.debug.xcconfig"; sourceTree = "<group>"; };
 		6B0F742E0CDDE2B0713CA5B7 /* Pods-DrivieSchoolStudents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrivieSchoolStudents.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents.release.xcconfig"; sourceTree = "<group>"; };
+		7D30502D21D358AD00A5B2EC /* EDSSsoLoginRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSsoLoginRequest.h; sourceTree = "<group>"; };
+		7D30502E21D358AD00A5B2EC /* EDSSsoLoginRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSsoLoginRequest.m; sourceTree = "<group>"; };
 		9AADA221112E09244484B22C /* libPods-DrivieSchoolStudents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrivieSchoolStudents.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42EDBAF21BD1034006A688D /* EDSDriverNavHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSDriverNavHeaderView.h; sourceTree = "<group>"; };
 		C42EDBB021BD1034006A688D /* EDSDriverNavHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSDriverNavHeaderView.m; sourceTree = "<group>"; };
@@ -2463,6 +2467,8 @@
 		CD1366D121BE7B3700754B0E /* LunRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LunRequest.m; sourceTree = "<group>"; };
 		CD1366D321BE7D6100754B0E /* HtmlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlVC.h; sourceTree = "<group>"; };
 		CD1366D421BE7D6100754B0E /* HtmlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlVC.m; sourceTree = "<group>"; };
+		CD1E540621D2271E007103A1 /* SelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
+		CD1E540721D2271E007103A1 /* SelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
 		CD53CE47219059C30009F8F1 /* RegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
 		CD760C03218D8236002ED128 /* UITextView+placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeholder.h"; sourceTree = "<group>"; };
@@ -7356,6 +7362,8 @@
 			children = (
 				E9A619D82134F06A006E5C2B /* EDSStudentLoginRequest.h */,
 				E9A619D92134F06A006E5C2B /* EDSStudentLoginRequest.m */,
+				7D30502D21D358AD00A5B2EC /* EDSSsoLoginRequest.h */,
+				7D30502E21D358AD00A5B2EC /* EDSSsoLoginRequest.m */,
 				E9A619DB2134F106006E5C2B /* EDSMsgCodeLoginRequest.h */,
 				E9A619DC2134F106006E5C2B /* EDSMsgCodeLoginRequest.m */,
 				E9A619DE2134F656006E5C2B /* EDSMsgCodeRequest.h */,
@@ -7792,6 +7800,8 @@
 				CDFCF13C21BFE07E00B678E7 /* SelectBtn.m */,
 				CDE98F7121BFEE7400F46B45 /* SelectScrollView.h */,
 				CDE98F7221BFEE7500F46B45 /* SelectScrollView.m */,
+				CD1E540621D2271E007103A1 /* SelectView.h */,
+				CD1E540721D2271E007103A1 /* SelectView.m */,
 			);
 			path = DrivieSchoolStudents;
 			sourceTree = "<group>";
@@ -10243,6 +10253,7 @@
 				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -10253,6 +10264,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/province_data.xml",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -10332,6 +10344,7 @@
 				10F74D99214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
+				7D30502F21D358AD00A5B2EC /* EDSSsoLoginRequest.m in Sources */,
 				E9FCD03D21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
 				E9FCD0332146505800A8AAC4 /* EDSClearRecordViewController.m in Sources */,
@@ -10380,6 +10393,7 @@
 				E9A619DD2134F106006E5C2B /* EDSMsgCodeLoginRequest.m in Sources */,
 				E9A61A64213690B2006E5C2B /* EDSOnlineAboutClassDetailAppointmentDownView.m in Sources */,
 				E9A61A5421366FB5006E5C2B /* calenCollectionViewCell.m in Sources */,
+				CD1E540821D2271E007103A1 /* SelectView.m in Sources */,
 				CD9A2E0A218C527F00AFCE1F /* MyCoachRequest.m in Sources */,
 				E902E0C22147D95B00F49C51 /* EDSTheirPapersBoxViewController.m in Sources */,
 				E90F9013213D45A50061F448 /* EDSSchoolStyleRequest.m in Sources */,
@@ -10701,7 +10715,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
@@ -10718,7 +10732,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bb999640-ecfa-480e-9a15-c75d1ce79f32";
-				PROVISIONING_PROFILE_SPECIFIER = EnjoyLearning_students_adHoc;
+				PROVISIONING_PROFILE_SPECIFIER = AnHuiStudentDev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -10730,7 +10744,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DrivieSchoolStudents/DrivieSchoolStudents.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VTKB7X6455;
 				GCC_PREFIX_HEADER = DrivieSchoolStudents/Class/Define/PrefixHeader.pch;
@@ -10747,7 +10761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aero.DrivieSchoolStudents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bb999640-ecfa-480e-9a15-c75d1ce79f32";
-				PROVISIONING_PROFILE_SPECIFIER = EnjoyLearning_students_dis;
+				PROVISIONING_PROFILE_SPECIFIER = AnHuiStudentDev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

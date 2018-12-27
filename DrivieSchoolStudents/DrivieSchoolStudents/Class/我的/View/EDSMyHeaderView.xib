@@ -150,7 +150,7 @@
         </view>
     </objects>
     <resources>
-        <image name="avar" width="100" height="80"/>
-        <image name="bgm_content_pic_default" width="375" height="168.5"/>
+        <image name="avar" width="73" height="73"/>
+        <image name="bgm_content_pic_default" width="375" height="168"/>
     </resources>
 </document>

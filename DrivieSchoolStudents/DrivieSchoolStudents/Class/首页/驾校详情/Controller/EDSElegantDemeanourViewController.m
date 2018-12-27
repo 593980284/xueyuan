@@ -147,11 +147,9 @@
         if (!dic) {
             dic = @{};
         }
-        if (sender) {
             weakSelf.lookNumLb.text = [NSString stringWithFormat:@"%@",dic[@"clickCount"]];
             weakSelf.zanLb.text = [NSString stringWithFormat:@"%@",dic[@"likeCount"]];
             weakSelf.zanBtn.selected = !weakSelf.zanBtn.selected;
-        }
     } failureBlock:^(NSError *error) {
         [weakSelf.view hideIndicatorView];
     }];

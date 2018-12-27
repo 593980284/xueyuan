@@ -46,6 +46,30 @@ PODS:
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (2.1.9)
   - "UITextView+Placeholder (1.2.1)"
+  - UMCCommon (1.5.3)
+  - UMCShare/Core (6.9.5):
+    - UMCCommon
+  - UMCShare/Social/QQ (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedQQ (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/Sina (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedSina
+  - UMCShare/Social/WeChat (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedWeChat
   - YYCache (1.0.4)
 
 DEPENDENCIES:
@@ -63,6 +87,10 @@ DEPENDENCIES:
   - SVProgressHUD
   - TZImagePickerController (~> 2.1.4)
   - "UITextView+Placeholder"
+  - UMCCommon
+  - UMCShare/Social/QQ
+  - UMCShare/Social/Sina
+  - UMCShare/Social/WeChat
   - YYCache
 
 SPEC REPOS:
@@ -81,6 +109,8 @@ SPEC REPOS:
     - SVProgressHUD
     - TZImagePickerController
     - "UITextView+Placeholder"
+    - UMCCommon
+    - UMCShare
     - YYCache
 
 SPEC CHECKSUMS:
@@ -98,8 +128,10 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 6c9721783063edafc9ad42cd95acc82f1b648485
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
+  UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
+  UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 5f19b099f93f57203de79a9e307b221e2d38cf6d
+PODFILE CHECKSUM: 758bb40d79130f893aef79a4221b7f38ae485f55
 
 COCOAPODS: 1.5.3

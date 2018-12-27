@@ -31,6 +31,7 @@
         _titleLb = [UILabel new];
         _titleLb.textColor = FirstColor;
         _titleLb.font = [UIFont systemFontOfSize:14];
+        _titleLb.numberOfLines = 2;
         [_titleLb sizeToFit];
         [self addSubview:_titleLb];
         [_titleLb mas_makeConstraints:^(MASConstraintMaker *make) {

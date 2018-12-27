@@ -13,7 +13,8 @@
 #import "EDSNavigationViewController.h"
 #import "NSObject+EDSTool.h"
 #import "EDSBeingPushedViewController.h"
-
+#import <UMShare/UMShare.h>
+#import <UMCommon/UMCommon.h>
 #import "XGPush.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -48,7 +49,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     
     //只获取一次
     __block  BOOL isOnece = YES;
@@ -91,7 +91,9 @@
             [[XGPush defaultManager] setNotificationConfigure:configure];
         }
     }
-    
+	//第三方注册
+	[self registerKey];
+	
     [[XGPush defaultManager] startXGWithAppID:2200309037 appKey:@"IE5JCL1H877B" delegate:self];
     [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
     [[XGPush defaultManager] reportXGNotificationInfo:launchOptions];
@@ -106,8 +108,47 @@
     return YES;
 }
 
-//
+- (void)registerKey
+{
+	
+//	//友盟
+	[UMConfigure initWithAppkey:@"5c1a13ddb465f5eabc000286" channel:@"App Store"];
+#ifdef DEBUG
+	    [[UMSocialManager defaultManager] openLog:YES];
+#else
+#endif
+//	[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WX_APP_ID appSecret:WX_APP_Secret redirectURL:nil];
+	[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"101537582" appSecret:@"947129a7fbabef719410f6486ae9693f" redirectURL:@"www.qq.com"];
+	
+}
 
+// 支持所有iOS系统
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+	//6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+	BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+	if (!result) {
+		// 其他如支付等SDK的回调
+	}
+	return result;
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+	//6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+	BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+	if (!result) {
+		// 其他如支付等SDK的回调
+	}
+	return result;
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+	BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+	if (!result) {
+		// 其他如支付等SDK的回调
+	}
+	return result;
+}
 //加载Cookie 一般都是app刚刚启动的时候
 - (void)loadCookies
 {

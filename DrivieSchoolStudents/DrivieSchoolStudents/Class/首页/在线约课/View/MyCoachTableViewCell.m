@@ -85,7 +85,7 @@
     }
 //    _image1.hidden = ![logos containsObject:@"131000"];
 //    _image2.hidden = ![logos containsObject:@"132000"];
-//    _applyBtn.hidden = !model.isBind;
+    _applyBtn.hidden = !model.isBind;
     
 }
 
