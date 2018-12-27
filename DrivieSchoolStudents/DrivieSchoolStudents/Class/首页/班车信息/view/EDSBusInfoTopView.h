@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSBusInfoTopView : UIView
 
+@property (nonatomic,strong) NSDictionary *dataDic;
+
+@property (nonatomic,copy) void (^refreshBtnClick)(void);
+
 
 @end
 

@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSBusInfoRequest : HQMBaseRequest
-
+//0 qu 1 fan
+@property (nonatomic,assign) NSInteger busInfoType;
 @property (nonatomic,copy) NSString * busInfoId;
 
 @end

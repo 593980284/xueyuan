@@ -386,7 +386,11 @@
 {
     if ([EDSSave account].userID.length > 0) {
         if (indexPath.section == 0) {
-            
+ 
+            NSDictionary * tempDic = self.carArr[indexPath.row];
+            EDSBusInfoVC * infoVC = [EDSBusInfoVC new];
+            infoVC.busInfoId = tempDic[@"id"];
+            [self.navigationController pushViewController:infoVC animated:YES];
         }else{
         
         }

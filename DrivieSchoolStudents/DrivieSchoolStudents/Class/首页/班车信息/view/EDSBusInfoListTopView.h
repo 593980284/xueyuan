@@ -1,8 +1,8 @@
 //
-//  EDSBusInfoRightListView.h
+//  EDSBusInfoListTopView.h
 //  DrivieSchoolStudents
 //
-//  Created by 胡玉峰 on 2018/12/23.
+//  Created by 胡玉峰 on 2018/12/25.
 //  Copyright © 2018 班文政. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EDSBusInfoRightListView : UIView
-
-@property (nonatomic,strong) NSArray *dataArr;
+@interface EDSBusInfoListTopView : UIView
 
 @end
 

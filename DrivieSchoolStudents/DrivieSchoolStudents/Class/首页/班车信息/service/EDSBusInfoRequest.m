@@ -13,7 +13,12 @@
 
 - (NSString *)requestURLPath
 {
-    return @"/app/lexiang/homePage/getShuttleBusReturenDetail";
+    if (self.busInfoType == 0) {
+        return @"/app/lexiang/shuttleBus/getShuttleBusDetail";
+    }else{
+        return @"/app/lexiang/shuttleBus/getShuttleBusReturenDetail";
+    }
+    
 }
 
 - (NSDictionary *)requestArguments

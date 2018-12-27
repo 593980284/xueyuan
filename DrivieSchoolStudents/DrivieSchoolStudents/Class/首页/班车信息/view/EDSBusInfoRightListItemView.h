@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSBusInfoRightListItemView : UIView
 
+@property (nonatomic,strong) NSArray *dataArr;
+
 @end
 
 NS_ASSUME_NONNULL_END

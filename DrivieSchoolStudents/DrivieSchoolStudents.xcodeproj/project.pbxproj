@@ -124,6 +124,7 @@
 		C4BC187821CF730400235AF3 /* EDSBusInfoRightListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187721CF730400235AF3 /* EDSBusInfoRightListView.m */; };
 		C4BC187B21CF73B700235AF3 /* EDSBusInfoRightListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187A21CF73B700235AF3 /* EDSBusInfoRightListItemView.m */; };
 		C4BC187F21CF7E5900235AF3 /* EDSBusInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187E21CF7E5900235AF3 /* EDSBusInfoRequest.m */; };
+		C4BC188221D2569100235AF3 /* EDSBusInfoListTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC188121D2569100235AF3 /* EDSBusInfoListTopView.m */; };
 		CD0FF4E621C6262A007EEC8B /* LEEStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E421C62629007EEC8B /* LEEStarRating.m */; };
 		CD0FF4EA21C63736007EEC8B /* UIView+chainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */; };
 		CD0FF4F021C67D94007EEC8B /* StyleDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0FF4EF21C67D94007EEC8B /* StyleDetailRequest.m */; };
@@ -2438,6 +2439,8 @@
 		C4BC187A21CF73B700235AF3 /* EDSBusInfoRightListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoRightListItemView.m; sourceTree = "<group>"; };
 		C4BC187D21CF7E5900235AF3 /* EDSBusInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoRequest.h; sourceTree = "<group>"; };
 		C4BC187E21CF7E5900235AF3 /* EDSBusInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoRequest.m; sourceTree = "<group>"; };
+		C4BC188021D2569100235AF3 /* EDSBusInfoListTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoListTopView.h; sourceTree = "<group>"; };
+		C4BC188121D2569100235AF3 /* EDSBusInfoListTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoListTopView.m; sourceTree = "<group>"; };
 		CD0FF4E421C62629007EEC8B /* LEEStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEEStarRating.m; sourceTree = "<group>"; };
 		CD0FF4E521C62629007EEC8B /* LEEStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEStarRating.h; sourceTree = "<group>"; };
 		CD0FF4E821C63736007EEC8B /* UIView+chainUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+chainUI.m"; sourceTree = "<group>"; };
@@ -5138,6 +5141,8 @@
 				C4BC187721CF730400235AF3 /* EDSBusInfoRightListView.m */,
 				C4BC187921CF73B700235AF3 /* EDSBusInfoRightListItemView.h */,
 				C4BC187A21CF73B700235AF3 /* EDSBusInfoRightListItemView.m */,
+				C4BC188021D2569100235AF3 /* EDSBusInfoListTopView.h */,
+				C4BC188121D2569100235AF3 /* EDSBusInfoListTopView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -10403,6 +10408,7 @@
 				10C3F27921492D4700AA091A /* EDSOnlineClassListByDateModel.m in Sources */,
 				E9A6197A2133A63E006E5C2B /* EDSStudentDriverStrategSubViewController.m in Sources */,
 				E9A61AC12137EDB9006E5C2B /* EDSPracticeFooterView.m in Sources */,
+				C4BC188221D2569100235AF3 /* EDSBusInfoListTopView.m in Sources */,
 				E9A619AE2133D24F006E5C2B /* EDSMyTableViewCell.m in Sources */,
 				10D0E9C32153958C00BADD59 /* EDSBeingPushedViewController.m in Sources */,
 				E96E9B602139389C00B103D2 /* EDSDrivingShcoolDetailViewController.m in Sources */,

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSBusInfoVC : BHYBaseViewController
 
+@property (nonatomic,copy)NSString  *busInfoId;
+
 @end
 
 NS_ASSUME_NONNULL_END

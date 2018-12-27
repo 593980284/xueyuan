@@ -9,8 +9,8 @@
 #import "EDSBusInfoRightListView.h"
 #import "EDSBusInfoRightListItemView.h"
 
-#define cellHeight  80
-#define view_width  300
+#define cellHeight  65
+#define view_width  kScreenWidth - 100
 
 
 @interface EDSBusInfoRightListView()
@@ -19,7 +19,7 @@
 
 @property (nonatomic,assign) CGFloat max_width;
 
-@property (nonatomic,strong) NSArray *dataArr;
+
 
 @end
 
@@ -27,38 +27,32 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.dataArr = @[
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         @"北京",
-                         ];
-
         self.wz_width = view_width;
         [self initView];
+        
     }
     return self;
+}
+
+-(void)setDataArr:(NSArray *)dataArr{
+    _dataArr = dataArr;
+    [self initView];
 }
 -(void)initView{
     
     self.backgroundColor = [UIColor whiteColor];
+    
+    for (UIView *view in self.BgScro.subviews) {
+        [view removeFromSuperview];
+    }
     [self addSubview:self.BgScro];
     
+    
     for (NSInteger index = 0 ; index < self.dataArr.count; index++) {
-        EDSBusInfoRightListItemView * itemView = [[EDSBusInfoRightListItemView alloc]initWithFrame:CGRectMake(5, index * cellHeight, view_width, cellHeight)];
-        
+        EDSBusInfoRightListItemView * itemView = [[EDSBusInfoRightListItemView alloc]initWithFrame:CGRectMake(5, index *cellHeight, view_width, cellHeight)];
+        NSString * tempTimeString =self.dataArr[index][@"arrivalTime"];
+        itemView.dataArr = [tempTimeString componentsSeparatedByString:@","];
         [self.BgScro addSubview:itemView];
-        
         if (itemView.wz_width > self.max_width) {
             self.max_width = itemView.wz_width;
         }
@@ -72,7 +66,7 @@
 
 -(UIScrollView *)BgScro{
     if (!_BgScro) {
-        _BgScro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 5, view_width, 0)];
+        _BgScro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, view_width, 0)];
 //        _BgScro.backgroundColor = [UIColor redColor];
         
     }
