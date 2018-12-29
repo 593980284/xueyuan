@@ -22,73 +22,72 @@
                         <constraint firstAttribute="height" constant="80" id="GE8-sw-V58"/>
                         <constraint firstAttribute="width" constant="80" id="dfk-7h-5i0"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-ns-dny">
-                    <rect key="frame" x="125" y="20" width="35" height="21"/>
+                    <rect key="frame" x="125" y="15.5" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五年执教  科目二、三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prz-OS-ybV">
-                    <rect key="frame" x="125" y="47" width="137" height="17"/>
+                    <rect key="frame" x="125" y="78.5" width="137" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-C3-nvg">
-                    <rect key="frame" x="345" y="22" width="15" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luo-x5-P7d" customClass="EDSDriveStarView">
-                    <rect key="frame" x="125" y="72" width="100" height="15"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="A2k-5d-SRw">
+                    <rect key="frame" x="125" y="40.5" width="56" height="19"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="T2y-zD-Pjm"/>
-                        <constraint firstAttribute="height" constant="15" id="zaL-wc-Tpn"/>
+                        <constraint firstAttribute="height" constant="19" id="OHr-90-p3k"/>
+                        <constraint firstAttribute="width" constant="56" id="l1f-m6-KHJ"/>
                     </constraints>
-                </view>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.5分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7B-u4-h0L">
-                    <rect key="frame" x="225" y="72" width="31" height="15"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="80x-Lp-ctI">
+                    <rect key="frame" x="186" y="40.5" width="56" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="Xi0-OK-foT"/>
+                        <constraint firstAttribute="height" constant="19" id="YDE-0K-FOj"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-man" translatesAutoresizingMaskIntoConstraints="NO" id="mnR-yb-5qM">
+                    <rect key="frame" x="70" y="70.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="249-dV-Lmc"/>
+                        <constraint firstAttribute="height" constant="25" id="rbJ-Xu-d30"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Prz-OS-ybV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7kI-77-Hgd"/>
-                <constraint firstItem="Luo-x5-P7d" firstAttribute="top" secondItem="Prz-OS-ybV" secondAttribute="bottom" constant="8" id="Bo4-M8-NdM"/>
+                <constraint firstItem="mnR-yb-5qM" firstAttribute="trailing" secondItem="QGu-Vx-4O4" secondAttribute="trailing" id="B4g-wE-ITP"/>
                 <constraint firstItem="ugl-ns-dny" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="PkM-eU-3PR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yv4-C3-nvg" secondAttribute="trailing" constant="15" id="S2R-Sg-1BV"/>
                 <constraint firstItem="QGu-Vx-4O4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Std-D0-lFl"/>
-                <constraint firstItem="Yv4-C3-nvg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="22" id="WPp-GL-55H"/>
-                <constraint firstItem="Luo-x5-P7d" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="aEQ-Eb-VO1"/>
-                <constraint firstItem="y7B-u4-h0L" firstAttribute="centerY" secondItem="Luo-x5-P7d" secondAttribute="centerY" id="bf2-lW-D7x"/>
-                <constraint firstItem="ugl-ns-dny" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="gHZ-bJ-LXk"/>
+                <constraint firstItem="Prz-OS-ybV" firstAttribute="bottom" secondItem="QGu-Vx-4O4" secondAttribute="bottom" id="ZNg-QK-Tne"/>
+                <constraint firstItem="80x-Lp-ctI" firstAttribute="leading" secondItem="A2k-5d-SRw" secondAttribute="trailing" constant="5" id="ftm-9Y-dVY"/>
                 <constraint firstItem="QGu-Vx-4O4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jM3-ar-ZVV"/>
+                <constraint firstItem="A2k-5d-SRw" firstAttribute="top" secondItem="ugl-ns-dny" secondAttribute="bottom" constant="4" id="kB3-Bz-mWM"/>
                 <constraint firstItem="Prz-OS-ybV" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="kCt-L6-Ghq"/>
-                <constraint firstItem="y7B-u4-h0L" firstAttribute="leading" secondItem="Luo-x5-P7d" secondAttribute="trailing" id="udy-B7-qvg"/>
+                <constraint firstItem="ugl-ns-dny" firstAttribute="top" secondItem="QGu-Vx-4O4" secondAttribute="top" id="qGc-uE-3tT"/>
+                <constraint firstItem="mnR-yb-5qM" firstAttribute="bottom" secondItem="QGu-Vx-4O4" secondAttribute="bottom" id="qMy-7L-oRk"/>
+                <constraint firstItem="80x-Lp-ctI" firstAttribute="top" secondItem="A2k-5d-SRw" secondAttribute="top" id="rje-25-eWf"/>
+                <constraint firstItem="A2k-5d-SRw" firstAttribute="leading" secondItem="ugl-ns-dny" secondAttribute="leading" id="uSp-c7-1cO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="Image1" destination="A2k-5d-SRw" id="Rp2-cG-sqZ"/>
+                <outlet property="Image2" destination="80x-Lp-ctI" id="I21-Yv-arY"/>
                 <outlet property="ageSubjectLbl" destination="Prz-OS-ybV" id="fAA-qw-gP9"/>
-                <outlet property="coachScoreView" destination="Luo-x5-P7d" id="xZ8-5m-Mjz"/>
                 <outlet property="coursNameLbl" destination="ugl-ns-dny" id="v1c-VW-Lvg"/>
-                <outlet property="coursSexLbl" destination="Yv4-C3-nvg" id="Gcj-E1-L9r"/>
                 <outlet property="imgView" destination="QGu-Vx-4O4" id="OQv-g1-64S"/>
-                <outlet property="scoreLbl" destination="y7B-u4-h0L" id="Io0-Qk-31v"/>
+                <outlet property="sexImage" destination="mnR-yb-5qM" id="vFc-BL-gUg"/>
             </connections>
-            <point key="canvasLocation" x="24.5" y="-168"/>
+            <point key="canvasLocation" x="23.199999999999999" y="-168.6656671664168"/>
         </view>
     </objects>
     <resources>
-        <image name="avar" width="100" height="80"/>
+        <image name="avar" width="73" height="73"/>
+        <image name="ic-man" width="25" height="25"/>
+        <image name="ic-金牌教练" width="60" height="17"/>
     </resources>
 </document>

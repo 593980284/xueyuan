@@ -30,6 +30,7 @@
 @property (nonatomic , copy) NSString              * studentId;     //学员id
 @property (nonatomic , assign) BOOL                 isComment;    //判断是否评价
 @property (nonatomic , copy)NSString *identity;
+@property (nonatomic, assign)NSInteger coachStar;
 
 
 

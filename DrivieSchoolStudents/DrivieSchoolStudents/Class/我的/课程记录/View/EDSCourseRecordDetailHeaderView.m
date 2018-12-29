@@ -10,15 +10,17 @@
 
 #import "EDSDriveStarView.h"
 #import "EDSCourseRecordModel.h"
+#import "LEEStarRating.h"
 
 @interface EDSCourseRecordDetailHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *coursNameLbl;
-@property (weak, nonatomic) IBOutlet UILabel *coursSexLbl;
 @property (weak, nonatomic) IBOutlet UILabel *ageSubjectLbl;
-@property (weak, nonatomic) IBOutlet EDSDriveStarView *coachScoreView;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLbl;
+@property (nonatomic, strong) LEEStarRating * starView;
+@property (weak, nonatomic) IBOutlet UIImageView *sexImage;
+@property (weak, nonatomic) IBOutlet UIImageView *Image1;
+@property (weak, nonatomic) IBOutlet UIImageView *Image2;
 
 @end
 
@@ -29,12 +31,27 @@
     return [self initWithFrame:self.frame];
 }
 
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        return [[[NSBundle mainBundle] loadNibNamed:@"EDSCourseRecordDetailHeaderView" owner:self options:nil] lastObject];
+        self = [[[NSBundle mainBundle] loadNibNamed:@"EDSCourseRecordDetailHeaderView" owner:self options:nil] lastObject];
+        _starView = [[LEEStarRating alloc]initWithFrame:CGRectMake(0, 0, 80, 1) Count:5];
+        _starView.maximumScore = 5;
+        _starView.type = RatingTypeHalf;
+        _starView.checkedImage = [UIImage imageNamed:@"star_content_icon_selected"];
+        _starView.uncheckedImage = [UIImage imageNamed:@"star_content_icon_default"];
+      
+        
+        [self addSubview:_starView];
+        [_starView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(15);
+            make.height.mas_equalTo(8);
+            make.width.mas_equalTo(110);
+            make.right.mas_equalTo(self.mas_right).offset(-17.5);
+        }];
     }
     return self;
 }
@@ -43,30 +60,27 @@
 {
     _courseRecordModel = courseRecordModel;
     
-    if ([courseRecordModel.status isEqual:@"2"] || [courseRecordModel.status isEqual:@"6"]) {
-        //已到 有分数显示分数，没分数显示待评价
-        if (courseRecordModel.coachScore.length > 0) {
-            
-            self.coachScoreView.hidden = NO;
-            self.scoreLbl.hidden = NO;
-        }else{
-            
-            self.coachScoreView.hidden = YES;
-            self.scoreLbl.hidden = YES;
-        }
-    }else{
-        
-        self.coachScoreView.hidden = YES;
-        self.scoreLbl.hidden = YES;
-    }
-    self.coachScoreView.hidden = YES;
-    self.scoreLbl.hidden = YES;
+    _starView.currentScore = courseRecordModel.coachStar/2.0;
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:courseRecordModel.coachPhoto] placeholderImage:AvatarPlaceholderImage];
     self.coursNameLbl.text = courseRecordModel.coachName;
-    self.coursSexLbl.text = courseRecordModel.coachSex;
-     self.ageSubjectLbl.text = courseRecordModel.teachType;
-//    self.ageSubjectLbl.text = [NSString stringWithFormat:@"%@年执教 %@",courseRecordModel.teachAge,courseRecordModel.subjectName];
-    self.coachScoreView.selectNumber = ceil([courseRecordModel.coachScore doubleValue]/2);
-    self.scoreLbl.text = [NSString stringWithFormat:@"%@分",courseRecordModel.coachScore];
+    self.ageSubjectLbl.text = courseRecordModel.showSubjectAge;
+     _sexImage.image = [UIImage imageNamed:[courseRecordModel.coachSex isEqualToString:@"女"]? @"ic-woman":@"ic-man"];
+    NSArray *logs = [courseRecordModel.identity componentsSeparatedByString:@","];
+    BOOL isJ = [logs containsObject:@"131000"];
+    BOOL isS = [logs containsObject:@"132000"];
+    if (isJ && isS) {
+        self.Image1.hidden = NO;
+        self.Image1.image = [UIImage imageNamed:@"ic-金牌教练"];
+        self.Image2.hidden = NO;
+        self.Image2.image = [UIImage imageNamed:@"ic-十佳党员"];
+    }else if(!isS && !isJ){
+        self.Image1.hidden = YES;
+        self.Image2.hidden = YES;
+    }else{
+        self.Image1.hidden = NO;
+        self.Image2.hidden = YES;
+        self.Image1.image = [UIImage imageNamed:isJ ? @"ic-金牌教练": @"ic-十佳党员"];
+    }
+
 }
 @end

@@ -13,4 +13,5 @@
 
 @property (nonatomic, strong) EDSCourseRecordModel *courseRecordModel;
 
+@property (nonatomic, assign) BOOL isCanEdit;
 @end
