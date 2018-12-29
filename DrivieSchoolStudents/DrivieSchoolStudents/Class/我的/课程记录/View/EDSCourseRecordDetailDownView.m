@@ -92,7 +92,7 @@
         DLog(@"立即评价");
         if (self.courseRecordDetailDownViewDidButtonBackTitle) {
             
-            self.courseRecordDetailDownViewDidButtonBackTitle(@"立即评价");
+            self.courseRecordDetailDownViewDidButtonBackTitle(@"评价课程");
         }
     }];
     
@@ -147,7 +147,7 @@
     if (!_evaluationBtn) {
         
         _evaluationBtn = [[UIButton alloc] init];
-        [_evaluationBtn setTitle:@"立即评价" forState:UIControlStateNormal];
+        [_evaluationBtn setTitle:@"评价课程" forState:UIControlStateNormal];
         [_evaluationBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
         _evaluationBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         _evaluationBtn.backgroundColor = ThemeColor;

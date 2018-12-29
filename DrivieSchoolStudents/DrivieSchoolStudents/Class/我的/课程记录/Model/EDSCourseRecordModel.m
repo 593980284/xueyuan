@@ -12,7 +12,7 @@
 
 - (NSString *)showSubjectAge
 {
-    return [NSString stringWithFormat:@"%@ %@年教龄",_teachType,self.teachAge];
+    return [NSString stringWithFormat:@"%@·%@年教龄",_teachType,self.teachAge];
 }
 
 - (NSString *)teachAge

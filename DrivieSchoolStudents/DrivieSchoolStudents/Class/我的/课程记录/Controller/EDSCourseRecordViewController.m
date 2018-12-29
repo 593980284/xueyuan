@@ -58,6 +58,7 @@
     }];
     
     SelectView *headerView = [[SelectView alloc]initWithData:@[@"已完成课程",@"未完成课程"]];
+    headerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
@@ -166,16 +167,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (_isFinish) {
-        
+//    if (_isFinish) {
+    
         EDSCourseRecordDetailViewController *vc = [[EDSCourseRecordDetailViewController alloc] init];
         vc.courseRecordModel = self.arr[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        EDSUnCourseRecordViewController *vc = [[EDSUnCourseRecordViewController alloc] initWithNibName:@"EDSUnCourseRecordViewController" bundle:[NSBundle mainBundle]];
-        vc.courseRecordModel = self.arr[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    }else{
+//        EDSUnCourseRecordViewController *vc = [[EDSUnCourseRecordViewController alloc] initWithNibName:@"EDSUnCourseRecordViewController" bundle:[NSBundle mainBundle]];
+//        vc.courseRecordModel = self.arr[indexPath.row];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

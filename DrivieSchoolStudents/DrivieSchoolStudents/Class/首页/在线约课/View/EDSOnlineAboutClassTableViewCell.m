@@ -8,7 +8,6 @@
 
 #import "EDSOnlineAboutClassTableViewCell.h"
 #import "EDSDriveStarView.h"
-
 #import "EDSOnlineClassListByDateModel.h"
 
 @interface EDSOnlineAboutClassTableViewCell ()
@@ -22,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *logo2;
 
 
+
 @end
 
 @implementation EDSOnlineAboutClassTableViewCell
@@ -29,8 +29,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.imgView.contentMode = UIViewContentModeScaleAspectFill;
-    self.imgView.layer.masksToBounds = YES;
+//    self.imgView.contentMode = UIViewContentModeScaleAspectFill;
+//    self.imgView.layer.masksToBounds = YES;
+  
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

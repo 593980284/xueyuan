@@ -54,9 +54,62 @@
     self.reachStuNumLbl.text = [NSString stringWithFormat:@"%ld",courseRecordModel.maxNum];
     self.noReachStuNumLbl.text = [NSString stringWithFormat:@"%ld",courseRecordModel.appointmentNum];
     self.lb3.text = [NSString stringWithFormat:@"%ld",courseRecordModel.noAppointmentNum];
-    NSMutableAttributedString * str = [courseRecordModel.showStatus mutableCopy];
-    [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, courseRecordModel.showStatus.length)];
-    self.lb4.attributedText = str;
+//    NSMutableAttributedString * str = [courseRecordModel.showStatus mutableCopy];
+//    [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, courseRecordModel.showStatus.length)];
+//    self.lb4.attributedText = str;
+    self.lb4.layer.borderWidth = 1;
+    self.lb4.layer.cornerRadius = 4;
+//    @[@"已预约",@"学员签到",@"已完成",@"缺勤",@"未签到",@"等待确认",@"已完成",@"缺勤", @"已完成 - 未评价"]
+    switch ([courseRecordModel gethcStatus]) {
+        case 0:
+        {
+            self.lb4.textColor = RGBCOLOR(78, 149, 247);
+            self.lb4.layer.borderColor= RGBCOLOR(78, 149, 247).CGColor;
+            self.lb4.text = @" 已预约    ";
+        }
+            break;
+        case 1:
+        {
+            self.lb4.textColor = RGBCOLOR(130, 188, 91);
+            self.lb4.layer.borderColor= RGBCOLOR(130, 188, 91).CGColor;
+            self.lb4.text = @" 学员签到    ";
+        }
+            break;
+        case 2:
+        case 6:
+        case 8:
+        {
+            self.lb4.textColor = RGBCOLOR(78, 149, 247);
+            self.lb4.layer.borderColor= RGBCOLOR(78, 149, 247).CGColor;
+            self.lb4.text = @" 已完成   ";
+        }
+            break;
+        case 3:
+        case 7:
+        {
+            self.lb4.textColor = RGBCOLOR(236, 91, 85);
+            self.lb4.layer.borderColor= RGBCOLOR(236, 91, 85).CGColor;
+            self.lb4.text = @" 缺勤      ";
+        }
+            break;
+        case 4:
+        {
+            self.lb4.textColor = RGBCOLOR(239, 134, 0);
+            self.lb4.layer.borderColor= RGBCOLOR(239, 134, 0).CGColor;
+            self.lb4.text = @" 未签到    ";
+        }
+            break;
+        case 5:
+        {
+            self.lb4.textColor = RGBCOLOR(239, 134, 0);
+            self.lb4.layer.borderColor= RGBCOLOR(239, 134, 0).CGColor;
+            self.lb4.text = @" 等待确认     ";
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

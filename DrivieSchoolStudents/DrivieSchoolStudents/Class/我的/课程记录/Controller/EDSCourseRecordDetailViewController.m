@@ -32,9 +32,14 @@
     self.tableView.separatorColor = ClearColor;
     
     EDSCourseRecordDetailHeaderView *headerView = [[EDSCourseRecordDetailHeaderView alloc] init];
-    headerView.wz_size = CGSizeMake(kScreenWidth, 111);
+    headerView.frame = CGRectMake(15, 10, kScreenWidth-30, 110);
+    headerView.layer.cornerRadius = 5;
+    headerView.clipsToBounds = YES;
     headerView.courseRecordModel = self.courseRecordModel;
-    self.tableView.tableHeaderView = headerView;
+    UIView *view = [UIView new];
+    view.frame = CGRectMake(0, 0, kScreenWidth , 110);
+    [view addSubview:headerView];
+    self.tableView.tableHeaderView = view;
     
     EDSCourseRecordDetailFooterView *footerView = [[EDSCourseRecordDetailFooterView alloc] init];
 //    footerView.wz_size = CGSizeMake(kScreenWidth-40, 321+120);
@@ -42,7 +47,7 @@
     footerView.layer.cornerRadius = 5;
     footerView.clipsToBounds = YES;
     footerView.courseRecordModel = self.courseRecordModel;
-    UIView *view = [UIView new];
+    view = [UIView new];
     view.frame = CGRectMake(0, 0, kScreenWidth , 321+50);
     [view addSubview:footerView];
     self.tableView.tableFooterView = view;
@@ -59,14 +64,18 @@
     }];
     downView.courseRecordDetailDownViewDidButtonBackTitle = ^(NSString *title) {
         
-        if ([title isEqualToString:@"立即评价"]) {
+        if ([title isEqualToString:@"评价课程"]) {
             
             EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
             vc.courseRecordModel = self.courseRecordModel;
+            vc.isCanEdit = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            //查看评价
-            EDSSeeEvaluationViewController *vc = [[EDSSeeEvaluationViewController alloc] initWithNibName:@"EDSSeeEvaluationViewController" bundle:[NSBundle mainBundle]];
+//            //查看评价
+//            EDSSeeEvaluationViewController *vc = [[EDSSeeEvaluationViewController alloc] initWithNibName:@"EDSSeeEvaluationViewController" bundle:[NSBundle mainBundle]];
+//            vc.courseRecordModel = self.courseRecordModel;
+//            [self.navigationController pushViewController:vc animated:YES];
+            EDSCourseRecordCommentViewController *vc = [[EDSCourseRecordCommentViewController alloc] initWithNibName:@"EDSCourseRecordCommentViewController" bundle:[NSBundle mainBundle]];
             vc.courseRecordModel = self.courseRecordModel;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -83,6 +92,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.01;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
