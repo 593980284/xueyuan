@@ -32,35 +32,47 @@
 -(void)initView{
     self.backgroundColor = [UIColor whiteColor];
     
-    _leftTopLabel = [UILabel labelWithText:@"开往幸福的列车" font:[UIFont systemFontOfSize:13] textColor:[UIColor blackColor] backGroundColor:nil superView:self];
+    _leftTopLabel = [UILabel labelWithText:@"" font:[UIFont systemFontOfSize:13] textColor:[UIColor blackColor] backGroundColor:nil superView:self];
     
-    _rightTopLabel = [UILabel labelWithText:@"北戴河->徐州" font:[UIFont systemFontOfSize:10] textColor:[UIColor blackColor] backGroundColor:nil superView:self];
+    _rightTopLabel = [UILabel labelWithText:@"" font:[UIFont systemFontOfSize:10] textColor:[UIColor blackColor] backGroundColor:nil superView:self];
     
     _beginImgLabel =[UIImageView imageViewWithSuperView:self];
     _beginImgLabel.image = [UIImage imageNamed:@"busfInfo_Begin"];
 
-    _beginTimeLabel =[UILabel labelWithText:@"开往幸福的列车" font:[UIFont systemFontOfSize:11] textColor:[UIColor lightGrayColor] backGroundColor:nil superView:self];
+    _beginTimeLabel =[UILabel labelWithText:@"" font:[UIFont systemFontOfSize:11] textColor:[UIColor lightGrayColor] backGroundColor:[UIColor whiteColor] superView:self];
     
     
     
     _endImgLabel =[UIImageView imageViewWithSuperView:self];
     _endImgLabel.image = [UIImage imageNamed:@"busInfo_End"];
   
-    _endTimeLabel = [UILabel labelWithText:@"开往幸福的列车" font:[UIFont systemFontOfSize:11] textColor:[UIColor lightGrayColor] backGroundColor:nil superView:self];
+    _endTimeLabel = [UILabel labelWithText:@"" font:[UIFont systemFontOfSize:11] textColor:[UIColor lightGrayColor] backGroundColor:[UIColor whiteColor] superView:self];
     
     _refeshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _refeshBtn.backgroundColor = [UIColor redColor];
+//    _refeshBtn.backgroundColor = [UIColor redColor];
+    [_refeshBtn setImage:[UIImage imageNamed:@"ic_qiehuan"] forState:UIControlStateNormal];
     [_refeshBtn bk_whenTapped:^{
                       NSLog(@"刷新");
+        if (self.refreshBtnClick) {
+            self.refreshBtnClick();
+        }
     }];
     [self addSubview:_refeshBtn];
     
     [self setConstraint];
 }
+-(void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    self.leftTopLabel.text = dataDic[@"shuttleBusName"];
+    self.rightTopLabel.text = [NSString stringWithFormat:@"%@->%@",dataDic[@"startPlace"],dataDic[@"endPlace"]];
+    self.beginTimeLabel.text = dataDic[@"startTime"];
+    self.endTimeLabel.text = dataDic[@"endTime"];
+    
+}
 -(void)setConstraint{
     [self.leftTopLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.mas_offset(10).equalTo(self);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(120);
         make.height.mas_equalTo(20);
     }];
     [self.rightTopLabel mas_makeConstraints:^(MASConstraintMaker *make) {

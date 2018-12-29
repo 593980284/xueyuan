@@ -7,7 +7,9 @@
 //
 
 #import "EDSBusInfoLeftListItemView.h"
+#define selfHeight 65
 @interface EDSBusInfoLeftListItemView()
+@property (nonatomic,strong) UILabel *nameLabel;
 
 @end
 
@@ -20,24 +22,28 @@
     }
     return self;
 }
+-(void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    self.nameLabel.text = dataDic[@"station"];
+}
 -(void)initView{
-    UIView *leftLine = [[UIView alloc]initWithFrame:CGRectMake(5, 0, 1, 80)];
+    UIView *leftLine = [[UIView alloc]initWithFrame:CGRectMake(5, 0, 1, selfHeight)];
     leftLine.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:leftLine];
     
-    UIView *cirView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 3, 3)];
+    UIView *cirView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 5)];
     cirView.clipsToBounds = YES;
-    cirView.layer.cornerRadius = 1.5;
+    cirView.layer.cornerRadius = 2.5;
     cirView.backgroundColor = [UIColor grayColor];
-    cirView.center = CGPointMake(5, 40);
+    cirView.center = CGPointMake(5, selfHeight/2);
     [self addSubview:cirView];
     
-    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(leftLine.wz_right + 10, 30, 50, 20)];
-    nameLabel.text = @"北京";
+    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(leftLine.wz_right + 10, (selfHeight - 20)/2, 50, 20)];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.text = @"";
     nameLabel.font = [UIFont systemFontOfSize:15];
     [self addSubview:nameLabel];
-    
-    
+    _nameLabel = nameLabel;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -15,6 +15,7 @@
 #import "EDSMsgCodeLoginRequest.h"
 #import "EDSStudentLoginRequest.h"
 #import "EDSMsgCodeRequest.h"
+#import "EDSSsoLoginRequest.h"
 #import "EDSStudentLoginRequest.h"
 #import "EDSAppStudentOperatingSystemRequest.h"
 #import "RegisterViewController.h"
@@ -181,8 +182,53 @@
 		NSLog(@" gender: %@", resp.unionGender);
 		// 第三方平台SDK原始数据
 		NSLog(@" originalResponse: %@", resp.originalResponse);
+		
+		[self loginForPlatForm:platformType openId:resp.openid];
 	}];
 }
+-(void)loginForPlatForm:(UMSocialPlatformType)plateformType openId:(NSString *)openId{
+	//	登录方式，1：qq登录，
+	//2：微信登录
+	NSString *type = @"0";
+	if (plateformType == UMSocialPlatformType_QQ) {
+		type = @"1";
+	}else if(plateformType == UMSocialPlatformType_WechatSession){
+		type = @"2";
+	}
+	if (openId) {
+		[SVProgressHUD showWithStatus:@""];
+		EDSSsoLoginRequest *request = [EDSSsoLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+			[SVProgressHUD dismiss];
+			
+			if (errCode == 1) {
+				
+				if ([EDSToolClass isBlankString:[NSString stringWithFormat:@"%@",[EDSSave account].phone]]) {
+					
+					EDSLoginSettingsPasswordViewController *vc = [[EDSLoginSettingsPasswordViewController alloc] initWithNibName:@"EDSLoginSettingsPasswordViewController" bundle:[NSBundle mainBundle]];
+					vc.phone = self.pswPhoneTextF.text;
+					[self presentViewController:vc animated:YES completion:nil];
+					
+				}else{
+					
+					[self dismissToRootViewController];
+				}
+			}
+			
+		} failureBlock:^(NSError *error) {
+			[SVProgressHUD dismiss];
+		}];
+		request.openId = openId;
+		request.type = type;
+		request.showHUD = YES;
+		[request startRequest];
+	}else{
+		//            [SVProgressHUD showErrorWithStatus:@"请输入完整信息"];
+		//            [SVProgressHUD dismissWithDelay:1.5];
+		[self.view makeToast:@"openId获取失败"];
+		return;
+	}
+}
+
 - (IBAction)loginClick:(id)sender {
 //
 //    if (!self.userAgreementBtn.selected) {
