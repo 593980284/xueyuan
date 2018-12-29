@@ -120,6 +120,8 @@
 		C493A11E21CE4F2300C658C2 /* EDSBusInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C493A11D21CE4F2300C658C2 /* EDSBusInfoVC.m */; };
 		C493A12121CE97EA00C658C2 /* EDSBusInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C493A12021CE97EA00C658C2 /* EDSBusInfoModel.m */; };
 		C493A12421CE988000C658C2 /* EDSBusInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C493A12321CE988000C658C2 /* EDSBusInfoTopView.m */; };
+		C4B507CF21D65BD600C7659C /* EDSSubOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B507CE21D65BD600C7659C /* EDSSubOneView.m */; };
+		C4B507D121D65BEC00C7659C /* EDSSubOneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B507D021D65BEC00C7659C /* EDSSubOneView.xib */; };
 		C4BC187221CF6DC600235AF3 /* EDSBusInfoLeftListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187121CF6DC600235AF3 /* EDSBusInfoLeftListView.m */; };
 		C4BC187521CF6FC800235AF3 /* EDSBusInfoLeftListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187421CF6FC800235AF3 /* EDSBusInfoLeftListItemView.m */; };
 		C4BC187821CF730400235AF3 /* EDSBusInfoRightListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187721CF730400235AF3 /* EDSBusInfoRightListView.m */; };
@@ -2433,6 +2435,9 @@
 		C493A12021CE97EA00C658C2 /* EDSBusInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoModel.m; sourceTree = "<group>"; };
 		C493A12221CE988000C658C2 /* EDSBusInfoTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoTopView.h; sourceTree = "<group>"; };
 		C493A12321CE988000C658C2 /* EDSBusInfoTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoTopView.m; sourceTree = "<group>"; };
+		C4B507CD21D65BD600C7659C /* EDSSubOneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSSubOneView.h; sourceTree = "<group>"; };
+		C4B507CE21D65BD600C7659C /* EDSSubOneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSSubOneView.m; sourceTree = "<group>"; };
+		C4B507D021D65BEC00C7659C /* EDSSubOneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSSubOneView.xib; sourceTree = "<group>"; };
 		C4BC187021CF6DC600235AF3 /* EDSBusInfoLeftListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoLeftListView.h; sourceTree = "<group>"; };
 		C4BC187121CF6DC600235AF3 /* EDSBusInfoLeftListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoLeftListView.m; sourceTree = "<group>"; };
 		C4BC187321CF6FC800235AF3 /* EDSBusInfoLeftListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoLeftListItemView.h; sourceTree = "<group>"; };
@@ -5153,6 +5158,16 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		C4B507CC21D6561500C7659C /* 科一 */ = {
+			isa = PBXGroup;
+			children = (
+				C4B507CD21D65BD600C7659C /* EDSSubOneView.h */,
+				C4B507CE21D65BD600C7659C /* EDSSubOneView.m */,
+				C4B507D021D65BEC00C7659C /* EDSSubOneView.xib */,
+			);
+			path = "科一";
+			sourceTree = "<group>";
+		};
 		C4BC187C21CF7E3700235AF3 /* service */ = {
 			isa = PBXGroup;
 			children = (
@@ -7723,6 +7738,7 @@
 		E9A61AA821379F89006E5C2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4B507CC21D6561500C7659C /* 科一 */,
 				10F74D7E214D0A2C00FA3ECC /* 科三 */,
 				10F74D78214D08D300FA3ECC /* 科二 */,
 				E9A61AAC2137BD05006E5C2B /* EDSTheoryLearningHeaderView.h */,
@@ -8283,6 +8299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E952D3C8214268FF00EA3A0A /* jtbz_jg64.jpg in Resources */,
+				C4B507D121D65BEC00C7659C /* EDSSubOneView.xib in Resources */,
 				E952D01C214268FE00EA3A0A /* 563.jpg in Resources */,
 				E952D5AD214268FF00EA3A0A /* 1570.jpg in Resources */,
 				E952CEC1214268FD00EA3A0A /* jtbz_zlu86.png in Resources */,
@@ -10318,6 +10335,7 @@
 				10ED4E61214A6DBF00DF50F7 /* EDSTestCaseView.m in Sources */,
 				E9A61A9F21378D29006E5C2B /* EDSHeaderPageButtonView.m in Sources */,
 				E9A61A812136A655006E5C2B /* EDSChangePhoneOneViewController.m in Sources */,
+				C4B507CF21D65BD600C7659C /* EDSSubOneView.m in Sources */,
 				C493A12421CE988000C658C2 /* EDSBusInfoTopView.m in Sources */,
 				10A10500215CDD9D003601EC /* UIImage+Ext.m in Sources */,
 				E9A619B62133D736006E5C2B /* EDSMyHeaderView.m in Sources */,

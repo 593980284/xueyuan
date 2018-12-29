@@ -26,10 +26,13 @@
 #import "EDSSubjectTwoView.h"
 #import "EDSSubjectThreeView.h"
 
+//hyf
+#import "EDSSubOneView.h"
 @interface EDSTheoryLearningViewController ()
 
 /** 科目一 */
-@property (nonatomic, strong) EDSTheoryLearningSubjectOneView  *subjectOneView;
+//@property (nonatomic, strong) EDSTheoryLearningSubjectOneView  *subjectOneView;
+@property (nonatomic, strong) EDSSubOneView  *subjectOneView;
 /** 科目二 */
 @property (nonatomic, strong) EDSSubjectTwoView  *subjectTwoView;
 /** 科目三 */
@@ -81,35 +84,89 @@
     self.subjectTwoView.hidden = YES;
     self.subjectThreeView.hidden = YES;
     self.subjectFourView.hidden = YES;
-    [self.subjectOneView.practiceBgView  bk_whenTapped:^{
-        DLog(@"练习");
-        EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
     
-    [self.subjectOneView.examBgView bk_whenTapped:^{
-        DLog(@"考试");
-        EDSFirstSubjectExamViewController *vc = [[EDSFirstSubjectExamViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    
-    [self.subjectOneView.speakTextBgView bk_whenTapped:^{
-        DLog(@"背题");
-        EDSRecitedPoliticsViewController *vc = [[EDSRecitedPoliticsViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    
-    [self.subjectOneView.collectBgView bk_whenTapped:^{
-        DLog(@"收藏");
-        EDSCollectionViewController *vc = [[EDSCollectionViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    
-    [self.subjectOneView.mistakesBgView bk_whenTapped:^{
-        DLog(@"错题");
-        EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
+//    @weakify(self);
+    self.subjectOneView.btnClickBlock = ^(NSInteger indexType) {
+        //0 s顺序学习 1随机学习 2专项练习 3我的错题 4图标技巧 5 模拟考试
+//    @strongify(self);
+        switch (indexType) {
+            case 0:
+            {
+                EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            case 1:
+            {
+                EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+
+            case 2:
+            {
+                EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            case 3:
+            {
+                //错题
+            EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+
+            }
+                break;
+            case 4:
+            {
+                //技巧
+                EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }
+                break;
+            case 5:
+            {
+                //模拟考试
+                EDSFirstSubjectExamViewController *vc = [[EDSFirstSubjectExamViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            default:
+                break;
+        }
+   
+        
+    };
+//    [self.subjectOneView.practiceBgView  bk_whenTapped:^{
+//        DLog(@"练习");
+//        EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+//
+//    [self.subjectOneView.examBgView bk_whenTapped:^{
+//        DLog(@"考试");
+//        EDSFirstSubjectExamViewController *vc = [[EDSFirstSubjectExamViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+//
+//    [self.subjectOneView.speakTextBgView bk_whenTapped:^{
+//        DLog(@"背题");
+//        EDSRecitedPoliticsViewController *vc = [[EDSRecitedPoliticsViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+//
+//    [self.subjectOneView.collectBgView bk_whenTapped:^{
+//        DLog(@"收藏");
+//        EDSCollectionViewController *vc = [[EDSCollectionViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+//
+//    [self.subjectOneView.mistakesBgView bk_whenTapped:^{
+//        DLog(@"错题");
+//        EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
     
     
     [self.subjectFourView.practiceBgView bk_whenTapped:^{
@@ -143,11 +200,24 @@
 
 #pragma mark ------------------------ 懒加载 --------------------------------
 
-- (EDSTheoryLearningSubjectOneView *)subjectOneView
+//- (EDSTheoryLearningSubjectOneView *)subjectOneView
+//{
+//    if (!_subjectOneView) {
+//
+//        _subjectOneView = [[EDSTheoryLearningSubjectOneView alloc] init];
+//        [self.view addSubview:_subjectOneView];
+//        [_subjectOneView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.bottom.mas_equalTo(0);
+//            make.top.mas_equalTo(45);
+//        }];
+//    }
+//    return _subjectOneView;
+//}
+- (EDSSubOneView *)subjectOneView
 {
     if (!_subjectOneView) {
         
-        _subjectOneView = [[EDSTheoryLearningSubjectOneView alloc] init];
+        _subjectOneView = [[EDSSubOneView alloc] init];
         [self.view addSubview:_subjectOneView];
         [_subjectOneView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
@@ -156,6 +226,7 @@
     }
     return _subjectOneView;
 }
+
 
 - (EDSSubjectTwoView *)subjectTwoView
 {

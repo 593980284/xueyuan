@@ -420,10 +420,10 @@
     headerView.detailLb.text = detail;
     headerView.moreLb.text = more;
     
-    headerView.clickActionBlock = ^{
-        EDSBusInfoVC *vc = [EDSBusInfoVC new];
-        [self.navigationController pushViewController:vc animated:YES];
-    };
+//    headerView.clickActionBlock = ^{
+//        EDSBusInfoVC *vc = [EDSBusInfoVC new];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    };
     
     return headerView;
 }
