@@ -18,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *thirdImageV;
 @property (weak, nonatomic) IBOutlet UIImageView *fourImageV;
 
-@property (nonatomic,strong) EDSTBPracticeModel *model;
-@property (nonatomic,strong) NSArray *dataArr;
+//@property (nonatomic,strong) EDSTBPracticeModel *model;
+@property (nonatomic,strong) NSDictionary *dataDic;
+
 
 +(instancetype)getCellWithId:(NSString *)cellID andTableView:(UITableView *)tableView;
 @end

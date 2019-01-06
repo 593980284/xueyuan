@@ -21,16 +21,15 @@
     }
     return cell;
 }
-//-(void)setModel:(EDSTBPracticeModel *)model{
-//    _model = model;
-//
-//    self.topTitleLabel.text = model.titleStr;
-//    self.firstImagV.image = [UIImage imageNamed:model.firstImgUrl];
-//
-//}
--(void)setDataArr:(NSArray *)dataArr{
-    _dataArr = dataArr;
-//    self.topTitleLabel
+
+
+-(void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    self.topTitleLabel.text = dataDic[@"title"];
+    self.firstImagV.image = [UIImage imageNamed:dataDic[@"arr"][0][@"icon"]];
+    self.secImageV.image = [UIImage imageNamed:dataDic[@"arr"][1][@"icon"]];
+    self.thirdImageV.image = [UIImage imageNamed:dataDic[@"arr"][2][@"icon"]];
+    self.fourImageV.image = [UIImage imageNamed:dataDic[@"arr"][3][@"icon"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

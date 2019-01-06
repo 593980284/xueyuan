@@ -96,12 +96,14 @@
             case 0:
             {
                 EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+                vc.type = 0;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 1:
             {
                 EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+                vc.type = 1;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;

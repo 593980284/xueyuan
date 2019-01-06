@@ -24,14 +24,34 @@
     
     // Do any additional setup after loading the view.
 }
-
+-(void)setDataArr:(NSArray *)dataArr{
+    _dataArr = dataArr;
+    [self.tableView reloadData];
+}
 #pragma mark delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   
-    return 10;
+    if (_dataArr.count % 2 == 0) {
+        return _dataArr.count/2;
+    }else{
+        return _dataArr.count/2 + 1;
+    }
+
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+     NSDictionary *dic1 =  _dataArr[indexPath.row * 2];
+    NSDictionary  *dic2 ;
+    if (_dataArr.count >  indexPath.row * 2 + 1 ) {
+       dic2 =  _dataArr[indexPath.row * 2 +1];
+    }
     EDSTBDetailListCell * cell =  [EDSTBDetailListCell getCellWithId:@"EDSTBListCell" andTableView:tableView];
+    cell.firstTilteLabel.text = dic1[@"title"];
+    cell.firstImagV.image = [UIImage imageNamed:dic1[@"icon"]];
+    
+    if (dic2) {
+        cell.secTitleLabel.text = dic2[@"title"];
+        cell.secImagV.image = [UIImage imageNamed:dic2[@"icon"]];
+    }
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

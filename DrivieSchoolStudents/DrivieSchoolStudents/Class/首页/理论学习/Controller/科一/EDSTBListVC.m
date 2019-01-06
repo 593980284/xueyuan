@@ -11,6 +11,8 @@
 #import "EDSYBPListVC.h"
 #import "EDSTBPracticeModel.h"
 
+#import "EDSTBJQDataBase.h"
+
 @interface EDSTBListVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSArray *listArr;
 
@@ -25,6 +27,37 @@
     self.tableView.dataSource = self;
     self.navigationItem.title = @"图标速记";
     
+    
+    
+//    1 3  7 4 6 4 8  2道路图标  14 汽车仪表 15 车内功能按键 17交通事故
+//    NSArray * tubiaoArr = [[EDSTBJQDataBase sharedDataBase]getTuBiaoWithCid:1 andlimit:4];
+//    NSLog(@"%@",tubiaoArr);
+    
+   NSArray * daoluArr = [[EDSTBJQDataBase sharedDataBase]getDaoLuTuBaio];
+   NSArray * yibiaoArr =  [[EDSTBJQDataBase sharedDataBase]getQiCheYiBiao];
+  NSArray * gongnengjianArr =   [[EDSTBJQDataBase sharedDataBase]getCheNeiGongNengJian];
+  NSArray * jiaotongshigu =   [[EDSTBJQDataBase sharedDataBase]getJiaoTongShiGu];
+    _listArr = @[
+                 @{
+                     @"title":@"交通标志大全",
+                     @"arr":daoluArr,
+                     },
+                 @{
+                     @"title":@"汽车仪表盘指示灯",
+                     @"arr":yibiaoArr,
+                     },
+                 @{
+                     @"title":@"车内功能按键",
+                     @"arr":gongnengjianArr,
+                     },
+                 @{
+                     @"title":@"交通事故图解",
+                     @"arr":jiaotongshigu,
+                     }
+                ];
+    
+    [self.tableView reloadData];
+    
 //    return listArr;
     
     // Do any additional setup after loading the view.
@@ -37,7 +70,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     EDSTBListCell * cell =  [EDSTBListCell getCellWithId:@"EDSTBListCell" andTableView:tableView];
-    cell.model = _listArr[indexPath.row];
+    cell.dataDic = _listArr[indexPath.row];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -45,6 +78,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     EDSYBPListVC *vc = [EDSYBPListVC new];
+    
+    vc.dataArr = _listArr[indexPath.row][@"arr"];
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 

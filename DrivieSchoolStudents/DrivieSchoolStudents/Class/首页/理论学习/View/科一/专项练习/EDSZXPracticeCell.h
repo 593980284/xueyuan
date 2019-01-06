@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSZXPracticeCell : UITableViewCell
+
+@property (nonatomic,strong) NSDictionary *dataDic;
 // 0 1 2 3 从左到右依次 item点击回调
 @property (nonatomic,copy) void (^btnClickBlock)(NSInteger clickType);
-
 +(instancetype)getCellWithId:(NSString *)cellID andTableView:(UITableView *)tableView;
 @end
 

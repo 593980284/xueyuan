@@ -132,6 +132,7 @@
 		C4B507EA21DCA0F500C7659C /* EDSTBDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B507E821DCA0F400C7659C /* EDSTBDetailListCell.m */; };
 		C4B507EB21DCA0F500C7659C /* EDSTBDetailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B507E921DCA0F400C7659C /* EDSTBDetailListCell.xib */; };
 		C4B507EE21DCC03300C7659C /* EDSTBPracticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B507ED21DCC03300C7659C /* EDSTBPracticeModel.m */; };
+		C4B507F121E237CD00C7659C /* EDSTBJQDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B507F021E237CD00C7659C /* EDSTBJQDataBase.m */; };
 		C4BC187221CF6DC600235AF3 /* EDSBusInfoLeftListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187121CF6DC600235AF3 /* EDSBusInfoLeftListView.m */; };
 		C4BC187521CF6FC800235AF3 /* EDSBusInfoLeftListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187421CF6FC800235AF3 /* EDSBusInfoLeftListItemView.m */; };
 		C4BC187821CF730400235AF3 /* EDSBusInfoRightListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BC187721CF730400235AF3 /* EDSBusInfoRightListView.m */; };
@@ -2465,6 +2466,8 @@
 		C4B507E921DCA0F400C7659C /* EDSTBDetailListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EDSTBDetailListCell.xib; sourceTree = "<group>"; };
 		C4B507EC21DCC03300C7659C /* EDSTBPracticeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTBPracticeModel.h; sourceTree = "<group>"; };
 		C4B507ED21DCC03300C7659C /* EDSTBPracticeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTBPracticeModel.m; sourceTree = "<group>"; };
+		C4B507EF21E237CD00C7659C /* EDSTBJQDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSTBJQDataBase.h; sourceTree = "<group>"; };
+		C4B507F021E237CD00C7659C /* EDSTBJQDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSTBJQDataBase.m; sourceTree = "<group>"; };
 		C4BC187021CF6DC600235AF3 /* EDSBusInfoLeftListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoLeftListView.h; sourceTree = "<group>"; };
 		C4BC187121CF6DC600235AF3 /* EDSBusInfoLeftListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDSBusInfoLeftListView.m; sourceTree = "<group>"; };
 		C4BC187321CF6FC800235AF3 /* EDSBusInfoLeftListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSBusInfoLeftListItemView.h; sourceTree = "<group>"; };
@@ -7252,6 +7255,8 @@
 				10F74DA1214D0FD800FA3ECC /* EDSFourDataBase.m */,
 				105A8BCB215258EA00B3E092 /* EDSFourSubjectExamBase.h */,
 				105A8BCC215258EA00B3E092 /* EDSFourSubjectExamBase.m */,
+				C4B507EF21E237CD00C7659C /* EDSTBJQDataBase.h */,
+				C4B507F021E237CD00C7659C /* EDSTBJQDataBase.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -10637,6 +10642,7 @@
 				10EDA158214F51F600C43EB4 /* EDSSubjectFourPracticeViewController.m in Sources */,
 				E9A61A1221355A08006E5C2B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				E9A61ACA2137FB87006E5C2B /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
+				C4B507F121E237CD00C7659C /* EDSTBJQDataBase.m in Sources */,
 				E9A619FE213527B2006E5C2B /* EDSAppTouristRegistRequest.m in Sources */,
 				10C2FCA2214B598900498C52 /* EDSStudentEvaluationCoachRequest.m in Sources */,
 				C4B507EE21DCC03300C7659C /* EDSTBPracticeModel.m in Sources */,

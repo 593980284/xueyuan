@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EDSYBPListVC : BHYBaseViewController
 
+@property (nonatomic,strong) NSArray * dataArr;
+
 @end
 
 NS_ASSUME_NONNULL_END
