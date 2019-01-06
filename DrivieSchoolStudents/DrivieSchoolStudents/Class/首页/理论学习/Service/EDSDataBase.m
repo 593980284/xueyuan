@@ -29,6 +29,7 @@ static FMDatabaseQueue *_queue = nil;
         NSString *documentDirectory = [paths objectAtIndex:0];
         //dbPath： 数据库路径，在Document中。
         NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"bank.db"];
+        NSLog(@"hyf-----%@",dbPath);
         _DBCtl = [[EDSDataBase alloc] init];
         _queue =  [FMDatabaseQueue databaseQueueWithPath:dbPath];
     }
@@ -92,7 +93,7 @@ static FMDatabaseQueue *_queue = nil;
     _db = [FMDatabase databaseWithPath:dbPath];
 }
 
-
+//获取随机题目
 - (EDSQuestionModel *)getRandomSubjectFirst
 {
     [_db open];

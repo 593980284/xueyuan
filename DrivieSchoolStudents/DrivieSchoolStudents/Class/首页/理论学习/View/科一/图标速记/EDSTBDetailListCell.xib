@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="EDSTBDetailListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uf-pN-TWj">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="131.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="103.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-3n-Eej">
+                                <rect key="frame" x="55" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fnj-3V-bI5"/>
+                                    <constraint firstAttribute="width" constant="50" id="IO0-Vb-5SI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手刹指示灯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfe-FX-PBp">
+                                <rect key="frame" x="0.0" y="101.5" width="160" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Z44-8w-dWG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.4823529412" green="0.4823529412" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Tfe-FX-PBp" secondAttribute="trailing" id="NAm-us-H8B"/>
+                            <constraint firstItem="cBJ-3n-Eej" firstAttribute="centerX" secondItem="7Uf-pN-TWj" secondAttribute="centerX" id="TGw-q8-Zd9"/>
+                            <constraint firstAttribute="bottom" secondItem="Tfe-FX-PBp" secondAttribute="bottom" constant="10" id="c18-o8-Ar6"/>
+                            <constraint firstItem="Tfe-FX-PBp" firstAttribute="leading" secondItem="7Uf-pN-TWj" secondAttribute="leading" id="fAe-YU-Ndm"/>
+                            <constraint firstItem="cBJ-3n-Eej" firstAttribute="top" secondItem="7Uf-pN-TWj" secondAttribute="top" constant="20" id="rqg-Gt-avw"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6OW-wP-TzA">
+                        <rect key="frame" x="160" y="0.0" width="160" height="131.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手刹指示灯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QI-71-lQf">
+                                <rect key="frame" x="0.0" y="101.5" width="160" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="rzH-F9-pV1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.4823529412" green="0.4823529412" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="103.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lal-sU-HOV">
+                                <rect key="frame" x="55" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nxx-bs-CBS"/>
+                                    <constraint firstAttribute="width" constant="50" id="yQj-eo-oWU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lal-sU-HOV" firstAttribute="top" secondItem="6OW-wP-TzA" secondAttribute="top" constant="20" id="FTq-lI-AYx"/>
+                            <constraint firstItem="lal-sU-HOV" firstAttribute="centerX" secondItem="6OW-wP-TzA" secondAttribute="centerX" id="LMH-Sm-tn7"/>
+                            <constraint firstAttribute="trailing" secondItem="7QI-71-lQf" secondAttribute="trailing" id="OOQ-Jm-hwb"/>
+                            <constraint firstAttribute="bottom" secondItem="7QI-71-lQf" secondAttribute="bottom" constant="10" id="ZAw-jy-nWR"/>
+                            <constraint firstItem="7QI-71-lQf" firstAttribute="leading" secondItem="6OW-wP-TzA" secondAttribute="leading" id="aII-cI-QdJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6OW-wP-TzA" firstAttribute="width" secondItem="7Uf-pN-TWj" secondAttribute="width" id="0Ms-AZ-wvB"/>
+                    <constraint firstItem="7Uf-pN-TWj" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:2" id="0r4-BL-Ffm"/>
+                    <constraint firstItem="6OW-wP-TzA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1vL-uv-wii"/>
+                    <constraint firstAttribute="bottom" secondItem="6OW-wP-TzA" secondAttribute="bottom" id="5HD-Aw-0qH"/>
+                    <constraint firstItem="7Uf-pN-TWj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6O2-ZY-kae"/>
+                    <constraint firstItem="7Uf-pN-TWj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="c7L-QG-1Zn"/>
+                    <constraint firstItem="6OW-wP-TzA" firstAttribute="leading" secondItem="7Uf-pN-TWj" secondAttribute="trailing" id="iB7-xE-2kr"/>
+                    <constraint firstAttribute="bottom" secondItem="7Uf-pN-TWj" secondAttribute="bottom" id="uC9-31-pTa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="firstImagV" destination="cBJ-3n-Eej" id="cJP-In-Cp7"/>
+                <outlet property="firstTilteLabel" destination="Tfe-FX-PBp" id="oob-XB-X9k"/>
+                <outlet property="secImagV" destination="lal-sU-HOV" id="5DC-mf-T0V"/>
+                <outlet property="secTitleLabel" destination="7QI-71-lQf" id="GHF-rU-XpE"/>
+            </connections>
+            <point key="canvasLocation" x="152" y="84.557721139430285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="103.jpg" width="600" height="240"/>
+    </resources>
+</document>

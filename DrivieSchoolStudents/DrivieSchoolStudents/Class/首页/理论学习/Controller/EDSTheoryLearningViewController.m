@@ -28,6 +28,9 @@
 
 //hyf
 #import "EDSSubOneView.h"
+#import "EDSZXPracticeVC.h"
+#import "EDSTBListVC.h"
+
 @interface EDSTheoryLearningViewController ()
 
 /** 科目一 */
@@ -105,7 +108,9 @@
 
             case 2:
             {
-                EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+//                EDSPracticeViewController *vc = [[EDSPracticeViewController alloc] init];
+//                [self.navigationController pushViewController:vc animated:YES];
+                EDSZXPracticeVC * vc = [EDSZXPracticeVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -120,7 +125,8 @@
             case 4:
             {
                 //技巧
-                EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
+                   EDSTBListVC * vc = [EDSTBListVC new];
+//                EDSEorrorsViewController *vc = [[EDSEorrorsViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }
