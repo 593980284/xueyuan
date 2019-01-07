@@ -14,6 +14,7 @@
 #import "EDSSchoolRegionModel.h"
 #import "MJRefreshAutoNormalFooter.h"
 #import "MJRefreshNormalHeader.h"
+#import "EDSBusInfoVC.h"
 
 @interface EDSCatView()<UITableViewDelegate,UITableViewDataSource>
 /** tableView */
@@ -147,6 +148,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 170*HC_750Ratio;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary * tempDic = self.listArr[indexPath.row];
+    EDSBusInfoVC * infoVC = [EDSBusInfoVC new];
+    infoVC.busInfoId = tempDic[@"id"];
+    [self.parentView.navigationController pushViewController:infoVC animated:YES];
 }
 
 //#pragma mark - firstTableView的代理方法scrollViewDidScroll

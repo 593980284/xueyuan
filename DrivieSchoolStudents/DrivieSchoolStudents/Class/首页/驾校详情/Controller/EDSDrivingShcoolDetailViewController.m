@@ -298,6 +298,7 @@
         _carView = [[EDSCatView alloc] init];
         _carView.topView = self.topView;
         _carView.schoolId = self.schoolId;
+        _carView.parentView = self;
         [self.view addSubview:_carView];
         [_carView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);

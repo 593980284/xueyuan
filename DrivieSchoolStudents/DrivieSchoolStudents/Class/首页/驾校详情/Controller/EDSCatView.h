@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) EDSEDSDrivingDetailsHeaderView  *topView;
 /** 学校id */
 @property (nonatomic, copy) NSString *schoolId;
+@property (nonatomic, strong) UIViewController  *parentView;
 @end
 
 NS_ASSUME_NONNULL_END

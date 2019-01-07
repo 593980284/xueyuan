@@ -47,12 +47,14 @@
     [_scrollView addSubview:view];
     [_scrollView addSubview:_webView];
     
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(0);
-        make.width.mas_equalTo(self.view.frame.size.width);
+        make.width.mas_equalTo(width);
         make.height.mas_equalTo(190*HC_750Ratio);
     }];
-    _webView.frame = CGRectMake(0, 190*HC_750Ratio + 1, self.view.bounds.size.width, self.view.bounds.size.height- 190*HC_750Ratio);
+    _webView.frame = CGRectMake(0, 190*HC_750Ratio + 1, width, self.view.bounds.size.height- 190*HC_750Ratio);
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     [self.webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
