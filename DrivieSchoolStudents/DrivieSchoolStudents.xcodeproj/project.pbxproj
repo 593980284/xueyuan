@@ -137,6 +137,7 @@
 		CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663E21BD709F00754B0E /* StyleTableViewCell.m */; };
 		CD1366D221BE7B3700754B0E /* LunRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D121BE7B3700754B0E /* LunRequest.m */; };
 		CD1366D521BE7D6100754B0E /* HtmlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D421BE7D6100754B0E /* HtmlVC.m */; };
+		CD1AA60121D71CF5007F045D /* LessonDetailsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */; };
 		CD1E540821D2271E007103A1 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E540721D2271E007103A1 /* SelectView.m */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
@@ -2467,6 +2468,8 @@
 		CD1366D121BE7B3700754B0E /* LunRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LunRequest.m; sourceTree = "<group>"; };
 		CD1366D321BE7D6100754B0E /* HtmlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlVC.h; sourceTree = "<group>"; };
 		CD1366D421BE7D6100754B0E /* HtmlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlVC.m; sourceTree = "<group>"; };
+		CD1AA5FF21D71CF5007F045D /* LessonDetailsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LessonDetailsRequest.h; sourceTree = "<group>"; };
+		CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LessonDetailsRequest.m; sourceTree = "<group>"; };
 		CD1E540621D2271E007103A1 /* SelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
 		CD1E540721D2271E007103A1 /* SelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
@@ -4900,6 +4903,8 @@
 				CD9A2E09218C527F00AFCE1F /* MyCoachRequest.m */,
 				CD760C0B218D89BA002ED128 /* ChangeCoachRequest.h */,
 				CD760C0C218D89BA002ED128 /* ChangeCoachRequest.m */,
+				CD1AA5FF21D71CF5007F045D /* LessonDetailsRequest.h */,
+				CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -10303,6 +10308,7 @@
 				CD760C0D218D89BA002ED128 /* ChangeCoachRequest.m in Sources */,
 				10F74D65214CD5B500FA3ECC /* EDSCommentSubmitReqest.m in Sources */,
 				E90F8FF1213D27FE0061F448 /* EDSThirdView.m in Sources */,
+				CD1AA60121D71CF5007F045D /* LessonDetailsRequest.m in Sources */,
 				E9A619C92133FE68006E5C2B /* EDSDriveSchollInfomationHeaderView.m in Sources */,
 				E9A61AAE2137BD05006E5C2B /* EDSTheoryLearningHeaderView.m in Sources */,
 				E965386B213E266200EDC3B8 /* PopoverPresentationController.m in Sources */,

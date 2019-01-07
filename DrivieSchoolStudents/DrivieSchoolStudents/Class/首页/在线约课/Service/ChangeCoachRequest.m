@@ -16,13 +16,14 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{
-             @"phone":_phone,
-             @"applyReason": _applyReason,
-             @"coachId": _coachId,
-             @"classId": _classId,
-             @"subjectId": _subjectId
-             };
+//    return @{
+//             @"phone":_phone,
+//             @"applyReason": _applyReason,
+//             @"coachId": _coachId,
+//             @"classId": _classId,
+//             @"subjectId": _subjectId
+//             };
+    return [self mj_keyValues];
 }
 
 - (HQMRequestMethod)requestMethod

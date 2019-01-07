@@ -345,9 +345,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
-    vc.schoolId = self.listsArr[indexPath.row].schoolId;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.selectBlock) {
+        self.selectBlock(self.listsArr[indexPath.row].schoolId, self.listsArr[indexPath.row].schoolName);
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+        vc.schoolId = self.listsArr[indexPath.row].schoolId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

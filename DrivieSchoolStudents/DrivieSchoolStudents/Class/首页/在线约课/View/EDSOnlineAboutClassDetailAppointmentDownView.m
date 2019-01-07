@@ -78,7 +78,7 @@
         EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model1) {
             
             if (errCode == 1) {
-                
+                self.refreshBlock();
                 self.signinBtn.hidden = NO;
                 self.canleBtn.hidden = NO;
                 self.determineBtn.hidden = YES;
@@ -109,9 +109,9 @@
         
         @strongify(self);
         EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-            
+            self.refreshBlock();
             if (errCode == 1) {
-                
+                self.refreshBlock();
                 self.determineBtn.hidden = YES;
                 self.signinBtn.hidden = YES;
                 self.canleBtn.hidden = YES;
@@ -141,7 +141,7 @@
                 EDSStudentAppointmentRequest *request = [EDSStudentAppointmentRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
                     
                     if (errCode == 1) {
-                        
+                        self.refreshBlock();
                         self.determineBtn.hidden = NO;
                         self.signinBtn.hidden = YES;
                         self.canleBtn.hidden = YES;

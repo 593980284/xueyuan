@@ -22,20 +22,32 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.contentView.backgroundColor = WhiteColor;
     self.bgView.backgroundColor = WhiteColor;
-    self.bgView.layer.masksToBounds = YES;
-    self.bgView.layer.cornerRadius = 5;
-    self.bgView.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.bgView.layer.borderWidth = 1;
+//    self.bgView.layer.masksToBounds = YES;
+//    self.bgView.layer.cornerRadius = 5;
+//    self.bgView.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.bgView.layer.borderWidth = 1;
+    
+    UIView *view = [UIView new];
+    view.layer.masksToBounds = YES;
+    view.layer.cornerRadius = 5;
+    view.layer.borderColor = RGBCOLOR(246, 246, 246).CGColor;
+    view.layer.borderWidth = 1;
+    [self.bgView insertSubview:view atIndex:0 ];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(45);
+    }];
     
     self.drivingSchoolBgView.layer.masksToBounds = YES;
     self.drivingSchoolBgView.layer.cornerRadius = 5;
-    self.drivingSchoolBgView.layer.borderColor = SeparatorCOLOR.CGColor;
+    self.drivingSchoolBgView.layer.borderColor = ThemeColor.CGColor;
     self.drivingSchoolBgView.layer.borderWidth = 1;
     
     self.carTypeBgView.layer.masksToBounds = YES;
     self.carTypeBgView.layer.cornerRadius = 5;
-    self.carTypeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
+    self.carTypeBgView.layer.borderColor = ThemeColor.CGColor;
     self.carTypeBgView.layer.borderWidth = 1;
     
     @weakify(self);

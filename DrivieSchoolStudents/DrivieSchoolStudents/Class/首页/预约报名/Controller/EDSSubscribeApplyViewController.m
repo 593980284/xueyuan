@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"预约报名";
+    self.navigationItem.title = @"我要报名";
     self.carTypeArr = [[NSArray alloc] init];
     self.chooseBoxModelArr = [[NSMutableArray alloc] init];
 
@@ -63,6 +63,9 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     backBtn.wz_size = CGSizeMake(25, 40);
     self.navigationItem.leftBarButtonItem = item;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 30)];
 
     [self setup];
     [self getcoachCarTypeRequest];
@@ -99,7 +102,7 @@
                                              ];
     
     UIButton *determineBtn = [[UIButton alloc] init];
-    [determineBtn setTitle:@"确认预约" forState:UIControlStateNormal];
+    [determineBtn setTitle:@"提交" forState:UIControlStateNormal];
     [determineBtn setTitleColor:WhiteColor forState:UIControlStateNormal];
     determineBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     determineBtn.backgroundColor = ThemeColor;
@@ -118,10 +121,13 @@
         [self submitrRequestData];
     }];
     
-    UILabel *label = [UILabel labelWithText:@"注：驾校工作时间为9:00:00-17:00:00" font:kFont(14) textColor:SecondColor backGroundColor:ClearColor superView:self.view];
+    UILabel *label = [UILabel labelWithText:@"  注：驾校工作时间为9:00:00-17:00:00" font:kFont(12) textColor:ThirdColor backGroundColor:ClearColor superView:self.view];
+    label.backgroundColor = RGBCOLOR(253, 243, 231);
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-25);
+        make.left.mas_equalTo(25);
+        make.right.mas_equalTo(-25);
+        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-15);
     }];
 }
 
@@ -295,6 +301,10 @@
             if ([titleStr isEqualToString:@"选择驾校"]) {
                 
                 EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
+                vc.selectBlock = ^(NSString *schoolId, NSString *schoolName) {
+                    self.schoolArr =@[schoolId, schoolName];
+                    [self.tableView reloadData];
+                };
                 [self.navigationController pushViewController:vc animated:YES];
             }else{
                 //选择车型
@@ -370,22 +380,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 15;
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 15;
+    return 0.1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    return [UIView viewWithBackgroundColor:TableColor superView:nil];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return [UIView viewWithBackgroundColor:TableColor superView:nil];
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    return [UIView viewWithBackgroundColor:TableColor superView:nil];
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return [UIView viewWithBackgroundColor:TableColor superView:nil];
+//}
 
 @end

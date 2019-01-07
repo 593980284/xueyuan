@@ -23,6 +23,8 @@
 #import "EDSUploadStudentImgRequest.h"
 #import "EDSFourDataBase.h"
 #import "EDSDataBase.h"
+#import <UMShare/UMShare.h>
+#import "EDSAppTouristRegistRequest.h"
 
 @interface EDSPersonalSettingsViewController ()<LZActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
     NSInteger _photoType;
@@ -34,7 +36,10 @@
 
 /** 头像 */
 @property (nonatomic, strong) UIImageView  *avaimg;
+@property (weak, nonatomic) IBOutlet UIButton *phoneStatus;
+@property (weak, nonatomic) IBOutlet UIButton *QQStatus;
 
+@property (weak, nonatomic) IBOutlet UIButton *wxStatus;
 
 @end
 
@@ -44,7 +49,9 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"个人设置";
-    
+    _phoneStatus.userInteractionEnabled = NO;
+    _QQStatus.userInteractionEnabled = NO;
+    _wxStatus.userInteractionEnabled = NO;
     NSURL *url = [NSURL URLWithString:[EDSSave account].photo];
     [self.avaimg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avar"]];
     
@@ -72,7 +79,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self reloadData];
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
         
         EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
@@ -80,6 +87,12 @@
     }
 }
 
+- (void)reloadData
+{
+    _phoneStatus.selected = [EDSSave account].phone.length > 0;
+    _wxStatus.selected = [EDSSave account].wXOpenid.length > 0;
+    _QQStatus.selected = [EDSSave account].qQOpenid.length > 0;
+}
 
 - (void)changeAvarImgView
 {
@@ -229,5 +242,90 @@
     
     return _avaimg;
 }
+- (IBAction)wxBind:(UIButton *)sender {
+    if (sender.selected) {//解绑微信
+          [self notBind:UMSocialPlatformType_WechatSession];
+        return;
+    }
+    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]){
+        [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
+    }else{
+        [self.view makeToast:@"请先安装微信"];
+    }
+}
+- (IBAction)qqBind:(UIButton *)sender {
+    if (sender.selected) {//解绑qq
+        [self notBind:UMSocialPlatformType_QQ];
+        return;
+    }
+    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]){
+        [self getUserInfoForPlatform:UMSocialPlatformType_QQ];
+    }else{
+        [self.view makeToast:@"请先安装QQ"];
+    }
+}
 
+- (void)notBind:(UMSocialPlatformType)platformType
+{
+    __weak typeof(self) weakSelf = self;
+    EDSAppTouristRegistRequest * request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        if (errCode == 1) {
+            [ EDSSave setObject:@""  forKey:platformType == UMSocialPlatformType_QQ ? @"qQOpenid":@"wXOpenid"];
+            [weakSelf reloadData];
+        }else{
+            [weakSelf.view makeToast:@"解绑失败" delay:2];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    NSString *openId = platformType == UMSocialPlatformType_QQ ? [EDSSave account].qQOpenid : [EDSSave account].wXOpenid;
+    request.openId = openId;
+    request.type = platformType == UMSocialPlatformType_QQ ? @"1" : @"2";
+    request.showHUD = YES;
+    request.requestTypeNotBindQQ_Wx = YES;
+    [request startRequest];
+}
+
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:nil completion:^(id result, NSError *error) {
+        UMSocialUserInfoResponse *resp = result;
+        // 第三方登录数据(为空表示平台未提供)
+        // 授权数据
+        NSLog(@" uid: %@", resp.uid);
+        NSLog(@" openid: %@", resp.openid);
+        NSLog(@" accessToken: %@", resp.accessToken);
+        NSLog(@" refreshToken: %@", resp.refreshToken);
+        NSLog(@" expiration: %@", resp.expiration);
+        // 用户数据
+        NSLog(@" name: %@", resp.name);
+        NSLog(@" iconurl: %@", resp.iconurl);
+        NSLog(@" gender: %@", resp.unionGender);
+        // 第三方平台SDK原始数据
+        NSLog(@" originalResponse: %@", resp.originalResponse);
+        
+        [self bindForPlatForm:platformType openId:resp.openid];
+    }];
+}
+
+-(void)bindForPlatForm:(UMSocialPlatformType)plateformType openId:(NSString *)openId{
+        __weak typeof(self) weakSelf = self;
+        EDSAppTouristRegistRequest * request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            if (errCode == 1) {
+                [ EDSSave setObject:openId forKey:plateformType == UMSocialPlatformType_QQ ? @"qQOpenid":@"wXOpenid"];
+                [weakSelf reloadData];
+            }else{
+                [weakSelf.view makeToast:@"绑定失败" delay:2];
+            }
+        } failureBlock:^(NSError *error) {
+            
+        }];
+        request.phone = [EDSSave account].phone;
+        request.openId = openId;
+        request.type = plateformType == UMSocialPlatformType_QQ ? @"1" : @"2";
+        request.showHUD = YES;
+        request.method = @"2";
+        request.requestTypeBindQQ_Wx = YES;
+        [request startRequest];
+}
 @end

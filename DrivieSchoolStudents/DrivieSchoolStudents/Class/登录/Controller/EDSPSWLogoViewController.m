@@ -7,7 +7,7 @@
 //
 
 #import "EDSPSWLogoViewController.h"
-#import "EDSLoginSettingsPasswordViewController.h"
+#import "RegisterViewController.h"
 #import <IQKeyboardManager.h>
 #import "EDSYHXYViewController.h"
 #import <SVProgressHUD.h>
@@ -20,6 +20,7 @@
 #import "EDSAppStudentOperatingSystemRequest.h"
 #import "RegisterViewController.h"
 #import <UMShare/UMShare.h>
+#import "EDSLoginSettingsPasswordViewController.h"
 
 @interface EDSPSWLogoViewController ()
 {
@@ -49,8 +50,9 @@
 @implementation EDSPSWLogoViewController
 - (IBAction)gotoRegister:(id)sender {
     RegisterViewController* vc = [RegisterViewController new];
+    vc.isBindPhone = NO;
     UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:vc];
-      [self presentViewController:navi animated:YES completion:nil];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 - (IBAction)goback:(id)sender {
     AppDelegate* d= (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -163,6 +165,12 @@
 }
 
 - (IBAction)wxBtnClick:(id)sender {
+    
+    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]){
+        [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
+    }else{
+        [self.view makeToast:@"请先安装微信"];
+    }
 }
 
 - (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
@@ -204,8 +212,11 @@
 				
 				if ([EDSToolClass isBlankString:[NSString stringWithFormat:@"%@",[EDSSave account].phone]]) {
 					
-					EDSLoginSettingsPasswordViewController *vc = [[EDSLoginSettingsPasswordViewController alloc] initWithNibName:@"EDSLoginSettingsPasswordViewController" bundle:[NSBundle mainBundle]];
-					vc.phone = self.pswPhoneTextF.text;
+					RegisterViewController *vc = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:[NSBundle mainBundle]];
+					vc.type = type;
+                    vc.openId = openId;
+                    vc.isBindPhone = YES;
+                    vc.data = responseDict;
 					[self presentViewController:vc animated:YES completion:nil];
 					
 				}else{
@@ -256,6 +267,7 @@
                         
                         EDSLoginSettingsPasswordViewController *vc = [[EDSLoginSettingsPasswordViewController alloc] initWithNibName:@"EDSLoginSettingsPasswordViewController" bundle:[NSBundle mainBundle]];
                         vc.phone = self.pswPhoneTextF.text;
+                        vc.setType = LoginSetTypeSet;
                         [self presentViewController:vc animated:YES completion:nil];
                         
                     }else{

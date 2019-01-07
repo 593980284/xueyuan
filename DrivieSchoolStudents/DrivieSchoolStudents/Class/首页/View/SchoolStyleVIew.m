@@ -61,7 +61,7 @@
     _model = model;
     _titleLb.text = model.styleName;
     _flgImgView.image = [UIImage imageNamed:@"图文"];
-    [_imgView sd_setImageWithURL:[NSURL URLWithString:model.showStylePhoto] placeholderImage:PLACEHOLDERGOODSIMAGE];
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:model.showStylePhoto] placeholderImage:[UIImage imageNamed:@"zhanwei-fengcai"]];
 }
 
 @end

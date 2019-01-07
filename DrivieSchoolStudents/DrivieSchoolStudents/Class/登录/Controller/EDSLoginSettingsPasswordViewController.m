@@ -11,6 +11,8 @@
 #import "EDSPSWLogoViewController.h"
 #import <SVProgressHUD.h>
 #import "RegisterRequest.h"
+#import "EDSStudentLoginRequest.h"
+#import "EDSAppStudentOperatingSystemRequest.h"
 
 
 @interface EDSLoginSettingsPasswordViewController ()
@@ -49,18 +51,28 @@
         return ;
     }
     
-    if (_isRegister) {
+//    if (_isRegister) {
+//        [self nextBtnTap:nil];
+//        return;
+//    }
+    
+    if (self.setType == LoginSetTypeRegister) {
         [self nextBtnTap:nil];
         return;
     }
+    
+//    if (self.setType == LoginSetTypeBindPhone) {//暂时不考虑新用户
+//
+//    }
+    
 
+    // LoginSetTypeSet
     [SVProgressHUD showWithStatus:@""];
     EDSAppTouristRegistRequest *request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         [SVProgressHUD dismiss];
         if (errCode == 1) {
+            [self login];
             
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] initWithNibName:@"EDSPSWLogoViewController" bundle:[NSBundle mainBundle]];
-            [self presentViewController:vc animated:YES completion:nil];
         }
         
     } failureBlock:^(NSError *error) {
@@ -69,6 +81,47 @@
     request.phone = self.phone;
     request.password = self.pswTextF.text;
     request.showHUD = YES;
+    [request startRequest];
+}
+
+- (void)login
+{
+    [SVProgressHUD showWithStatus:@""];
+    EDSStudentLoginRequest *request = [EDSStudentLoginRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+        [SVProgressHUD dismiss];
+        if (errCode == 1) {
+            [self appStudentOperatingSystem];
+            [self dismissToRootViewController];
+        }
+        
+    } failureBlock:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+    request.phone = self.phone;
+    request.password = self.pswTextF.text;
+    request.showHUD = YES;
+    [request startRequest];
+}
+
+-(void)dismissToRootViewController  {
+    UIViewController *vc = self;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)appStudentOperatingSystem
+{
+    EDSAppStudentOperatingSystemRequest *request = [EDSAppStudentOperatingSystemRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    request.phone = [EDSSave account].phone;
+    request.operatingSystem = @"iOS";
     [request startRequest];
 }
 

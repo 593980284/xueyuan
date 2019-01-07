@@ -8,7 +8,8 @@
 
 #import "EDSCourseRecordViewController.h"
 #import "EDSCourseRecordDetailViewController.h"//课程详情
-#import "EDSUnCourseRecordViewController.h"//未完成课程详情
+//#import "EDSUnCourseRecordViewController.h"//未完成课程详情
+#import "EDSOnlineAboutClassDetailAppointmentViewController.h"
 
 #import "EDSCourseRecordTableViewCell.h"
 #import "EDSCourseRecordCompleteTableViewCell.h"
@@ -167,16 +168,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    if (_isFinish) {
+    if (_isFinish) {
     
         EDSCourseRecordDetailViewController *vc = [[EDSCourseRecordDetailViewController alloc] init];
         vc.courseRecordModel = self.arr[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
-//    }else{
-//        EDSUnCourseRecordViewController *vc = [[EDSUnCourseRecordViewController alloc] initWithNibName:@"EDSUnCourseRecordViewController" bundle:[NSBundle mainBundle]];
-//        vc.courseRecordModel = self.arr[indexPath.row];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+    }else{
+        
+        EDSOnlineAboutClassDetailAppointmentViewController *vc =[EDSOnlineAboutClassDetailAppointmentViewController new];
+        vc.studentId = self.arr[indexPath.row].studentId;
+        vc.appointmentId = self.arr[indexPath.row].appointmentId;
+        vc.isKe = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -38,7 +38,6 @@
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
         [EDSSave save:account];
     }else{
-        
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
         account.firstSubjectID = @"";
         account.fourSubjectID = @"";

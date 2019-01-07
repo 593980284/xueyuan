@@ -24,6 +24,7 @@
 
 #import "EDSDriverNavHeaderView.h"
 #import "EDSMsgCell.h"
+#import "EDSOnlineClassListByDateModel.h"
 
 @interface EDSMessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -209,10 +210,11 @@
         vc.transitioningDelegate = self.popAnimator;
         
         @weakify(self);
-        vc.messageSiginBoxViewControllerDidClick = ^(EDSOnlineClassListByDateModel *model) {
+        vc.messageSiginBoxViewControllerDidClick = ^(EDSOnlineClassListByDateModel *model2) {
             @strongify(self);
             EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
-            vc.model = model;
+            vc.appointmentId = model2.appointmentId;
+            vc.studentId = model2.studentId;
             [self.navigationController pushViewController:vc animated:YES];
         };
         
@@ -254,20 +256,21 @@
 
 - (void)onlineClassListDetailRequestWithAppointmentId:(NSString *)appointmentId studentId:(NSString *)studentId
 {
-    @weakify(self);
-    EDSOnlineClassListDetailRequest *request = [EDSOnlineClassListDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        @strongify(self);
-        
+//    @weakify(self);
+//    EDSOnlineClassListDetailRequest *request = [EDSOnlineClassListDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+//        @strongify(self);
+    
         EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
-        vc.model = model;
+        vc.appointmentId = appointmentId;
+        vc.studentId = studentId;
         [self.navigationController pushViewController:vc animated:YES];
         
-    } failureBlock:^(NSError *error) {
-        
-    }];
-    request.appointmentId = appointmentId;
-    request.studentId = studentId;
-    [request startRequest];
+//    } failureBlock:^(NSError *error) {
+//
+//    }];
+//    request.appointmentId = appointmentId;
+//    request.studentId = studentId;
+//    [request startRequest];
 }
 
 -(EDSDriverNavHeaderView *)headerV{

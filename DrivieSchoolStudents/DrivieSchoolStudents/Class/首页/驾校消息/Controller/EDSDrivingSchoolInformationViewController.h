@@ -9,5 +9,6 @@
 #import "BHYBaseViewController.h"
 
 @interface EDSDrivingSchoolInformationViewController : BHYBaseViewController
+@property(nonatomic, copy)void(^selectBlock)(NSString *schoolId, NSString *schoolName);
 
 @end

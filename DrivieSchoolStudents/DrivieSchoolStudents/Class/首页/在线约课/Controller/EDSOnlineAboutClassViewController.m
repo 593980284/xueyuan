@@ -59,6 +59,7 @@
         make.top.mas_equalTo(185);
     }];
     [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"形状11拷贝"] target:self action:@selector(gotoMyCoachVC)];
+    [self requesDateListData];
     
 }
 
@@ -79,10 +80,11 @@
     }else{
 
     }
-    [self requesDateListData];
     if (_dateStr.length > 0) {
         
         [self requestListByDateDataWithDate:_dateStr];
+    }else{
+         [self requesDateListData];
     }
 }
 
@@ -97,6 +99,7 @@
             
             self.dataArr = model;
             self.headerView.dataArr = self.dataArr;
+            _dateStr = self.dataArr[0].date;
             [self requestListByDateDataWithDate:self.dataArr[0].date];
         }
     } failureBlock:^(NSError *error) {
@@ -176,7 +179,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDSOnlineAboutClassDetailAppointmentViewController *vc = [[EDSOnlineAboutClassDetailAppointmentViewController alloc] init];
-    vc.model = self.tableViewListArr[indexPath.row];
+    vc.appointmentId = self.tableViewListArr[indexPath.row].appointmentId;
+    vc.studentId = self.tableViewListArr[indexPath.row].studentId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

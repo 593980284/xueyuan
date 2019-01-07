@@ -181,6 +181,7 @@
         weakSelf.dateLb.text = dic[@"creatTime"];
         weakSelf.zanBtn.selected = [dic[@"isLike"] boolValue];
         NSString *url = dic[@"styleContent"];
+        url = [url  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         if (url) {
           //  url = @"https://www.jianshu.com/p/ccf3014ca6a6";
             [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];

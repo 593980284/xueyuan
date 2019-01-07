@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sexImage;
 //@property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
 //@property (weak, nonatomic) IBOutlet UILabel *scoreLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLb;
+@property (weak, nonatomic) IBOutlet UIImageView *statusLb;
 
 @property (nonatomic, strong)LEEStarRating *starView;
 
@@ -73,10 +75,11 @@
 //    self.driveStarView.selectNumber = model.showCoachStar;
 //    self.scoreLbl.text = [NSString stringWithFormat:@"%@分",model.coachStar];
     
-    
+    NSArray *date = [model.periodTime componentsSeparatedByString:@" "];
     self.coachNameLbl.text = model.schoolName;
     self.coachSubjectLbl.text = model.showSubjectAge;
-    self.coachTimeLbl.text = model.periodTime;
+    self.coachTimeLbl.text = date.firstObject;
+    self.timeLb.text = date.lastObject;
     self.coachhoursLbl.text = [NSString stringWithFormat:@"%@小时",model.hours];
     self.coachAppointmentNumLbl.text = [NSString stringWithFormat:@"%@",model.appointmentNum];
     self.coachNoAppointmentNumLbl.text = model.noAppointmentNum;
@@ -98,6 +101,28 @@
         self.logo1.hidden = NO;
         self.logo2.hidden = YES;
         self.logo1.image = [UIImage imageNamed:isJ ? @"ic-金牌教练": @"ic-十佳党员"];
+    }
+//    isAppointment;//是否预约 -1未预约 0已预约 1已签到
+    switch ([model.isAppointment integerValue]) {
+        case -1:
+        {
+          self.statusLb.image = [UIImage imageNamed:@""];
+        }
+            break;
+        case 0:
+        {
+            self.statusLb.image = [UIImage imageNamed:@"ic-yyy"];
+        }
+            break;
+        case 1:
+        {
+            self.statusLb.image = [UIImage imageNamed:@"ic_xyqd"];
+        }
+            break;
+            
+        default:
+            self.statusLb.image = [UIImage imageNamed:@""];
+            break;
     }
 }
 

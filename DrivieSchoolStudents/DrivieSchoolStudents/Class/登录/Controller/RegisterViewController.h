@@ -9,5 +9,8 @@
 #import "BHYBaseViewController.h"
 
 @interface RegisterViewController : BHYBaseViewController
-
+@property(nonatomic, assign)BOOL isBindPhone;
+@property(nonatomic, copy)NSString *type;
+@property(nonatomic, copy)NSString *openId;
+@property(nonatomic, strong)NSDictionary *data;
 @end

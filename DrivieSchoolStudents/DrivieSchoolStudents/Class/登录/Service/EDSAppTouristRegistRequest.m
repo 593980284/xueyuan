@@ -12,6 +12,12 @@
 
 - (NSString *)requestURLPath
 {
+    if (self.requestTypeNotBindQQ_Wx) {
+        return @"/dtms_nanj4.0/app/lexiang/login/appCancelBindThird";
+    }
+    if (self.requestTypeBindQQ_Wx) {
+        return @"/dtms_nanj4.0/app/lexiang/login/appBindThirdStudent";
+    }
     return @"/app/lexiang/login/appTouristRegist";
 }
 
@@ -22,10 +28,7 @@
 
 - (NSDictionary *)requestArguments
 {
-    return @{
-             @"phone":_phone,
-             @"password":_password,
-             };
+    return [self mj_keyValues];
 }
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode

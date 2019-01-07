@@ -97,7 +97,7 @@
 - (void)onlineClassListDetailRequest
 {
     @weakify(self);
-    EDSOnlineClassListDetailRequest *request = [EDSOnlineClassListDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+    EDSOnlineClassListDetailRequest *request = [EDSOnlineClassListDetailRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, EDSOnlineClassListByDateModel* model) {
         @strongify(self);
         
         self.model = model;

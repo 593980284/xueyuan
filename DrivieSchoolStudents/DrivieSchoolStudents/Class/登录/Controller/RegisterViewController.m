@@ -11,6 +11,9 @@
 #import "EDSMsgCodeRequest.h"
 #import "RegisterRequest.h"
 #import "SVProgressHUD.h"
+#import "EDSAppTouristRegistRequest.h"
+#import "EDSAppStudentOperatingSystemRequest.h"
+#import "XGPush.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sendCodeBtn;
@@ -57,23 +60,50 @@
         return;
     }
     if (_pwTF.text.length == 0) {
-        [self.view makeToast:@"请输入手机号" delay:2];
+        [self.view makeToast:@"请输入验证码" delay:2];
         return;
     }
     __weak typeof(self) weakSelf = self;
-     [SVProgressHUD showWithStatus:@""];
+    if(self.isBindPhone){//绑定手机号
+        EDSAppTouristRegistRequest * request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+            if (errCode == 1) {
+                NSMutableDictionary *data = [self.data mutableCopy];
+                [data setValue:weakSelf.phoneTF.text forKey:@"phone"];
+                EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
+                [EDSSave save:account];
+                [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:account.phone type:XGPushTokenBindTypeAccount];
+                
+                [weakSelf appStudentOperatingSystem];
+                [weakSelf dismissToRootViewController];
+            }else{
+                [weakSelf.view makeToast:@"绑定手机号失败" delay:2];
+            }
+        } failureBlock:^(NSError *error) {
+            
+        }];
+        request.phone = _phoneTF.text;
+        request.code = _pwTF.text;
+        request.openId = self.openId;
+        request.type = self.type;
+        request.showHUD = YES;
+        request.method = @"1";
+        request.requestTypeBindQQ_Wx = YES;
+        [request startRequest];
+        return;
+    }
+    [SVProgressHUD showWithStatus:@""];
     RegisterRequest * request = [RegisterRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-         [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         if (errCode == 1) {
             EDSLoginSettingsPasswordViewController *vc = [EDSLoginSettingsPasswordViewController new];
             vc.phone = weakSelf.phoneTF.text;
-            vc.isRegister = YES;
+            vc.setType = LoginSetTypeRegister;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }else{
             [weakSelf.view makeToast:@"验证码错误" delay:2];
         }
     } failureBlock:^(NSError *error) {
-         [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         
     }];
     request.phone = _phoneTF.text;
@@ -81,6 +111,14 @@
     request.step = 0;
     request.showHUD = YES;
     [request startRequest];
+}
+
+-(void)dismissToRootViewController  {
+    UIViewController *vc = self;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 // 开启倒计时效果
@@ -106,7 +144,7 @@
                 //设置按钮的样式
                 self.sendCodeBtn.userInteractionEnabled = YES;
                 [self.sendCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-               // [self.sendCodeBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
+                // [self.sendCodeBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
             });
             
         }else{
@@ -116,7 +154,7 @@
                 
                 //设置按钮显示读秒效果
                 [self.sendCodeBtn setTitle:[NSString stringWithFormat:@"重新发送(%.2d)", seconds] forState:UIControlStateNormal];
-//                [self.sendCodeBtn setTitleColor:[EDSToolClass getColorWithHexString:@"#999999"] forState:UIControlStateNormal];
+                //                [self.sendCodeBtn setTitleColor:[EDSToolClass getColorWithHexString:@"#999999"] forState:UIControlStateNormal];
                 self.sendCodeBtn.userInteractionEnabled = NO;
                 
             });
@@ -128,7 +166,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"注册";
+    self.title = self.isBindPhone? @"绑定手机号": @"注册";
     [self addNavigationBarLeftButtonItemWithInfo:[UIImage imageNamed:@"goback"] target:self action:@selector(goback)];
     self.sendCodeBtn.layer.cornerRadius = 4;
     self.sendCodeBtn.layer.borderColor = [EDSToolClass getColorWithHexString:@"#999999"].CGColor;
@@ -143,14 +181,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)appStudentOperatingSystem
+{
+    EDSAppStudentOperatingSystemRequest *request = [EDSAppStudentOperatingSystemRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    
+    request.phone = [EDSSave account].phone;
+    request.operatingSystem = @"iOS";
+    [request startRequest];
 }
-*/
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

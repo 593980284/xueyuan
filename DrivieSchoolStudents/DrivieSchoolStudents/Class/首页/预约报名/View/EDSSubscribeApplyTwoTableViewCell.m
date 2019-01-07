@@ -28,31 +28,42 @@
     // Initialization code
     
     self.bgView.backgroundColor = WhiteColor;
-    self.bgView.layer.masksToBounds = YES;
-    self.bgView.layer.cornerRadius = 5;
-    self.bgView.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.bgView.layer.borderWidth = 1;
+//    self.bgView.layer.masksToBounds = YES;
+//    self.bgView.layer.cornerRadius = 5;
+//    self.bgView.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.bgView.layer.borderWidth = 1;
+    self.contentView.backgroundColor = WhiteColor;
     
+    UIView *view = [UIView new];
+        view.layer.masksToBounds = YES;
+        view.layer.cornerRadius = 5;
+       view.layer.borderColor = RGBCOLOR(246, 246, 246).CGColor;
+      view.layer.borderWidth = 1;
+    [self.bgView insertSubview:view atIndex:0 ];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(55);
+    }];
     
-    self.nameTextF.layer.masksToBounds = YES;
-    self.nameTextF.layer.cornerRadius = 5;
-    self.nameTextF.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.nameTextF.layer.borderWidth = 1;
-    
-    self.codeTextF.layer.masksToBounds = YES;
-    self.codeTextF.layer.cornerRadius = 5;
-    self.codeTextF.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.codeTextF.layer.borderWidth = 1;
-    
-    self.phoneTextF.layer.masksToBounds = YES;
-    self.phoneTextF.layer.cornerRadius = 5;
-    self.phoneTextF.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.phoneTextF.layer.borderWidth = 1;
-    
-    self.timeBgView.layer.masksToBounds = YES;
-    self.timeBgView.layer.cornerRadius = 5;
-    self.timeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
-    self.timeBgView.layer.borderWidth = 1;
+//    self.nameTextF.layer.masksToBounds = YES;
+//    self.nameTextF.layer.cornerRadius = 5;
+//    self.nameTextF.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.nameTextF.layer.borderWidth = 1;
+//
+//    self.codeTextF.layer.masksToBounds = YES;
+//    self.codeTextF.layer.cornerRadius = 5;
+//    self.codeTextF.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.codeTextF.layer.borderWidth = 1;
+//
+//    self.phoneTextF.layer.masksToBounds = YES;
+//    self.phoneTextF.layer.cornerRadius = 5;
+//    self.phoneTextF.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.phoneTextF.layer.borderWidth = 1;
+//
+//    self.timeBgView.layer.masksToBounds = YES;
+//    self.timeBgView.layer.cornerRadius = 5;
+//    self.timeBgView.layer.borderColor = SeparatorCOLOR.CGColor;
+//    self.timeBgView.layer.borderWidth = 1;
     
     [self.timeBgView bk_whenTapped:^{
        

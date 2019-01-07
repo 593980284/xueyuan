@@ -12,4 +12,5 @@
 @interface EDSOnlineAboutClassDetailAppointmentDownView : UIView
 
 @property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
+@property (nonatomic , copy)void(^refreshBlock)();
 @end

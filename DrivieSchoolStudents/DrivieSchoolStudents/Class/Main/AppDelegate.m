@@ -117,7 +117,7 @@
 	    [[UMSocialManager defaultManager] openLog:YES];
 #else
 #endif
-//	[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WX_APP_ID appSecret:WX_APP_Secret redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx23bbbe91cbd839f5" appSecret:@"640e9e5d26729145c2dfb8485f2132c7" redirectURL:nil];
 	[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"101537582" appSecret:@"947129a7fbabef719410f6486ae9693f" redirectURL:@"www.qq.com"];
 	
 }

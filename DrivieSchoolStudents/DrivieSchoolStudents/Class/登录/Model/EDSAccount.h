@@ -10,7 +10,8 @@
 
 @interface EDSAccount : NSObject
 
-
+//[9]    (null)    @"qQOpenid" : @""
+//[5]    (null)    @"wXOpenid" : @""
 
 @property (nonatomic , copy) NSString              * phone;                     //电话号码
 @property (nonatomic , copy) NSString              * schoolId;                  //驾校id
@@ -23,6 +24,8 @@
 @property (nonatomic , copy) NSString              * studentId;                 //学员id
 @property (nonatomic , copy) NSString              * bookingExamUrl;            //驾培系统中学员
 @property (nonatomic , copy) NSString              * touristState;              //游客登录状态。首次登录：0，非首次登录：1(只有游客登录才有的字段)
+@property (nonatomic , copy) NSString              * qQOpenid;                     //电话号码
+@property (nonatomic , copy) NSString              * wXOpenid;
 
 
 

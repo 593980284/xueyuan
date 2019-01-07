@@ -24,7 +24,7 @@
 #define ThemeColor                              [EDSToolClass getColorWithHexString:@"#309cf5"]
 #define ClearColor                              [UIColor clearColor]
 #define WhiteColor                              [UIColor whiteColor]
-#define YellowColor                              [EDSToolClass getColorWithHexString:@"#ff8c05"]
+#define YellowColor                             [EDSToolClass getColorWithHexString:@"#ff8c05"]
 
 
 #define FirstColor                              [EDSToolClass getColorWithHexString:@"333333"]   //一级标题颜色

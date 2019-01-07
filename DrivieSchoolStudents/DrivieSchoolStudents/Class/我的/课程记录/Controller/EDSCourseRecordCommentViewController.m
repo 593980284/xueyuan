@@ -80,7 +80,7 @@ static const NSInteger MAX_LIMIT_NUMS = 500;
     _scrollView.clipsToBounds = YES;
     [self requestStudentEvaluationCoachRequestData];
     self.view.userInteractionEnabled = self.isCanEdit;
-    self.submitBtn.hidden = YES;
+    self.submitBtn.hidden = !self.isCanEdit;
 }
 
 - (void)requestStudentEvaluationCoachRequestData

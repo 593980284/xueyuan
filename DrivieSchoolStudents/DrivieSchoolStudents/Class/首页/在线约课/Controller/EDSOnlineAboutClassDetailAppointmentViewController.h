@@ -10,7 +10,8 @@
 @class EDSOnlineClassListByDateModel;
 
 @interface EDSOnlineAboutClassDetailAppointmentViewController : BHYBaseViewController
-
-@property (nonatomic , strong) EDSOnlineClassListByDateModel *model;
+@property(nonatomic, assign)BOOL isKe;//是从课程进入的
+@property(nonatomic, copy)NSString *appointmentId;
+@property(nonatomic, copy)NSString *studentId;
 
 @end
