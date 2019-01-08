@@ -10,4 +10,8 @@
 
 @interface EDSPracticeViewController : BHYBaseViewController
 
+
+//0   1随机
+@property (nonatomic,assign) NSInteger type;
+
 @end

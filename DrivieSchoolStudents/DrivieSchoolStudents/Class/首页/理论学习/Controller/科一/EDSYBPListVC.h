@@ -1,0 +1,19 @@
+//
+//  EDSTBListVC.h
+//  DrivieSchoolStudents
+//
+//  Created by 胡玉峰 on 2018/12/29.
+//  Copyright © 2018 班文政. All rights reserved.
+//
+
+#import "BHYBaseViewController.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface EDSYBPListVC : BHYBaseViewController
+
+@property (nonatomic,strong) NSArray * dataArr;
+
+@end
+
+NS_ASSUME_NONNULL_END

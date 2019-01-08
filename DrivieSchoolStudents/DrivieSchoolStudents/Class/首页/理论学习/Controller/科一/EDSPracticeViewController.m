@@ -183,7 +183,9 @@
     account.firstSubjectID = [NSString stringWithFormat:@"%ld",(long)iD];
     [EDSSave save:account];
     
-    self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+    
+//    self.tableViewModel = [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+    self.tableViewModel = [self getQuestion];
     
     if (self.tableViewModel.ID.length > 0) {
         
@@ -360,12 +362,33 @@
         EDSAccount *account = [EDSSave account];
         account.firstSubjectID = [NSString stringWithFormat:@"%@",ID];
         [EDSSave save:account];
+        _tableViewModel =  [self getQuestion];
+
         
-        _tableViewModel =  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        
     }
     return _tableViewModel;
 }
 
+-(EDSQuestionModel *)getQuestion{
+
+    if(self.type == 1){
+       return  [[EDSDataBase sharedDataBase]getRandomSubjectFirst];
+    }else if(self.type==2){
+         return   [[EDSDataBase sharedDataBase] getWenZiTi];
+    }else if(self.type==3){
+        return  [[EDSDataBase sharedDataBase]getTuPian];
+    }else if(self.type == 4){
+        return [[EDSDataBase sharedDataBase]getTuPian];
+    }else if (self.type == 6){
+        return [[EDSDataBase sharedDataBase]getDuoXuan];
+    }else if(self.type == 7){
+        return [[EDSDataBase sharedDataBase]getDanXuan];
+    }else{
+        return  [[EDSDataBase sharedDataBase] getSubjectFirstQuestion];
+        
+    }
+}
 
 - (EDSPracticeHeaderView *)headerView
 {

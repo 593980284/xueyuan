@@ -16,6 +16,19 @@
 + (instancetype)sharedDataBase;
 
 #pragma mark ------------------------ 科目一 --------------------------------
+-(EDSQuestionModel * )getDuoXuan;
+
+-(EDSQuestionModel * )getDanXuan;
+/**
+ 动图
+ **/
+- (EDSQuestionModel *)getDongHuaTi;
+//获tupianti
+- (EDSQuestionModel *)getTuPian;
+/**
+ 文字题
+ **/
+- (EDSQuestionModel *)getWenZiTi;
 /** 随机获取科目一题目 */
 - (EDSQuestionModel *)getRandomSubjectFirst;
 /** 科目一顺序做题 */

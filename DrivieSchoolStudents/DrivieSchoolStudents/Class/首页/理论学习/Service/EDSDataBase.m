@@ -29,6 +29,7 @@ static FMDatabaseQueue *_queue = nil;
         NSString *documentDirectory = [paths objectAtIndex:0];
         //dbPath： 数据库路径，在Document中。
         NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"bank.db"];
+        NSLog(@"hyf-----%@",dbPath);
         _DBCtl = [[EDSDataBase alloc] init];
         _queue =  [FMDatabaseQueue databaseQueueWithPath:dbPath];
     }
@@ -91,8 +92,197 @@ static FMDatabaseQueue *_queue = nil;
     // 实例化FMDataBase对象
     _db = [FMDatabase databaseWithPath:dbPath];
 }
+-(EDSQuestionModel * )getDuoXuan{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+    //    NSString * query = @"SELECT *FROM onebankbean WHERE img= 1327  or  img = 1327 or  img = 1328  img = 1329 or img = 1330 or  img = 1331
+    FMResultSet *res = [_db executeQuery:@"SELECT *FROM onebankbean WHERE typeid != 3 LIMIT 1"];
+    while ([res next]) {
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    [_db close];
+    
+    return questionModel;
+}
+
+-(EDSQuestionModel * )getDanXuan{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+    //    NSString * query = @"SELECT *FROM onebankbean WHERE img= 1327  or  img = 1327 or  img = 1328  img = 1329 or img = 1330 or  img = 1331
+    
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT *FROM onebankbean WHERE typeid=3 LIMIT 1"];
+    while ([res next]) {
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    [_db close];
+    
+    return questionModel;
+}
+
+- (EDSQuestionModel *)getDongHuaTi
+{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+//    NSString * query = @"SELECT *FROM onebankbean WHERE img= 1327  or  img = 1327 or  img = 1328  img = 1329 or img = 1330 or  img = 1331
+    
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT *FROM onebankbean WHERE img= 1327 or img = 1327 or  img = 1328  img = 1329 or  img = 1330 or  img = 1331 LIMIT 1"];
+    while ([res next]) {
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    [_db close];
+    
+    return questionModel;
+}
+
+//获tubiao
+- (EDSQuestionModel *)getTuPian
+{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT *FROM onebankbean WHERE img != '' ORDER BY random() LIMIT 1"];
+    while ([res next]) {
+        
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    [_db close];
+    
+    return questionModel;
+}
 
 
+//获wenzi
+- (EDSQuestionModel *)getWenZiTi
+{
+    [_db open];
+    EDSQuestionModel *questionModel = [[EDSQuestionModel alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT *FROM onebankbean WHERE img = '' ORDER BY random() LIMIT 1"];
+    while ([res next]) {
+        
+        questionModel.questionTitle = [res stringForColumn:@"title"];
+        questionModel.questionPictureUrl = [res stringForColumn:@"id"];
+        questionModel.isMultiple = [[res stringForColumn:@"typeid"] isEqualToString:@"3"] ? NO : YES;
+        questionModel.answer = [res stringForColumn:@"answer"];
+        questionModel.ID = [res stringForColumn:@"id"];
+        
+        NSString *collection = [res stringForColumn:@"collection"];
+        BOOL isCollection = [collection isEqualToString:@"1"] ? YES : NO;
+        questionModel.isCollection = isCollection;
+        
+        NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
+        NSMutableArray *answelists = [[NSMutableArray alloc] init];
+        NSArray *arrayList = [listdict allValues];
+        for (int i = 0 ; i < arrayList.count; i ++) {
+            
+            EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
+            model.answerR = [NSString stringWithFormat:@"%d",i];
+            model.answerTitle = arrayList[i];
+            [answelists addObject:model];
+        }
+        
+        questionModel.answerlists = answelists;
+        DLog(@"%@",questionModel.answerlists);
+    }
+    [_db close];
+    
+    return questionModel;
+}
+
+//获取随机题目
 - (EDSQuestionModel *)getRandomSubjectFirst
 {
     [_db open];
@@ -129,6 +319,8 @@ static FMDatabaseQueue *_queue = nil;
     
     return questionModel;
 }
+
+
 
 
 
@@ -438,5 +630,7 @@ static FMDatabaseQueue *_queue = nil;
     
     [_db close];
 }
+
+
 
 @end
