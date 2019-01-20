@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.page = 1;
-    _type = @"1";
+    _type = @"2";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -275,13 +275,13 @@
 
 -(EDSDriverNavHeaderView *)headerV{
     if (!_headerV) {
-        _headerV = [[EDSDriverNavHeaderView alloc]initWithTitleArr:@[@"系统",@"驾校"]];
+        _headerV = [[EDSDriverNavHeaderView alloc]initWithTitleArr:@[@"驾校",@"系统"]];
         [self.view addSubview:_headerV];
         
         @weakify(self);
         _headerV.headItemClickBlock = ^(NSInteger index) {
             @strongify(self);
-            if (index == 0) {
+            if (index == 1) {
                 
                 self->_type = @"1";
             }else
@@ -299,7 +299,7 @@
     if (!_headerView) {
         
         _headerView = [[EDSHeaderPageButtonView alloc] init];
-        _headerView.btnArr = @[@"系统",@"驾校"];
+        _headerView.btnArr = @[@"驾校",@"系统"];
         [self.view addSubview:_headerView];
         [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.mas_equalTo(0);

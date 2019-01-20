@@ -25,6 +25,8 @@
         _studentId = [NSDictionary changeType:dict[@"studentId"]];
         _bookingExamUrl = [NSDictionary changeType:dict[@"bookingExamUrl"]];
         _touristState = [NSDictionary changeType:dict[@"touristState"]];
+        _wXOpenid = [NSDictionary changeType:dict[@"wXOpenid"]];
+        _qQOpenid =  [NSDictionary changeType:dict[@"qQOpenid"]];
     }
     return self;
 }

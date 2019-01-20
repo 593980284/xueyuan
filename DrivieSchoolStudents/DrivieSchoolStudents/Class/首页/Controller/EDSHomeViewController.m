@@ -171,15 +171,15 @@
             [self presentViewController:vc animated:YES completion:nil];
         }
     }else if ([titleStr isEqualToString:@"理论学习"]){//
-        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
-            
+//        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+        
             EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
-        }
+//        }else{
+//
+//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//            [self presentViewController:vc animated:YES completion:nil];
+//        }
     }else if ([titleStr isEqualToString:@"品牌驾校"]){
         
         EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
@@ -199,20 +199,20 @@
         
     }else if ([titleStr isEqualToString:@"我要投诉"]){
         
-        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+//        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
             ComplaintViewController *vc = [[ComplaintViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
-        }
+//        }else{
+//
+//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//            [self presentViewController:vc animated:YES completion:nil];
+//        }
         
     }else if ([titleStr isEqualToString:@"报名流程"]){
         
         EDSRegistrationProcessViewController *vc = [[EDSRegistrationProcessViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if ([titleStr isEqualToString:@"我的报名"]){
+    }else if ([titleStr isEqualToString:@"我的驾校"]){
         
         EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
         vc.schoolId = [EDSSave account].schoolId;

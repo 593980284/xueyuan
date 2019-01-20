@@ -217,7 +217,8 @@
                     vc.openId = openId;
                     vc.isBindPhone = YES;
                     vc.data = responseDict;
-					[self presentViewController:vc animated:YES completion:nil];
+                    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:vc];
+					[self presentViewController:navi animated:YES completion:nil];
 					
 				}else{
 					

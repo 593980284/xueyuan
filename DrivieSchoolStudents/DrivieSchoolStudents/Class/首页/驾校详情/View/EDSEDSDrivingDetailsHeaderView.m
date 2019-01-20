@@ -36,6 +36,12 @@
 /** 分数 */
 @property (nonatomic, strong) UILabel  *commentDriveScoreLbl;
 
+@property (nonatomic, strong) UIImageView *a1;
+@property (nonatomic, strong) UIImageView *a2;
+@property (nonatomic, strong) UIImageView *a3;
+@property (nonatomic, strong) UIImageView *a4;
+@property (nonatomic, strong) UIImageView *a5;
+
 @end
 
 @implementation EDSEDSDrivingDetailsHeaderView
@@ -61,6 +67,53 @@
         self.commentDriveStarView.selectNumber = 0;
         self.commentDriveNameLbl.text = @"";
         self.driveAddressLbl.userInteractionEnabled = YES;
+        
+        _a1 = [UIImageView new];
+        _a1.image = [UIImage imageNamed:@"A"];
+        [self addSubview:_a1];
+        [_a1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(15);
+            make.top.mas_equalTo(self.drivingNameLbl.mas_bottom).offset(3);
+            make.left.mas_equalTo(self.drivingNameLbl);
+        }];
+        
+        _a2 = [UIImageView new];
+        _a2.image = [UIImage imageNamed:@"A"];
+        [self addSubview:_a2];
+        [_a2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(15);
+            make.top.mas_equalTo(self.drivingNameLbl.mas_bottom).offset(3);
+            make.left.mas_equalTo(self.a1.mas_right).offset(3);
+        }];
+        
+        
+        _a3 = [UIImageView new];
+        _a3.image = [UIImage imageNamed:@"A"];
+        [self addSubview:_a3];
+        [_a3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(15);
+            make.top.mas_equalTo(self.drivingNameLbl.mas_bottom).offset(3);
+            make.left.mas_equalTo(self.a2.mas_right).offset(3);
+        }];
+        
+        
+        _a4 = [UIImageView new];
+        _a4.image = [UIImage imageNamed:@"A"];
+        [self addSubview:_a4];
+        [_a4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(15);
+            make.top.mas_equalTo(self.drivingNameLbl.mas_bottom).offset(3);
+            make.left.mas_equalTo(self.a3.mas_right).offset(3);
+        }];
+        
+        _a5 = [UIImageView new];
+        _a5.image = [UIImage imageNamed:@"A"];
+        [self addSubview:_a5];
+        [_a5 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(15);
+            make.top.mas_equalTo(self.drivingNameLbl.mas_bottom).offset(3);
+              make.left.mas_equalTo(self.a4.mas_right).offset(3);
+        }];
     }
     return self;
 }
@@ -92,13 +145,20 @@
     self.drivingNameLbl.text = informationDetailModel.schoolName;
     
     self.drivingPriceLbl.text = informationDetailModel.distance;
+    self.drivingPriceLbl.textColor = [UIColor colorWithRed:100/255.0 green:150/255.0 blue:240/255.0 alpha:1];
     self.driveScoreLbl.textColor = [UIColor colorWithRed:100/255.0 green:150/255.0 blue:240/255.0 alpha:1];
 //    NSString * a = @"";
 //    for (int i = 0; i<informationDetailModel.reputationLevel; i++) {
 //        a = [NSString stringWithFormat:@"%@A", a];
 //    }
 //    self.driveScoreLbl.text = [NSString stringWithFormat:@"信誉等级：%@", a];
-    
+    NSArray<UIImageView *> *as = @[_a1, _a2,_a3 , _a4,_a5];
+    for (UIImageView *A in as) {
+        A.hidden = YES;
+    }
+    for(int i =0; i<informationDetailModel.reputationLevel; i ++){
+        as[i].hidden = NO;
+    }
     self.driveAddressLbl.text = informationDetailModel.address;
     
 //    self.driveStarView.selectNumber = informationDetailModel.showStarScoreInterger;

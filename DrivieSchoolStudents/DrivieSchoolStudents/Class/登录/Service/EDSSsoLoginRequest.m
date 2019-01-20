@@ -33,7 +33,7 @@
 - (void)handleData:(id)data errCode:(NSInteger)resCode
 {
 
-    if([EDSSave account].phone.length == 11){
+    if([data[@"phone"] length] == 11){
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
         account.firstSubjectID = @"";
         account.fourSubjectID = @"";

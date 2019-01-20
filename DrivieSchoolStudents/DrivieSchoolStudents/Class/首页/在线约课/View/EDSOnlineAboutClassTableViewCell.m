@@ -80,5 +80,10 @@
       self.numLb.text = [NSString stringWithFormat:@"约课(%@/%@)",model.appointmentNum, model.maxNum];
         self.numLb.backgroundColor = [UIColor colorWithRed:100/255.0 green:150/255.0 blue:240/255.0 alpha:1];
     }
+    
+//    if(model.isAppointment == 0){
+//        self.numLb.text = @"已预约";
+//        self.numLb.backgroundColor = [UIColor colorWithRed:133/255.0 green:190/255.0 blue:98/255.0 alpha:1];
+//    }
 }
 @end

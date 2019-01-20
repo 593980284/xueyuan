@@ -112,7 +112,7 @@
 {
 	
 //	//友盟
-	[UMConfigure initWithAppkey:@"5c1a13ddb465f5eabc000286" channel:@"App Store"];
+	[UMConfigure initWithAppkey:@"5c4180e3f1f55691540001a2" channel:@"App Store"];
 #ifdef DEBUG
 	    [[UMSocialManager defaultManager] openLog:YES];
 #else

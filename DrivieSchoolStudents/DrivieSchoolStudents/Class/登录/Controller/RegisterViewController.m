@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendCodeBtn;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *pwTF;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIImageView *view1;
+@property (weak, nonatomic) IBOutlet UIView *view2;
+@property (weak, nonatomic) IBOutlet UIImageView *view3;
 
 @end
 
@@ -51,7 +55,7 @@
     }];
     request.phone = self.phoneTF.text;
     request.showHUD = YES;
-    request.type = @"register";
+    request.type = self.isBindPhone ? @"":  @"register";
     [request startRequest];
 }
 - (IBAction)nextBtnTap:(id)sender {
@@ -68,6 +72,11 @@
         EDSAppTouristRegistRequest * request = [EDSAppTouristRegistRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             if (errCode == 1) {
                 NSMutableDictionary *data = [self.data mutableCopy];
+                if ([self.type isEqualToString:@"1"]) {
+                     [data setObject:self.openId forKey:@"qQOpenid"];
+                }else{
+                    [data setObject:self.openId forKey:@"wXOpenid"];
+                }
                 [data setValue:weakSelf.phoneTF.text forKey:@"phone"];
                 EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
                 [EDSSave save:account];
@@ -171,6 +180,12 @@
     self.sendCodeBtn.layer.cornerRadius = 4;
     self.sendCodeBtn.layer.borderColor = [EDSToolClass getColorWithHexString:@"#999999"].CGColor;
     self.sendCodeBtn.layer.borderWidth = 0.5;
+    if(self.isBindPhone){//绑定手机号
+        [self.submitButton setTitle:@"绑定" forState:0];
+        self.view1.hidden = YES;
+        self.view3.hidden = YES;
+        self.view2.hidden = YES;
+    }
 }
 
 - (void)goback{

@@ -129,15 +129,15 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sct_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-aj-T7M">
                             <rect key="frame" x="30" y="107" width="16" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="16" id="CIl-em-Fhi" userLabel="width = 16"/>
-                                <constraint firstAttribute="height" constant="21" id="qyT-2w-g81" userLabel="height = 21"/>
+                                <constraint firstAttribute="width" constant="16" id="CIl-em-Fhi" userLabel="width = 18"/>
+                                <constraint firstAttribute="height" constant="21" id="qyT-2w-g81" userLabel="25"/>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobile_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-H0-rfz">
                             <rect key="frame" x="30" y="35" width="15" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="22" id="AJ5-fW-3xW"/>
-                                <constraint firstAttribute="width" constant="15" id="Q2x-Yj-4k5"/>
+                                <constraint firstAttribute="height" constant="22" id="AJ5-fW-3xW" userLabel="height = 25"/>
+                                <constraint firstAttribute="width" constant="15" id="Q2x-Yj-4k5" userLabel="width = 17"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEN-5t-m0P">
@@ -297,7 +297,7 @@
                         <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="第三方登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKy-Mj-0O4">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="第三方登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKy-Mj-0O4">
                     <rect key="frame" x="149" y="543" width="77" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="500" constant="10" id="5Xo-84-9NH"/>
@@ -314,7 +314,7 @@
                         <constraint firstAttribute="height" constant="0.5" id="WH1-JE-7Sg"/>
                     </constraints>
                 </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-dX-7N9">
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-dX-7N9">
                     <rect key="frame" x="114.5" y="579" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="iEh-J6-qJ6"/>
@@ -347,7 +347,7 @@
                         <color key="titleColor" red="0.18823529410000001" green="0.61176470589999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-M9-x8d">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-M9-x8d">
                     <rect key="frame" x="216.5" y="579" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="lMR-gQ-470"/>

@@ -24,26 +24,26 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-ns-dny">
-                    <rect key="frame" x="125" y="15.5" width="35" height="21"/>
+                    <rect key="frame" x="110" y="15.5" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五年执教  科目二、三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prz-OS-ybV">
-                    <rect key="frame" x="125" y="78.5" width="137" height="17"/>
+                    <rect key="frame" x="110" y="78.5" width="137" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="A2k-5d-SRw">
-                    <rect key="frame" x="125" y="40.5" width="56" height="19"/>
+                    <rect key="frame" x="110" y="40.5" width="56" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="OHr-90-p3k"/>
                         <constraint firstAttribute="width" constant="56" id="l1f-m6-KHJ"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-金牌教练" translatesAutoresizingMaskIntoConstraints="NO" id="80x-Lp-ctI">
-                    <rect key="frame" x="186" y="40.5" width="56" height="19"/>
+                    <rect key="frame" x="171" y="40.5" width="56" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="56" id="Xi0-OK-foT"/>
                         <constraint firstAttribute="height" constant="19" id="YDE-0K-FOj"/>
@@ -60,13 +60,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="mnR-yb-5qM" firstAttribute="trailing" secondItem="QGu-Vx-4O4" secondAttribute="trailing" id="B4g-wE-ITP"/>
-                <constraint firstItem="ugl-ns-dny" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="PkM-eU-3PR"/>
+                <constraint firstItem="ugl-ns-dny" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="15" id="PkM-eU-3PR"/>
                 <constraint firstItem="QGu-Vx-4O4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Std-D0-lFl"/>
                 <constraint firstItem="Prz-OS-ybV" firstAttribute="bottom" secondItem="QGu-Vx-4O4" secondAttribute="bottom" id="ZNg-QK-Tne"/>
                 <constraint firstItem="80x-Lp-ctI" firstAttribute="leading" secondItem="A2k-5d-SRw" secondAttribute="trailing" constant="5" id="ftm-9Y-dVY"/>
                 <constraint firstItem="QGu-Vx-4O4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jM3-ar-ZVV"/>
                 <constraint firstItem="A2k-5d-SRw" firstAttribute="top" secondItem="ugl-ns-dny" secondAttribute="bottom" constant="4" id="kB3-Bz-mWM"/>
-                <constraint firstItem="Prz-OS-ybV" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="30" id="kCt-L6-Ghq"/>
+                <constraint firstItem="Prz-OS-ybV" firstAttribute="leading" secondItem="QGu-Vx-4O4" secondAttribute="trailing" constant="15" id="kCt-L6-Ghq"/>
                 <constraint firstItem="ugl-ns-dny" firstAttribute="top" secondItem="QGu-Vx-4O4" secondAttribute="top" id="qGc-uE-3tT"/>
                 <constraint firstItem="mnR-yb-5qM" firstAttribute="bottom" secondItem="QGu-Vx-4O4" secondAttribute="bottom" id="qMy-7L-oRk"/>
                 <constraint firstItem="80x-Lp-ctI" firstAttribute="top" secondItem="A2k-5d-SRw" secondAttribute="top" id="rje-25-eWf"/>

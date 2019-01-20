@@ -48,7 +48,7 @@
 //    }];
     UIScrollView * scrollView = [UIScrollView new];
     [self.view addSubview:scrollView];
-    scrollView.contentSize = CGSizeMake(0, 500);
+    scrollView.contentSize = CGSizeMake(0, kScreenHeight-kNavigationH + 70 + 20);
     
     headerView = [[EDSOnlineAboutClassDetailAppointmentHeaderView alloc] init];
 //    headerView.frame = CGRectMake(0, 0, kScreenWidth-30, 110);

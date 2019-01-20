@@ -30,6 +30,8 @@
     NSInteger _photoType;
     UIImage *_img;
 }
+@property (weak, nonatomic) IBOutlet UIView *wxView;
+@property (weak, nonatomic) IBOutlet UIView *qqView;
 @property (weak, nonatomic) IBOutlet UIView *changePasswordBgview;
 @property (weak, nonatomic) IBOutlet UIView *changephoneBgView;
 @property (weak, nonatomic) IBOutlet UIView *avarimgView;
@@ -73,6 +75,13 @@
         @strongify(self);
         
         [self changeAvarImgView];
+    }];
+    
+    [_wxView bk_whenTapped:^{
+        [self wxBind:self.wxStatus];
+    }];
+    [_qqView bk_whenTapped:^{
+        [self qqBind:self.QQStatus];
     }];
 }
 

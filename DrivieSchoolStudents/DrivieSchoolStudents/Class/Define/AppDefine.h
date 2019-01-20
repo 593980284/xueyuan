@@ -21,7 +21,7 @@
 #define LINEURL @"http://111.39.245.156:8087"
 
 #else //处于发布正式阶段
-
+//#define LINEURL @"http://111.39.245.156:8087"
 #define LINEURL @"http://112.2.0.75:9001"
 
 #endif

@@ -16,7 +16,7 @@
 //    NSLog(@"内容---%@",self.content);
 //    NSLog(@"cell高度 ---- %lf",cotentHeight);
     
-    return [self getSizeWithStr:self.content].size.height>=29?130:100 ;
+    return [self getSizeWithStr:self.content].size.height>=25?130:100 ;
 }
 -(CGRect )getSizeWithStr:(NSString *)str
 {

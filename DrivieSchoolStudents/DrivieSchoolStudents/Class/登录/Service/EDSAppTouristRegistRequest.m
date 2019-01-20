@@ -13,10 +13,10 @@
 - (NSString *)requestURLPath
 {
     if (self.requestTypeNotBindQQ_Wx) {
-        return @"/dtms_nanj4.0/app/lexiang/login/appCancelBindThird";
+        return @"/app/lexiang/login/appCancelBindThird";
     }
     if (self.requestTypeBindQQ_Wx) {
-        return @"/dtms_nanj4.0/app/lexiang/login/appBindThirdStudent";
+        return @"/app/lexiang/login/appBindThirdStudent";
     }
     return @"/app/lexiang/login/appTouristRegist";
 }
@@ -28,7 +28,16 @@
 
 - (NSDictionary *)requestArguments
 {
-    return [self mj_keyValues];
+    NSMutableDictionary *dic = [[self mj_keyValues] mutableCopy];
+    if(!dic[@"code"]){
+        [dic setValue:@"" forKey:@"code"];
+    };
+    [dic removeObjectForKey:@"showHUD"];
+    [dic removeObjectForKey:@"failureBlock"];
+    [dic removeObjectForKey:@"successBlock"];
+    [dic removeObjectForKey:@"requestTypeBindQQ_Wx"];
+    [dic removeObjectForKey:@"requestTypeNotBindQQ_Wx"];
+    return dic;
 }
 
 - (void)handleData:(id)data errCode:(NSInteger)resCode

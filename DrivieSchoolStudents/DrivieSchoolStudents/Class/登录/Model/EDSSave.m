@@ -18,6 +18,10 @@
     //立刻同步
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    EDSAccount * a = [self account];
+    [a setValue:value forKey:defaultName];
+    [self save:a];
+    
 }
 
 + (id)objectForKey:(NSString *)defaultName

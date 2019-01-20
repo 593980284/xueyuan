@@ -46,7 +46,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, MyTableViewSeparatorLeft, 0, 0);
-    
+    self.tableView.frame = CGRectMake(0, 0,kScreenWidth, kScreenHeight - KTabBarHeight);
     @weakify(self);
     self.headerView.headerImgViewDidClick = ^{
         @strongify(self);
@@ -93,8 +93,8 @@
                                      @[@"课程记录",@"kcjl_content_icon_default"],
                                      @[@"学习查询",@"xxcx_content_icon_default"],
                                      @[@"学校信箱",@"xxxx_content_icon_default"],
+                                     @[@"关注官方公众号",@"ic_weixin"],
                                      @[@"刷新缓存",@"sxhc_content_icon_default" , @""],
-//                                     @[@"检查更新",@"jcgx_content_icon_default"],
                                      @[@"关于我们",@"gywm_content_icon_default"],
 									 ]
                                  ];
@@ -215,6 +215,28 @@
     }else if ([string isEqualToString:@"我的报名"]){
         
         [self.view makeToast:@"您还没有报名"];
+    }else{
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setString:@"汽修与驾培"];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"稍后再去" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"去关注" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL * url = [NSURL URLWithString:@"weixin://"];
+            BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:url];
+            //先判断是否能打开该url
+            if (canOpen)
+            {   //打开微信
+                [[UIApplication sharedApplication] openURL:url];
+            }else{
+                [self.view makeToast:@"未安装微信"];
+            }
+        }];
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"" message:@"微信号已成功复制，\n请前往微信s搜索并关注汽修与驾培" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:action];
+        [alert addAction:action1];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
