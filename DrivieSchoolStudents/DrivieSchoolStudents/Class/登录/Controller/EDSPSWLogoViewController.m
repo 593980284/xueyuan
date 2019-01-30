@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pswBtn;
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 @property (strong, nonatomic) UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UIImageView *psImgView;
 
 @property (weak, nonatomic) IBOutlet UIView *codeLoginBgView;
 @property (weak, nonatomic) IBOutlet UITextField *codePhoneTextF;
@@ -100,6 +101,7 @@
         self.pswLoginBgView.hidden = NO;
         self.codeLoginBgView.hidden = YES;
         self->_isCodeLogin = NO;
+        self.psImgView.image = [UIImage imageNamed:@"ic_mm"];
         
         [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.pswBtn.wz_centerX - 25);
@@ -113,6 +115,7 @@
         self.pswLoginBgView.hidden = YES;
         self.codeLoginBgView.hidden = NO;
         self->_isCodeLogin = YES;
+        self.psImgView.image = [UIImage imageNamed:@"ic_yzm"];
         
         [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.codeBtn.wz_centerX - 25);

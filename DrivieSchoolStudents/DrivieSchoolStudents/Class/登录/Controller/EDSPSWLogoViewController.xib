@@ -18,6 +18,7 @@
                 <outlet property="codeVerificationTextF" destination="BXn-9n-1W9" id="Zq3-Ca-5P2"/>
                 <outlet property="getCodeBtn" destination="oit-Zw-rDZ" id="lmm-9Z-dN8"/>
                 <outlet property="lineView" destination="S8P-eW-cnp" id="SpK-Be-rQq"/>
+                <outlet property="psImgView" destination="dlr-aj-T7M" id="omi-fe-1CB"/>
                 <outlet property="pswBtn" destination="AAp-Wq-jPQ" id="6E0-fd-nZN"/>
                 <outlet property="pswCodeTextF" destination="eH9-kO-bVg" id="Mhc-hf-GZG"/>
                 <outlet property="pswLoginBgView" destination="KqH-NK-YEl" id="I63-9v-uyC"/>
@@ -56,22 +57,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqH-NK-YEl">
                     <rect key="frame" x="0.0" y="133" width="375" height="132"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sct_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="CPS-c0-ed7">
-                            <rect key="frame" x="30" y="107" width="16" height="21"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mm" translatesAutoresizingMaskIntoConstraints="NO" id="CPS-c0-ed7">
+                            <rect key="frame" x="30" y="105" width="20" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="16" id="Woz-jY-5cJ" userLabel="width = 16"/>
+                                <constraint firstAttribute="width" constant="20" id="Woz-jY-5cJ" userLabel="width = 16"/>
                                 <constraint firstAttribute="height" constant="21" id="lpo-rp-JSk"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobile_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-Cx-aop">
-                            <rect key="frame" x="30" y="35" width="15" height="22"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_phone" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-Cx-aop">
+                            <rect key="frame" x="30" y="33" width="20" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="i5F-cW-oeJ"/>
-                                <constraint firstAttribute="width" constant="15" id="wiY-UU-9Qs"/>
+                                <constraint firstAttribute="width" constant="20" id="wiY-UU-9Qs"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nV7-do-h6E">
-                            <rect key="frame" x="60" y="131" width="275" height="1"/>
+                            <rect key="frame" x="64" y="131" width="271" height="1"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="gdE-Ro-IS0"/>
@@ -85,7 +86,7 @@
                             </constraints>
                         </view>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRA-HJ-eGN">
-                            <rect key="frame" x="60" y="19" width="275" height="40"/>
+                            <rect key="frame" x="65" y="19" width="270" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="cpi-iT-Zjh"/>
                             </constraints>
@@ -94,7 +95,7 @@
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-kO-bVg">
-                            <rect key="frame" x="60" y="91" width="275" height="40"/>
+                            <rect key="frame" x="64" y="91" width="271" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="7eq-2e-lHr"/>
                             </constraints>
@@ -106,10 +107,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="9A4-72-5Qd" secondAttribute="trailing" constant="40" id="023-ag-JTI"/>
-                        <constraint firstItem="CPS-c0-ed7" firstAttribute="top" secondItem="9A4-72-5Qd" secondAttribute="bottom" constant="46" id="0FV-af-9jl"/>
+                        <constraint firstItem="CPS-c0-ed7" firstAttribute="top" secondItem="9A4-72-5Qd" secondAttribute="bottom" constant="44" id="0FV-af-9jl"/>
                         <constraint firstAttribute="trailing" secondItem="KRA-HJ-eGN" secondAttribute="trailing" constant="40" id="0Ol-Vt-7DW"/>
                         <constraint firstItem="CPS-c0-ed7" firstAttribute="leading" secondItem="KqH-NK-YEl" secondAttribute="leading" constant="30" id="GdK-PT-JS8"/>
-                        <constraint firstAttribute="bottom" secondItem="CPS-c0-ed7" secondAttribute="bottom" constant="4" id="Gn8-Bh-aCR"/>
+                        <constraint firstAttribute="bottom" secondItem="CPS-c0-ed7" secondAttribute="bottom" constant="6" id="Gn8-Bh-aCR"/>
                         <constraint firstItem="CPS-c0-ed7" firstAttribute="top" secondItem="dZu-Cx-aop" secondAttribute="bottom" constant="50" id="Iwe-Vb-SY2"/>
                         <constraint firstItem="KRA-HJ-eGN" firstAttribute="leading" secondItem="dZu-Cx-aop" secondAttribute="trailing" constant="15" id="JVE-0V-Snw"/>
                         <constraint firstAttribute="trailing" secondItem="nV7-do-h6E" secondAttribute="trailing" constant="40" id="MWV-41-dFu"/>
@@ -126,22 +127,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-2H-a6L" userLabel="codeView">
                     <rect key="frame" x="0.0" y="133" width="375" height="132"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sct_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-aj-T7M">
-                            <rect key="frame" x="30" y="107" width="16" height="21"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mm" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-aj-T7M">
+                            <rect key="frame" x="30" y="105" width="20" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="16" id="CIl-em-Fhi" userLabel="width = 18"/>
+                                <constraint firstAttribute="width" constant="20" id="CIl-em-Fhi" userLabel="width = 18"/>
                                 <constraint firstAttribute="height" constant="21" id="qyT-2w-g81" userLabel="25"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobile_content_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-H0-rfz">
-                            <rect key="frame" x="30" y="35" width="15" height="22"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_phone" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-H0-rfz">
+                            <rect key="frame" x="30" y="33" width="20" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="AJ5-fW-3xW" userLabel="height = 25"/>
-                                <constraint firstAttribute="width" constant="15" id="Q2x-Yj-4k5" userLabel="width = 17"/>
+                                <constraint firstAttribute="width" constant="20" id="Q2x-Yj-4k5" userLabel="width = 17"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEN-5t-m0P">
-                            <rect key="frame" x="60" y="131" width="275" height="1"/>
+                            <rect key="frame" x="64" y="131" width="271" height="1"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cRh-HW-qHE"/>
@@ -155,7 +156,7 @@
                             </constraints>
                         </view>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlb-3s-HQi">
-                            <rect key="frame" x="60" y="19" width="275" height="40"/>
+                            <rect key="frame" x="65" y="19" width="270" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="WUW-gm-Lbt"/>
                             </constraints>
@@ -178,7 +179,7 @@
                             </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXn-9n-1W9">
-                            <rect key="frame" x="60" y="91" width="165" height="40"/>
+                            <rect key="frame" x="64" y="91" width="161" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="mNt-sm-MCo"/>
                             </constraints>
@@ -199,11 +200,11 @@
                         <constraint firstItem="BXn-9n-1W9" firstAttribute="leading" secondItem="dlr-aj-T7M" secondAttribute="trailing" constant="14" id="F6X-dl-bIF"/>
                         <constraint firstItem="hlb-3s-HQi" firstAttribute="leading" secondItem="Cov-H0-rfz" secondAttribute="trailing" constant="15" id="KpY-R9-X0d"/>
                         <constraint firstItem="LEN-5t-m0P" firstAttribute="leading" secondItem="dlr-aj-T7M" secondAttribute="trailing" constant="14" id="NZY-kZ-P8K"/>
-                        <constraint firstAttribute="bottom" secondItem="dlr-aj-T7M" secondAttribute="bottom" constant="4" id="RBr-wB-5sj"/>
+                        <constraint firstAttribute="bottom" secondItem="dlr-aj-T7M" secondAttribute="bottom" constant="6" id="RBr-wB-5sj"/>
                         <constraint firstItem="oit-Zw-rDZ" firstAttribute="baseline" secondItem="BXn-9n-1W9" secondAttribute="firstBaseline" id="VTB-mq-Yb6"/>
                         <constraint firstAttribute="bottom" secondItem="LEN-5t-m0P" secondAttribute="bottom" id="W9E-6y-Ptb"/>
                         <constraint firstItem="hlb-3s-HQi" firstAttribute="top" secondItem="xUz-ql-ALu" secondAttribute="top" constant="19" id="bEd-ZZ-fst"/>
-                        <constraint firstItem="dlr-aj-T7M" firstAttribute="top" secondItem="eWQ-o9-L82" secondAttribute="bottom" constant="46" id="cR2-6b-QhB"/>
+                        <constraint firstItem="dlr-aj-T7M" firstAttribute="top" secondItem="eWQ-o9-L82" secondAttribute="bottom" constant="44" id="cR2-6b-QhB"/>
                         <constraint firstItem="eWQ-o9-L82" firstAttribute="top" secondItem="hlb-3s-HQi" secondAttribute="bottom" constant="1" id="daP-Wb-WYD"/>
                         <constraint firstItem="oit-Zw-rDZ" firstAttribute="centerY" secondItem="BXn-9n-1W9" secondAttribute="centerY" id="oBj-C6-jwa"/>
                         <constraint firstItem="dlr-aj-T7M" firstAttribute="top" secondItem="Cov-H0-rfz" secondAttribute="bottom" constant="50" id="omH-uQ-8k4"/>
@@ -416,10 +417,10 @@
     </objects>
     <resources>
         <image name="goback" width="9" height="15"/>
+        <image name="ic_mm" width="19" height="19"/>
+        <image name="ic_phone" width="18" height="18"/>
         <image name="ic_xz" width="16" height="16"/>
         <image name="login_way_QQ" width="44" height="44"/>
         <image name="login_way_wechat" width="44" height="44"/>
-        <image name="mobile_content_icon_default" width="17" height="24"/>
-        <image name="sct_content_icon_default" width="18" height="23"/>
     </resources>
 </document>
