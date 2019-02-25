@@ -34,7 +34,7 @@
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //同时设置返回按钮和关闭按钮为导航栏左边的按钮
-    self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
+    self.navigationItem.leftBarButtonItems = @[self.backItem];
 }
 
 
@@ -66,7 +66,7 @@
         //如果有则返回
         [self.webView goBack];
         //同时设置返回按钮和关闭按钮为导航栏左边的按钮
-        self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
+        self.navigationItem.leftBarButtonItems = @[self.backItem];
     } else {
         [self closeNative];
     }
@@ -241,10 +241,10 @@
         //这是一张“<”的图片，可以让美工给切一张
         UIImage *image = [UIImage imageNamed:@"goback"];
         [btn setImage:image forState:UIControlStateNormal];
-        [btn setTitle:@" 返回" forState:UIControlStateNormal];
+//        [btn setTitle:@"返回" forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(backNative) forControlEvents:UIControlEventTouchUpInside];
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:13]];
-        [btn setTitleColor:RGBCOLOR(31, 144, 230) forState:UIControlStateNormal];
+        [btn.titleLabel setFont:kFont(15)];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         //字体的多少为btn的大小
         [btn sizeToFit];
         //左对齐

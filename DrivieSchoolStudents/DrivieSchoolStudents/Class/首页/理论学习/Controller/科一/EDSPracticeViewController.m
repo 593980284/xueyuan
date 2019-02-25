@@ -62,7 +62,6 @@
     self.footerView.practiceFooterViewDidSelectStringback = ^(NSString *titleStr) {
         @strongify(self);
         if ([titleStr isEqualToString:@"下一题"]) {
-            
             for (int i = 0; i < self.tableViewModel.answerlists.count; i ++) {
                 
                 if (self.tableViewModel.answerlists[i].isChoose) {
@@ -71,8 +70,13 @@
                     return;
                 }
             }
-            
-            [self.view makeToast:@"请做完本题"];
+            if(self.type == 0){
+                self->_isChooes = NO;
+                [[EDSDataBase sharedDataBase] upDateFirstSubjectErrorsWithID:self.tableViewModel.ID];
+                [self getNextQuestion];
+            }else{
+                 [self.view makeToast:@"请做完本题"];
+            }
         }else if ([titleStr isEqualToString:@"收藏"]){
             
             if (self.tableViewModel.isCollection) {
@@ -412,7 +416,7 @@
         [self.view addSubview:_footerView];
         [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(120);
+            make.height.mas_equalTo(140);
         }];
     }
     return _footerView;

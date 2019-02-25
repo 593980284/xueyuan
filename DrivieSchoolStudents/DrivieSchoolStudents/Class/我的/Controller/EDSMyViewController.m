@@ -25,6 +25,7 @@
 #import "MineTopBarView.h"
 #import "EDSGetStudentInfoRequest.h"
 #import "EDSVersionUpdateRequest.h"
+#import "BHYWebViewViewController.h"
 
 @interface EDSMyViewController ()<UITableViewDelegate,UITableViewDataSource,LXAlterPromptViewDelegate>
 
@@ -35,6 +36,8 @@
 /// 背景图
 @property (nonatomic, strong) UIView *alterBgView;
 @property (nonatomic, strong) LXAlterPromptView *promptView;
+/** 保险服务url*/
+@property (nonatomic, strong) NSString *insuranceUrl;
 
 @end
 
@@ -93,12 +96,13 @@
                                      @[@"课程记录",@"kcjl_content_icon_default"],
                                      @[@"学习查询",@"xxcx_content_icon_default"],
                                      @[@"学校信箱",@"xxxx_content_icon_default"],
+                                      @[@"保险服务",@"ic_bxye"],
                                      @[@"关注官方公众号",@"ic_weixin"],
                                      @[@"刷新缓存",@"sxhc_content_icon_default" , @""],
                                      @[@"关于我们",@"gywm_content_icon_default"],
 									 ]
                                  ];
-                
+                self.insuranceUrl = responseDict[@"insuranceUrl"];
                 self.headerView.headerArr = @[];
                 [self.tableView reloadData];
             }
@@ -215,6 +219,15 @@
     }else if ([string isEqualToString:@"我的报名"]){
         
         [self.view makeToast:@"您还没有报名"];
+    }else if ([string isEqualToString:@"保险服务"]){
+        if(self.insuranceUrl && self.insuranceUrl.length > 0){
+            BHYWebViewViewController *vc = [BHYWebViewViewController new];
+            vc.webUrl = [self.insuranceUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            vc.title = @"保险服务";
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [self.view makeToast:@"请您先报名驾校"];
+        }
     }else{
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         [pasteboard setString:@"汽修与驾培"];

@@ -31,6 +31,7 @@
         return;
     }
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
