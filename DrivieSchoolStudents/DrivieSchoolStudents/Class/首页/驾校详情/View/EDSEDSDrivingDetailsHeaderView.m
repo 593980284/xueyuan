@@ -412,7 +412,7 @@
     sc.block = ^(NSString * _Nonnull titleStr) {
         self.drivingDetailsHeaderViewDidSelectStringback(titleStr);
     };
-    
+    _selectScrollView = sc;
     /*
     UIView *line = [UIView viewWithBackgroundColor:TableColor superView:parentView];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {

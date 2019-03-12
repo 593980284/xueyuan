@@ -201,13 +201,13 @@
         [self.tableView.mj_header endRefreshing];
     }];
     
-    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
-        
+//    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
+    
         request2.schoolId = @"0";
-    }else
-    {
-        request2.schoolId = [EDSSave account].schoolId;
-    }
+//    }else
+//    {
+//        request2.schoolId = [EDSSave account].schoolId;
+//    }
     request2.page = self.page;
     [request2 startRequest];
 }

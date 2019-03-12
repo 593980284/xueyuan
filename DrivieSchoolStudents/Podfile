@@ -15,8 +15,10 @@ target 'DrivieSchoolStudents' do
     pod 'FMDB'
     pod 'YYCache'
     pod 'SVProgressHUD'
+    pod 'BaiduMapKit' #百度地图SDK
 	
 	pod 'UMCCommon'
+  pod 'UMCAnalytics'
 	# 集成微信(完整版14.4M)
 	pod 'UMCShare/Social/WeChat'
 	# 集成QQ/QZone/TIM(完整版7.6M)

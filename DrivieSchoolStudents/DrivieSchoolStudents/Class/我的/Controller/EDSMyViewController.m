@@ -104,6 +104,8 @@
                                  ];
                 self.insuranceUrl = responseDict[@"insuranceUrl"];
                 self.headerView.headerArr = @[];
+                self.headerView.className = responseDict[@"className"];
+                self.headerView.userName = responseDict[@"userName"];
                 [self.tableView reloadData];
             }
             
@@ -221,10 +223,21 @@
         [self.view makeToast:@"您还没有报名"];
     }else if ([string isEqualToString:@"保险服务"]){
         if(self.insuranceUrl && self.insuranceUrl.length > 0){
-            BHYWebViewViewController *vc = [BHYWebViewViewController new];
-            vc.webUrl = [self.insuranceUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            vc.title = @"保险服务";
-            [self.navigationController pushViewController:vc animated:YES];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                BHYWebViewViewController *vc = [BHYWebViewViewController new];
+                vc.webUrl = [self.insuranceUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                vc.title = @"保险服务";
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"" message:@"本平台仅提供引流服务，所有保险产品的销售、理赔等服务均由中盛融安国际保险经纪有限公司提供。" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:action];
+            [alert addAction:action1];
+            [self presentViewController:alert animated:YES completion:nil];
+        
         }else{
             [self.view makeToast:@"请您先报名驾校"];
         }

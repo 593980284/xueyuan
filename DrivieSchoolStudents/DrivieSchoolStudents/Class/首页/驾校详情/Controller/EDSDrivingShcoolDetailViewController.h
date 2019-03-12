@@ -13,4 +13,5 @@
 @property (assign, nonatomic) CGPoint printPoint;
 /** 学校id */
 @property (nonatomic, copy) NSString *schoolId;
+@property (assign, nonatomic) NSInteger index;
 @end

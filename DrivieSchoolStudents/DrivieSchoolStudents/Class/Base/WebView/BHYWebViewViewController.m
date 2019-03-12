@@ -35,6 +35,7 @@
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //同时设置返回按钮和关闭按钮为导航栏左边的按钮
     self.navigationItem.leftBarButtonItems = @[self.backItem];
+     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
 }
 
 
@@ -43,7 +44,6 @@
     [super viewWillAppear:animated];
     
     //TODO:加载
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
     
     //TODO:kvo监听，获得页面title和加载进度值
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];

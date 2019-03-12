@@ -34,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H06-cZ-c6n">
-                        <rect key="frame" x="66" y="22.5" width="203" height="17"/>
+                        <rect key="frame" x="66" y="22.5" width="158" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="R1V-8V-Lu6"/>
                         </constraints>
@@ -42,19 +42,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0E-Fe-nbP">
-                        <rect key="frame" x="299" y="27.5" width="25" height="25"/>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0E-Fe-nbP">
+                        <rect key="frame" x="254" y="27.5" width="70" height="25"/>
+                        <color key="backgroundColor" red="0.17647058823529413" green="0.4823529411764706" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="5bX-Us-qFe"/>
+                            <constraint firstAttribute="width" constant="70" id="5bX-Us-qFe" userLabel="width = 60"/>
                             <constraint firstAttribute="height" constant="25" id="Ctd-bV-dMd"/>
                         </constraints>
-                        <state key="normal" backgroundImage="lx_student_callmobile"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="一键呼叫">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="callphone:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="f1g-7g-qFL"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yy3-rs-kMd">
-                        <rect key="frame" x="66" y="46" width="203" height="20"/>
+                        <rect key="frame" x="66" y="46" width="158" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="XSl-cb-7vj"/>
                         </constraints>
@@ -89,6 +98,5 @@
     <resources>
         <image name="icon_phone" width="200" height="200"/>
         <image name="icon_school" width="200" height="200"/>
-        <image name="lx_student_callmobile" width="33" height="33"/>
     </resources>
 </document>

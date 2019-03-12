@@ -20,6 +20,7 @@
 #import "EDSElegantDemeanourViewController.h"
 #import "ComplaintViewController.h"
 #import "HtmlVC.h"
+#import "BusListVC.h"
 
 #import "EDSHomeTableViewHeaderView.h"
 #import "EDSHomeTableViewCell.h"
@@ -38,6 +39,8 @@
 #import "HomeHeaderView.h"
 
 #import "EDSBusInfoVC.h"
+#import <UMAnalytics/MobClick.h>
+#import "BusListRequest.h"
 
 @interface EDSHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EDSHomeTableViewHeaderViewDelegate>
 
@@ -62,7 +65,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[HomeHeaderView class] forHeaderFooterViewReuseIdentifier:@"HomeHeaderView"];
-     [self.tableView registerClass:[CarTableViewCell class] forCellReuseIdentifier:@"CarTableViewCell"];
+    [self.tableView registerClass:[CarTableViewCell class] forCellReuseIdentifier:@"CarTableViewCell"];
     [self.tableView registerClass:[StyleTableViewCell class] forCellReuseIdentifier:@"StyleTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _headerView = [[EDSHomeTableViewHeaderView alloc] init];
@@ -71,9 +74,9 @@
     _headerView.headerArr = @[];
     self.tableView.tableHeaderView = _headerView;
     if (@available(iOS 11.0, *)) {
-         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }else{
-       self.automaticallyAdjustsScrollViewInsets = NO;
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(homeRequestData)];
     self.tableView.frame = CGRectMake(0, 0,kScreenWidth, kScreenHeight - KTabBarHeight);
@@ -84,22 +87,22 @@
 {
     [super viewWillAppear:animated];
     if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
-         self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreData)];
+        self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreData)];
     }else{
-         self.tableView.mj_footer = nil;
+        self.tableView.mj_footer = nil;
     }
     [self homeRequestData];
     
     _headerView.headerArr = @[];
     [self setupNavigationView];
-   
-         [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-   [super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
     if (self.navigationController.childViewControllers.count > 1) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
@@ -129,8 +132,8 @@
 
 - (void)homeRightBarButtonItemClick
 {
-        EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
+    EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)homeFuntionBtnClick:(NSNotification *)notification
@@ -144,12 +147,12 @@
             EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-    
+            
             EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];
         }
     }else if ([titleStr isEqualToString:@"我要报名"]){
-        
+        [self eventID:@"1770"];
         EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"我要约课"]){//
@@ -157,12 +160,12 @@
         if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
             
             if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
-                
+                [self eventID:@"1773"];
                 EDSOnlineAboutClassViewController *vc = [[EDSOnlineAboutClassViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }else{
-//                [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
-//                [SVProgressHUD dismissWithDelay:1.5];
+                //                [SVProgressHUD showErrorWithStatus:@"您还没有报名^_^!"];
+                //                [SVProgressHUD dismissWithDelay:1.5];
                 [self.view makeToast:@"您还没有报名^_^!"];
             }
         }else{
@@ -171,15 +174,15 @@
             [self presentViewController:vc animated:YES completion:nil];
         }
     }else if ([titleStr isEqualToString:@"理论学习"]){//
-//        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
-        
-            EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-//        }else{
-//
-//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-//            [self presentViewController:vc animated:YES completion:nil];
-//        }
+        //        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+        [self eventID:@"1772"];
+        EDSTheoryLearningViewController *vc = [[EDSTheoryLearningViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        //        }else{
+        //
+        //            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        //            [self presentViewController:vc animated:YES completion:nil];
+        //        }
     }else if ([titleStr isEqualToString:@"品牌驾校"]){
         
         EDSBrandIntroductionViewController *vc = [[EDSBrandIntroductionViewController alloc] init];
@@ -192,21 +195,22 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             
-//            [SVProgressHUD showErrorWithStatus:@"您还没有报名奥^_^!"];
-//            [SVProgressHUD dismissWithDelay:1.5];
+            //            [SVProgressHUD showErrorWithStatus:@"您还没有报名奥^_^!"];
+            //            [SVProgressHUD dismissWithDelay:1.5];
             [self.view makeToast:@"您还没有报名奥^_^!"];
         }
         
     }else if ([titleStr isEqualToString:@"我要投诉"]){
         
-//        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
-            ComplaintViewController *vc = [[ComplaintViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-//        }else{
-//
-//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-//            [self presentViewController:vc animated:YES completion:nil];
-//        }
+        //        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+        [self eventID:@"1774"];
+        ComplaintViewController *vc = [[ComplaintViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        //        }else{
+        //
+        //            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+        //            [self presentViewController:vc animated:YES completion:nil];
+        //        }
         
     }else if ([titleStr isEqualToString:@"报名流程"]){
         
@@ -218,7 +222,8 @@
         vc.schoolId = [EDSSave account].schoolId;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([titleStr isEqualToString:@"乐享论坛"]){
-         [self.view makeToastActivity];
+        [self eventID:@"1771"];
+        [self.view makeToastActivity];
         LunRequest * req = [LunRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             [self.view hideToastActivity];
             HtmlVC *vc = [HtmlVC new];
@@ -233,12 +238,16 @@
     }
 }
 
+-(void)eventID:(NSString *)eventid
+{
+    [MobClick event:eventid];
+}
 #pragma mark ------------------------ 网络请求 --------------------------------
 - (void)homeRequestData
 {
     self.page = 1;
     
-    if ([EDSToolClass isBlankString:[EDSSave account].userID]) {
+    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
         EDSHomeSchoolInformationRequest *request2 = [EDSHomeSchoolInformationRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
             
             self.tableViewListArr = model;
@@ -249,7 +258,7 @@
         } failureBlock:^(NSError *error) {
             [self.tableView.mj_header endRefreshing];
         }];
-       
+        
         request2.schoolId = @"0";
         request2.page = self.page;
         [request2 startRequest];
@@ -295,7 +304,7 @@
         self.tableViewListArr = [data copy];
         [self.tableView reloadData];
         if (model.count == 0) {
-             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }else{
             [self.tableView.mj_footer endRefreshing];
         }
@@ -305,14 +314,14 @@
         [self.tableView.mj_footer endRefreshing];
     }];
     
-//    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
-//        
-//        request2.schoolId = @"0";
-//    }else
-//    {
-//        request2.schoolId = [EDSSave account].schoolId;
-//    }
-     request2.schoolId = @"0";
+    //    if ([EDSToolClass isBlankString:[EDSSave account].schoolId]) {
+    //
+    //        request2.schoolId = @"0";
+    //    }else
+    //    {
+    //        request2.schoolId = [EDSSave account].schoolId;
+    //    }
+    request2.schoolId = @"0";
     self.page++;
     request2.page = self.page;
     [request2 startRequest];
@@ -322,108 +331,109 @@
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([EDSSave account].userID.length > 0) {
+    if ([EDSSave account].schoolId.length > 0) {
         if (section == 0) {
             return self.carArr.count;
         }else{
-             return ceilf(self.schoolStyleArr.count/2.0);
+            return ceilf(self.schoolStyleArr.count/2.0);
         }
     }else{
-       return self.tableViewListArr.count;
+        return self.tableViewListArr.count;
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-       if ([EDSSave account].userID.length > 0) {
-           return 2;
-       }else{
-            return 1;
-       }
+    if ([EDSSave account].schoolId.length > 0) {
+        return 2;
+    }else{
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-      if ([EDSSave account].userID.length > 0) {
-          if (indexPath.section == 0) {
-              CarTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CarTableViewCell" forIndexPath:indexPath];
-             cell.dic = self.carArr[indexPath.row];
-              return cell;
-          }else{
-               StyleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"StyleTableViewCell" forIndexPath:indexPath];
-              cell.leftView.model = self.schoolStyleArr[indexPath.row*2];
-              if (self.schoolStyleArr.count >= indexPath.row*2 + 2) {
+    if ([EDSSave account].schoolId.length > 0) {
+        if (indexPath.section == 0) {
+            CarTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CarTableViewCell" forIndexPath:indexPath];
+            cell.dic = self.carArr[indexPath.row];
+            return cell;
+        }else{
+            StyleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"StyleTableViewCell" forIndexPath:indexPath];
+            cell.leftView.model = self.schoolStyleArr[indexPath.row*2];
+            if (self.schoolStyleArr.count >= indexPath.row*2 + 2) {
                 cell.rightView.model = self.schoolStyleArr[indexPath.row*2 + 1];
-              }
-              cell.leftView.block = ^(EDSSchoolStyleModel *model) {
-                  EDSElegantDemeanourViewController *vc = [[EDSElegantDemeanourViewController alloc] initWithNibName:@"EDSElegantDemeanourViewController" bundle:[NSBundle mainBundle]];
-                  vc.schoolId = model.styleId;
-                  [self.navigationController pushViewController:vc animated:YES];
-              };
-              cell.rightView.block = ^(EDSSchoolStyleModel *model) {
-                  if (model == nil) {
-                      return ;
-                  }
-                  EDSElegantDemeanourViewController *vc = [[EDSElegantDemeanourViewController alloc] initWithNibName:@"EDSElegantDemeanourViewController" bundle:[NSBundle mainBundle]];
-                  vc.schoolId = model.styleId;
-                  [self.navigationController pushViewController:vc animated:YES];
-              };
-              return cell;
-          }
-      }else{
-          EDSHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSHomeTableViewCell"];
-          if (!cell) {
-              cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSHomeTableViewCell" owner:self options:nil].firstObject;
-          }
-          cell.selectionStyle = UITableViewCellSelectionStyleNone;
-          cell.model = self.tableViewListArr[indexPath.row];
-          return cell;
-      }
+            }
+            cell.leftView.block = ^(EDSSchoolStyleModel *model) {
+                EDSElegantDemeanourViewController *vc = [[EDSElegantDemeanourViewController alloc] initWithNibName:@"EDSElegantDemeanourViewController" bundle:[NSBundle mainBundle]];
+                vc.schoolId = model.styleId;
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            cell.rightView.block = ^(EDSSchoolStyleModel *model) {
+                if (model == nil) {
+                    return ;
+                }
+                EDSElegantDemeanourViewController *vc = [[EDSElegantDemeanourViewController alloc] initWithNibName:@"EDSElegantDemeanourViewController" bundle:[NSBundle mainBundle]];
+                vc.schoolId = model.styleId;
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            return cell;
+        }
+    }else{
+        EDSHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EDSHomeTableViewCell"];
+        if (!cell) {
+            cell =  [[NSBundle mainBundle]loadNibNamed:@"EDSHomeTableViewCell" owner:self options:nil].firstObject;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = self.tableViewListArr[indexPath.row];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([EDSSave account].userID.length > 0) {
+    if ([EDSSave account].schoolId.length > 0) {
         if (indexPath.section == 0) {
- 
+            
             NSDictionary * tempDic = self.carArr[indexPath.row];
             EDSBusInfoVC * infoVC = [EDSBusInfoVC new];
             infoVC.busInfoId = tempDic[@"id"];
             [self.navigationController pushViewController:infoVC animated:YES];
         }else{
-        
+            
         }
         
     }else{
-        EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
-        vc.schoolId = self.tableViewListArr[indexPath.row].schoolId;
-        [self.navigationController pushViewController:vc animated:YES];
+        
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    HomeHeaderView *headerView = [[HomeHeaderView alloc]initWithReuseIdentifier:@"HomeHeaderView"];
     NSString *imageNamed = @"品牌驾校";
     NSString *title = @"品牌驾校";
     NSString *detail = @"（按首字母排序，排名不分先后）";
     NSString *more = @"";
-    if ([EDSSave account].userID.length > 0) {
+    if ([EDSSave account].schoolId.length > 0) {
         detail = @"";
         title = @[@"班车信息",@"驾校风采"][section];
         imageNamed = @[@"班车信息",@"驾校风采"][section];
         more = @"更多>";
+        
+        headerView.clickActionBlock = ^{
+            EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+            vc.schoolId = [EDSSave account].schoolId;
+            vc.index = section == 0 ? 5: 1;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        
     }
-    HomeHeaderView *headerView = [[HomeHeaderView alloc]initWithReuseIdentifier:@"HomeHeaderView"];
     headerView.bgImgView.image = [UIImage imageNamed:imageNamed];
     headerView.titleLb.text = title;
     headerView.detailLb.text = detail;
     headerView.moreLb.text = more;
-    
-//    headerView.clickActionBlock = ^{
-//        EDSBusInfoVC *vc = [EDSBusInfoVC new];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    };
     
     return headerView;
 }
@@ -441,15 +451,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     if ([EDSSave account].userID.length > 0) {
-         if (indexPath.section == 0) {
-             return 170*HC_750Ratio;
-         }else{
+    if ([EDSSave account].userID.length > 0) {
+        if (indexPath.section == 0) {
+            return 170*HC_750Ratio;
+        }else{
             return 330*HC_750Ratio; // top 20 left 30
-         }
-     }else{
+        }
+    }else{
         return  109 + 15;
-     }
+    }
 }
 
 - (void)dealloc

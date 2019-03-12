@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSArray  *btnArr;
 
 @property (nonatomic, copy) void (^headerPageButtonDidSelectStringback)(NSString *titleStr);
+@property (nonatomic, copy) void (^clickBlock)(NSInteger index);
 @end

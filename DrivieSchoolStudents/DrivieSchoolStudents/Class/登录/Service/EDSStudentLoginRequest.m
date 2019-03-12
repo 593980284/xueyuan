@@ -39,12 +39,12 @@
         [EDSSave save:account];
     }else{
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
-        account.firstSubjectID = @"";
-        account.fourSubjectID = @"";
-        account.firstSubjectRecitedPoliticeID = @"";
-        account.fourSubjectRecitedPoliticeID = @"";
-        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
-        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
+//        account.firstSubjectID = @"";
+//        account.fourSubjectID = @"";
+//        account.firstSubjectRecitedPoliticeID = @"";
+//        account.fourSubjectRecitedPoliticeID = @"";
+//        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
+//        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
         [EDSSave save:account];
     }
     

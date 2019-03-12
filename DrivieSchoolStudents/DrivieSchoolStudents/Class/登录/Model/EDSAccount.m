@@ -9,7 +9,6 @@
 #import "EDSAccount.h"
 
 @implementation EDSAccount
-
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
     if (self = [super init]) {
@@ -22,11 +21,14 @@
         _photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:dict[@"photo"]]];;
         _state = [NSDictionary changeType:dict[@"state"]];
         _applyDriveCar = [NSDictionary changeType:dict[@"applyDriveCar"]];
-        _studentId = [NSDictionary changeType:dict[@"studentId"]];
+        _studentId = [NSString stringWithFormat:@"%@",[NSDictionary changeType:dict[@"studentId"]]];
         _bookingExamUrl = [NSDictionary changeType:dict[@"bookingExamUrl"]];
         _touristState = [NSDictionary changeType:dict[@"touristState"]];
         _wXOpenid = [NSDictionary changeType:dict[@"wXOpenid"]];
         _qQOpenid =  [NSDictionary changeType:dict[@"qQOpenid"]];
+        _className =  [NSDictionary changeType:dict[@"className"]];
+        _userName =  [NSDictionary changeType:dict[@"userName"]];
+        _studentId2 = [NSString stringWithFormat:@"%@",[NSDictionary changeType:dict[@"studentId"]]];
     }
     return self;
 }

@@ -168,6 +168,11 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     };
+    
+    self.topView.selectScrollView.index = self.index;
+    if (self.index == 5 && 75*6 - self.view.wz_width > 0) {
+        [self.topView.selectScrollView setContentOffset:CGPointMake(75*6 - self.view.wz_width, 0) animated:NO];
+    }
 }
 
 - (void)setSchoolId:(NSString *)schoolId

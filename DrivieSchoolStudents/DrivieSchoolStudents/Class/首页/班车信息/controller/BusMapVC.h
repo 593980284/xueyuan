@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BusMapVC : BHYBaseViewController
-
+@property(nonatomic, strong)NSString * busId;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -64,7 +64,7 @@ NSString * const HQMNetworkDomain = LINEURL;
     //_processingQueue = dispatch_group_create();
 
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/html",nil];
+    _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
     if (kOpenHttpsAuth) {
         [_manager setSecurityPolicy:[self customSecurityPolicy]];
     }

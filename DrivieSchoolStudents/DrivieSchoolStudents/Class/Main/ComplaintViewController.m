@@ -12,6 +12,7 @@
 
 @interface ComplaintViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic ,strong)NSArray *dataArr;
+@property(nonatomic ,strong)NSArray *sectionList;
 @end
 
 @implementation ComplaintViewController
@@ -39,6 +40,7 @@
 - (void)requestData{
     CRequest *request = [CRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
         self.dataArr = model;
+        self.sectionList = responseDict[@"sectionList"];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failureBlock:^(NSError *error) {
@@ -78,10 +80,21 @@
 {
    
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    label.backgroundColor = TableColor;
+    label.text = [NSString stringWithFormat:@"   %@",self.sectionList[section]];
+    return label;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return self.sectionList;
+}
+
 
 
 

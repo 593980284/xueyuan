@@ -13,3 +13,9 @@
 + (instancetype)imageViewWithSuperView:(UIView *)superView;
 
 @end
+
+@interface NSDictionary (BHYCustom)
+
+- (NSArray *)xx_allValues;
+
+@end

@@ -12,6 +12,7 @@
 #import "EDSBusInfoRightListView.h"
 #import "EDSBusInfoRequest.h"
 #import "EDSBusInfoListTopView.h"
+#import "BusMapVC.h"
 
 @interface EDSBusInfoVC ()
 @property (nonatomic,strong) UIScrollView *bgScrView;
@@ -19,6 +20,7 @@
 @property (nonatomic,strong) EDSBusInfoLeftListView *leftListView;
 @property (nonatomic,strong) EDSBusInfoRightListView *rightListView;
 @property (nonatomic,strong) EDSBusInfoListTopView *listTopView;
+@property (nonatomic,strong) NSString *ID;
 //0 来 1 返程
 @property (nonatomic,assign) NSInteger busInfoType;
 
@@ -40,6 +42,7 @@
         @strongify(self);
         
         self.topView.dataDic = responseDict[@"shuttleBusData"];
+        self.ID = responseDict[@"shuttleBusData"][@"id"];
         self.leftListView.dataArr = responseDict[@"list"];
         self.rightListView.dataArr = responseDict[@"list"];
         NSLog(@"-------%@",responseDict);
@@ -50,11 +53,13 @@
     request.busInfoId =self.busInfoId;
     request.busInfoType = self.busInfoType;
     [request  startRequest];
-
+    
 }
 -(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
     [self.bgScrView setContentSize:CGSizeMake(0, self.leftListView.wz_height)];
 }
+
 -(void)setUpView{
     [self.view addSubview:self.topView];
     [self.view addSubview:self.bgScrView];
@@ -69,7 +74,7 @@
         
         @weakify(self);
         _topView.refreshBtnClick = ^{
-             @strongify(self);
+            @strongify(self);
             if (self.busInfoType == 0) {
                 self.busInfoType = 1;
             }else{
@@ -85,7 +90,7 @@
 -(UIScrollView *)bgScrView{
     if (!_bgScrView) {
         _bgScrView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, self.topView.wz_bottom, kScreenWidth, self.view.wz_height - self.topView.wz_bottom - SafeAreaTopHeight )];
-//        _bgScrView.backgroundColor = [UIColor redColor];
+        //        _bgScrView.backgroundColor = [UIColor redColor];
         
     }
     return _bgScrView;
@@ -107,6 +112,15 @@
 -(EDSBusInfoListTopView *)listTopView{
     if (!_listTopView) {
         _listTopView = [[EDSBusInfoListTopView alloc]initWithFrame:CGRectMake(0, 0,self.bgScrView.wz_width, 40)];
+        _listTopView.block = ^{
+            if (self.ID==nil) {
+                [self.view makeToast:@"没有班车"];
+                return ;
+            }
+            BusMapVC *vc = [BusMapVC new];
+            vc.busId = [NSString stringWithFormat:@"%@",self.ID];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
     }
     return _listTopView;
 }

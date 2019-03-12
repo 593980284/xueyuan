@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *carLbl;
 @property (weak, nonatomic) IBOutlet EDSDriveStarView *driveStarView;
-@property (weak, nonatomic) IBOutlet UILabel *scoceLbl;
+//@property (weak, nonatomic) IBOutlet UILabel *scoceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *sexLbl;
 
 @end
@@ -50,9 +50,9 @@
     
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:coachModel.showCoachPhoto] placeholderImage:AvatarPlaceholderImage];
     self.nameLbl.text = coachModel.coachName;
-    self.carLbl.text = coachModel.carNo;
+    self.carLbl.text = coachModel.teachType;
     self.driveStarView.selectNumber = coachModel.showCoachStarInterger;
-    self.scoceLbl.text = [NSString stringWithFormat:@"%@分",coachModel.coachStar.length > 0 ? coachModel.coachStar : @"0"];
+//    self.scoceLbl.text = [NSString stringWithFormat:@"%@分",coachModel.coachStar.length > 0 ? coachModel.coachStar : @"0"];
     self.sexLbl.text = coachModel.coachSex;
 }
 @end

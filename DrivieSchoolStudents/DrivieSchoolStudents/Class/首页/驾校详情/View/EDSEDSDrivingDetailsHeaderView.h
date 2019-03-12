@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SelectScrollView.h"
 @class EDSSchoolInformationDetailModel;
 
 @interface EDSEDSDrivingDetailsHeaderView : UICollectionReusableView
@@ -27,6 +27,7 @@
 /** 地址 */
 @property (nonatomic, strong) UILabel  *driveAddressLbl;
 
+@property (nonatomic, strong) SelectScrollView  *selectScrollView;
 /** 展示数据 */
 @property (nonatomic, strong) EDSSchoolInformationDetailModel  *informationDetailModel;
 

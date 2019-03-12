@@ -146,7 +146,7 @@
                 <outlet property="phoneLbl" destination="Sdu-sf-sg9" id="hFI-UW-Wsj"/>
                 <outlet property="schoolNameLbl" destination="gvA-TX-clO" id="C1h-gx-KcP"/>
             </connections>
-            <point key="canvasLocation" x="24.800000000000001" y="-187.1064467766117"/>
+            <point key="canvasLocation" x="-279" y="-210"/>
         </view>
     </objects>
     <resources>

@@ -17,6 +17,7 @@
 #import "AppInclude.h"
 #import "CommonMacro.h"
 #import "UIView+chainUI.h"
+#import "UIImageView+BHYCustom.h"
 
 
 #endif /* PrefixHeader_pch */

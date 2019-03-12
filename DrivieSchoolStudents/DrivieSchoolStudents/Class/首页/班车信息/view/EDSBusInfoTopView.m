@@ -112,5 +112,6 @@
         make.right.equalTo(self.mas_right).mas_offset(-10);
         make.width.height.mas_equalTo(30);
     }];
+    
 }
 @end

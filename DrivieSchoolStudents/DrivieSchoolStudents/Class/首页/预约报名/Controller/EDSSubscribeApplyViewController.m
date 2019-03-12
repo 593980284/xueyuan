@@ -24,6 +24,7 @@
 #import "EDSGetcoachCarTypeModel.h"
 #import "EDSChooseBoxViewController.h"
 #import "EDSPSWLogoViewController.h"
+#import "BHYWebViewViewController.h"
 
 @interface EDSSubscribeApplyViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 {
@@ -127,8 +128,43 @@
         make.left.mas_equalTo(25);
         make.right.mas_equalTo(-25);
         make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-15-40);
+    }];
+    
+    
+    label = [UILabel labelWithText:@"驾校告知书>" font:kFont(12) textColor:[UIColor blueColor]  backGroundColor:ClearColor superView:self.view];
+    label.hcTapBlock(self, @selector(openBookHtml));
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(25);
+        make.right.mas_equalTo(-25);
+        make.height.mas_equalTo(20);
+        make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-15-20);
+    }];
+    
+    label = [UILabel labelWithText:@"电子合同模版>" font:kFont(12) textColor:[UIColor blueColor]  backGroundColor:ClearColor superView:self.view];
+    label.hcTapBlock(self, @selector(openHetongHtml));
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(25);
+        make.right.mas_equalTo(-25);
+        make.height.mas_equalTo(20);
         make.bottom.mas_equalTo(determineBtn.mas_top).mas_equalTo(-15);
     }];
+}
+
+
+- (void)openBookHtml
+{
+    BHYWebViewViewController *vc = [BHYWebViewViewController new];
+    vc.title = @"驾校告知书";
+    vc.webUrl = [NSString stringWithFormat:@"%@%@", LINEURL,notification_book];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)openHetongHtml
+{
+    BHYWebViewViewController *vc = [BHYWebViewViewController new];
+    vc.title = @"电子合同模版";
+    vc.webUrl = [NSString stringWithFormat:@"%@%@", LINEURL,notification_hetong];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)getNowTimestamp{

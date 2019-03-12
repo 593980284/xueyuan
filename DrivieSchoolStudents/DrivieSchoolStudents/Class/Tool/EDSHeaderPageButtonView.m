@@ -43,25 +43,40 @@
 }
 
 - (void)setup{
-    
+    while (self.subviews.count > 0) {
+        [self.subviews.lastObject removeFromSuperview];
+    }
     _lineView = [UIView viewWithBackgroundColor:SeparatorCOLOR superView:self];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
     
-    _indicatorView = [UIView viewWithBackgroundColor:ThemeColor superView:self];
     
+    UIScrollView *scrollView =[UIScrollView new];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    [self addSubview:scrollView];
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+
+    }];
+    _indicatorView = [UIView viewWithBackgroundColor:ThemeColor superView:scrollView];
     NSMutableArray *viewArr = [[NSMutableArray alloc] init];
+    
+    if (self.btnArr.count > 4) {
+        scrollView.contentSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width/4.0)*self.btnArr.count, 40);
+    }else{
+        scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 40);
+    }
     for (int i = 0 ; i < self.btnArr.count; i ++) {
         
         UIButton *btn = [[UIButton alloc] init];
-        btn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         [btn setTitle:self.btnArr[i] forState:UIControlStateNormal];
         [btn setTitleColor:FirstColor forState:UIControlStateNormal];
         [btn setTitle:self.btnArr[i] forState:UIControlStateSelected];
         [btn setTitleColor:ThemeColor forState:UIControlStateSelected];
-        [self addSubview:btn];
+        [scrollView addSubview:btn];
         [viewArr addObject:btn];
         @weakify(self);
         [btn bk_whenTapped:^{
@@ -71,10 +86,24 @@
             self->_selectBtn = btn;
             [self indicatorAnimationWithCenterX:btn];
             if (self.headerPageButtonDidSelectStringback) {
-                
+
                 self.headerPageButtonDidSelectStringback(self.btnArr[i]);
             }
+            if (self.clickBlock) {
+                self.clickBlock(i);
+            }
         }];
+        CGFloat w = [UIScreen mainScreen].bounds.size.width/self.btnArr.count;
+        if (self.btnArr.count > 4) {
+            w = [UIScreen mainScreen].bounds.size.width/4;
+        }
+//        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(w*i);
+//            make.width.mas_equalTo(w);
+//            make.top.mas_equalTo(0);
+//            make.bottom.mas_equalTo(-2);
+//        }];
+        btn.frame = CGRectMake(w*i, 0, w, 40-2);
         if (i == 0) {
             
             btn.selected = YES;
@@ -82,17 +111,17 @@
             
             [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(50, 2));
-                make.bottom.mas_equalTo(0);
+                make.top.mas_equalTo(39);
                 make.centerX.mas_equalTo(btn.mas_centerX);
             }];
         }
     }
     
-    [viewArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
-    [viewArr mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(-2);
-    }];
+//    [viewArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
+//    [viewArr mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(0);
+//        make.bottom.mas_equalTo(-2);
+//    }];
 }
 
 - (void)indicatorAnimationWithCenterX:(UIButton *)centerX
@@ -102,7 +131,7 @@
         [self.indicatorView  mas_remakeConstraints:^(MASConstraintMaker *make) {
             
             make.size.mas_equalTo(CGSizeMake(50, 2));
-            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(39);
             make.centerX.mas_equalTo(centerX.mas_centerX);
         }];
 //        self.indicatorView.wz_centerX = centerX;

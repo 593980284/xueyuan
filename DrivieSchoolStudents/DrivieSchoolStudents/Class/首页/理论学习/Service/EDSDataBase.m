@@ -111,7 +111,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -149,7 +149,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -188,7 +188,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -226,7 +226,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -265,7 +265,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -303,7 +303,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -347,7 +347,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -401,7 +401,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -467,7 +467,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -554,7 +554,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];
@@ -594,7 +594,7 @@ static FMDatabaseQueue *_queue = nil;
         
         NSDictionary *listdict = [[res stringForColumn:@"options"] mj_JSONObject];
         NSMutableArray *answelists = [[NSMutableArray alloc] init];
-        NSArray *arrayList = [listdict allValues];
+        NSArray *arrayList = [listdict xx_allValues];
         for (int i = 0 ; i < arrayList.count; i ++) {
             
             EDSAnswerModel *model = [[EDSAnswerModel alloc] init];

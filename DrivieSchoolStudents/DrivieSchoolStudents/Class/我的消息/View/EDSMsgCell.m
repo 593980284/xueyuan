@@ -14,6 +14,8 @@
 @property (nonatomic,strong) UIImageView *leftImageV;
 @property (nonatomic,strong) UILabel *contentText;
 @property (nonatomic,strong) UILabel *timeLable;
+@property (nonatomic,strong) UIView *pointView;
+
 
 @end
 
@@ -48,8 +50,7 @@
     }else{
         self.leftImageV.image = [UIImage imageNamed:@"driver_msg_img"];
     }
-    
-//    NSLog(@"消息类型ID---%@",model.msgType);
+    self.pointView.hidden = model.isRead == 1;
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -106,6 +107,12 @@
         _leftImageV = [[UIImageView alloc]initWithFrame:CGRectMake(18, 18, 50, 50)];
         
         _leftImageV.image = [UIImage imageNamed:@"driver_msg_img"];
+        self.pointView = [UIView new];
+        self.pointView.backgroundColor = [UIColor redColor];
+        self.pointView.layer.cornerRadius = 5;
+        [_leftImageV addSubview:self.pointView];
+        self.pointView.frame = CGRectMake(35, 5, 10, 10);
+        
     }
     return _leftImageV;
 }

@@ -18,7 +18,8 @@
 //域名           //域名
 #ifdef DEBUG //处于开发测试阶段
 
-#define LINEURL @"http://111.39.245.156:8087"
+//#define LINEURL @"http://111.39.245.156:8087"
+#define LINEURL @"http://112.2.0.75:9001"
 
 #else //处于发布正式阶段
 //#define LINEURL @"http://111.39.245.156:8087"
@@ -26,7 +27,11 @@
 
 #endif
 
+#define notification_book  @"/files/lexiang/lxStudentAgreement/notification.html" //告知书
+#define notification_hetong @"/files/lexiang/lxStudentAgreement/electronicContract.html"//合同
+
 #define kZSNotificationHomeBtnCenter                  @"kZSNotificationHomeBtnCenter"
+#define kBaiduKey                                     @"3ME7kHHgLmqf5DET9WNBsnMlqlYu10Dy"
 #define KuserDefaultsLocation                         @"KuserDefaultsLocation"//本地位置
 #define kXGNotfificationPushVC                        @"kXGNotfificationPushVC"//信鸽推送跳转页面
 #define  HC_windowWidth    [UIScreen mainScreen].bounds.size.width

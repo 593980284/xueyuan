@@ -24,6 +24,7 @@
 }
 -(void)setDataDic:(NSDictionary *)dataDic{
     _dataDic = dataDic;
+   //   self.nameLabel. adjustsFontSizeToFitWidth = YES;
     self.nameLabel.text = dataDic[@"station"];
 }
 -(void)initView{
@@ -38,10 +39,11 @@
     cirView.center = CGPointMake(5, selfHeight/2);
     [self addSubview:cirView];
     
-    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(leftLine.wz_right + 10, (selfHeight - 20)/2, 50, 20)];
+    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(leftLine.wz_right + 10, (selfHeight - 80)/2, 70, 80)];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     nameLabel.text = @"";
-    nameLabel.font = [UIFont systemFontOfSize:15];
+    nameLabel.font = [UIFont systemFontOfSize:12];
+    nameLabel.numberOfLines = 0;
     [self addSubview:nameLabel];
     _nameLabel = nameLabel;
 }

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitles:(NSArray *)titles
                      itemWidth:(CGFloat)itemWidth;
 @property (nonatomic, copy) void (^block)(NSString *titleStr);
+@property (nonatomic, assign)NSInteger index;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -57,6 +57,24 @@
         make.width.mas_equalTo(80);
         make.top.equalTo(self).offset(10);
     }];
+    
+    UIButton *mapBtn = [UIButton new];
+    [mapBtn setTitle:@"实时地图" forState:0];
+    [mapBtn setTitleColor:[UIColor blueColor] forState:0];
+    mapBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    mapBtn.hcTapBlock(self, @selector(btnTap));
+    [ self addSubview:mapBtn];
+    [mapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(30);
+        make.width.mas_equalTo(80);
+        make.right.mas_equalTo(-10);
+        make.bottom.mas_equalTo(self.rightLabel);
+    }];
 }
 
+- (void)btnTap{
+    if (self.block) {
+        self.block();
+    }
+}
 @end

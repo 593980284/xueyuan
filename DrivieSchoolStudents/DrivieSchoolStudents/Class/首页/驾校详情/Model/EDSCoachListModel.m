@@ -27,6 +27,9 @@
 
 - (NSString *)showCoachDescrp
 {
+    if ([_teachAge isEqualToString:@"0"] || _teachAge == nil || _teachAge.length == 0) {
+        return _teachType;
+    }
     return [NSString stringWithFormat:@"%@年教龄 · %@",_teachAge,_teachType];
 }
 

@@ -43,7 +43,7 @@
 //      model.shortPeriodTime = @"21:15-22:15";
     _model = model;
     //是否预约 -1未预约 0已预约 1已签到
-    if ([model.isAppointment isEqualToString:@"-1"]) {
+    if ([model.isAppointment isEqualToString:@"-1"] && ![model.noAppointmentNum isEqualToString:@"0"]) {
         
         self.determineBtn.hidden = NO;
         self.signinBtn.hidden = YES;

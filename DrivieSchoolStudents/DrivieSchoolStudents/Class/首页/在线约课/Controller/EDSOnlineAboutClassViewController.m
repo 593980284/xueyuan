@@ -20,19 +20,19 @@
 #import "EDSOnlineClassDateListRequest.h"
 #import "EDSOnlineClassListByDateRequest.h"
 #import "MyCoachViewController.h"
+#import "SubjectTabbarRequest.h"
+#import "SubjectListRequest.h"
 
 @interface EDSOnlineAboutClassViewController ()<UITableViewDelegate,UITableViewDataSource>
-{
-    NSString *_dateStr;//日期
-    NSString *_type;//选择什么类型的课程
-}
 
 @property (nonatomic , strong) NSArray <EDSOnlineClassDateListModel *> *dataArr;
 @property (nonatomic , strong) EDSOnlineAboutClassTableViewHeaderView *headerView;
+@property (nonatomic , strong) EDSHeaderPageButtonView *pageButtonView;
+@property (nonatomic , copy) NSString *dateStr;
+@property (nonatomic , copy) NSString *subjectId;
 
 @property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list1Arr;
-@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list2Arr;
-@property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *list3Arr;
+@property (nonatomic , strong) NSArray<SubjectTabbarModel *> *tabArr;
 
 
 @property (nonatomic , strong) NSArray <EDSOnlineClassListByDateModel *> *tableViewListArr;
@@ -48,7 +48,6 @@
     self.
     
     self.dataArr = [[NSArray alloc] init];
-    self->_type = @"2";
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -60,6 +59,7 @@
     }];
     [self addNavigationBarRightButtonItemWithInfo:[UIImage imageNamed:@"形状11拷贝"] target:self action:@selector(gotoMyCoachVC)];
     [self requesDateListData];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getList)];
     
 }
 
@@ -71,20 +71,26 @@
 {
     [super viewWillAppear:animated];
     if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
-
+        
         if (![EDSToolClass isBlankString:[EDSSave account].schoolId]) {
-
+            
         }else{
             [self.view makeToast:@"您还没有报名^_^!"];
         }
     }else{
-
+        
+    }
+    
+    if (self.tabArr.count > 0) {
+        
+    }else{
+        [self getTab];
     }
     if (_dateStr.length > 0) {
         
-        [self requestListByDateDataWithDate:_dateStr];
+        //  [self requestListByDateDataWithDate:_dateStr];
     }else{
-         [self requesDateListData];
+        [self requesDateListData];
     }
 }
 
@@ -99,48 +105,56 @@
             
             self.dataArr = model;
             self.headerView.dataArr = self.dataArr;
-            _dateStr = self.dataArr[0].date;
-            [self requestListByDateDataWithDate:self.dataArr[0].date];
+            self.dateStr = self.dataArr[0].date;
+            [self getList];
         }
     } failureBlock:^(NSError *error) {
-    
+        
     }];
     request.phone = [EDSSave account].phone;
     [request startRequest];
 }
 
-- (void)requestListByDateDataWithDate:(NSString *)date
+- (void)getTab
 {
-    @weakify(self);
-    EDSOnlineClassListByDateRequest *request = [EDSOnlineClassListByDateRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, id model) {
-        @strongify(self);
-        NSArray *modelArr = model;
-        if (errCode == 1) {
-            
-            self.list1Arr = modelArr[0];
-            self.list2Arr = modelArr[1];
-            self.list3Arr = modelArr[2];
-            
-            if ([self->_type isEqualToString:@"1"]) {
-                
-                self.tableViewListArr = self.list1Arr;
-            }else if ([self->_type isEqualToString:@"2"]){
-                
-                self.tableViewListArr = self.list2Arr;
-            }else{
-                
-                self.tableViewListArr = self.list3Arr;
-            }
-            
-            [self.tableView reloadData];
+    SubjectTabbarRequest *requst = [SubjectTabbarRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, NSArray<SubjectTabbarModel *>* array) {
+        self.tabArr = array;
+        NSMutableArray *btnArr = [NSMutableArray new];
+        for (SubjectTabbarModel * model  in array) {
+            [btnArr addObject: model.subjectName];
         }
+//        [btnArr addObjectsFromArray:@[@"实操都是",@"理当时的论",@"其他当时的"]];
+        self.subjectId = array.firstObject.subjectId;
+        self.pageButtonView.btnArr = btnArr;
+        [self getList];
     } failureBlock:^(NSError *error) {
-    
+        
     }];
-    request.phone = [EDSSave account].phone;
-    request.date = date;
-    [request  startRequest];
+    [requst startRequest];
+    
 }
+
+- (void)getList
+{
+    if (!self.subjectId) {
+        return;
+    }
+    if (!self.dateStr) {
+        return;
+    }
+    SubjectListRequest * request = [SubjectListRequest requestWithSuccessBlock:^(NSInteger errCode, NSDictionary *responseDict, NSArray* model) {
+        self.tableViewListArr = model;
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+    } failureBlock:^(NSError *error) {
+         [self.tableView.mj_header endRefreshing];
+    }];
+    request.date = self.dateStr;
+    request.subjectId = self.subjectId;
+    [request startRequest];
+}
+
+
 
 #pragma mark ------------------------ tableView --------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -194,37 +208,31 @@
         @weakify(self);
         _headerView.onlineAboutClassTableViewHeaderViewDidBackData = ^(NSString *datastr) {
             @strongify(self);
-            self->_dateStr = datastr;
-            [self requestListByDateDataWithDate:self->_dateStr];
+            self.dateStr = datastr;
+            [self.tableView.mj_header beginRefreshing];
         };
         
-        EDSHeaderPageButtonView *pageButtonView = [[EDSHeaderPageButtonView alloc] init];
-        [self.view addSubview:pageButtonView];
-        pageButtonView.headerPageButtonDidSelectStringback = ^(NSString *titleStr) {
-            @strongify(self);
-            if ([titleStr isEqualToString:@"实操"]) {
-                
-                self->_type = @"2";
-                self.tableViewListArr = self.list2Arr;
-            }else if ([titleStr isEqualToString:@"理论"]){
-                
-                self->_type = @"1";
-                self.tableViewListArr = self.list1Arr;
-            }else if ([titleStr isEqualToString:@"其他"]){
-                
-                self->_type = @"3";
-                self.tableViewListArr = self.list3Arr;
-            }
-            
-            [self.tableView reloadData];
-        };
-        pageButtonView.btnArr = @[@"实操",@"理论",@"其他"];
-        [pageButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(self->_headerView.mas_bottom);
-            make.height.mas_equalTo(45);
-        }];
     }
     return _headerView;
+}
+
+- (EDSHeaderPageButtonView *)pageButtonView
+{
+    if (!_pageButtonView) {
+        EDSHeaderPageButtonView *pageButtonView = [[EDSHeaderPageButtonView alloc] init];
+        [self.view addSubview:pageButtonView];
+        pageButtonView.clickBlock = ^(NSInteger index) {
+            self.subjectId = self.tabArr[index].subjectId;
+            [self.tableView.mj_header beginRefreshing];
+        };
+        // pageButtonView.btnArr = @[@"实操",@"理论",@"其他"];
+        [pageButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(self.headerView.mas_bottom);
+            make.height.mas_equalTo(45);
+        }];
+        _pageButtonView = pageButtonView;
+    }
+    return _pageButtonView;
 }
 @end

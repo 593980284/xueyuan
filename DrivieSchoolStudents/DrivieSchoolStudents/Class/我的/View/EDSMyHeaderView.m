@@ -54,17 +54,32 @@
     self.avarterImgView.contentMode = UIViewContentModeScaleAspectFill;
     self.avarterImgView.layer.masksToBounds = YES;
 
-    self.carTypeLbl.text = [EDSSave account].applyDriveCar.length > 0 ? [EDSSave account].applyDriveCar : @"";
+//    self.carTypeLbl.text = [EDSSave account].className.length > 0 ? [EDSSave account].className : @"";
     self.calssLbl.font = kFont(14);
     self.learnProgressLbl.text = [EDSSave account].learnProgress.length > 0 ?  [NSString stringWithFormat:@"%@",[EDSSave  account].learnProgress] : @"";
     self.learnProgressLbl.font = kFont(18);
     self.schoolNameLbl.text = [EDSSave account].schoolName.length > 0 ? [EDSSave account].schoolName : @"";
     self.schoolNameLbl.font = kFont(18);
 
-    self.phoneLbl.text = [EDSSave account].phone.length > 0 ? [EDSSave account].phone : @"";
-    self.phoneLbl.font = kFont(15);
-    self.calssLbl.text = [EDSSave account].learnProgress.length > 0 ? [NSString stringWithFormat:@"班级：%@",[EDSSave account].learnProgress]  : @"";
+//    self.phoneLbl.text = [EDSSave account].userName.length > 0 ? [EDSSave account].userName : @"";
+//    self.phoneLbl.font = kFont(15);
+//    self.calssLbl.text = [EDSSave account].className.length > 0 ? [NSString stringWithFormat:@"班级：%@",[EDSSave account].className]  : @"";
 }
+
+- (void)setClassName:(NSString *)className
+{
+    _className = className;
+    self.carTypeLbl.text = className;
+    
+}
+
+
+- (void)setUserName:(NSString *)userName
+{
+    _userName = userName;
+    self.phoneLbl.text = userName;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

@@ -11,6 +11,7 @@
 @interface EDSStudentMsgModel : NSObject
 
 @property (nonatomic , copy) NSString              * content;//消息发布内容
+@property (nonatomic , assign) NSInteger              isRead;//消息发布内容
 @property (nonatomic , copy) NSString              * msgId;//消息id主键
 @property (nonatomic , copy) NSString              * msgType;//0 投诉信息 1 改进意见 2 驾校发布消息 3 教学提醒消息 4 签到提醒 5 停课提醒
 @property (nonatomic , copy) NSString              * date;//消息发布时间

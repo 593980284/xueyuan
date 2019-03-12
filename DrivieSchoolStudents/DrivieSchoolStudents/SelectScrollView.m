@@ -77,6 +77,13 @@
     
     NSInteger index = sender.tag - 100;
     _btns[index].selected = YES;
+    _index = index;
     self.block(_btns[index].currentTitle);
+}
+
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
+    [self btnTap:_btns[index]];
 }
 @end

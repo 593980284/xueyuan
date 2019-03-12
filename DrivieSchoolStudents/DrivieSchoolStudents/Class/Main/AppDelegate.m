@@ -16,6 +16,7 @@
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 #import "XGPush.h"
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 #import <UserNotifications/UserNotifications.h>
@@ -52,6 +53,7 @@
     
     //只获取一次
     __block  BOOL isOnece = YES;
+    [self configBaidu];
     [EDSMoLocationManager getMoLocationWithSuccess:^(double lat, double lng){
         isOnece = NO;
         //只打印一次经纬度
@@ -120,6 +122,16 @@
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx23bbbe91cbd839f5" appSecret:@"640e9e5d26729145c2dfb8485f2132c7" redirectURL:nil];
 	[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"101537582" appSecret:@"947129a7fbabef719410f6486ae9693f" redirectURL:@"www.qq.com"];
 	
+}
+- (void)configBaidu
+{
+    // 要使用百度地图，请先启动BaiduMapManager
+    BMKMapManager *mapManager = [[BMKMapManager alloc] init];
+    // 如果要关注网络及授权验证事件，请设定generalDelegate参数
+    BOOL ret = [mapManager start:kBaiduKey generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
 }
 
 // 支持所有iOS系统

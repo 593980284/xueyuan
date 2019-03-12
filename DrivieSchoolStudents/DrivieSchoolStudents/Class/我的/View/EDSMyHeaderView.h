@@ -15,4 +15,7 @@
 /** <#简介#> */
 @property (nonatomic, strong) NSArray  *headerArr;
 
+@property (nonatomic, strong) NSString  *userName;
+@property (nonatomic, strong) NSString  *className;
+
 @end

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BusListRequest : HQMBaseRequest
-
+@property (nonatomic,copy)NSString  *type; // 1：首页访问 2:班车信息列表
 @end
 
 NS_ASSUME_NONNULL_END

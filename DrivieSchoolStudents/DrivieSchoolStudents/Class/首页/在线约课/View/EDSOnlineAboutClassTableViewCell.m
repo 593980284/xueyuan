@@ -72,7 +72,7 @@
     self.numLb.layer.cornerRadius = 4;
     self.numLb.clipsToBounds = YES;
     
-    if ( model.showNoAppointmentNum == 0) {
+    if ( model.noAppointmentNum.integerValue == 0) {
         self.numLb.text = @"约满";
         self.numLb.backgroundColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1];
         

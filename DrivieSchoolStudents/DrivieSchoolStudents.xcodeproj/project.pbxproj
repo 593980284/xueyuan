@@ -150,9 +150,15 @@
 		CD13663F21BD709F00754B0E /* StyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13663E21BD709F00754B0E /* StyleTableViewCell.m */; };
 		CD1366D221BE7B3700754B0E /* LunRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D121BE7B3700754B0E /* LunRequest.m */; };
 		CD1366D521BE7D6100754B0E /* HtmlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1366D421BE7D6100754B0E /* HtmlVC.m */; };
+		CD1949C0222A757D00B34E34 /* BusListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1949BF222A757D00B34E34 /* BusListVC.m */; };
+		CD1949C3222A776600B34E34 /* BusListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1949C2222A776600B34E34 /* BusListRequest.m */; };
+		CD194AA1222E76C600B34E34 /* SubjectTabbarRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD194AA0222E76C500B34E34 /* SubjectTabbarRequest.m */; };
+		CD194B2E222FF34500B34E34 /* SubjectListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD194B2D222FF34500B34E34 /* SubjectListRequest.m */; };
 		CD1AA60121D71CF5007F045D /* LessonDetailsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */; };
 		CD1E540821D2271E007103A1 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E540721D2271E007103A1 /* SelectView.m */; };
 		CD53CE48219059C30009F8F1 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53CE47219059C30009F8F1 /* RegisterRequest.m */; };
+		CD5EB5782227871C007AAEE0 /* BusMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5EB5772227871C007AAEE0 /* BusMapVC.m */; };
+		CD69B34E2234136D00C64D87 /* CarLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69B34D2234136D00C64D87 /* CarLocationRequest.m */; };
 		CD760C05218D8236002ED128 /* UITextView+placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C04218D8236002ED128 /* UITextView+placeholder.m */; };
 		CD760C09218D830A002ED128 /* ChangeCoachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD760C07218D830A002ED128 /* ChangeCoachViewController.m */; };
 		CD760C0A218D830A002ED128 /* ChangeCoachViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD760C08218D830A002ED128 /* ChangeCoachViewController.xib */; };
@@ -2503,12 +2509,24 @@
 		CD1366D121BE7B3700754B0E /* LunRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LunRequest.m; sourceTree = "<group>"; };
 		CD1366D321BE7D6100754B0E /* HtmlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlVC.h; sourceTree = "<group>"; };
 		CD1366D421BE7D6100754B0E /* HtmlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlVC.m; sourceTree = "<group>"; };
+		CD1949BE222A757D00B34E34 /* BusListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusListVC.h; sourceTree = "<group>"; };
+		CD1949BF222A757D00B34E34 /* BusListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusListVC.m; sourceTree = "<group>"; };
+		CD1949C1222A776600B34E34 /* BusListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusListRequest.h; sourceTree = "<group>"; };
+		CD1949C2222A776600B34E34 /* BusListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusListRequest.m; sourceTree = "<group>"; };
+		CD194A9F222E76C500B34E34 /* SubjectTabbarRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectTabbarRequest.h; sourceTree = "<group>"; };
+		CD194AA0222E76C500B34E34 /* SubjectTabbarRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectTabbarRequest.m; sourceTree = "<group>"; };
+		CD194B2C222FF34400B34E34 /* SubjectListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectListRequest.h; sourceTree = "<group>"; };
+		CD194B2D222FF34500B34E34 /* SubjectListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectListRequest.m; sourceTree = "<group>"; };
 		CD1AA5FF21D71CF5007F045D /* LessonDetailsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LessonDetailsRequest.h; sourceTree = "<group>"; };
 		CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LessonDetailsRequest.m; sourceTree = "<group>"; };
 		CD1E540621D2271E007103A1 /* SelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
 		CD1E540721D2271E007103A1 /* SelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
 		CD53CE46219059C30009F8F1 /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
 		CD53CE47219059C30009F8F1 /* RegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
+		CD5EB5762227871B007AAEE0 /* BusMapVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusMapVC.h; sourceTree = "<group>"; };
+		CD5EB5772227871C007AAEE0 /* BusMapVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusMapVC.m; sourceTree = "<group>"; };
+		CD69B34C2234136D00C64D87 /* CarLocationRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarLocationRequest.h; sourceTree = "<group>"; };
+		CD69B34D2234136D00C64D87 /* CarLocationRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarLocationRequest.m; sourceTree = "<group>"; };
 		CD760C03218D8236002ED128 /* UITextView+placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeholder.h"; sourceTree = "<group>"; };
 		CD760C04218D8236002ED128 /* UITextView+placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+placeholder.m"; sourceTree = "<group>"; };
 		CD760C06218D830A002ED128 /* ChangeCoachViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeCoachViewController.h; sourceTree = "<group>"; };
@@ -4940,6 +4958,10 @@
 				CD760C0C218D89BA002ED128 /* ChangeCoachRequest.m */,
 				CD1AA5FF21D71CF5007F045D /* LessonDetailsRequest.h */,
 				CD1AA60021D71CF5007F045D /* LessonDetailsRequest.m */,
+				CD194A9F222E76C500B34E34 /* SubjectTabbarRequest.h */,
+				CD194AA0222E76C500B34E34 /* SubjectTabbarRequest.m */,
+				CD194B2C222FF34400B34E34 /* SubjectListRequest.h */,
+				CD194B2D222FF34500B34E34 /* SubjectListRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -5167,6 +5189,10 @@
 			children = (
 				C493A11C21CE4F2300C658C2 /* EDSBusInfoVC.h */,
 				C493A11D21CE4F2300C658C2 /* EDSBusInfoVC.m */,
+				CD5EB5762227871B007AAEE0 /* BusMapVC.h */,
+				CD5EB5772227871C007AAEE0 /* BusMapVC.m */,
+				CD1949BE222A757D00B34E34 /* BusListVC.h */,
+				CD1949BF222A757D00B34E34 /* BusListVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -5239,6 +5265,10 @@
 			children = (
 				C4BC187D21CF7E5900235AF3 /* EDSBusInfoRequest.h */,
 				C4BC187E21CF7E5900235AF3 /* EDSBusInfoRequest.m */,
+				CD1949C1222A776600B34E34 /* BusListRequest.h */,
+				CD1949C2222A776600B34E34 /* BusListRequest.m */,
+				CD69B34C2234136D00C64D87 /* CarLocationRequest.h */,
+				CD69B34D2234136D00C64D87 /* CarLocationRequest.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -10337,7 +10367,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MOFSPickerManager/MOFSPickerManagerDemo/MOFSPickerManager/province_data.xml",
@@ -10349,6 +10380,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/province_data.xml",
@@ -10358,7 +10390,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrivieSchoolStudents/Pods-DrivieSchoolStudents-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -10412,6 +10444,7 @@
 				E9A61A812136A655006E5C2B /* EDSChangePhoneOneViewController.m in Sources */,
 				C4B507CF21D65BD600C7659C /* EDSSubOneView.m in Sources */,
 				C493A12421CE988000C658C2 /* EDSBusInfoTopView.m in Sources */,
+				CD1949C3222A776600B34E34 /* BusListRequest.m in Sources */,
 				10A10500215CDD9D003601EC /* UIImage+Ext.m in Sources */,
 				E9A619B62133D736006E5C2B /* EDSMyHeaderView.m in Sources */,
 				E9BC04CC21316161003A624F /* EDSHomeFunctionBgView.m in Sources */,
@@ -10437,6 +10470,7 @@
 				10F74D99214D0E2300FA3ECC /* EDSFirstSubjectResultsViewController.m in Sources */,
 				E9BC048D21315283003A624F /* UIView+WZExtension.m in Sources */,
 				E9BC04BA2131589F003A624F /* HQMBaseRequest.m in Sources */,
+				CD1949C0222A757D00B34E34 /* BusListVC.m in Sources */,
 				7D30502F21D358AD00A5B2EC /* EDSSsoLoginRequest.m in Sources */,
 				E9FCD03D21466A2E00A8AAC4 /* EDSRecitedPoliticsFooterView.m in Sources */,
 				E9A61A3E21364B9A006E5C2B /* EDSOnlineAboutClassTableViewCell.m in Sources */,
@@ -10453,6 +10487,8 @@
 				E9D1C158213E8FE80042F9C3 /* EDSMessageViewController.m in Sources */,
 				10BA8D9D216B361E00ABD911 /* EDSYHXYViewController.m in Sources */,
 				E9BC049021315283003A624F /* NSString+JSJHash.m in Sources */,
+				CD69B34E2234136D00C64D87 /* CarLocationRequest.m in Sources */,
+				CD5EB5782227871C007AAEE0 /* BusMapVC.m in Sources */,
 				CD13663921BD657500754B0E /* CarRequest.m in Sources */,
 				CD9A2E02218C3A2600AFCE1F /* MyCoachViewController.m in Sources */,
 				10C3F2652148DE8F00AA091A /* EDSRefreshFooter.m in Sources */,
@@ -10540,6 +10576,7 @@
 				C4B507E221D76F4600C7659C /* EDSTBListCell.m in Sources */,
 				1036A3D92154C31E00F32B8E /* EDSStudentDriverStrategyDetailViewController.m in Sources */,
 				E9BC04A521315626003A624F /* BHYWebViewViewController.m in Sources */,
+				CD194B2E222FF34500B34E34 /* SubjectListRequest.m in Sources */,
 				10EDA15B214F52A300C43EB4 /* EDSFourPracticeView.m in Sources */,
 				E9D1C15F213E90550042F9C3 /* EDSMessageTableViewCell.m in Sources */,
 				105A8BCD215258EA00B3E092 /* EDSFourSubjectExamBase.m in Sources */,
@@ -10579,6 +10616,7 @@
 				10F74D76214D073400FA3ECC /* EDSPricePublicViewController.m in Sources */,
 				E9A61ABB2137D91C006E5C2B /* EDSPracticeHeaderView.m in Sources */,
 				E9BC048E21315283003A624F /* CALayer+BHYXibBorderColor.m in Sources */,
+				CD194AA1222E76C600B34E34 /* SubjectTabbarRequest.m in Sources */,
 				E9A61AC72137F895006E5C2B /* EDSQuestionModel.m in Sources */,
 				E952C7542141217D00EA3A0A /* UIImagePickerController+ST.m in Sources */,
 				10661129215A454D001C69C1 /* EDSUpDownButton.m in Sources */,

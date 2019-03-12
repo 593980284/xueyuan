@@ -35,12 +35,12 @@
 
     if([data[@"phone"] length] == 11){
         EDSAccount *account = [[EDSAccount alloc] initWithDict:data];
-        account.firstSubjectID = @"";
-        account.fourSubjectID = @"";
-        account.firstSubjectRecitedPoliticeID = @"";
-        account.fourSubjectRecitedPoliticeID = @"";
-        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
-        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
+//        account.firstSubjectID = @"";
+//        account.fourSubjectID = @"";
+//        account.firstSubjectRecitedPoliticeID = @"";
+//        account.fourSubjectRecitedPoliticeID = @"";
+//        [[EDSFourDataBase  sharedDataBase] clearFourSubjectAllWrongQuestions];
+//        [[EDSDataBase  sharedDataBase] clearFirstSubjectAllWrongQuestions];
         [EDSSave save:account];
         [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:[EDSSave account].phone type:XGPushTokenBindTypeAccount];
     }
