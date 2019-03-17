@@ -14,8 +14,8 @@
     if (self = [super init]) {
     
         _phone = [NSDictionary changeType:dict[@"phone"]];
-        _schoolId = [NSDictionary changeType:dict[@"schoolId"]];
-        _userID = [NSDictionary changeType:dict[@"id"]];
+        _schoolId = [NSString stringWithFormat:@"%@",[NSDictionary changeType:dict[@"schoolId"]]];
+        _userID = [NSString stringWithFormat:@"%@", [NSDictionary changeType:dict[@"id"]]];
         _learnProgress = [NSDictionary changeType:dict[@"learnProgress"]];
         _schoolName = [NSDictionary changeType:dict[@"schoolName"]];
         _photo = [NSString stringWithFormat:@"%@",[LINEURL stringByAppendingPathComponent:dict[@"photo"]]];;

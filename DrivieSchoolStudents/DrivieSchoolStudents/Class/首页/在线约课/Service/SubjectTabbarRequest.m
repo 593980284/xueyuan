@@ -18,7 +18,7 @@
 - (NSDictionary *)requestArguments
 {
         return @{
-                 @"studentId":[EDSSave account].studentId2
+                 @"studentId":[EDSSave account].studentId2?[EDSSave account].studentId2: @""
                  };
    
 }

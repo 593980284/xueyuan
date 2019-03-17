@@ -54,7 +54,7 @@
     self.regionCode = @"";
     self.schoolType = @"1";
     self.page = 1;
-    _array1 = @[@{@"name":@"联盟驾校",@"code":@"1"},
+    _array1 = @[@{@"name":@"品牌驾校",@"code":@"1"},
                 @{@"name":@"全部驾校",@"code":@"2"}];
     _array2 = @[@{@"name":@"距离排序",@"code":@"1"},
                 @{@"name":@"信誉等级排序",@"code":@"2"}];

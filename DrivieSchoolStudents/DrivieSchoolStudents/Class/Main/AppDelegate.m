@@ -21,7 +21,7 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 #import <UserNotifications/UserNotifications.h>
 #endif
-@interface AppDelegate ()<XGPushDelegate>
+@interface AppDelegate ()<XGPushDelegate,BMKGeneralDelegate>
 
 @end
 
@@ -128,10 +128,14 @@
     // 要使用百度地图，请先启动BaiduMapManager
     BMKMapManager *mapManager = [[BMKMapManager alloc] init];
     // 如果要关注网络及授权验证事件，请设定generalDelegate参数
-    BOOL ret = [mapManager start:kBaiduKey generalDelegate:nil];
+    BOOL ret = [mapManager start:kBaiduKey generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+}
+- (void)onGetPermissionState:(int)iError
+{
+    NSLog(@"%d",iError);
 }
 
 // 支持所有iOS系统

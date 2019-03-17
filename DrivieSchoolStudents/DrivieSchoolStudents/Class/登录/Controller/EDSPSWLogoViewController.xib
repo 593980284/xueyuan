@@ -23,7 +23,9 @@
                 <outlet property="pswCodeTextF" destination="eH9-kO-bVg" id="Mhc-hf-GZG"/>
                 <outlet property="pswLoginBgView" destination="KqH-NK-YEl" id="I63-9v-uyC"/>
                 <outlet property="pswPhoneTextF" destination="KRA-HJ-eGN" id="BSU-sc-jtp"/>
+                <outlet property="qqBtn" destination="nVd-M9-x8d" id="QzC-Q6-sIk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wxBtn" destination="HpZ-dX-7N9" id="4Jp-5l-Sde"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

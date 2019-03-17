@@ -26,7 +26,9 @@
 {
     BOOL _isCodeLogin;
 }
+@property (weak, nonatomic) IBOutlet UIButton *wxBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBtnBottonHeight;
+@property (weak, nonatomic) IBOutlet UIButton *qqBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 
@@ -160,20 +162,20 @@
 
 - (IBAction)qqBtnClick:(id)sender {
 
-	if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]){
+//    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]){
 		[self getUserInfoForPlatform:UMSocialPlatformType_QQ];
-	}else{
-		[self.view makeToast:@"请先安装QQ"];
-	}
+//    }else{
+//        [self.view makeToast:@"请先安装QQ"];
+//    }
 }
 
 - (IBAction)wxBtnClick:(id)sender {
     
-    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]){
+//    if([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]){
         [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
-    }else{
-        [self.view makeToast:@"请先安装微信"];
-    }
+//    }else{
+//        [self.view makeToast:@"请先安装微信"];
+//    }
 }
 
 - (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
@@ -393,5 +395,12 @@
     });
     dispatch_resume(_timer);
 }
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    self.qqBtn.hidden = ![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ];
+//    self.wxBtn.hidden = ![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession];
+//}
 
 @end

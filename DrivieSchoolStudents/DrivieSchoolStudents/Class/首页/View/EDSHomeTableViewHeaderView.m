@@ -121,7 +121,7 @@
     if (!_cycleScrollView) {
         
         _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage: bannerPlaceholderImage];
-        _cycleScrollView.backgroundColor = [UIColor redColor];
+//        _cycleScrollView.backgroundColor = [UIColor redColor];
         _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
         _cycleScrollView.showPageControl = YES;
         _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;

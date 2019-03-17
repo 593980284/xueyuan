@@ -142,15 +142,15 @@
     NSString *titleStr = dict[@"name"];
     if ([titleStr isEqualToString:@"驾校信息"]) {
         
-        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
-            
+//        if (![EDSToolClass isBlankString:[EDSSave account].userID]) {
+        
             EDSDrivingSchoolInformationViewController *vc = [[EDSDrivingSchoolInformationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            
-            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
-        }
+//        }else{
+//
+//            EDSPSWLogoViewController *vc = [[EDSPSWLogoViewController alloc] init];
+//            [self presentViewController:vc animated:YES completion:nil];
+//        }
     }else if ([titleStr isEqualToString:@"我要报名"]){
         [self eventID:@"1770"];
         EDSSubscribeApplyViewController *vc = [[EDSSubscribeApplyViewController alloc] init];
@@ -405,6 +405,9 @@
         }
         
     }else{
+        EDSDrivingShcoolDetailViewController *vc = [[EDSDrivingShcoolDetailViewController alloc] init];
+        vc.schoolId = self.tableViewListArr[indexPath.row].schoolId;
+        [self.navigationController pushViewController:vc animated:YES];
         
     }
 }

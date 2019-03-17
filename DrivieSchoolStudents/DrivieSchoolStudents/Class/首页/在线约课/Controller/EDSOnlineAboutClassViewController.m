@@ -87,7 +87,7 @@
         [self getTab];
     }
     if (_dateStr.length > 0) {
-        
+         [self getList]; 
         //  [self requestListByDateDataWithDate:_dateStr];
     }else{
         [self requesDateListData];
@@ -105,13 +105,17 @@
             
             self.dataArr = model;
             self.headerView.dataArr = self.dataArr;
-            self.dateStr = self.dataArr[0].date;
-            [self getList];
+            if (self.dataArr.count > 0) {
+                self.dateStr = self.dataArr[0].date;
+                [self getList];
+            }
         }
     } failureBlock:^(NSError *error) {
         
     }];
+    EDSAccount * a = [EDSSave account];
     request.phone = [EDSSave account].phone;
+
     [request startRequest];
 }
 
@@ -121,7 +125,11 @@
         self.tabArr = array;
         NSMutableArray *btnArr = [NSMutableArray new];
         for (SubjectTabbarModel * model  in array) {
-            [btnArr addObject: model.subjectName];
+            if ( model.subjectName) {
+                [btnArr addObject: model.subjectName];
+            }else{
+                [btnArr addObject: @""];
+            }
         }
 //        [btnArr addObjectsFromArray:@[@"实操都是",@"理当时的论",@"其他当时的"]];
         self.subjectId = array.firstObject.subjectId;

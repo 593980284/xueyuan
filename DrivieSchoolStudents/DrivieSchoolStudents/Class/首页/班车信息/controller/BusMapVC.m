@@ -29,7 +29,6 @@
     _mapView = [[BMKMapView alloc]initWithFrame:self.view.bounds];
     _mapView.delegate = self;
     _mapView.zoomLevel = 8;
-    _mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     self.title = @"班车地图";
     [self getRequest];
@@ -46,6 +45,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+     _mapView.showsUserLocation = YES;
     timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self getRequest];
     }];
