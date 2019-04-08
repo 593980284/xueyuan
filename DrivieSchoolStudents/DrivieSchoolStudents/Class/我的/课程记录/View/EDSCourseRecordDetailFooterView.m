@@ -106,6 +106,13 @@
             self.lb4.text = @" 等待确认     ";
         }
             break;
+        case 10:
+        {
+            self.lb4.textColor = RGBCOLOR(236, 91, 85);
+            self.lb4.layer.borderColor= RGBCOLOR(236, 91, 85).CGColor;
+            self.lb4.text = @" 取消    ";
+        }
+            break;
             
         default:
             break;

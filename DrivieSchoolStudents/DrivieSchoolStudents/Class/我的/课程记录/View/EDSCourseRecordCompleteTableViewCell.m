@@ -137,8 +137,19 @@
             self.topStatus.hidden = YES;
         }
             break;
+        case 10:
+        {   self.bottomStatus.hidden = YES;
+            self.topStatus.hidden = NO;
+            self.topStatus.text = @"取消";
+            self.topStatus.layer.borderColor = RGBCOLOR(229,57,44).CGColor;
+            self.topStatus.textColor = RGBCOLOR(229,57,44);
+            self.topStatus.backgroundColor= RGBACOLOR(229,57,44,0.3);
+        }
+            break;
             
         default:
+            self.topStatus.hidden = YES;
+            self.bottomStatus.hidden = YES;
             break;
     }
  
